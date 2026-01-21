@@ -1,0 +1,118 @@
+diff --git a/src/basis/BasisFunctionProvider.cpp b/src/basis/BasisFunctionProvider.cpp
+index f2c29cb..fb3f502 100644
+--- a/src/basis/BasisFunctionProvider.cpp
++++ b/src/basis/BasisFunctionProvider.cpp
+@@ -36,13 +36,44 @@ namespace Serenity {
+ void BasisFunctionProvider::provideAtomWithBasisFunction(Atom& atom, const std::string libraryPath,
+                                                          const std::string basisType, const bool isSpherical,
+                                                          const bool isPrimary, const int firstECP) {
+-  std::string basisPath = libraryPath + basisType;
++  /*
++   * The libraryPath can now be a single directory or a colon-separated list of
++   * directories (as provided by SERENITY_BASIS_PATH). Try each directory in
++   * order until a readable basis file is found.
++   */
++  std::vector<std::string> searchDirs;
++  if (!libraryPath.empty()) {
++    std::stringstream lp(libraryPath);
++    std::string segment;
++    while (std::getline(lp, segment, ':')) {
++      if (!segment.empty())
++        searchDirs.push_back(segment);
++    }
++  }
++
++  std::ifstream basisFile;
++  std::string basisPath;
+ 
+-  std::ifstream basisFile(&basisPath[0]);
++  for (const auto& dir : searchDirs) {
++    basisPath = dir;
++    // Avoid duplicate separators; assume POSIX-style paths in WSL/Linux.
++    if (!basisPath.empty() && basisPath.back() != '/' && basisPath.back() != '\\') {
++      basisPath += "/";
++    }
++    basisPath += basisType;
++
++    basisFile.open(basisPath.c_str());
++    if (basisFile.good()) {
++      break;
++    }
++    basisFile.close();
++  }
+ 
+   if (!basisFile.good()) {
+-    throw SerenityError((std::string) "Error while parsing basis file " + basisPath +
+-                        "\n Make sure the directory exists, change the path in the input, or set $SERENITY_RESOURCES.");
++    throw SerenityError((std::string) "Error while parsing basis file for type " + basisType +
++                        "\n Tried directories from BasisLibPath / SERENITY_BASIS_PATH: '" + libraryPath +
++                        "'.\n Make sure at least one directory exists and contains the requested basis file, adjust "
++                        "BasisLibPath in the input, or set $SERENITY_BASIS_PATH / $SERENITY_RESOURCES.");
+   }
+   /*
+    * The actual content of the loaded basis
+diff --git a/src/integrals/wrappers/Libint.h b/src/integrals/wrappers/Libint.h
+index 0df2f07..1a50f0c 100644
+--- a/src/integrals/wrappers/Libint.h
++++ b/src/integrals/wrappers/Libint.h
+@@ -511,11 +511,11 @@ class Libint {
+    */
+   std::mutex _lock;
+   /**
+-   * Assuming all used basis sets have <= 23 primitives per basis function.
++   * Assuming all used basis sets have <= 25 primitives per basis function.
+    * If more are used just increase this number; Libint objects will then
+    * only take slightly more memory.
+    */
+-  static const unsigned int N_PRIM_MAX = 23;
++  static const unsigned int N_PRIM_MAX = 25;
+   /**
+    * Libint will truncate the primitive functions at some point. Thus, we have to make sure that
+    * the error introduced like this in the final contracted integral set does not exceed our required
+diff --git a/src/system/SystemController.cpp b/src/system/SystemController.cpp
+index f38b2c4..1f300d1 100644
+--- a/src/system/SystemController.cpp
++++ b/src/system/SystemController.cpp
+@@ -87,11 +87,20 @@ SystemController::SystemController(Settings settings) : _system(nullptr), _cdInt
+   }
+   // Set basis path if not specified in input
+   if (settings.basis.basisLibPath.empty()) {
+-    if (const char* env_p = std::getenv("SERENITY_RESOURCES")) {
+-      settings.basis.basisLibPath = (std::string)env_p + "basis/";
++    // New behavior: allow an explicit multi-directory basis search path via
++    // SERENITY_BASIS_PATH (colon-separated list of directories on POSIX).
++    //
++    // Fallback (backwards compatible): use SERENITY_RESOURCES/basis/ if
++    // SERENITY_BASIS_PATH is not set.
++    if (const char* basis_env = std::getenv("SERENITY_BASIS_PATH")) {
++      settings.basis.basisLibPath = (std::string)basis_env;
++    }
++    else if (const char* resources_env = std::getenv("SERENITY_RESOURCES")) {
++      settings.basis.basisLibPath = (std::string)resources_env + "basis/";
+     }
+     else {
+-      throw SerenityError("ERROR: Neither BasisLibPath nor environment variable SERENITY_RESOURCES set.");
++      throw SerenityError(
++          "ERROR: Neither BasisLibPath nor environment variables SERENITY_BASIS_PATH or SERENITY_RESOURCES set.");
+     }
+   }
+   // Set path to write files to: path/name/ and create folder
+@@ -128,11 +137,15 @@ SystemController::SystemController(Settings settings) : _system(nullptr), _cdInt
+ SystemController::SystemController(std::shared_ptr<Geometry> geometry, Settings settings)
+   : _system(nullptr), _cdIntController(nullptr) {
+   if (settings.basis.basisLibPath.empty()) {
+-    if (const char* env_p = std::getenv("SERENITY_RESOURCES")) {
+-      settings.basis.basisLibPath = (std::string)env_p + "basis/";
++    if (const char* basis_env = std::getenv("SERENITY_BASIS_PATH")) {
++      settings.basis.basisLibPath = (std::string)basis_env;
++    }
++    else if (const char* resources_env = std::getenv("SERENITY_RESOURCES")) {
++      settings.basis.basisLibPath = (std::string)resources_env + "basis/";
+     }
+     else {
+-      throw SerenityError("ERROR: Neither BasisLibPath nor environment variable SERENITY_RESOURCES set.");
++      throw SerenityError(
++          "ERROR: Neither BasisLibPath nor environment variables SERENITY_BASIS_PATH or SERENITY_RESOURCES set.");
+     }
+   }
+   int start = settings.path.length() - settings.name.length() - 1;
