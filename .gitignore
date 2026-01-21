@@ -1,11 +1,12 @@
-# autoCAS output files (keep only inputs and final results)
-**/autocas_project/scratch/
-**/autocas_project/initial/
-**/autocas_project/dmrg/*.h5
-**/autocas_project/dmrg/*.pdf
-**/autocas_project/dmrg/molcas.out
-**/autocas_project/dmrg/xmldump
-**/*.checkpoint_state.0.h5/
+# autoCAS output files (exclude all generated outputs)
+**/autocas_project/
+consistent_cas.configuration.yaml
+
+# Serenity generated system directories
+**/Po2/
+**/Po2_VDZP/
+**/initialsystem_*/
+WARNING
 
 # Serenity output files
 **/*.res.h5

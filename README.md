@@ -21,8 +21,10 @@ autoCAS4HE/
 ├── serenity/                 # Patched Serenity (submodule)
 ├── autocas/                  # Patched autoCAS (submodule)
 ├── tests/
-│   ├── N2_test/              # Verified N2 test case
-│   └── Po2_HF/               # Polonium test with ANO-RCC-VDZP
+│   ├── serenity/             # Serenity-only tests
+│   │   └── Po2_HF/           # Polonium HF test with ANO-RCC-VDZP
+│   └── autocas/              # autoCAS workflow tests
+│       └── N2_test/          # N2 consistent active space test
 ├── docs/
 │   └── ENVIRONMENT_SETUP.md  # Detailed environment setup guide
 ├── setup_autocas_env.sh      # Quick environment setup script
@@ -66,8 +68,13 @@ export PATH="/path/to/serenity/bin:$PATH"
 ### 4. Run test
 
 ```bash
-cd tests/N2_test
+cd tests/autocas/N2_test
 scine_autocas_consistent_active_space -i 1 n2_0.xyz n2_1.xyz
+```
+
+Or with a custom basis set:
+```bash
+scine_autocas_consistent_active_space -i 1 -b ANO-RCC-VDZP n2_0.xyz n2_1.xyz
 ```
 
 ## Serenity Patches
@@ -83,12 +90,25 @@ scine_autocas_consistent_active_space -i 1 n2_0.xyz n2_1.xyz
 - Added `SERENITY_BASIS_PATH` environment variable support
 - Falls back to `SERENITY_RESOURCES/basis/` for backwards compatibility
 
+## autoCAS Patches
+
+### 1. `scine_autocas/workflows/consistent_active_space/configuration.py`
+- Fixed typo: `basis_set_set` → `basis_set` in `get_serenity_interface_settings()`
+- This bug caused the `-b` command line option to be silently ignored, falling back to CC-PVDZ
+
 ## Verified Tests
 
-### N2 Consistent Active Space (2026-01-21)
+### N2 Consistent Active Space with CC-PVDZ (2026-01-21)
 - **Input**: N2 at 1.1 Å and 4.1 Å bond lengths
+- **Basis**: CC-PVDZ (default)
 - **Result**: CAS(6,6) active space selected
 - **Final energies**: -109.25 a.u. (equilibrium), -108.94 a.u. (dissociated)
+
+### N2 Consistent Active Space with ANO-RCC-VDZP (2026-01-21)
+- **Input**: N2 at 1.1 Å and 4.1 Å bond lengths
+- **Basis**: ANO-RCC-VDZP (requires autoCAS patch for `-b` option)
+- **Result**: CAS(6,6) active space selected
+- **Final energy**: -109.04 a.u. (dissociated)
 
 ### Po2 HF with ANO-RCC-VDZP (2026-01-21)
 - **Input**: Po2 dimer at 2.0 Å
@@ -106,5 +126,5 @@ See [docs/ENVIRONMENT_SETUP.md](docs/ENVIRONMENT_SETUP.md) for detailed setup in
 
 ## License
 
-- Serenity: LGPL-3.0 (see [serenity/LICENSE](serenity/LICENSE))
-- autoCAS: BSD-3-Clause (see [autocas/LICENSE.txt](autocas/LICENSE.txt))
+- Serenity: LGPL-3.0 ([license](https://github.com/qcserenity/serenity/blob/master/LICENSE))
+- autoCAS: BSD-3-Clause ([license](https://github.com/qcscine/autocas/blob/master/LICENSE.txt))
