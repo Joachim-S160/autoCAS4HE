@@ -24,7 +24,7 @@ Three files modified in `/home/joaschee/serenity/`:
 |------|-------|--------|
 | N2 autoCAS | CC-PVDZ | CAS(6,6), -109.25/-108.94 a.u. |
 | N2 autoCAS | ANO-RCC-VDZP | CAS(6,6), -109.04 a.u. |
-| Po2 HF (Serenity) | ANO-RCC-VDZP | Converged, -17349.15 a.u. |
+| Po (one atom) HF (Serenity) | ANO-RCC-VDZP | Converged, -17349.15 a.u. |
 
 ## Current Issue: HPC Heap Corruption
 
