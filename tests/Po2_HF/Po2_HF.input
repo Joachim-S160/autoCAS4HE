@@ -1,0 +1,12 @@
++system
+  name Po2
+  geometry Po2.xyz
+  method hf
+  +basis
+    label ANO-RCC-VQZP
+  -basis
+-system
+
++task scf
+  system Po2
+-task

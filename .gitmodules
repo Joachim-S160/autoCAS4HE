@@ -2,3 +2,7 @@
 	path = serenity
 	url = https://github.com/Joachim-S160/serenity.git
 	branch = heavy-elements-support
+[submodule "autocas"]
+	path = autocas
+	url = https://github.com/Joachim-S160/autocas.git
+	branch = heavy-elements-support

@@ -1,10 +1,10 @@
 # autoCAS4HE - autoCAS for Heavy Elements
 
-This repository provides a patched version of [Serenity](https://github.com/qcserenity/serenity) that enables using custom basis sets in Turbomole format (such as ANO-RCC-QVZP) for heavy element calculations with [autoCAS](https://github.com/qcscine/autocas).
+This repository provides patched versions of [Serenity](https://github.com/qcserenity/serenity) and [autoCAS](https://github.com/qcscine/autocas) that enable using custom basis sets in Turbomole format (such as ANO-RCC-VQZP) for heavy element calculations.
 
 ## Problem
 
-The standard Serenity installation has two issues that prevent using custom basis sets like ANO-RCC-QVZP for heavy elements:
+The standard Serenity installation has issues that prevent using custom basis sets like ANO-RCC-VQZP for heavy elements:
 
 1. **Limited basis set search paths**: Serenity only looks for basis sets in a single directory
 2. **Primitive limit too low**: The `N_PRIM_MAX` constant was set to 23, but ANO-RCC basis sets require up to 25 primitives per basis function
@@ -14,9 +14,63 @@ Related issues:
 - [qcserenity/serenity#18](https://github.com/qcserenity/serenity/issues/18)
 - [qcscine/autocas#18](https://github.com/qcscine/autocas/issues/18)
 
-## Solution
+## Repository Structure
 
-This fork includes three modifications to Serenity:
+```
+autoCAS4HE/
+├── serenity/                 # Patched Serenity (submodule)
+├── autocas/                  # Patched autoCAS (submodule)
+├── tests/
+│   ├── N2_test/              # Verified N2 test case
+│   └── Po2_HF/               # Polonium test with ANO-RCC-VDZP
+├── docs/
+│   └── ENVIRONMENT_SETUP.md  # Detailed environment setup guide
+├── setup_autocas_env.sh      # Quick environment setup script
+└── serenity-heavy-elements.patch
+```
+
+## Quick Start
+
+### 1. Clone with submodules
+
+```bash
+git clone --recurse-submodules https://github.com/Joachim-S160/autoCAS4HE.git
+cd autoCAS4HE
+```
+
+### 2. Build Serenity
+
+```bash
+cd serenity
+mkdir build && cd build
+cmake ..
+ninja  # or make -j$(nproc)
+cd ../..
+```
+
+### 3. Set up environment
+
+```bash
+source setup_autocas_env.sh
+```
+
+Or manually:
+```bash
+source /path/to/autocas_env/bin/activate
+export SERENITY_RESOURCES="/path/to/serenity/data/"
+export SERENITY_BASIS_PATH="/path/to/custom/basis:/path/to/serenity/data/basis/"
+export LD_LIBRARY_PATH="/path/to/serenity/build/lib:$LD_LIBRARY_PATH"
+export PATH="/path/to/serenity/bin:$PATH"
+```
+
+### 4. Run test
+
+```bash
+cd tests/N2_test
+scine_autocas_consistent_active_space -i 1 n2_0.xyz n2_1.xyz
+```
+
+## Serenity Patches
 
 ### 1. `src/basis/BasisFunctionProvider.cpp`
 - Added support for colon-separated search paths via `SERENITY_BASIS_PATH`
@@ -29,50 +83,28 @@ This fork includes three modifications to Serenity:
 - Added `SERENITY_BASIS_PATH` environment variable support
 - Falls back to `SERENITY_RESOURCES/basis/` for backwards compatibility
 
-## Installation
+## Verified Tests
 
-### Clone with submodule
+### N2 Consistent Active Space (2026-01-21)
+- **Input**: N2 at 1.1 Å and 4.1 Å bond lengths
+- **Result**: CAS(6,6) active space selected
+- **Final energies**: -109.25 a.u. (equilibrium), -108.94 a.u. (dissociated)
 
-```bash
-git clone --recurse-submodules https://github.com/Joachim-S160/autoCAS4HE.git
-cd autoCAS4HE
-```
-
-### Build Serenity
-
-```bash
-cd serenity
-mkdir build && cd build
-cmake ..
-ninja  # or make -j$(nproc)
-```
-
-### Set environment variables
-
-```bash
-# Point to custom basis sets directory (colon-separated for multiple dirs)
-export SERENITY_BASIS_PATH="/path/to/custom/basis:/path/to/serenity/data/basis"
-
-# Or use the traditional single directory
-export SERENITY_RESOURCES="/path/to/serenity/data/"
-```
-
-## Usage with autoCAS
-
-Once Serenity is built with these patches, you can use autoCAS with custom basis sets:
-
-1. Place your Turbomole-format basis set files in a directory
-2. Set `SERENITY_BASIS_PATH` to include that directory
-3. Run autoCAS with your custom basis set name
+### Po2 HF with ANO-RCC-VDZP (2026-01-21)
+- **Input**: Po2 dimer at 2.0 Å
+- **Basis**: Custom ANO-RCC-VDZP (25 primitives/function - requires N_PRIM_MAX fix)
+- **Result**: SCF converged in 12 cycles
+- **Energy**: -17349.15 a.u.
 
 ## Custom Basis Sets
 
-Basis set files should be in Turbomole format. The filename should match the basis set name in UPPERCASE (e.g., `ANO-RCC-QVZP`).
+Basis set files should be in Turbomole format. The filename should match the basis set name in UPPERCASE (e.g., `ANO-RCC-VQZP`).
 
-## Testing
+## Documentation
 
-TODO: Add test cases using ANO-RCC-QVZP basis set for heavy elements
+See [docs/ENVIRONMENT_SETUP.md](docs/ENVIRONMENT_SETUP.md) for detailed setup instructions and troubleshooting.
 
 ## License
 
-Serenity is licensed under LGPL-3.0. See the [serenity/LICENSE](serenity/LICENSE) file for details.
+- Serenity: LGPL-3.0 (see [serenity/LICENSE](serenity/LICENSE))
+- autoCAS: BSD-3-Clause (see [autocas/LICENSE.txt](autocas/LICENSE.txt))

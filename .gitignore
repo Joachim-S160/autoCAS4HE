@@ -1,0 +1,30 @@
+# autoCAS output files (keep only inputs and final results)
+**/autocas_project/scratch/
+**/autocas_project/initial/
+**/autocas_project/dmrg/*.h5
+**/autocas_project/dmrg/*.pdf
+**/autocas_project/dmrg/molcas.out
+**/autocas_project/dmrg/xmldump
+**/*.checkpoint_state.0.h5/
+
+# Serenity output files
+**/*.res.h5
+**/*.FockMatrix.res.h5
+**/*.dmat.res.h5
+**/*.orbs.res.h5
+
+# Keep settings and xyz files
+!**/*.settings
+!**/*.xyz
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store

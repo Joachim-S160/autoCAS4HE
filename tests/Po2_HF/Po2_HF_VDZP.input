@@ -1,0 +1,12 @@
++system
+  name Po2_VDZP
+  geometry Po2.xyz
+  method hf
+  +basis
+    label ANO-RCC-VDZP
+  -basis
+-system
+
++task scf
+  system Po2_VDZP
+-task
