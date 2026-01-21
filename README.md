@@ -110,8 +110,8 @@ scine_autocas_consistent_active_space -i 1 -b ANO-RCC-VDZP n2_0.xyz n2_1.xyz
 - **Result**: CAS(6,6) active space selected
 - **Final energy**: -109.04 a.u. (dissociated)
 
-### Po2 HF with ANO-RCC-VDZP (2026-01-21)
-- **Input**: Po2 dimer at 2.0 Å
+### Po HF with ANO-RCC-VDZP (2026-01-21)
+- **Input**: Po atom
 - **Basis**: Custom ANO-RCC-VDZP (25 primitives/function - requires N_PRIM_MAX fix)
 - **Result**: SCF converged in 12 cycles
 - **Energy**: -17349.15 a.u.
