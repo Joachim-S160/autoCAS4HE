@@ -45,8 +45,14 @@ cd autoCAS4HE
 ```bash
 cd serenity
 mkdir build && cd build
-cmake ..
-ninja  # or make -j$(nproc)
+cmake -G Ninja .. \
+  -DSERENITY_PYTHON=ON \
+  -DSERENITY_PYTHON_BINDINGS=ON \
+  -DBUILD_TESTING=OFF \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF \
+  -DCMAKE_CXX_FLAGS="-O2 -g0 -fno-lto -pipe"
+ninja -j1
 cd ../..
 ```
 
