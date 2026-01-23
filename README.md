@@ -112,7 +112,7 @@ scine_autocas_consistent_active_space -i 1 -b ANO-RCC-VDZP n2_0.xyz n2_1.xyz
 | Test | Basis | Active Space | Energies (a.u.) |
 |------|-------|--------------|-----------------|
 | N2 autoCAS | CC-PVDZ | CAS(6,6) | -109.25 / -108.94 |
-| N2 autoCAS | ANO-RCC-VDZP | CAS(6,6) | -109.04 |
+| N2 autoCAS | ANO-RCC-VDZP | CAS(6,6) | -109.36 / -109.04 |
 | Po HF (Serenity) | ANO-RCC-VDZP | - | -17349.15 |
 
 ### HPC (VSC Tier-1 Hortense)
