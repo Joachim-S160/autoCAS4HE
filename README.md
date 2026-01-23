@@ -21,12 +21,15 @@ autoCAS4HE/
 ├── serenity/                 # Patched Serenity (submodule)
 ├── autocas/                  # Patched autoCAS (submodule)
 ├── tests/
+│   ├── custom_basis/         # Custom basis sets (ANO-RCC-VDZP, etc.)
 │   ├── serenity/             # Serenity-only tests
-│   │   └── Po2_HF/           # Polonium HF test with ANO-RCC-VDZP
+│   │   └── Po2_HF/           # Polonium HF test
 │   └── autocas/              # autoCAS workflow tests
-│       └── N2_test/          # N2 consistent active space test
+│       ├── N2_test/          # N2 with CC-PVDZ
+│       └── N2_ANO_test/      # N2 with ANO-RCC-VDZP
 ├── docs/
-│   └── ENVIRONMENT_SETUP.md  # Detailed environment setup guide
+│   ├── ENVIRONMENT_SETUP.md  # Detailed environment setup guide
+│   └── HPC_BUILD_HORTENSE.md # HPC build guide for VSC Hortense
 ├── setup_autocas_env.sh      # Quick environment setup script
 └── serenity-heavy-elements.patch
 ```
@@ -104,31 +107,42 @@ scine_autocas_consistent_active_space -i 1 -b ANO-RCC-VDZP n2_0.xyz n2_1.xyz
 
 ## Verified Tests
 
-### N2 Consistent Active Space with CC-PVDZ (2026-01-21)
-- **Input**: N2 at 1.1 Å and 4.1 Å bond lengths
-- **Basis**: CC-PVDZ (default)
-- **Result**: CAS(6,6) active space selected
-- **Final energies**: -109.25 a.u. (equilibrium), -108.94 a.u. (dissociated)
+### Local Machine (WSL2)
 
-### N2 Consistent Active Space with ANO-RCC-VDZP (2026-01-21)
-- **Input**: N2 at 1.1 Å and 4.1 Å bond lengths
-- **Basis**: ANO-RCC-VDZP (requires autoCAS patch for `-b` option)
-- **Result**: CAS(6,6) active space selected
-- **Final energy**: -109.04 a.u. (dissociated)
+| Test | Basis | Active Space | Energies (a.u.) |
+|------|-------|--------------|-----------------|
+| N2 autoCAS | CC-PVDZ | CAS(6,6) | -109.25 / -108.94 |
+| N2 autoCAS | ANO-RCC-VDZP | CAS(6,6) | -109.04 |
+| Po HF (Serenity) | ANO-RCC-VDZP | - | -17349.15 |
 
-### Po HF with ANO-RCC-VDZP (2026-01-21)
-- **Input**: Po atom
-- **Basis**: Custom ANO-RCC-VDZP (25 primitives/function - requires N_PRIM_MAX fix)
-- **Result**: SCF converged in 12 cycles
-- **Energy**: -17349.15 a.u.
+### HPC (VSC Tier-1 Hortense)
+
+| Test | Basis | Active Space | Energies (a.u.) |
+|------|-------|--------------|-----------------|
+| N2 autoCAS | CC-PVDZ | CAS(6,6) | -109.25 / -108.94 |
+| N2 autoCAS | ANO-RCC-VDZP | CAS(6,6) | -109.36 / -109.04 |
+
+**Notes:**
+- N2 geometries: 1.1 Å (equilibrium) and 4.1 Å (dissociated)
+- ANO-RCC-VDZP requires the `N_PRIM_MAX=25` patch and `-b` option fix
+- HPC build uses GCC 12.3.0 (Intel icpx has compiler bugs with Serenity)
 
 ## Custom Basis Sets
 
-Basis set files should be in Turbomole format. The filename should match the basis set name in UPPERCASE (e.g., `ANO-RCC-VQZP`).
+Custom basis sets are stored in `tests/custom_basis/` and included via `SERENITY_BASIS_PATH`.
+
+**Included:**
+- `ANO-RCC-VDZP` - All-electron relativistic basis for heavy elements
+
+**Adding new basis sets:**
+1. Place file in `tests/custom_basis/`
+2. Filename must match basis name exactly (e.g., `ANO-RCC-VTZP`)
+3. Format: Turbomole format
 
 ## Documentation
 
-See [docs/ENVIRONMENT_SETUP.md](docs/ENVIRONMENT_SETUP.md) for detailed setup instructions and troubleshooting.
+- [docs/ENVIRONMENT_SETUP.md](docs/ENVIRONMENT_SETUP.md) - Local setup instructions
+- [docs/HPC_BUILD_HORTENSE.md](docs/HPC_BUILD_HORTENSE.md) - HPC build guide for VSC Tier-1 Hortense
 
 ## License
 

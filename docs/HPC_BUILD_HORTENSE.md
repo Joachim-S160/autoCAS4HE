@@ -200,7 +200,8 @@ source ${INSTALL_DIR}/autocas_env/bin/activate
 # Serenity paths (includes qcserenity shim)
 export SERENITY_LIB_PATH="${INSTALL_DIR}/serenity/build/lib"
 export SERENITY_RESOURCES="${INSTALL_DIR}/serenity/data/"
-export SERENITY_BASIS_PATH="${INSTALL_DIR}/serenity/data/basis/"
+# Custom basis sets (ANO-RCC-VDZP, etc.) + standard Serenity basis sets
+export SERENITY_BASIS_PATH="${INSTALL_DIR}/tests/custom_basis:${INSTALL_DIR}/serenity/data/basis/"
 export LD_LIBRARY_PATH="${SERENITY_LIB_PATH}:$LD_LIBRARY_PATH"
 export PYTHONPATH="${SERENITY_LIB_PATH}:$PYTHONPATH"
 export PATH="${INSTALL_DIR}/serenity/build/bin:$PATH"
@@ -230,13 +231,20 @@ scine_autocas_consistent_active_space -i 1 n2_0.xyz n2_1.xyz
 
 ## Using Custom Basis Sets
 
+Custom basis sets are stored in `tests/custom_basis/` and automatically included via `SERENITY_BASIS_PATH`.
+
+**Included custom basis sets:**
+- `ANO-RCC-VDZP` - All-electron relativistic basis for heavy elements
+
+**Adding new basis sets:**
+1. Place the basis file in `${INSTALL_DIR}/tests/custom_basis/`
+2. Filename must match the basis name exactly (e.g., `ANO-RCC-VTZP`)
+3. Format: Turbomole format
+
 The patched Serenity supports `SERENITY_BASIS_PATH` with colon-separated directories:
-
 ```bash
-export SERENITY_BASIS_PATH="/path/to/custom/basis:${INSTALL_DIR}/serenity/data/basis/"
+export SERENITY_BASIS_PATH="${INSTALL_DIR}/tests/custom_basis:${INSTALL_DIR}/serenity/data/basis/"
 ```
-
-Basis files must be in Turbomole format with filename matching the basis name (e.g., `ANO-RCC-VDZP`).
 
 ## Job Script Template
 
