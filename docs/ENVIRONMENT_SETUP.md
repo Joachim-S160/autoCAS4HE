@@ -1,6 +1,8 @@
-# Environment Setup for autoCAS4HE
+# Environment Setup for autoCAS4HE (Local/WSL)
 
-This guide documents the exact environment setup required to run autoCAS with the patched Serenity build for heavy elements and custom basis sets.
+This guide documents the environment setup for running autoCAS with the patched Serenity build on a **local machine or WSL (Windows Subsystem for Linux)**.
+
+> **For HPC builds**: See [HPC_BUILD_HORTENSE.md](HPC_BUILD_HORTENSE.md) for building on VSC Tier-1 Hortense or similar HPC systems.
 
 ## Prerequisites
 
@@ -8,10 +10,12 @@ This guide documents the exact environment setup required to run autoCAS with th
 - OpenMolcas with QCMaquis (DMRG) support
 - Patched Serenity build (from this repository's submodule)
 
-## Directory Structure
+## Directory Structure (Example WSL Setup)
+
+The paths below are examples from a WSL Ubuntu installation. Adjust paths to match your local setup.
 
 ```
-/home/joaschee/
+/home/<username>/
 ├── autocas_env/              # Python virtual environment
 ├── serenity/                 # Patched Serenity build (working copy)
 │   ├── build/

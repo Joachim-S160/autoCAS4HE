@@ -141,8 +141,8 @@ Custom basis sets are stored in `tests/custom_basis/` and included via `SERENITY
 
 ## Documentation
 
-- [docs/ENVIRONMENT_SETUP.md](docs/ENVIRONMENT_SETUP.md) - Local setup instructions
-- [docs/HPC_BUILD_HORTENSE.md](docs/HPC_BUILD_HORTENSE.md) - HPC build guide for VSC Tier-1 Hortense
+- [docs/ENVIRONMENT_SETUP.md](docs/ENVIRONMENT_SETUP.md) - Local/WSL setup instructions
+- [docs/HPC_BUILD_HORTENSE.md](docs/HPC_BUILD_HORTENSE.md) - HPC build guide for VSC Tier-1 Hortense (reproducible instructions for HPC support)
 
 ## License
 
