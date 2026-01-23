@@ -13,6 +13,10 @@ source ${INSTALL_DIR}/setup_hortense.sh
 
 cd $PBS_O_WORKDIR
 
+# Fix MOLCAS_WORKDIR - use absolute path, not ~
+export MOLCAS_WORKDIR=$PBS_O_WORKDIR/molcas_scratch
+mkdir -p $MOLCAS_WORKDIR
+
 echo "=== OpenMolcas RHF Benchmark: Po2 with ANO-RCC-VDZP ==="
 echo "Start time: $(date)"
 echo ""
