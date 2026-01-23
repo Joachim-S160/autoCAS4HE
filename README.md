@@ -28,9 +28,11 @@ autoCAS4HE/
 │       ├── N2_test/          # N2 with CC-PVDZ
 │       └── N2_ANO_test/      # N2 with ANO-RCC-VDZP
 ├── docs/
-│   ├── ENVIRONMENT_SETUP.md  # Detailed environment setup guide
+│   ├── ENVIRONMENT_SETUP.md  # Local/WSL environment setup guide
 │   └── HPC_BUILD_HORTENSE.md # HPC build guide for VSC Hortense
-├── setup_autocas_env.sh      # Quick environment setup script
+├── setup_autocas_env.sh      # Environment setup script (local/WSL)
+├── setup_hortense.sh         # Environment setup script (HPC Hortense)
+├── job_template.pbs          # PBS job template (HPC Hortense)
 └── serenity-heavy-elements.patch
 ```
 

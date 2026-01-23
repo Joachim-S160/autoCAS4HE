@@ -16,13 +16,16 @@ The autoCAS4HE project provides patched versions of:
 
 ## Build Instructions
 
-### Step 0: Set the installation directory
+### Step 0: Set environment variables
 
-Choose where you want to install autoCAS4HE and set the environment variable:
+Set your project name and installation directory:
 
 ```bash
-# Set this to your preferred installation directory
-export AC4HE="/dodrio/scratch/projects/<your_project>/autoCAS4HE_built"
+# Set your project name (used for scratch directory and job accounting)
+export PROJECT="your_project_name"  # e.g., "2025_127" or "starting_2025_097"
+
+# Set installation directory (uses PROJECT variable)
+export AC4HE="/dodrio/scratch/projects/${PROJECT}/autoCAS4HE_built"
 
 # Create the directory
 mkdir -p $AC4HE
@@ -71,13 +74,14 @@ grep "N_PRIM_MAX" src/integrals/wrappers/Libint.h
 Compilation is CPU-intensive. Request an interactive job with sufficient resources:
 
 ```bash
-qsub -I -l walltime=04:00:00 -l nodes=1:ppn=16 -l mem=32gb -A <your_account>
+qsub -I -l walltime=04:00:00 -l nodes=1:ppn=16 -l mem=32gb -A $PROJECT
 ```
 
-Once in the job, set `AC4HE` again and reload the modules (same as Step 0 and Step 2):
+Once in the job, set the environment variables again and reload the modules (same as Step 0 and Step 2):
 
 ```bash
-export AC4HE="/dodrio/scratch/projects/<your_project>/autoCAS4HE_built"
+export PROJECT="your_project_name"  # Same as Step 0
+export AC4HE="/dodrio/scratch/projects/${PROJECT}/autoCAS4HE_built"
 
 module purge
 module load cluster/dodrio/cpu_milan_rhel9
@@ -190,46 +194,22 @@ python -c "import scine_autocas; print('autoCAS: OK')"
 
 ## Environment Setup Script
 
-Create `setup_hortense.sh` in the installation directory. **Edit the `INSTALL_DIR` to match your `$AC4HE` path:**
+The repository includes `setup_hortense.sh`. Edit the `INSTALL_DIR` variable to match your installation path:
 
 ```bash
-#!/bin/bash
-# autoCAS4HE Environment Setup for Hortense
-# Usage: source setup_hortense.sh
+cd $AC4HE/autoCAS4HE
 
-module --force purge
-module load cluster/dodrio/cpu_milan_rhel9
-module load GCCcore/12.3.0
-module load GCC/12.3.0
-module load Python/3.11.3-GCCcore-12.3.0
-module load imkl/2023.1.0
-
-# OpenMolcas + DMRG (for CASSCF/CASPT2 calculations)
-module load QCMaquis/4.0.0-iomkl-2023a
-module load OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI
-
-# EDIT THIS: Set to your installation directory
-INSTALL_DIR="/dodrio/scratch/projects/<your_project>/autoCAS4HE_built/autoCAS4HE"
-
-source ${INSTALL_DIR}/autocas_env/bin/activate
-
-# Serenity paths (includes qcserenity shim)
-export SERENITY_LIB_PATH="${INSTALL_DIR}/serenity/build/lib"
-export SERENITY_RESOURCES="${INSTALL_DIR}/serenity/data/"
-# Custom basis sets (ANO-RCC-VDZP, etc.) + standard Serenity basis sets
-export SERENITY_BASIS_PATH="${INSTALL_DIR}/tests/custom_basis:${INSTALL_DIR}/serenity/data/basis/"
-export LD_LIBRARY_PATH="${SERENITY_LIB_PATH}:$LD_LIBRARY_PATH"
-export PYTHONPATH="${SERENITY_LIB_PATH}:$PYTHONPATH"
-export PATH="${INSTALL_DIR}/serenity/build/bin:$PATH"
-
-echo "autoCAS4HE environment loaded"
-echo "  Serenity: ${INSTALL_DIR}/serenity/build"
-echo "  autoCAS:  $(which scine_autocas 2>/dev/null || echo 'not in PATH')"
+# Edit INSTALL_DIR in setup_hortense.sh to point to your installation
+# e.g., INSTALL_DIR="/dodrio/scratch/projects/2025_127/autoCAS4HE_built/autoCAS4HE"
+nano setup_hortense.sh
 ```
+
+The script loads required modules, activates the virtual environment, and sets all necessary paths for Serenity and autoCAS.
 
 ## Testing the Installation
 
 ```bash
+cd $AC4HE/autoCAS4HE
 source setup_hortense.sh
 
 # Test Python bindings
@@ -238,7 +218,7 @@ python -c "import qcserenity.serenipy as spy; print('qcserenity shim: OK')"
 python -c "import scine_autocas; print('autoCAS: OK')"
 
 # Quick single-structure test
-cd $INSTALL_DIR/tests/autocas/N2_test
+cd tests/autocas/N2_test
 scine_autocas run -x n2_0.xyz -i molcas
 
 # Consistent active space workflow (multiple structures)
@@ -264,16 +244,29 @@ export SERENITY_BASIS_PATH="${INSTALL_DIR}/tests/custom_basis:${INSTALL_DIR}/ser
 
 ## Job Script Template
 
+The repository includes `job_template.pbs`. Copy and edit it for your jobs:
+
+```bash
+cd $AC4HE/autoCAS4HE
+
+# Copy template to your working directory
+cp job_template.pbs /path/to/your/calculation/
+
+# Edit the PROJECT variable and job parameters
+nano /path/to/your/calculation/job_template.pbs
+```
+
+Example job script structure:
 ```bash
 #!/bin/bash
 #PBS -N autocas_job
-#PBS -A <your_account>
+#PBS -A 2025_127           # Your project allocation
 #PBS -l nodes=1:ppn=16
 #PBS -l walltime=24:00:00
 #PBS -l mem=64gb
 
-# EDIT THIS: Set to your installation directory
-INSTALL_DIR="/dodrio/scratch/projects/<your_project>/autoCAS4HE_built/autoCAS4HE"
+PROJECT="2025_127"         # Your project name
+INSTALL_DIR="/dodrio/scratch/projects/${PROJECT}/autoCAS4HE_built/autoCAS4HE"
 source ${INSTALL_DIR}/setup_hortense.sh
 
 cd $PBS_O_WORKDIR

@@ -1,0 +1,36 @@
+#!/bin/bash
+# autoCAS4HE Job Template for VSC Hortense
+#
+# IMPORTANT: Edit PROJECT variable and PBS directives below before submitting
+#
+# Submit with: qsub job_template.pbs
+
+#PBS -N autocas_job
+#PBS -A <your_project>           # EDIT: Your project allocation (e.g., 2025_127)
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=24:00:00
+#PBS -l mem=64gb
+
+# ==============================================================================
+# EDIT THIS: Set your project name
+# ==============================================================================
+PROJECT="<your_project>"         # e.g., "2025_127" or "starting_2025_097"
+# ==============================================================================
+
+INSTALL_DIR="/dodrio/scratch/projects/${PROJECT}/autoCAS4HE_built/autoCAS4HE"
+source ${INSTALL_DIR}/setup_hortense.sh
+
+cd $PBS_O_WORKDIR
+
+# ==============================================================================
+# Your calculation commands below
+# ==============================================================================
+
+# Example 1: Single structure autoCAS
+# scine_autocas run -x molecule.xyz -i molcas -b cc-pvdz
+
+# Example 2: Consistent active space workflow with multiple structures
+# scine_autocas_consistent_active_space -i 1 structure1.xyz structure2.xyz
+
+# Example 3: With custom basis set (ANO-RCC-VDZP)
+# scine_autocas_consistent_active_space -i 1 -b ANO-RCC-VDZP structure1.xyz structure2.xyz
