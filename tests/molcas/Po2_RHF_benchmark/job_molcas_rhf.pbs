@@ -1,0 +1,24 @@
+#!/bin/bash
+# OpenMolcas RHF benchmark for Po2 with ANO-RCC-VDZP
+#PBS -N molcas_Po2_RHF
+#PBS -A <your_project>
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=04:00:00
+#PBS -l mem=32gb
+
+# Set your project
+PROJECT="<your_project>"
+INSTALL_DIR="/dodrio/scratch/projects/${PROJECT}/autoCAS4HE_built/autoCAS4HE"
+source ${INSTALL_DIR}/setup_hortense.sh
+
+cd $PBS_O_WORKDIR
+
+echo "=== OpenMolcas RHF Benchmark: Po2 with ANO-RCC-VDZP ==="
+echo "Start time: $(date)"
+echo ""
+
+# Run OpenMolcas
+time pymolcas Po2_RHF.input
+
+echo ""
+echo "End time: $(date)"

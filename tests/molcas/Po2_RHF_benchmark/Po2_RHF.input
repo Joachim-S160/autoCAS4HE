@@ -1,0 +1,9 @@
+&GATEWAY
+  Coord = Po2.xyz
+  Basis = ANO-RCC-VDZP
+  Group = NoSym
+
+&SEWARD
+
+&SCF
+  Title = Po2 RHF benchmark with ANO-RCC-VDZP

@@ -23,7 +23,10 @@ autoCAS4HE/
 ├── tests/
 │   ├── custom_basis/         # Custom basis sets (ANO-RCC-VDZP, etc.)
 │   ├── serenity/             # Serenity-only tests
-│   │   └── Po2_HF/           # Polonium HF test
+│   │   ├── Po2_HF/           # Polonium HF test
+│   │   └── Po2_RHF_benchmark/ # Po2 RHF timing benchmark
+│   ├── molcas/               # OpenMolcas-only tests
+│   │   └── Po2_RHF_benchmark/ # Po2 RHF timing benchmark
 │   └── autocas/              # autoCAS workflow tests
 │       ├── N2_test/          # N2 with CC-PVDZ
 │       └── N2_ANO_test/      # N2 with ANO-RCC-VDZP
