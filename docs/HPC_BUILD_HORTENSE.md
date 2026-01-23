@@ -11,15 +11,31 @@ The autoCAS4HE project provides patched versions of:
 ## Prerequisites
 
 - VSC account with access to Hortense
-- Project allocation (e.g., `starting_2025_097`)
+- Project allocation (e.g., `2025_127`)
 - GitHub access to `Joachim-S160/autoCAS4HE` repository
 
 ## Build Instructions
 
+### Step 0: Set environment variables
+
+Set your project name and installation directory:
+
+```bash
+# Set your project name (used for scratch directory and job accounting)
+export PROJECT="your_project_name"  # e.g., "2025_127" or "starting_2025_097"
+
+# Set installation directory (uses PROJECT variable)
+export AC4HE="/dodrio/scratch/projects/${PROJECT}/autoCAS4HE_built"
+
+# Create the directory
+mkdir -p $AC4HE
+cd $AC4HE
+```
+
 ### Step 1: Clone the repository
 
 ```bash
-cd /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built
+cd $AC4HE
 git clone --recurse-submodules https://github.com/Joachim-S160/autoCAS4HE.git
 cd autoCAS4HE
 ```
@@ -48,7 +64,7 @@ module load HDF5/1.14.0-gompi-2023a
 Before building, confirm the patch is applied:
 
 ```bash
-cd serenity
+cd $AC4HE/autoCAS4HE/serenity
 grep "N_PRIM_MAX" src/integrals/wrappers/Libint.h
 # Should show: static const unsigned int N_PRIM_MAX = 25;
 ```
@@ -58,12 +74,15 @@ grep "N_PRIM_MAX" src/integrals/wrappers/Libint.h
 Compilation is CPU-intensive. Request an interactive job with sufficient resources:
 
 ```bash
-qsub -I -l walltime=04:00:00 -l nodes=1:ppn=16 -l mem=32gb -A 2025_127
+qsub -I -l walltime=04:00:00 -l nodes=1:ppn=16 -l mem=32gb -A $PROJECT
 ```
 
-Once in the job, reload the modules (same as Step 2):
+Once in the job, set the environment variables again and reload the modules (same as Step 0 and Step 2):
 
 ```bash
+export PROJECT="your_project_name"  # Same as Step 0
+export AC4HE="/dodrio/scratch/projects/${PROJECT}/autoCAS4HE_built"
+
 module purge
 module load cluster/dodrio/cpu_milan_rhel9
 module load GCCcore/12.3.0
@@ -81,7 +100,7 @@ module load HDF5/1.14.0-gompi-2023a
 ### Step 5: Configure Serenity with CMake
 
 ```bash
-cd /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity
+cd $AC4HE/autoCAS4HE/serenity
 mkdir build && cd build
 
 cmake .. \
@@ -122,7 +141,7 @@ Build takes approximately 20-30 minutes with 16 cores. Expected final output:
 **Important:** The autoCAS code imports Serenity as `qcserenity.serenipy`, but the build only creates `serenipy.so`. We need to create a shim directory structure:
 
 ```bash
-cd /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/build/lib
+cd $AC4HE/autoCAS4HE/serenity/build/lib
 mkdir -p qcserenity
 touch qcserenity/__init__.py
 ln -s ../serenipy.so qcserenity/serenipy.so
@@ -134,12 +153,12 @@ export PYTHONPATH="$(pwd):$PYTHONPATH"
 python -c "import qcserenity.serenipy as spy; print('qcserenity shim OK')"
 ```
 
-### Step 8: Fix autoCAS typo
+### Step 8: Fix autoCAS typo (if not already fixed in repo)
 
 Check and fix the basis_set typo:
 
 ```bash
-cd /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE
+cd $AC4HE/autoCAS4HE
 grep "basis_set_set" autocas/scine_autocas/workflows/consistent_active_space/configuration.py
 
 # If typo exists, fix it:
@@ -152,7 +171,7 @@ grep '"basis_set"' autocas/scine_autocas/workflows/consistent_active_space/confi
 ### Step 9: Create Python virtual environment and install autoCAS
 
 ```bash
-cd /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE
+cd $AC4HE/autoCAS4HE
 
 python -m venv autocas_env
 source autocas_env/bin/activate
@@ -165,7 +184,7 @@ pip install -e autocas/
 
 ```bash
 # Set PYTHONPATH for Serenity bindings (with qcserenity shim)
-export PYTHONPATH="/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/build/lib:$PYTHONPATH"
+export PYTHONPATH="$AC4HE/autoCAS4HE/serenity/build/lib:$PYTHONPATH"
 
 # Test Python bindings
 python -c "import serenipy; print('Serenity Python bindings: OK')"
@@ -175,45 +194,22 @@ python -c "import scine_autocas; print('autoCAS: OK')"
 
 ## Environment Setup Script
 
-Create `setup_hortense.sh` in the installation directory:
+The repository includes `setup_hortense.sh`. Edit the `INSTALL_DIR` variable to match your installation path:
 
 ```bash
-#!/bin/bash
-# autoCAS4HE Environment Setup for Hortense
-# Usage: source setup_hortense.sh
+cd $AC4HE/autoCAS4HE
 
-module --force purge
-module load cluster/dodrio/cpu_milan_rhel9
-module load GCCcore/12.3.0
-module load GCC/12.3.0
-module load Python/3.11.3-GCCcore-12.3.0
-module load imkl/2023.1.0
-
-# OpenMolcas + DMRG (for CASSCF/CASPT2 calculations)
-module load QCMaquis/4.0.0-iomkl-2023a
-module load OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI
-
-INSTALL_DIR="/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE"
-
-source ${INSTALL_DIR}/autocas_env/bin/activate
-
-# Serenity paths (includes qcserenity shim)
-export SERENITY_LIB_PATH="${INSTALL_DIR}/serenity/build/lib"
-export SERENITY_RESOURCES="${INSTALL_DIR}/serenity/data/"
-# Custom basis sets (ANO-RCC-VDZP, etc.) + standard Serenity basis sets
-export SERENITY_BASIS_PATH="${INSTALL_DIR}/tests/custom_basis:${INSTALL_DIR}/serenity/data/basis/"
-export LD_LIBRARY_PATH="${SERENITY_LIB_PATH}:$LD_LIBRARY_PATH"
-export PYTHONPATH="${SERENITY_LIB_PATH}:$PYTHONPATH"
-export PATH="${INSTALL_DIR}/serenity/build/bin:$PATH"
-
-echo "autoCAS4HE environment loaded"
-echo "  Serenity: ${INSTALL_DIR}/serenity/build"
-echo "  autoCAS:  $(which scine_autocas 2>/dev/null || echo 'not in PATH')"
+# Edit INSTALL_DIR in setup_hortense.sh to point to your installation
+# e.g., INSTALL_DIR="/dodrio/scratch/projects/2025_127/autoCAS4HE_built/autoCAS4HE"
+nano setup_hortense.sh
 ```
+
+The script loads required modules, activates the virtual environment, and sets all necessary paths for Serenity and autoCAS.
 
 ## Testing the Installation
 
 ```bash
+cd $AC4HE/autoCAS4HE
 source setup_hortense.sh
 
 # Test Python bindings
@@ -234,7 +230,7 @@ scine_autocas_consistent_active_space -i 1 n2_0.xyz n2_1.xyz
 Custom basis sets are stored in `tests/custom_basis/` and automatically included via `SERENITY_BASIS_PATH`.
 
 **Included custom basis sets:**
-- `ANO-RCC-VDZP` - All-electron relativistic basis for heavy elements
+- `ANO-RCC-VDZP` - All-electron relativistic basis for heavy elements (H, C, N, O, Pb, Bi, Po)
 
 **Adding new basis sets:**
 1. Place the basis file in `${INSTALL_DIR}/tests/custom_basis/`
@@ -248,15 +244,30 @@ export SERENITY_BASIS_PATH="${INSTALL_DIR}/tests/custom_basis:${INSTALL_DIR}/ser
 
 ## Job Script Template
 
+The repository includes `job_template.pbs`. Copy and edit it for your jobs:
+
+```bash
+cd $AC4HE/autoCAS4HE
+
+# Copy template to your working directory
+cp job_template.pbs /path/to/your/calculation/
+
+# Edit the PROJECT variable and job parameters
+nano /path/to/your/calculation/job_template.pbs
+```
+
+Example job script structure:
 ```bash
 #!/bin/bash
 #PBS -N autocas_job
-#PBS -A 2025_127
+#PBS -A 2025_127           # Your project allocation
 #PBS -l nodes=1:ppn=16
 #PBS -l walltime=24:00:00
 #PBS -l mem=64gb
 
-source /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/setup_hortense.sh
+PROJECT="2025_127"         # Your project name
+INSTALL_DIR="/dodrio/scratch/projects/${PROJECT}/autoCAS4HE_built/autoCAS4HE"
+source ${INSTALL_DIR}/setup_hortense.sh
 
 cd $PBS_O_WORKDIR
 
@@ -322,6 +333,15 @@ grep '"basis_set"' autocas/scine_autocas/workflows/consistent_active_space/confi
 | OpenMolcas | 25.06 | CASSCF/CASPT2 |
 | QCMaquis | 4.0.0 | DMRG solver |
 
+## Verified Results
+
+Tests performed on Dodrio cpu_milan_rhel9 partition with GCC 12.3.0:
+
+| Test | Basis | Active Space | Energies (a.u.) |
+|------|-------|--------------|-----------------|
+| N2 autoCAS | CC-PVDZ | CAS(6,6) | -109.25 / -108.94 |
+| N2 autoCAS | ANO-RCC-VDZP | CAS(6,6) | -109.36 / -109.04 |
+
 ## References
 
 - [autoCAS documentation](https://scine.ethz.ch/download/autocas)
@@ -329,6 +349,5 @@ grep '"basis_set"' autocas/scine_autocas/workflows/consistent_active_space/confi
 - [VSC Hortense documentation](https://docs.vscentrum.be/en/latest/gent/tier1_hortense.html)
 
 ---
-*Last updated: 2026-01-22*
+*Last updated: 2026-01-23*
 *Build tested on: Dodrio cpu_milan_rhel9 partition with GCC 12.3.0*
-*N2 consistent active space test: CAS(6,6) successfully identified*

@@ -28,9 +28,11 @@ autoCAS4HE/
 │       ├── N2_test/          # N2 with CC-PVDZ
 │       └── N2_ANO_test/      # N2 with ANO-RCC-VDZP
 ├── docs/
-│   ├── ENVIRONMENT_SETUP.md  # Detailed environment setup guide
+│   ├── ENVIRONMENT_SETUP.md  # Local/WSL environment setup guide
 │   └── HPC_BUILD_HORTENSE.md # HPC build guide for VSC Hortense
-├── setup_autocas_env.sh      # Quick environment setup script
+├── setup_autocas_env.sh      # Environment setup script (local/WSL)
+├── setup_hortense.sh         # Environment setup script (HPC Hortense)
+├── job_template.pbs          # PBS job template (HPC Hortense)
 └── serenity-heavy-elements.patch
 ```
 
@@ -112,7 +114,7 @@ scine_autocas_consistent_active_space -i 1 -b ANO-RCC-VDZP n2_0.xyz n2_1.xyz
 | Test | Basis | Active Space | Energies (a.u.) |
 |------|-------|--------------|-----------------|
 | N2 autoCAS | CC-PVDZ | CAS(6,6) | -109.25 / -108.94 |
-| N2 autoCAS | ANO-RCC-VDZP | CAS(6,6) | -109.04 |
+| N2 autoCAS | ANO-RCC-VDZP | CAS(6,6) | -109.36 / -109.04 |
 | Po HF (Serenity) | ANO-RCC-VDZP | - | -17349.15 |
 
 ### HPC (VSC Tier-1 Hortense)
@@ -141,8 +143,8 @@ Custom basis sets are stored in `tests/custom_basis/` and included via `SERENITY
 
 ## Documentation
 
-- [docs/ENVIRONMENT_SETUP.md](docs/ENVIRONMENT_SETUP.md) - Local setup instructions
-- [docs/HPC_BUILD_HORTENSE.md](docs/HPC_BUILD_HORTENSE.md) - HPC build guide for VSC Tier-1 Hortense
+- [docs/ENVIRONMENT_SETUP.md](docs/ENVIRONMENT_SETUP.md) - Local/WSL setup instructions
+- [docs/HPC_BUILD_HORTENSE.md](docs/HPC_BUILD_HORTENSE.md) - HPC build guide for VSC Tier-1 Hortense (reproducible instructions for HPC support)
 
 ## License
 
