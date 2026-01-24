@@ -1,12 +1,18 @@
-# autoCAS output files (exclude all generated outputs)
+# autoCAS output files (large generated directories)
 **/autocas_project/
-consistent_cas.configuration.yaml
 
 # Serenity generated system directories
-**/Po2/
+**/Po2_RHF/
 **/Po2_VDZP/
+tests/serenity/Po2_HF/Po2/
 **/initialsystem_*/
 WARNING
+
+# Scratch directories
+**/molcas_scratch/
+
+# Keep PBS job output files (.e and .o) - they contain timing results
+# Keep yaml config files - they document the run parameters
 
 # Serenity output files
 **/*.res.h5
