@@ -1,0 +1,17 @@
+autocas_indices:
+- 0
+- 1
+base_load_path: dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/Po2_test
+basis_set: ANO-RCC-VDZP
+cas_method: DMRGSCF
+exclude_core: true
+large_active_space: true
+load_orbitals: false
+project_name: autocas_project
+system_names:
+- system_0
+- system_1
+unmappable: false
+xyz_files:
+- /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/Po2_test/po2_0.xyz
+- /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/Po2_test/po2_1.xyz

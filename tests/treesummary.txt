@@ -1,0 +1,397 @@
+# Tree Summary
+Generated: Sat Jan 24 11:59:47 AM CET 2026
+Host: login57.dodrio.os
+
+========================================
+## Directory: tests/autocas/Po2_test/
+========================================
+
+### Tree Structure
+```
+tests/autocas/Po2_test/
+├── [ 228M]  autocas_project
+│   ├── [  10M]  initial
+│   │   ├── [    0]  molcas.out
+│   │   ├── [    0]  system_0.err
+│   │   ├── [ 410K]  system_0.GssOrb
+│   │   ├── [ 259K]  system_0.guessorb.h5
+│   │   ├── [ 469K]  system_0.guessorb.molden
+│   │   ├── [  222]  system_0.input
+│   │   ├── [ 1.2M]  system_0.log
+│   │   ├── [ 469K]  system_0.LoProp.molden
+│   │   ├── [ 410K]  system_0.LprOrb
+│   │   ├── [ 1.1M]  system_0.scf.h5
+│   │   ├── [ 469K]  system_0.scf.molden
+│   │   ├── [ 410K]  system_0.ScfOrb
+│   │   ├── [   14]  system_0.status
+│   │   ├── [    0]  system_1.err
+│   │   ├── [ 410K]  system_1.GssOrb
+│   │   ├── [ 261K]  system_1.guessorb.h5
+│   │   ├── [ 469K]  system_1.guessorb.molden
+│   │   ├── [  222]  system_1.input
+│   │   ├── [ 1.2M]  system_1.log
+│   │   ├── [ 469K]  system_1.LoProp.molden
+│   │   ├── [ 410K]  system_1.LprOrb
+│   │   ├── [ 1.1M]  system_1.scf.h5
+│   │   ├── [ 469K]  system_1.scf.molden
+│   │   ├── [ 410K]  system_1.ScfOrb
+│   │   ├── [   14]  system_1.status
+│   │   └── [ 2.4K]  xmldump
+│   ├── [ 461K]  initialsystem_0
+│   │   ├── [ 152K]  system_0.dmat.res.h5
+│   │   ├── [  161]  system_0.energies.res
+│   │   ├── [ 150K]  system_0.FockMatrix.res.h5
+│   │   ├── [ 152K]  system_0.orbs.res.h5
+│   │   ├── [ 2.7K]  system_0.settings
+│   │   └── [  129]  system_0.xyz
+│   ├── [ 461K]  initialsystem_1
+│   │   ├── [ 152K]  system_1.dmat.res.h5
+│   │   ├── [  160]  system_1.energies.res
+│   │   ├── [ 150K]  system_1.FockMatrix.res.h5
+│   │   ├── [ 152K]  system_1.orbs.res.h5
+│   │   ├── [ 2.7K]  system_1.settings
+│   │   └── [  129]  system_1.xyz
+│   └── [ 217M]  scratch
+│       ├── [  246]  coord.inp
+│       ├── [  203]  molcas.control
+│       ├── [ 1.2K]  molcas.env
+│       ├── [    8]  pid
+│       ├── [    2]  rc.global
+│       ├── [    2]  rc.local
+│       ├── [   43]  stdin
+│       ├── [  71K]  system_0.ChDiag
+│       ├── [  440]  system_0.ChMap
+│       ├── [ 2.2M]  system_0.ChRed
+│       ├── [  36K]  system_0.ChRst
+│       ├── [ 6.8M]  system_0.ChSel1
+│       ├── [  58M]  system_0.ChVec1
+│       ├── [ 365K]  system_0.DNSMAT
+│       ├── [ 365K]  system_0.DVXCDR
+│       ├── [  160]  system_0.Gateway.Input
+│       ├── [    0]  system_0.GRADIENT
+│       ├── [ 410K]  system_0.GssOrb
+│       ├── [ 259K]  system_0.guessorb.h5
+│       ├── [ 469K]  system_0.guessorb.molden
+│       ├── [ 469K]  system_0.LoProp.molden
+│       ├── [ 410K]  system_0.LprOrb
+│       ├── [   40]  system_0.NqGrid
+│       ├── [ 3.7M]  system_0.OneInt
+│       ├── [  34M]  system_0.OneRel
+│       ├── [ 1.1M]  system_0.RunFile
+│       ├── [ 1.1M]  system_0.scf.h5
+│       ├── [   43]  system_0.Scf.Input
+│       ├── [ 469K]  system_0.scf.molden
+│       ├── [ 410K]  system_0.ScfOrb
+│       ├── [   30]  system_0.Seward.Input
+│       ├── [    0]  system_0.SODELTA
+│       ├── [    0]  system_0.SODGRAD
+│       ├── [    0]  system_0.SOXVEC
+│       ├── [    0]  system_0.SOYVEC
+│       ├── [ 6.1K]  system_0.SymInfo
+│       ├── [ 365K]  system_0.TWOHAM
+│       ├── [  68K]  system_1.ChDiag
+│       ├── [  440]  system_1.ChMap
+│       ├── [ 2.0M]  system_1.ChRed
+│       ├── [  36K]  system_1.ChRst
+│       ├── [ 6.5M]  system_1.ChSel1
+│       ├── [  55M]  system_1.ChVec1
+│       ├── [ 292K]  system_1.DNSMAT
+│       ├── [ 292K]  system_1.DVXCDR
+│       ├── [  160]  system_1.Gateway.Input
+│       ├── [    0]  system_1.GRADIENT
+│       ├── [ 410K]  system_1.GssOrb
+│       ├── [ 261K]  system_1.guessorb.h5
+│       ├── [ 469K]  system_1.guessorb.molden
+│       ├── [ 469K]  system_1.LoProp.molden
+│       ├── [ 410K]  system_1.LprOrb
+│       ├── [   40]  system_1.NqGrid
+│       ├── [ 3.7M]  system_1.OneInt
+│       ├── [  34M]  system_1.OneRel
+│       ├── [ 1.1M]  system_1.RunFile
+│       ├── [ 1.1M]  system_1.scf.h5
+│       ├── [   43]  system_1.Scf.Input
+│       ├── [ 469K]  system_1.scf.molden
+│       ├── [ 410K]  system_1.ScfOrb
+│       ├── [   30]  system_1.Seward.Input
+│       ├── [    0]  system_1.SODELTA
+│       ├── [    0]  system_1.SODGRAD
+│       ├── [    0]  system_1.SOXVEC
+│       ├── [    0]  system_1.SOYVEC
+│       ├── [ 6.1K]  system_1.SymInfo
+│       ├── [ 292K]  system_1.TWOHAM
+│       └── [ 2.4K]  xmldump
+├── [ 1.3K]  ccas_po2.e13109464
+├── [  16K]  ccas_po2.o13109464
+├── [  880]  ccas_po2.pbs
+├── [  550]  consistent_cas.configuration.yaml
+├── [   75]  po2_0.xyz
+└── [   75]  po2_1.xyz
+
+  228M used in 5 directories, 112 files
+```
+
+### File Sizes
+```
+4.0K	tests/autocas/Po2_test//ccas_po2.e13109464
+4.0K	tests/autocas/Po2_test//ccas_po2.pbs
+4.0K	tests/autocas/Po2_test//consistent_cas.configuration.yaml
+4.0K	tests/autocas/Po2_test//po2_0.xyz
+4.0K	tests/autocas/Po2_test//po2_1.xyz
+20K	tests/autocas/Po2_test//ccas_po2.o13109464
+229M	tests/autocas/Po2_test//autocas_project
+```
+
+### Key Output Files
+```
+--- *.log ---
+tests/autocas/Po2_test/autocas_project/initial/system_0.log
+tests/autocas/Po2_test/autocas_project/initial/system_1.log
+--- *.out ---
+tests/autocas/Po2_test/autocas_project/initial/molcas.out
+--- *.err ---
+tests/autocas/Po2_test/autocas_project/initial/system_1.err
+tests/autocas/Po2_test/autocas_project/initial/system_0.err
+```
+
+### Log File Excerpts (last 50 lines)
+
+#### tests/autocas/Po2_test/autocas_project/initial/system_0.log
+```
+  12  CHVEC1           57.65 .       0/       1 .      0.0/     57.7 .       0/       0
+  13  CHORST            0.03 .       0/      12 .      0.0/      0.0 .       0/       0
+  14  CHOMAP            0.00 .       0/       0 .      0.0/      0.0 .       0/       0
+  15  CHODIAG           0.07 .       0/      10 .      0.0/      0.7 .       0/       0
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   *  TOTAL            65.79 .     927/   12163 .     11.7/    356.0 .       0/       0
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ 
+  II. I/O Access Patterns
+  - - - - - - - - - - - - - - - - - - - -
+  Unit  Name               % of random
+                         Write/Read calls
+  - - - - - - - - - - - - - - - - - - - -
+   1  RUNFILE             28.6/  11.8
+   2  DNSMAT              80.0/   0.0
+   3  DVXCDR              80.0/   0.0
+   4  TWOHAM              80.0/   0.0
+   5  GRADIENT             0.0/   0.0
+   6  SODGRAD              0.0/   0.0
+   7  SOXVEC               0.0/   0.0
+   8  SODELTA              0.0/   0.0
+   9  SOYVEC               0.0/   0.0
+  10  ONEINT             100.0/  22.3
+  11  CHRED                0.0/   2.7
+  12  CHVEC1               0.0/   0.0
+  13  CHORST               0.0/   0.0
+  14  CHOMAP               0.0/   0.0
+  15  CHODIAG              0.0/   0.0
+  - - - - - - - - - - - - - - - - - - - -
+--
+ ###############################################################################
+ ###############################################################################
+ ###                                                                         ###
+ ###                                                                         ###
+ ###    WARNING: RunFile label nBas                                          ###
+ ###    was used       81 times                                              ###
+ ###                                                                         ###
+ ###                                                                         ###
+ ###############################################################################
+ ###############################################################################
+--- Stop Module: scf at Fri Jan 23 17:14:54 2026 /rc=_RC_ALL_IS_WELL_ ---
+*** files: system_0.LprOrb system_0.LoProp.molden system_0.scf.molden system_0.ScfOrb system_0.scf.h5 xmldump
+    saved to directory /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/Po2_test/autocas_project/initial
+--- Module scf spent 29 seconds ---
+
+.##################.
+.# Happy landing! #.
+.##################.
+
+    Timing: Wall=246.23 User=236.43 System=3.88
+```
+
+#### tests/autocas/Po2_test/autocas_project/initial/system_1.log
+```
+  12  CHVEC1           54.67 .       0/       1 .      0.0/     54.7 .       0/       0
+  13  CHORST            0.04 .       0/      12 .      0.0/      0.0 .       0/       0
+  14  CHOMAP            0.00 .       0/       0 .      0.0/      0.0 .       0/       0
+  15  CHODIAG           0.07 .       0/       9 .      0.0/      0.6 .       0/       0
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   *  TOTAL            62.36 .     889/   11854 .     11.0/    346.9 .       0/       0
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ 
+  II. I/O Access Patterns
+  - - - - - - - - - - - - - - - - - - - -
+  Unit  Name               % of random
+                         Write/Read calls
+  - - - - - - - - - - - - - - - - - - - -
+   1  RUNFILE             28.6/  11.8
+   2  DNSMAT              75.0/   0.0
+   3  DVXCDR              75.0/   0.0
+   4  TWOHAM              75.0/   0.0
+   5  GRADIENT             0.0/   0.0
+   6  SODGRAD              0.0/   0.0
+   7  SOXVEC               0.0/   0.0
+   8  SODELTA              0.0/   0.0
+   9  SOYVEC               0.0/   0.0
+  10  ONEINT             100.0/  22.3
+  11  CHRED                0.0/   2.7
+  12  CHVEC1               0.0/   0.0
+  13  CHORST               0.0/   0.0
+  14  CHOMAP               0.0/   0.0
+  15  CHODIAG              0.0/   0.0
+  - - - - - - - - - - - - - - - - - - - -
+--
+ ###############################################################################
+ ###############################################################################
+ ###                                                                         ###
+ ###                                                                         ###
+ ###    WARNING: RunFile label nBas                                          ###
+ ###    was used       81 times                                              ###
+ ###                                                                         ###
+ ###                                                                         ###
+ ###############################################################################
+ ###############################################################################
+--- Stop Module: scf at Fri Jan 23 17:18:56 2026 /rc=_RC_ALL_IS_WELL_ ---
+*** files: system_1.LprOrb system_1.LoProp.molden system_1.scf.molden system_1.ScfOrb system_1.scf.h5 xmldump
+    saved to directory /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/Po2_test/autocas_project/initial
+--- Module scf spent 23 seconds ---
+
+.##################.
+.# Happy landing! #.
+.##################.
+
+    Timing: Wall=237.67 User=230.30 System=4.19
+```
+
+========================================
+## Directory: tests/serenity/Po2_RHF_benchmark/
+========================================
+
+### Tree Structure
+```
+tests/serenity/Po2_RHF_benchmark/
+├── [  531]  job_serenity_rhf.pbs
+├── [ 595K]  Po2_RHF
+│   ├── [ 152K]  Po2_RHF.dmat.res.h5
+│   ├── [  161]  Po2_RHF.energies.res
+│   ├── [ 150K]  Po2_RHF.FockMatrix.res.h5
+│   ├── [ 152K]  Po2_RHF.orbs.res.h5
+│   ├── [ 2.5K]  Po2_RHF.settings
+│   ├── [  128]  Po2_RHF.xyz
+│   └── [ 134K]  PO_FREE
+│       ├── [  43K]  PO_FREE.dmat.res.h5
+│       ├── [  157]  PO_FREE.energies.res
+│       ├── [  42K]  PO_FREE.FockMatrix.res.h5
+│       ├── [  43K]  PO_FREE.orbs.res.h5
+│       ├── [ 2.5K]  PO_FREE.settings
+│       └── [   77]  PO_FREE.xyz
+├── [  137]  Po2_RHF.input
+├── [   67]  Po2.xyz
+├── [  585]  README.md
+├── [   50]  serenity_Po2_RHF.e13110109
+├── [  16K]  serenity_Po2_RHF.o13110109
+└── [  200]  WARNING
+
+  617K used in 2 directories, 19 files
+```
+
+### File Sizes
+```
+4.0K	tests/serenity/Po2_RHF_benchmark//job_serenity_rhf.pbs
+4.0K	tests/serenity/Po2_RHF_benchmark//Po2_RHF.input
+4.0K	tests/serenity/Po2_RHF_benchmark//Po2.xyz
+4.0K	tests/serenity/Po2_RHF_benchmark//README.md
+4.0K	tests/serenity/Po2_RHF_benchmark//serenity_Po2_RHF.e13110109
+4.0K	tests/serenity/Po2_RHF_benchmark//WARNING
+20K	tests/serenity/Po2_RHF_benchmark//serenity_Po2_RHF.o13110109
+624K	tests/serenity/Po2_RHF_benchmark//Po2_RHF
+```
+
+### Key Output Files
+```
+```
+
+### Log File Excerpts (last 50 lines)
+
+========================================
+## Directory: tests/molcas/Po2_RHF_benchmark/
+========================================
+
+### Tree Structure
+```
+tests/molcas/Po2_RHF_benchmark/
+├── [  661]  job_molcas_rhf.pbs
+├── [   44]  molcas_Po2_RHF.e13110114
+├── [ 1.1M]  molcas_Po2_RHF.o13110114
+├── [ 240M]  molcas_scratch
+│   └── [ 240M]  Po2_RHF.2347820
+│       ├── [  246]  coord.inp
+│       ├── [  203]  molcas.control
+│       ├── [ 1.2K]  molcas.env
+│       ├── [    8]  pid
+│       ├── [ 365K]  Po2_RHF.DNSMAT
+│       ├── [ 365K]  Po2_RHF.DVXCDR
+│       ├── [   67]  Po2_RHF.Gateway.Input
+│       ├── [    0]  Po2_RHF.GRADIENT
+│       ├── [ 410K]  Po2_RHF.GssOrb
+│       ├── [ 260K]  Po2_RHF.guessorb.h5
+│       ├── [ 469K]  Po2_RHF.guessorb.molden
+│       ├── [ 469K]  Po2_RHF.LoProp.molden
+│       ├── [ 410K]  Po2_RHF.LprOrb
+│       ├── [   40]  Po2_RHF.NqGrid
+│       ├── [ 3.7M]  Po2_RHF.OneInt
+│       ├── [  34M]  Po2_RHF.OneRel
+│       ├── [ 197M]  Po2_RHF.OrdInt
+│       ├── [ 1.1M]  Po2_RHF.RunFile
+│       ├── [ 1.2M]  Po2_RHF.scf.h5
+│       ├── [   60]  Po2_RHF.Scf.Input
+│       ├── [ 469K]  Po2_RHF.scf.molden
+│       ├── [ 410K]  Po2_RHF.ScfOrb
+│       ├── [   21]  Po2_RHF.Seward.Input
+│       ├── [    0]  Po2_RHF.SODELTA
+│       ├── [    0]  Po2_RHF.SODGRAD
+│       ├── [    0]  Po2_RHF.SOXVEC
+│       ├── [    0]  Po2_RHF.SOYVEC
+│       ├── [ 6.1K]  Po2_RHF.SymInfo
+│       ├── [ 365K]  Po2_RHF.TWOHAM
+│       ├── [    2]  rc.global
+│       ├── [    2]  rc.local
+│       ├── [   60]  stdin
+│       └── [ 1.2K]  xmldump
+├── [ 4.0M]  Po2_RHF
+│   ├── [ 410K]  Po2_RHF.GssOrb
+│   ├── [ 260K]  Po2_RHF.guessorb.h5
+│   ├── [ 469K]  Po2_RHF.guessorb.molden
+│   ├── [ 469K]  Po2_RHF.LoProp.molden
+│   ├── [ 410K]  Po2_RHF.LprOrb
+│   ├── [ 1.2M]  Po2_RHF.scf.h5
+│   ├── [ 469K]  Po2_RHF.scf.molden
+│   ├── [ 410K]  Po2_RHF.ScfOrb
+│   └── [ 1.2K]  xmldump
+├── [  127]  Po2_RHF.input
+├── [   14]  Po2_RHF.status
+├── [   67]  Po2.xyz
+└── [  593]  README.md
+
+  245M used in 3 directories, 49 files
+```
+
+### File Sizes
+```
+4.0K	tests/molcas/Po2_RHF_benchmark//job_molcas_rhf.pbs
+4.0K	tests/molcas/Po2_RHF_benchmark//molcas_Po2_RHF.e13110114
+4.0K	tests/molcas/Po2_RHF_benchmark//Po2_RHF.input
+4.0K	tests/molcas/Po2_RHF_benchmark//Po2_RHF.status
+4.0K	tests/molcas/Po2_RHF_benchmark//Po2.xyz
+4.0K	tests/molcas/Po2_RHF_benchmark//README.md
+1.1M	tests/molcas/Po2_RHF_benchmark//molcas_Po2_RHF.o13110114
+4.1M	tests/molcas/Po2_RHF_benchmark//Po2_RHF
+241M	tests/molcas/Po2_RHF_benchmark//molcas_scratch
+```
+
+### Key Output Files
+```
+```
+
+### Log File Excerpts (last 50 lines)
+

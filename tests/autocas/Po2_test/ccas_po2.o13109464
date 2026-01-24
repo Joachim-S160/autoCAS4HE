@@ -1,0 +1,298 @@
+========================================
+autoCAS4HE environment loaded (Hortense)
+========================================
+  Serenity:    /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/build
+  autoCAS:     /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas_env/bin/scine_autocas
+  Basis path:  /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/custom_basis:/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/data/basis/
+========================================
+
+          ------------------------------------------------------------          
+                                System system_0                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_1                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                Main SCF Options                                
+          ------------------------------------------------------------          
+
+     SCF Mode:                   RESTRICTED
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+     Basis Functions:                   136
+     Caching Threshold:                  -1
+     Integral Threshold:            2.0e-11
+
+     Energy Threshold:              5.0e-08
+     RMSD[D] Threshold:             1.0e-08
+     DIIS Threshold:                5.0e-07
+
+     Density Fitting:
+       Coulomb                         NONE
+       Exchange                        NONE
+
+          ------------------------------------------------------------          
+                                      SCF                                       
+          ------------------------------------------------------------          
+
+    Cycle      E/a.u.         abs(dE)/a.u.     rmsd(P)/a.u.       [F,P]/a.u.      time/min   Mode
+       1 -34688.5922713422              inf              inf         2.02e+01      0:00 
+       2 -34696.0474540398         7.46e+00         1.42e-02         1.40e+01     15:55:849    D-L
+       3 -34699.4650004828         3.42e+00         1.18e-02         9.66e+00     15:51:476    D-L
+       4 -34700.7817949527         1.32e+00         8.93e-03         6.21e+00     15:46:583    D-L
+       5 -34701.2122944970         4.30e-01         6.16e-03         3.68e+00     16:03:214    D-L
+       6 -34701.3286523007         1.16e-01         3.78e-03         2.00e+00     17:44:576    D-L
+       7 -34701.3537922531         2.51e-02         1.96e-03         9.90e-01     16:38:281    D-L
+       8 -34701.3585078685         4.72e-03         8.15e-04         4.41e-01     16:26:611    D-L
+       9 -34701.3597683991         1.26e-03         4.81e-04         1.75e-01     16:12:512    D-L
+      10 -34701.3602957050         5.27e-04         5.35e-04         6.06e-02     16:05:103    D-L
+      11 -34701.3605045987         2.09e-04         4.51e-04         1.80e-02     17:49:657    -DL
+      12 -34701.3606100276         1.05e-04         4.59e-04         1.18e-03     16:19:196    -DL
+      13 -34701.3606226271         1.26e-05         1.77e-04         1.99e-04     15:53:554    -DL
+      14 -34701.3606231199         4.93e-07         2.39e-05         5.09e-05     15:17:860    -DL
+      15 -34701.3606231570         3.71e-08         5.63e-06         1.29e-05     14:50:144    -D-
+      16 -34701.3606231567         2.40e-10         7.74e-07         2.22e-06     14:12:825    -D-
+      17 -34701.3606231595         2.76e-09         1.84e-07         3.09e-07     13:23:005    -D-
+    Converged after  17 cycles. Loop exited.
+
+
+          ------------------------------------------------------------          
+                               Final SCF Results                                
+          ------------------------------------------------------------          
+
+Energy components as stored:
+Nuclear Repulsion:                                                                  1866.9371987992 
+One-Particle Energy (including ECPs):                                             -53366.7441647233 
+Two-Particle Energy (HF):                                                          16798.4463427646 
+PCM Solvation Energy:                                                                  0.0000000000 
+----------------------------------------------------------------------------------------------------
+Derived energy components:
+Total Energy (HF):                                                                -34701.3606231595 
+----------------------------------------------------------------------------------------------------
+    
+  Orbital Energies:
+ -------------------
+        #    Occ.      Hartree                eV   
+       ---  ------    ---------            --------
+        75   2.00   -2.4104939837      -65.5928828345
+        76   2.00   -2.4104939837      -65.5928828345
+        77   2.00   -1.8063960658      -49.1545410600
+        78   2.00   -1.6881984223      -45.9382193298
+        79   2.00   -0.5755571423      -15.6617077046
+        80   2.00   -0.5755571316      -15.6617074153
+        81   2.00   -0.5515111460      -15.0073828124
+        82   2.00   -0.3233565987       -8.7989813032
+        83   2.00   -0.3233565822       -8.7989808535
+        84   2.00   -0.2096478971       -5.7048099049
+        85   0.00   -0.0314908441       -0.8569095211
+        86   0.00   +0.2038832632       +5.5479462242
+        87   0.00   +0.2038832782       +5.5479466335
+        88   0.00   +0.2664245610       +7.2497816360
+        89   0.00   +0.2664245611       +7.2497816366
+        90   0.00   +0.2802950535       +7.6272169639
+        91   0.00   +0.3250122252       +8.8440331947
+        92   0.00   +0.4111954422      +11.1891980002
+        93   0.00   +0.4111954458      +11.1891980990
+        94   0.00   +0.5125466473      +13.9471047896
+    
+  Additional Analysis:
+ ----------------------
+
+   -<V>/<T> = 1.865 
+      <S*S> = 0.000 
+    S*(S+1) = 0.000 
+          C = 0.000 
+
+
+          ------------------------------------------------------------          
+                                Main SCF Options                                
+          ------------------------------------------------------------          
+
+     SCF Mode:                   RESTRICTED
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+     Basis Functions:                   136
+     Caching Threshold:                  -1
+     Integral Threshold:            2.0e-11
+
+     Energy Threshold:              5.0e-08
+     RMSD[D] Threshold:             1.0e-08
+     DIIS Threshold:                5.0e-07
+
+     Density Fitting:
+       Coulomb                         NONE
+       Exchange                        NONE
+
+          ------------------------------------------------------------          
+                                      SCF                                       
+          ------------------------------------------------------------          
+
+    Cycle      E/a.u.         abs(dE)/a.u.     rmsd(P)/a.u.       [F,P]/a.u.      time/min   Mode
+       1 -34687.0116652206              inf              inf         1.69e+01      0:00 
+       2 -34693.8913791496         6.88e+00         6.81e-03         1.16e+01     12:24:818    D-L
+       3 -34697.0256556536         3.13e+00         6.18e-03         7.98e+00     12:23:111    D-L
+       4 -34698.2640534853         1.24e+00         4.88e-03         5.09e+00     11:43:338    D-L
+       5 -34698.6997770381         4.36e-01         3.54e-03         3.00e+00     11:30:960    D-L
+       6 -34698.8349360012         1.35e-01         2.37e-03         1.62e+00     13:52:291    D-L
+       7 -34698.8719481126         3.70e-02         1.47e-03         8.00e-01     12:33:354    D-L
+       8 -34698.8822791052         1.03e-02         9.16e-04         3.55e-01     12:23:318    D-L
+       9 -34698.8863836911         4.10e-03         6.88e-04         1.40e-01     12:14:661    D-L
+      10 -34698.8885838884         2.20e-03         6.00e-04         4.83e-02     12:09:166    -DL
+      11 -34698.8900801391         1.50e-03         7.48e-04         6.35e-03     13:56:718    -DL
+      12 -34698.8903972834         3.17e-04         4.29e-04         1.82e-03     12:24:862    -DL
+      13 -34698.8904187772         2.15e-05         1.24e-04         3.85e-04     12:03:568    -DL
+      14 -34698.8904200445         1.27e-06         2.53e-05         7.93e-05     11:41:082    -DL
+      15 -34698.8904201484         1.04e-07         7.52e-06         2.47e-05     11:15:856    -D-
+      16 -34698.8904201524         4.00e-09         1.79e-06         3.99e-06     10:35:236    -D-
+      17 -34698.8904201504         1.91e-09         2.60e-07         6.63e-07      9:51:131    -D-
+      18 -34698.8904201497         7.13e-10         4.29e-08         7.88e-08      8:51:247    -D-
+    Converged after  18 cycles. Loop exited.
+
+
+          ------------------------------------------------------------          
+                               Final SCF Results                                
+          ------------------------------------------------------------          
+
+Energy components as stored:
+Nuclear Repulsion:                                                                   933.4685993996 
+One-Particle Energy (including ECPs):                                             -51496.8177096779 
+Two-Particle Energy (HF):                                                          15864.4586901285 
+PCM Solvation Energy:                                                                  0.0000000000 
+----------------------------------------------------------------------------------------------------
+Derived energy components:
+Total Energy (HF):                                                                -34698.8904201497 
+----------------------------------------------------------------------------------------------------
+    
+  Orbital Energies:
+ -------------------
+        #    Occ.      Hartree                eV   
+       ---  ------    ---------            --------
+        75   2.00   -2.3670889240      -64.4117709899
+        76   2.00   -2.3670889240      -64.4117709888
+        77   2.00   -1.6014887459      -43.5787288345
+        78   2.00   -1.5716475233      -42.7667077982
+        79   2.00   -0.4120670016      -11.2129143388
+        80   2.00   -0.3803984655      -10.3511695721
+        81   2.00   -0.3803984643      -10.3511695396
+        82   2.00   -0.3673142920       -9.9951310743
+        83   2.00   -0.3673142912       -9.9951310505
+        84   2.00   -0.3411224284       -9.2824141577
+        85   0.00   +0.0280457153       +0.7631627929
+        86   0.00   +0.1143403167       +3.1113585199
+        87   0.00   +0.3734167100      +10.1611863260
+        88   0.00   +0.3734167101      +10.1611863284
+        89   0.00   +0.3997921590      +10.8788988570
+        90   0.00   +0.4355598703      +11.8521878627
+        91   0.00   +0.4355598716      +11.8521878982
+        92   0.00   +0.4370177597      +11.8918590544
+        93   0.00   +0.4370177597      +11.8918590553
+        94   0.00   +0.4472829102      +12.1711880298
+    
+  Additional Analysis:
+ ----------------------
+
+   -<V>/<T> = 1.865 
+      <S*S> = 0.000 
+    S*(S+1) = 0.000 
+          C = 0.000 
+
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 60    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization is used. Ignoring any specifications for Rydberg orbitals and referencing
+  the IBO minimal basis set instead.
+
+o------------------------------------------------------------------------------o
+|                               Serenity Crashed                               |
+o------------------------------------------------------------------------------o
+
+
+  Error:
+ --------
+    A core orbital is assigned to be virtual. Something is wrong here!
+
+  Final Timings:
+ ----------------
+              Active System -         HF Pot.    521:45.349 min
+              Active System -     1e-Int Pot.      0:04.078 min
+              Active System -   Coul./XC Pot.    521:49.648 min
+               Tech. -           DIIS/Damping      0:09.474 min
+               Tech. -    Fock Matrix Solving      0:10.087 min
+               Tech. - Libint Initializations      0:01.500 min
+
+  Program Crashed:
+ ------------------
+    Time:  2026-01-24 02:01:37
+    On:    node5432.dodrio.os
+Small error: you want to print a timing of something of which there is no starting time stored.
+Maybe you already printed its timing (which stops the timer)? The label is the entire run.
+
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/Po2_test/autocas_project
+Final energy evaluation method: DMRGSCF
+*******************************************************************************************
+*                                                                                         *
+*                               Orbital Preparation                                       *
+*                                                                                         *
+*******************************************************************************************
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/Po2_test/autocas_project/scratch
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/Po2_test/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_0
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/Po2_test/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/Po2_test/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_1
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/Po2_test/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.

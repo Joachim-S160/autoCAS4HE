@@ -1,0 +1,23 @@
+#PBS -N ccas_po2
+#PBS -A 2025_127           # EDIT: Your project allocation (e.g., 2025_127)
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=71:52:00
+#PBS -l mem=64gb
+
+INSTALL_DIR="/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE"
+source ${INSTALL_DIR}/setup_hortense.sh
+
+cd $PBS_O_WORKDIR
+
+# ==============================================================================
+# Your calculation commands below
+# ==============================================================================
+
+# Example 1: Single structure autoCAS
+# scine_autocas run -x molecule.xyz -i molcas -b cc-pvdz
+
+# Example 2: Consistent active space workflow with multiple structures
+# scine_autocas_consistent_active_space -i 1 structure1.xyz structure2.xyz
+
+# Example 3: With custom basis set (ANO-RCC-VDZP)
+scine_autocas_consistent_active_space po2_0.xyz  po2_1.xyz -b ANO-RCC-VDZP -m DMRGSCF

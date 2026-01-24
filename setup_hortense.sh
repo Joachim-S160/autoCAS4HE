@@ -18,7 +18,7 @@ module load OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI
 # ==============================================================================
 # EDIT THIS: Set to your installation directory
 # ==============================================================================
-INSTALL_DIR="/dodrio/scratch/projects/<your_project>/autoCAS4HE_built/autoCAS4HE"
+INSTALL_DIR="/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE"
 # ==============================================================================
 
 # Activate virtual environment

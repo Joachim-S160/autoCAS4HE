@@ -1,13 +1,13 @@
 #!/bin/bash
 # OpenMolcas RHF benchmark for Po2 with ANO-RCC-VDZP
 #PBS -N molcas_Po2_RHF
-#PBS -A <your_project>
+#PBS -A 2025_127
 #PBS -l nodes=1:ppn=16
 #PBS -l walltime=04:00:00
 #PBS -l mem=32gb
 
 # Set your project
-PROJECT="<your_project>"
+PROJECT="starting_2025_097"
 INSTALL_DIR="/dodrio/scratch/projects/${PROJECT}/autoCAS4HE_built/autoCAS4HE"
 source ${INSTALL_DIR}/setup_hortense.sh
 

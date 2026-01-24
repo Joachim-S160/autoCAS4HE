@@ -1,0 +1,324 @@
+========================================
+autoCAS4HE environment loaded (Hortense)
+========================================
+  Serenity:    /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/build
+  autoCAS:     /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas_env/bin/scine_autocas
+  Basis path:  /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/custom_basis:/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/data/basis/
+========================================
+=== Serenity RHF Benchmark: Po2 with ANO-RCC-VDZP ===
+Start time: Fri Jan 23 09:52:05 PM CET 2026
+
+
+#==============================================================================#
+#                                                                              #
+#   SSSSS                                                    #########         #
+#   SS    EEEE RRR  EEEE N   N II TTTTTT YY  YY          ####################  #
+#   SS    E    R  R E    NN  N II   TT    YYYY        ######################## #
+#   SSSSS EEEE RRR  EEEE N N N II   TT     YY      #########             ##### #
+#      SS E    R R  E    N  NN II   TT     YY   #######       OOOOOOOO         #
+#      SS EEEE R  R EEEE N   N II   TT     YY ########      OOOOOOOOOOOO       #
+#   SSSSS                                  ########        OOOOOOOOOOOOOO      #
+#                                     ###########   OOO    OOOOOOOOOOOOOO      #
+# #########                   ###############      OOOOO   OOOOOOOOOOOOOO      #
+# ######################################      OO   OOOOO    OOOOOOOOOOOO       #
+#       #########################         O   OO    OOO       OOOOOOOO         #
+#                                                                              #
+#                                                                              #
+#                                   Serenity                                   #
+#                                                                              #
+#                           A quantum chemistry code                           #
+#                developed in the group of Johannes Neugebauer                 #
+#                        at the University of Münster.                         #
+#                                                                              #
+#==============================================================================#
+
+  Program Info:
+ ---------------
+    Version           :   1.6.3
+    Git Branch        :   HEAD
+    Serenity Home     :   $SERENITY_HOME UNKNOWN
+
+  Citations:
+ ------------
+    First publication :
+  J. P. Unsleber, T. Dresselhaus, K. Klahr, D. Schnieders, M. Böckers, D. Barton
+  and J. Neugebauer, Serenity: A Subsystem Quantum Chemistry Program,
+  J. Comput. Chem., 39, 788-798, (2018).
+
+    Update paper      :
+  N. Niemeyer, P. Eschenbach, M. Bensberg, J. Toelle, L. Hellmann, L. Lampe,
+  A. Massolle, A. Rikus, D. Schnieders, J. P. Unsleber, and J. Neugebauer,
+  The subsystem quantum chemistry program Serenity,
+  Wiley Interdiscip. Rev. Comput. Mol. Sci., 13, e1647, (2023).
+
+    Libint (2.7.0-b6) :
+  Libint: A library for the evaluation of molecular integrals of many-body operators
+  over Gaussian functions, v2.7.0-beta6  Edward F. Valeev, http://libint.valeyev.net/ .
+
+    Libxc (6.1.0)     :
+  S. Lehtola, C. Steigemann, M. J.T. Oliveira, and M. A.L. Marques.,  SoftwareX 7, 1–5 (2018)
+  10.1016/j.softx.2017.11.002
+
+    XCFun (v2.0.2)    :
+  Ekström, U. (2020). XCFun: A library of exchange-correlation functionals with
+  arbitrary-order derivatives. Zenodo. https://doi.org/10.5281/zenodo.3946698
+
+    Libecpint (1.0.7) :
+  R. A. Shaw, J. G. Hill, J. Chem. Phys. 147, 074108 (2017); doi: 10.1063/1.4986887
+
+  Program started:
+ ------------------
+    Time              :   2026-01-23 21:52:07
+    By                :   vsc45694
+    On                :   node5389.dodrio.os
+
+    Threads           :   16
+    Memory Limit      :   226579 MB
+
+          ------------------------------------------------------------          
+                                 System Po2_RHF                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   +0.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+o------------------------------------------------------------------------------o
+|                                Running Tasks                                 |
+o------------------------------------------------------------------------------o
+
+ o-------------o
+ | Task No. 1: |
+ o-------------o
+
+
+          ------------------------------------------------------------          
+                                Main SCF Options                                
+          ------------------------------------------------------------          
+
+     SCF Mode:                   RESTRICTED
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+     Basis Functions:                   136
+     Caching Threshold:                  -1
+     Integral Threshold:            2.0e-11
+
+     Energy Threshold:              5.0e-08
+     RMSD[D] Threshold:             1.0e-08
+     DIIS Threshold:                5.0e-07
+     Initial Guess:                 ATOMSCF
+
+     Density Fitting:
+       Coulomb                         NONE
+       Exchange                        NONE
+
+          ------------------------------------------------------------          
+                                      SCF                                       
+          ------------------------------------------------------------          
+
+  Warning: Was not able to read /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/data/initialGuess/spherical/PO.dmat.res.h5
+  Performing an atom SCF now.
+
+          ------------------------------------------------------------          
+                                 System PO_FREE                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   +0.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                Main SCF Options                                
+          ------------------------------------------------------------          
+
+     SCF Mode:                   RESTRICTED
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+     Basis Functions:                    68
+     Caching Threshold:                  -1
+     Integral Threshold:            4.0e-11
+
+     Energy Threshold:              1.0e-06
+     RMSD[D] Threshold:             1.0e-06
+     DIIS Threshold:                1.0e-06
+     Initial Guess:                   HCORE
+
+     Density Fitting:
+       Coulomb                         NONE
+       Exchange                        NONE
+
+          ------------------------------------------------------------          
+                                      SCF                                       
+          ------------------------------------------------------------          
+
+    Cycle      E/a.u.         abs(dE)/a.u.     rmsd(P)/a.u.       [F,P]/a.u.      time/min   Mode
+       1 -17342.6852732947              inf              inf         1.56e+00      0:00 
+       2 -17346.1704498165         3.49e+00         1.45e-02         9.26e-01      2:06:641    D-L
+       3 -17347.9960881515         1.83e+00         1.39e-02         5.09e-01      2:03:482    D-L
+       4 -17348.7435645506         7.47e-01         1.09e-02         2.70e-01      2:07:349    D-L
+       5 -17349.0244637865         2.81e-01         7.78e-03         1.39e-01      2:01:585    D-L
+       6 -17349.1137270612         8.93e-02         4.83e-03         7.44e-02      2:07:380    D-L
+       7 -17349.1375831397         2.39e-02         2.57e-03         3.92e-02      2:06:376    -DL
+       8 -17349.1461497783         8.57e-03         2.33e-03         6.96e-03      2:11:622    -DL
+       9 -17349.1464631709         3.13e-04         4.89e-04         5.87e-04      2:08:997    -DL
+      10 -17349.1464658985         2.73e-06         5.11e-05         3.08e-05      2:04:880    -D-
+      11 -17349.1464659028         4.33e-09         1.06e-06         3.21e-06      2:06:131    -D-
+      12 -17349.1464659044         1.58e-09         1.18e-07         2.49e-07      1:41:814    -D-
+    Converged after  12 cycles. Loop exited.
+
+
+          ------------------------------------------------------------          
+                               Final SCF Results                                
+          ------------------------------------------------------------          
+
+Energy components as stored:
+Nuclear Repulsion:                                                                     0.0000000000 
+One-Particle Energy (including ECPs):                                             -24814.2038787280 
+Two-Particle Energy (HF):                                                           7465.0574128235 
+PCM Solvation Energy:                                                                  0.0000000000 
+----------------------------------------------------------------------------------------------------
+Derived energy components:
+Total Energy (HF):                                                                -17349.1464659044 
+----------------------------------------------------------------------------------------------------
+    
+  Orbital Energies:
+ -------------------
+        #    Occ.      Hartree                eV   
+       ---  ------    ---------            --------
+        33   2.00   -4.7915237775     -130.3840042158
+        34   2.00   -2.3709628663      -64.5171863287
+        35   2.00   -2.3709628663      -64.5171863287
+        36   2.00   -2.3709628663      -64.5171863287
+        37   2.00   -2.3709628663      -64.5171863287
+        38   2.00   -2.3709628663      -64.5171863287
+        39   2.00   -1.5756522302      -42.8756814255
+        40   2.00   -0.3730160524      -10.1502838781
+        41   2.00   -0.3730160524      -10.1502838781
+        42   2.00   -0.3730160524      -10.1502838781
+        43   0.00   +0.0659835480       +1.7955038099
+        44   0.00   +0.4396449540      +11.9633486536
+        45   0.00   +0.4396449540      +11.9633486536
+        46   0.00   +0.4396449540      +11.9633486536
+        47   0.00   +0.4438538849      +12.0778794984
+        48   0.00   +0.4438538849      +12.0778794984
+        49   0.00   +0.4438538849      +12.0778794984
+        50   0.00   +0.4438538849      +12.0778794984
+        51   0.00   +0.4438538849      +12.0778794984
+        52   0.00   +1.0223913580      +27.8206861382
+    
+  Additional Analysis:
+ ----------------------
+
+   -<V>/<T> = 1.865 
+      <S*S> = 0.000 
+    S*(S+1) = 0.000 
+          C = 0.000 
+
+    Cycle      E/a.u.         abs(dE)/a.u.     rmsd(P)/a.u.       [F,P]/a.u.      time/min   Mode
+       1 -34687.4280186658              inf              inf         1.86e+00      0:00 
+       2 -34691.4046682492         3.98e+00         3.64e-02         1.70e+00     14:58:810    D-L
+       3 -34696.6094855327         5.20e+00         3.12e-02         1.13e+00     14:46:156    D-L
+       4 -34699.9080633912         3.30e+00         2.10e-02         5.60e-01     14:38:677    D-L
+       5 -34701.0971446344         1.19e+00         1.46e-02         2.34e-01     13:24:467    D-L
+       6 -34701.3213445573         2.24e-01         9.04e-03         8.29e-02     14:46:254    D-L
+       7 -34701.3537229191         3.24e-02         4.17e-03         3.49e-02     13:50:650    -DL
+       8 -34701.3603377356         6.61e-03         1.36e-03         4.97e-03     13:35:805    -DL
+       9 -34701.3606071573         2.69e-04         3.74e-04         1.63e-03     13:19:131    -DL
+      10 -34701.3606216569         1.45e-05         9.11e-05         2.74e-04     12:46:949    -DL
+      11 -34701.3606228116         1.15e-06         2.68e-05         1.49e-04     14:40:226    -DL
+      12 -34701.3606231237         3.12e-07         1.15e-05         5.35e-05     12:42:185    -DL
+      13 -34701.3606231587         3.50e-08         4.47e-06         1.32e-05     12:15:223    -D-
+      14 -34701.3606231596         9.02e-10         8.24e-07         3.22e-06     11:46:905    -D-
+      15 -34701.3606231601         4.51e-10         3.23e-07         1.54e-06     11:36:498    -D-
+      16 -34701.3606231613         1.19e-09         2.14e-07         9.65e-07     11:15:822    -D-
+      17 -34701.3606231649         3.65e-09         1.14e-07         4.97e-07     11:31:358    -D-
+    Converged after  17 cycles. Loop exited.
+
+
+          ------------------------------------------------------------          
+                               Final SCF Results                                
+          ------------------------------------------------------------          
+
+Energy components as stored:
+Nuclear Repulsion:                                                                  1866.9371987992 
+One-Particle Energy (including ECPs):                                             -53366.7441617862 
+Two-Particle Energy (HF):                                                          16798.4463398221 
+PCM Solvation Energy:                                                                  0.0000000000 
+----------------------------------------------------------------------------------------------------
+Derived energy components:
+Total Energy (HF):                                                                -34701.3606231649 
+----------------------------------------------------------------------------------------------------
+    
+  Orbital Energies:
+ -------------------
+        #    Occ.      Hartree                eV   
+       ---  ------    ---------            --------
+        75   2.00   -2.4104773307      -65.5924296830
+        76   2.00   -2.4104773307      -65.5924296830
+        77   2.00   -1.8063960663      -49.1545410730
+        78   2.00   -1.6881981397      -45.9382116398
+        79   2.00   -0.5755569997      -15.6617038256
+        80   2.00   -0.5755569992      -15.6617038116
+        81   2.00   -0.5515109806      -15.0073783114
+        82   2.00   -0.3233564695       -8.7989777867
+        83   2.00   -0.3233564694       -8.7989777832
+        84   2.00   -0.2096481317       -5.7048162887
+        85   0.00   -0.0314908229       -0.8569089462
+        86   0.00   +0.2038833585       +5.5479488161
+        87   0.00   +0.2038833587       +5.5479488220
+        88   0.00   +0.2664247357       +7.2497863875
+        89   0.00   +0.2664247357       +7.2497863875
+        90   0.00   +0.2802948109       +7.6272103632
+        91   0.00   +0.3250122732       +8.8440344999
+        92   0.00   +0.4111954018      +11.1891969019
+        93   0.00   +0.4111954019      +11.1891969030
+        94   0.00   +0.5125469152      +13.9471120787
+    
+  Additional Analysis:
+ ----------------------
+
+   -<V>/<T> = 1.865 
+      <S*S> = 0.000 
+    S*(S+1) = 0.000 
+          C = 0.000 
+
+    Time taken for task 1: 288:27.78585397400093 min.
+    
+
+o------------------------------------------------------------------------------o
+|                                   Cleanup                                    |
+o------------------------------------------------------------------------------o
+
+    All clean and shiny
+
+  Final Timings:
+ ----------------
+              Active System -         HF Pot.    287:41.260 min
+              Active System -     1e-Int Pot.      0:01.990 min
+              Active System -   Coul./XC Pot.    287:46.241 min
+               Tech. -           DIIS/Damping      0:10.462 min
+               Tech. -    Fock Matrix Solving      0:08.032 min
+               Tech. - Libint Initializations      0:02.836 min
+
+  Program ended:
+ ----------------
+    Time:  2026-01-24 02:40:36
+    On:    node5389.dodrio.os
+    Time taken for the entire run: 288:28.31040010099969 min.
+    
+
+
+End time: Sat Jan 24 02:40:38 AM CET 2026
