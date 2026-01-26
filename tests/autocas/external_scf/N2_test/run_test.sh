@@ -4,6 +4,8 @@
 
 set -e  # Exit on error
 
+source ~/autoCAS4HE/setup_autocas_env.sh
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
@@ -64,7 +66,7 @@ N2_0_ORB="$(pwd)/n2_0.ScfOrb"
 N2_1_ORB="$(pwd)/n2_1.ScfOrb"
 
 # Run autoCAS consistent active space protocol with external orbitals
-scine_autocas_consistent_active_space -e -o "$N2_0_ORB,$N2_1_ORB" -b ANO-S-MB n2_0.xyz n2_1.xyz
+scine_autocas_consistent_active_space -e -o "$N2_0_ORB,$N2_1_ORB" -b ANO-RCC-VDZP n2_0.xyz n2_1.xyz
 
 echo ""
 echo "=============================================="

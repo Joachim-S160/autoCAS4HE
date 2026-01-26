@@ -1,0 +1,21 @@
+autocas_indices:
+- 0
+- 1
+base_load_path: home/joaschee/autoCAS4HE/tests/autocas/external_scf/N2_test
+basis_set: ANO-RCC-VDZP
+cas_method: CASPT2
+exclude_core: true
+external_orbital_files:
+- /home/joaschee/autoCAS4HE/tests/autocas/external_scf/N2_test/n2_0.ScfOrb
+- /home/joaschee/autoCAS4HE/tests/autocas/external_scf/N2_test/n2_1.ScfOrb
+large_active_space: true
+load_orbitals: false
+project_name: autocas_project
+system_names:
+- system_0
+- system_1
+unmappable: false
+use_external_orbitals: true
+xyz_files:
+- /home/joaschee/autoCAS4HE/tests/autocas/external_scf/N2_test/n2_0.xyz
+- /home/joaschee/autoCAS4HE/tests/autocas/external_scf/N2_test/n2_1.xyz

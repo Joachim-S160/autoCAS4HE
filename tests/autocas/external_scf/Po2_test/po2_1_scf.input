@@ -1,0 +1,15 @@
+&GATEWAY
+  Coord = po2_1.xyz
+  Basis = ANO-RCC-VDZP
+  Group = NoSym
+
+&SEWARD
+  Cholesky
+* Douglas-Kroll-Hess 2nd order relativistic Hamiltonian
+* R02O = DKH2 with Optimum parametrization
+* Essential for heavy elements like Po (Z=84)
+  Relativistic = R02O
+
+&SCF
+  Charge = 0
+  Spin = 1

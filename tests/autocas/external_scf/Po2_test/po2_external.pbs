@@ -1,0 +1,96 @@
+#!/bin/bash
+# Po2 autoCAS Test with External DKH2 Orbitals
+# Tests the external orbital workflow for heavy elements
+#
+# This job:
+# 1. Runs OpenMolcas SCF with DKH2 for both geometries
+# 2. Runs autoCAS with -e flag to load the DKH2 orbitals
+#
+# Submit with: qsub po2_external.pbs
+
+#PBS -N po2_external
+#PBS -A 2025_127
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=24:00:00
+#PBS -l mem=64gb
+
+# ==============================================================================
+# Setup environment
+# ==============================================================================
+PROJECT="starting_2025_097"
+INSTALL_DIR="/dodrio/scratch/projects/${PROJECT}/autoCAS4HE_built/autoCAS4HE"
+source ${INSTALL_DIR}/setup_hortense.sh
+
+cd $PBS_O_WORKDIR
+
+echo "=============================================="
+echo "  Po2 autoCAS Test with External DKH2 Orbitals"
+echo "=============================================="
+echo ""
+echo "Working directory: $(pwd)"
+echo "Date: $(date)"
+echo ""
+
+# ==============================================================================
+# Step 1: Generate OpenMolcas SCF orbitals with DKH2
+# ==============================================================================
+echo "Step 1: Running OpenMolcas SCF with DKH2 for both geometries..."
+echo ""
+
+# Create work directories
+mkdir -p po2_0_workdir po2_1_workdir
+
+# Run OpenMolcas for geometry 0 (2.0 Angstrom)
+echo "Running OpenMolcas SCF for po2_0 (2.0 Å)..."
+cd po2_0_workdir
+cp ../po2_0.xyz .
+cp ../po2_0_scf.input .
+pymolcas po2_0_scf.input > po2_0_scf.log 2>&1
+if [ -f "po2_0_scf.ScfOrb" ]; then
+    cp po2_0_scf.ScfOrb ../po2_0.ScfOrb
+else
+    echo "ERROR: Could not find po2_0 ScfOrb file"
+    exit 1
+fi
+cd ..
+
+# Run OpenMolcas for geometry 1 (4.0 Angstrom)
+echo "Running OpenMolcas SCF for po2_1 (4.0 Å)..."
+cd po2_1_workdir
+cp ../po2_1.xyz .
+cp ../po2_1_scf.input .
+pymolcas po2_1_scf.input > po2_1_scf.log 2>&1
+if [ -f "po2_1_scf.ScfOrb" ]; then
+    cp po2_1_scf.ScfOrb ../po2_1.ScfOrb
+else
+    echo "ERROR: Could not find po2_1 ScfOrb file"
+    exit 1
+fi
+cd ..
+
+echo ""
+echo "OpenMolcas SCF completed. Orbital files generated:"
+ls -la *.ScfOrb
+echo ""
+
+# ==============================================================================
+# Step 2: Run autoCAS with external orbitals
+# ==============================================================================
+echo "Step 2: Running autoCAS with external DKH2 orbitals (-e flag)..."
+echo ""
+
+# Get absolute paths
+PO2_0_ORB="$(pwd)/po2_0.ScfOrb"
+PO2_1_ORB="$(pwd)/po2_1.ScfOrb"
+
+# Run autoCAS consistent active space protocol with external orbitals
+# Using DMRGSCF for the final calculation (more suitable for heavy elements)
+scine_autocas_consistent_active_space -e -o "$PO2_0_ORB,$PO2_1_ORB" -b ANO-RCC-VDZP -m DMRGSCF po2_0.xyz po2_1.xyz
+
+echo ""
+echo "=============================================="
+echo "  Test completed!"
+echo "=============================================="
+echo ""
+echo "Date: $(date)"
+echo "Check the output files for results."
