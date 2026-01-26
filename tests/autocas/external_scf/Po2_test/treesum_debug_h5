@@ -1,5 +1,5 @@
 # Tree Summary
-Generated: Mon Jan 26 02:51:21 PM CET 2026
+Generated: Mon Jan 26 03:23:24 PM CET 2026
 Host: login58.dodrio.os
 
 ========================================
@@ -37,16 +37,10 @@ Host: login58.dodrio.os
 │   │   ├── [ 410K]  system_1.ScfOrb
 │   │   ├── [   14]  system_1.status
 │   │   └── [ 2.4K]  xmldump
-│   ├── [ 311K]  initialsystem_0
-│   │   ├── [ 152K]  system_0.dmat.res.h5
-│   │   ├── [   49]  system_0.energies.res
-│   │   ├── [ 152K]  system_0.orbs.res.h5
+│   ├── [ 6.8K]  initialsystem_0
 │   │   ├── [ 2.7K]  system_0.settings
 │   │   └── [  129]  system_0.xyz
-│   ├── [ 311K]  initialsystem_1
-│   │   ├── [ 152K]  system_1.dmat.res.h5
-│   │   ├── [   49]  system_1.energies.res
-│   │   ├── [ 152K]  system_1.orbs.res.h5
+│   ├── [ 6.8K]  initialsystem_1
 │   │   ├── [ 2.7K]  system_1.settings
 │   │   └── [  129]  system_1.xyz
 │   └── [ 217M]  scratch
@@ -235,32 +229,32 @@ Host: login58.dodrio.os
 │           ├── [   34]  stdin
 │           └── [ 1.2K]  xmldump
 ├── [   95]  po2_1.xyz
-├── [ 1.3K]  po2_external.e13117016
-├── [ 7.4K]  po2_external.o13117016
-├── [ 3.4K]  po2_external.pbs
+├── [  919]  po2_external.e13117266
+├── [ 6.1K]  po2_external.o13117266
+├── [ 3.5K]  po2_external.pbs
 ├── [ 2.3K]  README.md
-└── [  205]  tree_test_po2_newh5
+└── [  205]  treesum_debug_h5
 
-  459M used in 13 directories, 218 files
+  458M used in 13 directories, 212 files
 ```
 
 ### File Sizes
 ```
-512	./tree_test_po2_newh5
+512	./treesum_debug_h5
 4.0K	./consistent_cas.configuration.yaml
 4.0K	./po2_0_scf.input
 4.0K	./po2_0.xyz
 4.0K	./po2_1_scf.input
 4.0K	./po2_1.xyz
-4.0K	./po2_external.e13117016
+4.0K	./po2_external.e13117266
 4.0K	./po2_external.pbs
 4.0K	./README.md
-8.0K	./po2_external.o13117016
+8.0K	./po2_external.o13117266
 1.4M	./po2_0.scf.h5
 1.4M	./po2_1.scf.h5
 113M	./po2_1_workdir
 117M	./po2_0_workdir
-229M	./autocas_project
+228M	./autocas_project
 ```
 
 ### Key Output Files
@@ -375,16 +369,16 @@ Host: login58.dodrio.os
  ###                                                                         ###
  ###############################################################################
  ###############################################################################
---- Stop Module: scf at Mon Jan 26 14:44:36 2026 /rc=_RC_ALL_IS_WELL_ ---
+--- Stop Module: scf at Mon Jan 26 15:12:10 2026 /rc=_RC_ALL_IS_WELL_ ---
 *** files: system_0.LprOrb system_0.LoProp.molden system_0.scf.molden system_0.ScfOrb system_0.scf.h5 xmldump
     saved to directory /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/autocas_project/initial
---- Module scf spent 11 seconds ---
+--- Module scf spent 12 seconds ---
 
 .##################.
 .# Happy landing! #.
 .##################.
 
-    Timing: Wall=145.00 User=139.38 System=3.15
+    Timing: Wall=189.48 User=173.99 System=3.78
 ```
 
 #### ./autocas_project/initial/system_1.log
@@ -429,7 +423,7 @@ Host: login58.dodrio.os
  ###                                                                         ###
  ###############################################################################
  ###############################################################################
---- Stop Module: scf at Mon Jan 26 14:46:59 2026 /rc=_RC_ALL_IS_WELL_ ---
+--- Stop Module: scf at Mon Jan 26 15:14:51 2026 /rc=_RC_ALL_IS_WELL_ ---
 *** files: system_1.LprOrb system_1.LoProp.molden system_1.scf.molden system_1.ScfOrb system_1.scf.h5 xmldump
     saved to directory /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/autocas_project/initial
 --- Module scf spent 9 seconds ---
@@ -438,7 +432,7 @@ Host: login58.dodrio.os
 .# Happy landing! #.
 .##################.
 
-    Timing: Wall=125.47 User=119.61 System=2.92
+    Timing: Wall=155.36 User=147.17 System=3.46
 ```
 
 #### ./po2_0_workdir/po2_0_scf.log

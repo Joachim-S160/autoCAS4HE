@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas_env/bin/scine_autocas_consistent_active_space", line 7, in <module>
+    sys.exit(run_from_command_line())
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/protocol.py", line 65, in run_from_command_line
+    run_consistent_active_space_protocol(configuration)
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/protocol.py", line 134, in run_consistent_active_space_protocol
+    orb_ctrl = sys.getActiveOrbitalController(spy.SCF_MODES.RESTRICTED)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'qcserenity.serenipy.System' object has no attribute 'getActiveOrbitalController'

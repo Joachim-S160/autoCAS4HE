@@ -10,7 +10,7 @@ autoCAS4HE environment loaded (Hortense)
 ==============================================
 
 Working directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test
-Date: Mon Jan 26 02:36:46 PM CET 2026
+Date: Mon Jan 26 03:08:33 PM CET 2026
 
 Step 1: Running OpenMolcas SCF with DKH2 for both geometries...
 
@@ -20,8 +20,8 @@ Running OpenMolcas SCF for po2_1 (4.0 Å)...
   Copied po2_1.scf.h5 (DKH2 orbitals with correct eigenvalues)
 
 OpenMolcas SCF completed. Orbital files generated:
--rw-r--r-- 1 vsc45694 gpr_compute_starting_2025_097 1421154 Jan 26 14:39 po2_0.scf.h5
--rw-r--r-- 1 vsc45694 gpr_compute_starting_2025_097 1425521 Jan 26 14:41 po2_1.scf.h5
+-rw-r--r-- 1 vsc45694 gpr_compute_starting_2025_097 1421154 Jan 26 15:08 po2_0.scf.h5
+-rw-r--r-- 1 vsc45694 gpr_compute_starting_2025_097 1425521 Jan 26 15:08 po2_1.scf.h5
 
 Step 2: Running autoCAS with external DKH2 orbitals (-e flag)...
 
@@ -54,40 +54,6 @@ Step 2: Running autoCAS with external DKH2 orbitals (-e flag)...
         1 PO   -2.0000000000   +0.0000000000   +0.0000000000
         2 PO   +2.0000000000   +0.0000000000   +0.0000000000
 
-
-
-          ------------------------------------------------------------          
-                            Running IBO Localization                            
-          ------------------------------------------------------------          
-
-  Note: Valence and core orbitals are localized separately.
-        Please ensure that the initial orbitals were canonical orbitals!
-
-  Number of core-like orbitals: 62    
-  Core-like orbitals will be localized separately.
-  Running orbital localization for valence orbitals.
-  Core orbitals will be localized separately.
-  IBO localization is used. Ignoring any specifications for Rydberg orbitals and referencing
-  the IBO minimal basis set instead.
-
-o------------------------------------------------------------------------------o
-|                               Serenity Crashed                               |
-o------------------------------------------------------------------------------o
-
-
-  Error:
- --------
-    A core orbital is assigned to be virtual. Something is wrong here!
-
-  Final Timings:
- ----------------
-
-  Program Crashed:
- ------------------
-    Time:  2026-01-26 14:47:11
-    On:    node5711.dodrio.os
-Small error: you want to print a timing of something of which there is no starting time stored.
-Maybe you already printed its timing (which stops the timer)? The label is the entire run.
 
 Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/autocas_project
 Final energy evaluation method: DMRGSCF
@@ -129,10 +95,11 @@ Loading external orbitals (skipping Serenity SCF)...
 External orbital files: ['/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/po2_0.scf.h5', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/po2_1.scf.h5']
   Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/po2_0.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/autocas_project/initial/system_0.scf.h5
   Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/po2_1.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/autocas_project/initial/system_1.scf.h5
+  Eigenvalues BEFORE loading external orbitals:
 
 ==============================================
   Test completed!
 ==============================================
 
-Date: Mon Jan 26 02:47:14 PM CET 2026
+Date: Mon Jan 26 03:15:01 PM CET 2026
 Check the output files for results.

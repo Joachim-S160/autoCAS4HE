@@ -49,7 +49,7 @@ cp ../po2_0.xyz .
 cp ../po2_0_scf.input .
 export MOLCAS_WORKDIR=$(pwd)/scratch_0
 mkdir -p $MOLCAS_WORKDIR
-pymolcas po2_0_scf.input > po2_0_scf.log 2>&1
+# pymolcas po2_0_scf.input > po2_0_scf.log 2>&1
 # Copy the .scf.h5 file (HDF5 format with MO_ENERGIES) - Serenity reads this, not .ScfOrb
 if [ -f "po2_0_scf/po2_0_scf.scf.h5" ]; then
     cp po2_0_scf/po2_0_scf.scf.h5 ../po2_0.scf.h5
@@ -67,7 +67,7 @@ cp ../po2_1.xyz .
 cp ../po2_1_scf.input .
 export MOLCAS_WORKDIR=$(pwd)/scratch_1
 mkdir -p $MOLCAS_WORKDIR
-pymolcas po2_1_scf.input > po2_1_scf.log 2>&1
+# pymolcas po2_1_scf.input > po2_1_scf.log 2>&1
 # Copy the .scf.h5 file (HDF5 format with MO_ENERGIES) - Serenity reads this, not .ScfOrb
 if [ -f "po2_1_scf/po2_1_scf.scf.h5" ]; then
     cp po2_1_scf/po2_1_scf.scf.h5 ../po2_1.scf.h5
