@@ -10,16 +10,18 @@ autoCAS4HE environment loaded (Hortense)
 ==============================================
 
 Working directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test
-Date: Mon Jan 26 01:44:18 PM CET 2026
+Date: Mon Jan 26 02:36:46 PM CET 2026
 
 Step 1: Running OpenMolcas SCF with DKH2 for both geometries...
 
 Running OpenMolcas SCF for po2_0 (2.0 Å)...
+  Copied po2_0.scf.h5 (DKH2 orbitals with correct eigenvalues)
 Running OpenMolcas SCF for po2_1 (4.0 Å)...
+  Copied po2_1.scf.h5 (DKH2 orbitals with correct eigenvalues)
 
 OpenMolcas SCF completed. Orbital files generated:
--rw-r--r-- 1 vsc45694 gpr_compute_starting_2025_097 419656 Jan 26 13:44 po2_0.ScfOrb
--rw-r--r-- 1 vsc45694 gpr_compute_starting_2025_097 419654 Jan 26 13:46 po2_1.ScfOrb
+-rw-r--r-- 1 vsc45694 gpr_compute_starting_2025_097 1421154 Jan 26 14:39 po2_0.scf.h5
+-rw-r--r-- 1 vsc45694 gpr_compute_starting_2025_097 1425521 Jan 26 14:41 po2_1.scf.h5
 
 Step 2: Running autoCAS with external DKH2 orbitals (-e flag)...
 
@@ -82,8 +84,8 @@ o------------------------------------------------------------------------------o
 
   Program Crashed:
  ------------------
-    Time:  2026-01-26 13:51:59
-    On:    node5706.dodrio.os
+    Time:  2026-01-26 14:47:11
+    On:    node5711.dodrio.os
 Small error: you want to print a timing of something of which there is no starting time stored.
 Maybe you already printed its timing (which stops the timer)? The label is the entire run.
 
@@ -124,13 +126,13 @@ OMP_NUM_THREADS:
 QCMaquis_CPU:    
 Initial orbitals finished.
 Loading external orbitals (skipping Serenity SCF)...
-External orbital files: ['/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/po2_0.ScfOrb', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/po2_1.ScfOrb']
-  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/po2_0.ScfOrb -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/autocas_project/initial/system_0.ScfOrb
-  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/po2_1.ScfOrb -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/autocas_project/initial/system_1.ScfOrb
+External orbital files: ['/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/po2_0.scf.h5', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/po2_1.scf.h5']
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/po2_0.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/autocas_project/initial/system_0.scf.h5
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/po2_1.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/autocas_project/initial/system_1.scf.h5
 
 ==============================================
   Test completed!
 ==============================================
 
-Date: Mon Jan 26 01:52:01 PM CET 2026
+Date: Mon Jan 26 02:47:14 PM CET 2026
 Check the output files for results.

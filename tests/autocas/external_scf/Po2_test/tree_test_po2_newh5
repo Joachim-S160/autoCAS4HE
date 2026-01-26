@@ -1,5 +1,5 @@
 # Tree Summary
-Generated: Mon Jan 26 02:01:48 PM CET 2026
+Generated: Mon Jan 26 02:51:21 PM CET 2026
 Host: login58.dodrio.os
 
 ========================================
@@ -10,7 +10,7 @@ Host: login58.dodrio.os
 ```
 .
 ├── [ 228M]  autocas_project
-│   ├── [  10M]  initial
+│   ├── [  11M]  initial
 │   │   ├── [    0]  molcas.out
 │   │   ├── [    0]  system_0.err
 │   │   ├── [ 410K]  system_0.GssOrb
@@ -20,7 +20,7 @@ Host: login58.dodrio.os
 │   │   ├── [ 1.2M]  system_0.log
 │   │   ├── [ 469K]  system_0.LoProp.molden
 │   │   ├── [ 410K]  system_0.LprOrb
-│   │   ├── [ 1.1M]  system_0.scf.h5
+│   │   ├── [ 1.4M]  system_0.scf.h5
 │   │   ├── [ 469K]  system_0.scf.molden
 │   │   ├── [ 410K]  system_0.ScfOrb
 │   │   ├── [   14]  system_0.status
@@ -32,7 +32,7 @@ Host: login58.dodrio.os
 │   │   ├── [ 1.2M]  system_1.log
 │   │   ├── [ 469K]  system_1.LoProp.molden
 │   │   ├── [ 410K]  system_1.LprOrb
-│   │   ├── [ 1.1M]  system_1.scf.h5
+│   │   ├── [ 1.4M]  system_1.scf.h5
 │   │   ├── [ 469K]  system_1.scf.molden
 │   │   ├── [ 410K]  system_1.ScfOrb
 │   │   ├── [   14]  system_1.status
@@ -53,7 +53,7 @@ Host: login58.dodrio.os
 │       ├── [  246]  coord.inp
 │       ├── [  203]  molcas.control
 │       ├── [ 1.3K]  molcas.env
-│       ├── [    6]  pid
+│       ├── [    8]  pid
 │       ├── [    2]  rc.global
 │       ├── [    2]  rc.local
 │       ├── [   43]  stdin
@@ -119,9 +119,9 @@ Host: login58.dodrio.os
 │       ├── [ 292K]  system_1.TWOHAM
 │       └── [ 2.4K]  xmldump
 ├── [  885]  consistent_cas.configuration.yaml
+├── [ 1.4M]  po2_0.scf.h5
 ├── [  285]  po2_0_scf.input
-├── [ 410K]  po2_0.ScfOrb
-├── [ 5.4M]  po2_0_workdir
+├── [ 116M]  po2_0_workdir
 │   ├── [ 4.2M]  po2_0_scf
 │   │   ├── [ 410K]  po2_0_scf.GssOrb
 │   │   ├── [ 259K]  po2_0_scf.guessorb.h5
@@ -136,10 +136,49 @@ Host: login58.dodrio.os
 │   ├── [ 1.2M]  po2_0_scf.log
 │   ├── [   14]  po2_0_scf.status
 │   ├── [   95]  po2_0.xyz
-│   └── [ 4.0K]  scratch_0
+│   └── [ 111M]  scratch_0
+│       └── [ 111M]  po2_0_scf.3059886
+│           ├── [  246]  coord.inp
+│           ├── [  203]  molcas.control
+│           ├── [ 1.3K]  molcas.env
+│           ├── [    8]  pid
+│           ├── [  71K]  po2_0_scf.ChDiag
+│           ├── [  440]  po2_0_scf.ChMap
+│           ├── [ 2.2M]  po2_0_scf.ChRed
+│           ├── [  36K]  po2_0_scf.ChRst
+│           ├── [ 6.8M]  po2_0_scf.ChSel1
+│           ├── [  58M]  po2_0_scf.ChVec1
+│           ├── [ 365K]  po2_0_scf.DNSMAT
+│           ├── [ 365K]  po2_0_scf.DVXCDR
+│           ├── [   69]  po2_0_scf.Gateway.Input
+│           ├── [    0]  po2_0_scf.GRADIENT
+│           ├── [ 410K]  po2_0_scf.GssOrb
+│           ├── [ 259K]  po2_0_scf.guessorb.h5
+│           ├── [ 469K]  po2_0_scf.guessorb.molden
+│           ├── [ 469K]  po2_0_scf.LoProp.molden
+│           ├── [ 410K]  po2_0_scf.LprOrb
+│           ├── [   40]  po2_0_scf.NqGrid
+│           ├── [ 3.7M]  po2_0_scf.OneInt
+│           ├── [  34M]  po2_0_scf.OneRel
+│           ├── [ 1.1M]  po2_0_scf.RunFile
+│           ├── [ 1.4M]  po2_0_scf.scf.h5
+│           ├── [   34]  po2_0_scf.Scf.Input
+│           ├── [ 469K]  po2_0_scf.scf.molden
+│           ├── [ 410K]  po2_0_scf.ScfOrb
+│           ├── [   48]  po2_0_scf.Seward.Input
+│           ├── [    0]  po2_0_scf.SODELTA
+│           ├── [    0]  po2_0_scf.SODGRAD
+│           ├── [    0]  po2_0_scf.SOXVEC
+│           ├── [    0]  po2_0_scf.SOYVEC
+│           ├── [ 6.1K]  po2_0_scf.SymInfo
+│           ├── [ 365K]  po2_0_scf.TWOHAM
+│           ├── [    2]  rc.global
+│           ├── [    2]  rc.local
+│           ├── [   34]  stdin
+│           └── [ 1.2K]  xmldump
 ├── [   95]  po2_0.xyz
+├── [ 1.4M]  po2_1.scf.h5
 ├── [  285]  po2_1_scf.input
-├── [ 410K]  po2_1.ScfOrb
 ├── [ 112M]  po2_1_workdir
 │   ├── [ 4.2M]  po2_1_scf
 │   │   ├── [ 410K]  po2_1_scf.GssOrb
@@ -156,11 +195,11 @@ Host: login58.dodrio.os
 │   ├── [   14]  po2_1_scf.status
 │   ├── [   95]  po2_1.xyz
 │   └── [ 107M]  scratch_1
-│       └── [ 107M]  po2_1_scf.15357
+│       └── [ 107M]  po2_1_scf.3060353
 │           ├── [  246]  coord.inp
 │           ├── [  203]  molcas.control
 │           ├── [ 1.3K]  molcas.env
-│           ├── [    6]  pid
+│           ├── [    8]  pid
 │           ├── [  68K]  po2_1_scf.ChDiag
 │           ├── [  440]  po2_1_scf.ChMap
 │           ├── [ 2.0M]  po2_1_scf.ChRed
@@ -196,31 +235,31 @@ Host: login58.dodrio.os
 │           ├── [   34]  stdin
 │           └── [ 1.2K]  xmldump
 ├── [   95]  po2_1.xyz
-├── [ 1.3K]  po2_external.e13116715
-├── [ 7.3K]  po2_external.o13116715
-├── [ 3.1K]  po2_external.pbs
-├── [ 1.8K]  README.md
-└── [  205]  tree_test_po2
+├── [ 1.3K]  po2_external.e13117016
+├── [ 7.4K]  po2_external.o13117016
+├── [ 3.4K]  po2_external.pbs
+├── [ 2.3K]  README.md
+└── [  205]  tree_test_po2_newh5
 
-  346M used in 12 directories, 180 files
+  459M used in 13 directories, 218 files
 ```
 
 ### File Sizes
 ```
-512	./tree_test_po2
+512	./tree_test_po2_newh5
 4.0K	./consistent_cas.configuration.yaml
 4.0K	./po2_0_scf.input
 4.0K	./po2_0.xyz
 4.0K	./po2_1_scf.input
 4.0K	./po2_1.xyz
-4.0K	./po2_external.e13116715
+4.0K	./po2_external.e13117016
 4.0K	./po2_external.pbs
 4.0K	./README.md
-8.0K	./po2_external.o13116715
-412K	./po2_0.ScfOrb
-412K	./po2_1.ScfOrb
-5.5M	./po2_0_workdir
+8.0K	./po2_external.o13117016
+1.4M	./po2_0.scf.h5
+1.4M	./po2_1.scf.h5
 113M	./po2_1_workdir
+117M	./po2_0_workdir
 229M	./autocas_project
 ```
 
@@ -282,16 +321,16 @@ Host: login58.dodrio.os
  ###                                                                         ###
  ###############################################################################
  ###############################################################################
---- Stop Module: scf at Mon Jan 26 13:46:47 2026 /rc=_RC_ALL_IS_WELL_ ---
+--- Stop Module: scf at Mon Jan 26 14:41:55 2026 /rc=_RC_ALL_IS_WELL_ ---
 *** files: po2_1_scf.LprOrb po2_1_scf.LoProp.molden po2_1_scf.scf.molden po2_1_scf.ScfOrb po2_1_scf.scf.h5 xmldump
     saved to directory /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/po2_1_workdir/po2_1_scf
---- Module scf spent 10 seconds ---
+--- Module scf spent 9 seconds ---
 
 .##################.
 .# Happy landing! #.
 .##################.
 
-    Timing: Wall=143.04 User=129.72 System=3.18
+    Timing: Wall=140.97 User=129.49 System=3.07
 ```
 
 #### ./autocas_project/initial/system_0.log
@@ -336,7 +375,7 @@ Host: login58.dodrio.os
  ###                                                                         ###
  ###############################################################################
  ###############################################################################
---- Stop Module: scf at Mon Jan 26 13:49:39 2026 /rc=_RC_ALL_IS_WELL_ ---
+--- Stop Module: scf at Mon Jan 26 14:44:36 2026 /rc=_RC_ALL_IS_WELL_ ---
 *** files: system_0.LprOrb system_0.LoProp.molden system_0.scf.molden system_0.ScfOrb system_0.scf.h5 xmldump
     saved to directory /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/autocas_project/initial
 --- Module scf spent 11 seconds ---
@@ -345,7 +384,7 @@ Host: login58.dodrio.os
 .# Happy landing! #.
 .##################.
 
-    Timing: Wall=145.62 User=139.88 System=3.08
+    Timing: Wall=145.00 User=139.38 System=3.15
 ```
 
 #### ./autocas_project/initial/system_1.log
@@ -390,16 +429,16 @@ Host: login58.dodrio.os
  ###                                                                         ###
  ###############################################################################
  ###############################################################################
---- Stop Module: scf at Mon Jan 26 13:51:49 2026 /rc=_RC_ALL_IS_WELL_ ---
+--- Stop Module: scf at Mon Jan 26 14:46:59 2026 /rc=_RC_ALL_IS_WELL_ ---
 *** files: system_1.LprOrb system_1.LoProp.molden system_1.scf.molden system_1.ScfOrb system_1.scf.h5 xmldump
     saved to directory /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/autocas_project/initial
---- Module scf spent 10 seconds ---
+--- Module scf spent 9 seconds ---
 
 .##################.
 .# Happy landing! #.
 .##################.
 
-    Timing: Wall=125.62 User=119.97 System=2.90
+    Timing: Wall=125.47 User=119.61 System=2.92
 ```
 
 #### ./po2_0_workdir/po2_0_scf.log
@@ -444,7 +483,7 @@ Host: login58.dodrio.os
  ###                                                                         ###
  ###############################################################################
  ###############################################################################
---- Stop Module: scf at Mon Jan 26 13:07:43 2026 /rc=_RC_ALL_IS_WELL_ ---
+--- Stop Module: scf at Mon Jan 26 14:39:34 2026 /rc=_RC_ALL_IS_WELL_ ---
 *** files: po2_0_scf.LprOrb po2_0_scf.LoProp.molden po2_0_scf.scf.molden po2_0_scf.ScfOrb po2_0_scf.scf.h5 xmldump
     saved to directory /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_test/po2_0_workdir/po2_0_scf
 --- Module scf spent 11 seconds ---
@@ -453,6 +492,6 @@ Host: login58.dodrio.os
 .# Happy landing! #.
 .##################.
 
-    Timing: Wall=167.79 User=149.66 System=3.18
+    Timing: Wall=161.81 User=149.11 System=3.28
 ```
 

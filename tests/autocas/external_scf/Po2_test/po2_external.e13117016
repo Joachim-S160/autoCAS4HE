@@ -4,7 +4,7 @@ Traceback (most recent call last):
              ^^^^^^^^^^^^^^^^^^^^^^^
   File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/protocol.py", line 65, in run_from_command_line
     run_consistent_active_space_protocol(configuration)
-  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/protocol.py", line 124, in run_consistent_active_space_protocol
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/protocol.py", line 135, in run_consistent_active_space_protocol
     orbital_map, unmappable_orbitals = serenity.get_orbital_map()
                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/interfaces/serenity/serenity.py", line 207, in get_orbital_map

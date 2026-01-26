@@ -1,6 +1,8 @@
 # autoCAS output files (large generated directories)
 **/autocas_project/
 
+*autocas_env*
+
 # OpenMolcas/Molcas generated files
 *scratch*
 *.ScfOrb
