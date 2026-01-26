@@ -1,6 +1,7 @@
 # autoCAS4HE - autoCAS for Heavy Elements
 
 This repository provides patched versions of [Serenity](https://github.com/qcserenity/serenity) and [autoCAS](https://github.com/qcscine/autocas) that enable using custom basis sets in Turbomole format (such as ANO-RCC-VQZP) for heavy element calculations.
+**Disclaimer: autoCAS does not work yet for heavy elements due to the lack of relativistic effects. A patch is being created to solve this**
 
 ## Problem
 
