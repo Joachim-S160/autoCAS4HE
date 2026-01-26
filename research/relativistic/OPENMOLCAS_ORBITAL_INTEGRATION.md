@@ -109,6 +109,16 @@ parser.add_option("-s", "--load_orbitals", dest="load_orbitals", action="store_t
 ```
 
 This generates a `.ScfOrb` file with DKH2-relativistic orbitals.
+The relativisitc keyword seems wrong and not required, see: https://molcas.gitlab.io/OpenMolcas/sphinx/users.guide/programs/seward.html#using-the-douglas-kroll-hess-hamiltonian
+Note, a file like this might already exist.
+I should try to be consistent with my previous work:
+```
+&SEWARD
+cholesky
+End of input
+
+&RASSCF
+```
 
 ### Step 2: Modify autoCAS Configuration
 
@@ -152,6 +162,8 @@ else:
 | Spherical/Cartesian | Usually spherical | Check settings |
 | Basis function ordering | MOLCAS convention | Must match for orbital import |
 
+Note: The main difference will be the format, serenity uses turbomole, molcas has it's own format I believe. If not or if this causes issues we can always check the molcas build.
+
 ### Step 5: Validate Orbital Import
 
 After loading OpenMolcas orbitals into Serenity:
@@ -170,6 +182,7 @@ OpenMolcas and Serenity may use different orderings for:
 - Contracted functions within a shell
 
 **Solution**: Serenity's MOLCAS reader should handle this, but needs verification.
+Note: for this we might need to check the hdf5's.
 
 ### 2. Core Orbital Flags
 
@@ -181,7 +194,7 @@ read.settings.resetCoreOrbitals = False  # Keep existing flags
 read.settings.resetCoreOrbitals = True   # Recalculate based on energy cutoff
 ```
 
-With DKH2 orbitals, the energy cutoff should work correctly.
+With DKH2 orbitals, the energy cutoff should work correctly. Note: yes, but we might need to change the cutoff a bit. However for heavy element + small element molecules, this might become more complicated, so for now let's not change the cutoff's value.
 
 ### 3. Normalization Conventions
 
@@ -208,11 +221,13 @@ MOLCAS orbital files may use different normalization conventions. Verify:
 3. Run IBO localization
 4. Verify: No crash, reasonable core-valence split
 
+Note: I predict that one orbital will be misidentified as core valence.
+
 **Expected**: IBO completes without "core orbital is virtual" error.
 
 ### Test 3: Multi-Geometry Consistency
 
-1. Generate OpenMolcas DKH2 orbitals for Po2 at 2.8, 3.0, 3.2 Å
+1. Generate OpenMolcas DKH2 orbitals for Po2 at 2.9, 3.0, 3.1 Å
 2. Import all to Serenity
 3. Run IBO and DOS mapping
 4. Verify: Orbital mapping succeeds across geometries
@@ -241,6 +256,7 @@ A minimal approach:
 3. Continue with OpenMolcas DMRG-CI and autoCAS
 
 This avoids modifying the autoCAS codebase but requires manual orbital file management.
+Note: we can definitely alter the autoCAS code base but we should create it as a patch that adds functionality without breaking previous functionality.
 
 ---
 
