@@ -11,7 +11,7 @@
 #PBS -N po2_external
 #PBS -A 2025_127
 #PBS -l nodes=1:ppn=16
-#PBS -l walltime=24:00:00
+#PBS -l walltime=01:00:00
 #PBS -l mem=64gb
 
 # ==============================================================================
@@ -20,6 +20,8 @@
 PROJECT="starting_2025_097"
 INSTALL_DIR="/dodrio/scratch/projects/${PROJECT}/autoCAS4HE_built/autoCAS4HE"
 source ${INSTALL_DIR}/setup_hortense.sh
+export MOLCAS_WORKDIR=$(pwd)
+
 
 cd $PBS_O_WORKDIR
 
@@ -40,28 +42,32 @@ echo ""
 # Create work directories
 mkdir -p po2_0_workdir po2_1_workdir
 
-# Run OpenMolcas for geometry 0 (2.0 Angstrom)
+# Run OpenMolcas for geometry 0
 echo "Running OpenMolcas SCF for po2_0 (2.0 Å)..."
 cd po2_0_workdir
 cp ../po2_0.xyz .
 cp ../po2_0_scf.input .
-pymolcas po2_0_scf.input > po2_0_scf.log 2>&1
-if [ -f "po2_0_scf.ScfOrb" ]; then
-    cp po2_0_scf.ScfOrb ../po2_0.ScfOrb
+export MOLCAS_WORKDIR=$(pwd)/scratch_0
+mkdir -p $MOLCAS_WORKDIR
+# pymolcas po2_0_scf.input > po2_0_scf.log 2>&1
+if [ -f "po2_0_scf/po2_0_scf.ScfOrb" ]; then
+    cp po2_0_scf/po2_0_scf.ScfOrb ../po2_0.ScfOrb
 else
     echo "ERROR: Could not find po2_0 ScfOrb file"
     exit 1
 fi
 cd ..
 
-# Run OpenMolcas for geometry 1 (4.0 Angstrom)
+# Run OpenMolcas for geometry 1
 echo "Running OpenMolcas SCF for po2_1 (4.0 Å)..."
 cd po2_1_workdir
 cp ../po2_1.xyz .
 cp ../po2_1_scf.input .
+export MOLCAS_WORKDIR=$(pwd)/scratch_1
+mkdir -p $MOLCAS_WORKDIR
 pymolcas po2_1_scf.input > po2_1_scf.log 2>&1
-if [ -f "po2_1_scf.ScfOrb" ]; then
-    cp po2_1_scf.ScfOrb ../po2_1.ScfOrb
+if [ -f "po2_1_scf/po2_1_scf.ScfOrb" ]; then
+    cp po2_1_scf/po2_1_scf.ScfOrb ../po2_1.ScfOrb
 else
     echo "ERROR: Could not find po2_1 ScfOrb file"
     exit 1

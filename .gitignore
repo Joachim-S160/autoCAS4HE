@@ -1,6 +1,14 @@
 # autoCAS output files (large generated directories)
 **/autocas_project/
 
+# OpenMolcas/Molcas generated files
+*scratch*
+*.ScfOrb
+*.yaml
+*.log
+*.out
+*workdir*
+
 # Serenity generated system directories
 **/Po2_RHF/
 **/Po2_VDZP/
