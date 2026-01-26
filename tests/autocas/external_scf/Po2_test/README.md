@@ -36,11 +36,21 @@ qsub po2_external.pbs
 
 ## Expected Outcome
 
-- OpenMolcas generates `.ScfOrb` files with DKH2 orbitals (~-44341 Ha energy)
-- autoCAS loads these orbitals (prints "Loading external orbitals...")
+- OpenMolcas generates `.scf.h5` files with DKH2 orbitals (~-44341 Ha energy)
+- autoCAS loads these HDF5 orbitals (prints "Loading external orbitals...")
+- The correct DKH2 eigenvalues are used for core/valence classification
 - IBO localization runs **without crashing** (unlike non-relativistic)
 - Active space selection completes
 - Final DMRGSCF calculation produces meaningful energies
+
+## Important: .scf.h5 vs .ScfOrb
+
+Serenity reads orbital data from `.scf.h5` (HDF5 format), NOT `.ScfOrb` (ASCII). The HDF5 file contains:
+- `MO_ENERGIES`: Orbital eigenvalues (critical for core/valence classification)
+- `MO_VECTORS`: Orbital coefficients
+- `BASIS_FUNCTION_IDS`: Basis function ordering
+
+When using external orbitals, always pass `.scf.h5` files to ensure correct eigenvalues are loaded.
 
 ## Comparison
 

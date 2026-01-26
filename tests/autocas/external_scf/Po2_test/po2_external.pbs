@@ -49,11 +49,13 @@ cp ../po2_0.xyz .
 cp ../po2_0_scf.input .
 export MOLCAS_WORKDIR=$(pwd)/scratch_0
 mkdir -p $MOLCAS_WORKDIR
-# pymolcas po2_0_scf.input > po2_0_scf.log 2>&1
-if [ -f "po2_0_scf/po2_0_scf.ScfOrb" ]; then
-    cp po2_0_scf/po2_0_scf.ScfOrb ../po2_0.ScfOrb
+pymolcas po2_0_scf.input > po2_0_scf.log 2>&1
+# Copy the .scf.h5 file (HDF5 format with MO_ENERGIES) - Serenity reads this, not .ScfOrb
+if [ -f "po2_0_scf/po2_0_scf.scf.h5" ]; then
+    cp po2_0_scf/po2_0_scf.scf.h5 ../po2_0.scf.h5
+    echo "  Copied po2_0.scf.h5 (DKH2 orbitals with correct eigenvalues)"
 else
-    echo "ERROR: Could not find po2_0 ScfOrb file"
+    echo "ERROR: Could not find po2_0 scf.h5 file"
     exit 1
 fi
 cd ..
@@ -66,17 +68,19 @@ cp ../po2_1_scf.input .
 export MOLCAS_WORKDIR=$(pwd)/scratch_1
 mkdir -p $MOLCAS_WORKDIR
 pymolcas po2_1_scf.input > po2_1_scf.log 2>&1
-if [ -f "po2_1_scf/po2_1_scf.ScfOrb" ]; then
-    cp po2_1_scf/po2_1_scf.ScfOrb ../po2_1.ScfOrb
+# Copy the .scf.h5 file (HDF5 format with MO_ENERGIES) - Serenity reads this, not .ScfOrb
+if [ -f "po2_1_scf/po2_1_scf.scf.h5" ]; then
+    cp po2_1_scf/po2_1_scf.scf.h5 ../po2_1.scf.h5
+    echo "  Copied po2_1.scf.h5 (DKH2 orbitals with correct eigenvalues)"
 else
-    echo "ERROR: Could not find po2_1 ScfOrb file"
+    echo "ERROR: Could not find po2_1 scf.h5 file"
     exit 1
 fi
 cd ..
 
 echo ""
 echo "OpenMolcas SCF completed. Orbital files generated:"
-ls -la *.ScfOrb
+ls -la *.scf.h5
 echo ""
 
 # ==============================================================================
@@ -85,9 +89,9 @@ echo ""
 echo "Step 2: Running autoCAS with external DKH2 orbitals (-e flag)..."
 echo ""
 
-# Get absolute paths
-PO2_0_ORB="$(pwd)/po2_0.ScfOrb"
-PO2_1_ORB="$(pwd)/po2_1.ScfOrb"
+# Get absolute paths - use .scf.h5 files (HDF5 format that Serenity reads)
+PO2_0_ORB="$(pwd)/po2_0.scf.h5"
+PO2_1_ORB="$(pwd)/po2_1.scf.h5"
 
 # Run autoCAS consistent active space protocol with external orbitals
 # Using DMRGSCF for the final calculation (more suitable for heavy elements)
