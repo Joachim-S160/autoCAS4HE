@@ -1,0 +1,11 @@
+&GATEWAY
+  Coord = n2_1.xyz
+  Basis = ANO-RCC-VDZP
+  Group = NoSym
+
+&SEWARD
+  Cholesky
+
+&SCF
+  Charge = 0
+  Spin = 1
