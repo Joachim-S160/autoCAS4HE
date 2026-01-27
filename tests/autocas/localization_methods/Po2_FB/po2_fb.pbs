@@ -49,9 +49,10 @@ PO2_1_ORB="$(pwd)/po2_1.scf.h5"
 # -u: Include unmappable orbitals in CAS (IMPORTANT: FB doesn't support virtual
 #     localization, so all virtuals are unmappable. Without -u, selected virtuals
 #     won't be in the combined CAS)
+# -f: Force CAS selection even when single-orbital entropies indicate single-reference
 # -b ANO-RCC-VDZP: Relativistic contracted basis
 # -m DMRGSCF: DMRG-SCF method for heavy elements
-scine_autocas_consistent_active_space -e -o "$PO2_0_ORB,$PO2_1_ORB" -L BOYS -u -b ANO-RCC-VDZP -m DMRGSCF po2_0.xyz po2_1.xyz
+scine_autocas_consistent_active_space -e -o "$PO2_0_ORB,$PO2_1_ORB" -L BOYS -u -f -b ANO-RCC-VDZP -m DMRGSCF po2_0.xyz po2_1.xyz
 
 EXIT_CODE=$?
 
