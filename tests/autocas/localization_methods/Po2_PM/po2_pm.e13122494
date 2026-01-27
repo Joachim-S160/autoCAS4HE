@@ -12,15 +12,15 @@ Traceback (most recent call last):
   File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas_env/bin/scine_autocas_consistent_active_space", line 7, in <module>
     sys.exit(run_from_command_line())
              ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/protocol.py", line 68, in run_from_command_line
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/protocol.py", line 71, in run_from_command_line
     run_consistent_active_space_protocol(configuration)
-  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/protocol.py", line 155, in run_consistent_active_space_protocol
-    cas_occup, cas_idx = run_autocas(molecule, molcas, name, configuration.large_active_space)
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/protocol.py", line 158, in run_consistent_active_space_protocol
+    cas_occup, cas_idx = run_autocas(molecule, molcas, name, configuration.large_active_space,
                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/run_autocas.py", line 154, in run_autocas
-    return run_small_active_space(autocas, molcas, name, occ_initial, index_initial)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/run_autocas.py", line 38, in run_small_active_space
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/run_autocas.py", line 164, in run_autocas
+    return run_small_active_space(autocas, molcas, name, occ_initial, index_initial, force_cas)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/run_autocas.py", line 41, in run_small_active_space
     _, s1_entropy, __, mut_inf = molcas.calculate(occ_initial, index_initial)
                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/interfaces/interface.py", line 521, in calculate
