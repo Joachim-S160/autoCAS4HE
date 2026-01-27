@@ -1,8 +1,14 @@
 # IBO Rydberg Orbital Overflow Fix for Heavy Elements
 
+## Status: EXPERIMENTAL - NOT RECOMMENDED
+
+**This fix was moved to branch `rydberg-cap-experimental` and reverted from `heavy-elements-support`.**
+
+The fix prevents one crash but causes another problem: **zero valence virtual orbitals**, which breaks IBO localization in a different way.
+
 ## Summary
 
-This document describes a bug fix in Serenity's `LocalizationTask.cpp` that resolves the "core orbital assigned to be virtual" crash when running IBO localization on heavy element systems like Po₂.
+This document describes an attempted fix in Serenity's `LocalizationTask.cpp` for the "core orbital assigned to be virtual" crash when running IBO localization on heavy element systems like Po₂. **The fix is not viable** because it causes all virtual orbitals to be classified as Rydberg, leaving no valence virtuals for IBO to work with.
 
 ---
 
@@ -115,7 +121,59 @@ For Po₂:
 
 ---
 
-## Why This Fix is Correct
+## Problem with This Fix: Zero Valence Virtuals
+
+### The Issue
+
+While the cap prevents the "core orbital assigned to be virtual" crash, it creates a new problem:
+
+| Orbital Type | Count | Result |
+|--------------|-------|--------|
+| Core occupied | 62 | ε < -5.0 Ha |
+| Valence occupied | 22 | ε > -5.0 Ha |
+| **Valence virtual** | **0** | All marked as Rydberg! |
+| Rydberg | 52 | All virtuals |
+
+IBO localization **requires valence virtual orbitals** to form proper intrinsic bond orbitals. With zero valence virtuals, the localization fails with a different error:
+
+```
+RuntimeError: The IBO localization basis is too small to localize the given orbital selection.
+```
+
+### Why This Happens
+
+The fix caps `nRydberg` at `nVirtuals = 52`, meaning **all 52 virtual orbitals are classified as Rydberg**. This leaves:
+- `nValenceVirtuals = nVirtuals - nRydberg = 52 - 52 = 0`
+
+IBO needs valence virtuals to project onto the minimal basis (MINAO) for localization. With none available, it cannot proceed.
+
+---
+
+## Conclusion: IBO is Fundamentally Incompatible with Po₂
+
+The root cause is that **MINAO for Po is too small** (13 functions per atom) relative to:
+- The full basis (68 functions per atom in ANO-RCC-VDZP)
+- The number of occupied orbitals (42 per atom)
+
+This creates an impossible situation:
+1. **Without the cap**: `nRydberg = 110 > nVirtuals = 52` → overflow into occupied → crash
+2. **With the cap**: `nRydberg = 52 = nVirtuals` → zero valence virtuals → IBO fails
+
+**IBO localization cannot work for Po₂ with the current MINAO definition.**
+
+---
+
+## Recommended Alternatives
+
+1. **Use different localization method**: Pipek-Mezey (PM) or Foster-Boys (FB) don't rely on MINAO
+2. **Expand MINAO for Po**: Add more shells to the Po MINAO definition
+3. **Use energy-based Rydberg detection**: Instead of `nBasis - nMINAO`, use energy cutoff
+
+See [next_steps.md](../../docs/next_steps.md) for the development roadmap.
+
+---
+
+## Why This Fix is Correct (Historical Note)
 
 1. **Physical interpretation**: Rydberg orbitals are virtual orbitals. It makes no physical sense to classify occupied orbitals as Rydberg.
 
@@ -154,9 +212,28 @@ This is common for:
 
 ---
 
-## Commit
+## Commit History
 
 ```
-Commit: c61b7dc (serenity/heavy-elements-support)
+Commit: c61b7dc (serenity/rydberg-cap-experimental)
 Message: Fix IBO Rydberg overflow for heavy elements
+Status: EXPERIMENTAL - moved to separate branch
+
+Commit: 8b816a0 (serenity/heavy-elements-support)
+Message: Revert "Fix IBO Rydberg overflow for heavy elements"
+Status: Reverted due to zero valence virtuals issue
 ```
+
+## Error Messages Reference
+
+### Error 1: Without the cap (current state)
+```
+RuntimeError: The IBO localization basis is too small to localize the given orbital selection.
+```
+
+### Error 2: With the cap (experimental branch)
+```
+RuntimeError: A core orbital is assigned to be virtual. Something is wrong here!
+```
+
+Both errors indicate **IBO is incompatible with Po₂** using the current MINAO definition.
