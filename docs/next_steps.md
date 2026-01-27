@@ -28,29 +28,47 @@ main
 
 Since IBO has fundamental issues with heavy elements (small MINAO → Rydberg overflow), we need to test other localization methods available in autoCAS/Serenity.
 
-### Available Localization Methods
-| Method | Flag | Description | Basis Dependent? |
-|--------|------|-------------|------------------|
-| IBO | `IBO` | Intrinsic Bond Orbitals | Yes (MINAO) |
-| Pipek-Mezey | `PM` | Mulliken population localization | More basis-dependent |
-| Foster-Boys | `FB` | Spatial extent minimization | No |
-| Edmiston-Ruedenberg | `ER` | Coulomb self-repulsion maximization | No |
+### CLI Option Added
+A new `-L/--localization` flag was added to `scine_autocas_consistent_active_space`:
 
-### Test Plan
-Create test folders under `tests/autocas/localization_methods/`:
+```bash
+scine_autocas_consistent_active_space -e -o "orb1.h5,orb2.h5" -L PIPEK_MEZEY -b ANO-RCC-VDZP mol1.xyz mol2.xyz
+```
+
+### Available Localization Methods
+| Method | CLI Flag | Description | MINAO Required? |
+|--------|----------|-------------|-----------------|
+| IBO | `-L IBO` | Intrinsic Bond Orbitals (default) | Yes - fails for Po2 |
+| Pipek-Mezey | `-L PIPEK_MEZEY` | Mulliken population localization | No |
+| Foster-Boys | `-L BOYS` | Spatial extent minimization | No |
+| Edmiston-Ruedenberg | `-L EDMINSTON_RUEDENBERG` | Coulomb self-repulsion maximization | No |
+
+### Test Folders Created
 ```
 tests/autocas/localization_methods/
-├── Po2_PM/          # Pipek-Mezey
-├── Po2_FB/          # Foster-Boys
-├── Po2_ER/          # Edmiston-Ruedenberg (if available)
+├── Po2_PM/          # Pipek-Mezey test
+│   ├── po2_pm.pbs   # PBS job script
+│   ├── po2_0.xyz, po2_1.xyz
+│   └── po2_0.scf.h5, po2_1.scf.h5
+├── Po2_FB/          # Foster-Boys test
+│   ├── po2_fb.pbs   # PBS job script
+│   ├── po2_0.xyz, po2_1.xyz
+│   └── po2_0.scf.h5, po2_1.scf.h5
 └── README.md
 ```
 
-Each test should:
-1. Use external OpenMolcas DKH2 orbitals (`.scf.h5`)
-2. Specify the localization method via autoCAS settings
-3. Check if localization completes without crash
-4. Evaluate quality of resulting orbitals
+### How to Run
+```bash
+cd tests/autocas/localization_methods/Po2_PM && qsub po2_pm.pbs
+cd tests/autocas/localization_methods/Po2_FB && qsub po2_fb.pbs
+```
+
+### Status
+- [x] Add `-L` CLI option to autoCAS
+- [x] Create PM test directory and PBS script
+- [x] Create FB test directory and PBS script
+- [ ] Run tests on HPC
+- [ ] Evaluate results and document in `ALTERNATIVE_METHODS_COMPARISON.md`
 
 ---
 
@@ -113,15 +131,18 @@ Po-Po distances (Å): 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 6.0, 8.0, 10.0
 
 ## File Checklist
 
-### To Create
-- [ ] `tests/autocas/localization_methods/Po2_PM/` - PM test
-- [ ] `tests/autocas/localization_methods/Po2_FB/` - FB test
-- [ ] `tests/autocas/localization_methods/README.md` - Test documentation
-- [ ] `research/localization/ALTERNATIVE_METHODS_COMPARISON.md` - Results
+### Created
+- [x] `tests/autocas/localization_methods/Po2_PM/` - PM test
+- [x] `tests/autocas/localization_methods/Po2_FB/` - FB test
+- [x] `tests/autocas/localization_methods/README.md` - Test documentation
+- [x] `autocas/.../configuration.py` - Added `localization_method` attribute
+- [x] `autocas/.../protocol.py` - Added `-L` CLI option
 
-### To Modify
-- [ ] `serenity/src/tasks/LocalizationTask.cpp` - Revert on main branch
-- [ ] `serenity/data/basis/MINAO` - Potentially expand Po entry
+### To Create
+- [ ] `research/localization/ALTERNATIVE_METHODS_COMPARISON.md` - Results after running tests
+
+### To Modify (if needed)
+- [ ] `serenity/data/basis/MINAO` - Potentially expand Po entry (if PM/FB also fail)
 
 ---
 
