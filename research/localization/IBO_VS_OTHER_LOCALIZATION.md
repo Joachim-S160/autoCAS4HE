@@ -63,7 +63,7 @@ IBO has been validated for transition metal complexes where d-orbitals participa
 - The 5d/4f are included as "semi-core"
 - **However**: without relativistic effects, the energy ordering is wrong
 
-This is why IBO itself is fine for heavy elements - the problem is the **input orbital energies**, not the localization method.
+This is why IBO itself should be fine for heavy elements - the problem is the **input orbital energies**, not the localization method.
 
 ---
 
@@ -77,3 +77,4 @@ This is why IBO itself is fine for heavy elements - the problem is the **input o
 | Edmiston-Ruedenberg | Self-repulsion | Medium | Low |
 
 **Recommendation**: Use IBO for autoCAS4HE. The localization method is sound; the issue is obtaining correct (relativistic) orbital energies as input.
+Note, the relativistic orbital energies are now taken from OpenMolcas.
