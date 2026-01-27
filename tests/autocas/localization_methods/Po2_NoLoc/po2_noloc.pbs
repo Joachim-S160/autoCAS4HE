@@ -1,0 +1,72 @@
+#!/bin/bash
+# Po2 autoCAS Test WITHOUT Localization
+# Tests if skipping localization bypasses the NaN orbital coefficient issue
+#
+# This is a debugging test to isolate whether the NaN issue is caused by
+# localization or something else in the workflow.
+#
+# Submit with: qsub po2_noloc.pbs
+
+#PBS -N po2_noloc
+#PBS -A 2025_127
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=01:00:00
+#PBS -l mem=64gb
+
+# ==============================================================================
+# Setup environment
+# ==============================================================================
+PROJECT="starting_2025_097"
+INSTALL_DIR="/dodrio/scratch/projects/${PROJECT}/autoCAS4HE_built/autoCAS4HE"
+source ${INSTALL_DIR}/setup_hortense.sh
+export MOLCAS_WORKDIR=$(pwd)
+
+cd $PBS_O_WORKDIR
+
+echo "=============================================="
+echo "  Po2 autoCAS Test: NO Localization"
+echo "=============================================="
+echo ""
+echo "Working directory: $(pwd)"
+echo "Date: $(date)"
+echo ""
+echo "Purpose: Test consistent CAS without localization to bypass"
+echo "         the NaN orbital coefficient issue from FB/PM localization."
+echo ""
+
+# ==============================================================================
+# Run autoCAS WITHOUT localization
+# ==============================================================================
+echo "Running autoCAS WITHOUT localization (-S)..."
+echo ""
+
+# Get absolute paths - use .scf.h5 files (HDF5 format that Serenity reads)
+PO2_0_ORB="$(pwd)/po2_0.scf.h5"
+PO2_1_ORB="$(pwd)/po2_1.scf.h5"
+
+# Run autoCAS consistent active space protocol with:
+# -e: Use external orbitals (DKH2 from OpenMolcas)
+# -S: SKIP localization entirely (use canonical orbitals)
+# -u: Include unmappable orbitals in CAS
+# -f: Force CAS selection even when single-orbital entropies indicate single-reference
+# -b ANO-RCC-VDZP: Relativistic contracted basis
+# -m DMRGSCF: DMRG-SCF method for heavy elements
+scine_autocas_consistent_active_space -e -o "$PO2_0_ORB,$PO2_1_ORB" -S -u -f -b ANO-RCC-VDZP -m DMRGSCF po2_0.xyz po2_1.xyz
+
+EXIT_CODE=$?
+
+echo ""
+echo "=============================================="
+echo "  Test completed!"
+echo "=============================================="
+echo ""
+echo "Exit code: $EXIT_CODE"
+echo "Date: $(date)"
+
+if [ $EXIT_CODE -eq 0 ]; then
+    echo "SUCCESS: No-localization test completed without errors!"
+    echo "Check the output files for active space selection results."
+else
+    echo "FAILED: No-localization test encountered errors."
+    echo "Check the log files for details."
+fi
