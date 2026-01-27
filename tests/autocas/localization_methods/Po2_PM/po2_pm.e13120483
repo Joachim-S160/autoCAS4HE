@@ -1,0 +1,33 @@
+Traceback (most recent call last):
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/interfaces/interface.py", line 519, in calculate
+    energy, s1, s2, mut_inf = self._dumper.read_initial_dmrg()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/interfaces/interface.py", line 76, in read_initial_dmrg
+    raise DumperError("No QCMaquis result file found")
+scine_autocas.utils.exceptions.DumperError: No QCMaquis result file found
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas_env/bin/scine_autocas_consistent_active_space", line 7, in <module>
+    sys.exit(run_from_command_line())
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/protocol.py", line 68, in run_from_command_line
+    run_consistent_active_space_protocol(configuration)
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/protocol.py", line 155, in run_consistent_active_space_protocol
+    cas_occup, cas_idx = run_autocas(molecule, molcas, name, configuration.large_active_space)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/run_autocas.py", line 154, in run_autocas
+    return run_small_active_space(autocas, molcas, name, occ_initial, index_initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/run_autocas.py", line 38, in run_small_active_space
+    _, s1_entropy, __, mut_inf = molcas.calculate(occ_initial, index_initial)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/interfaces/interface.py", line 521, in calculate
+    energy, s1, s2, mut_inf = self._initial_cas_impl(cas_occupation, cas_indices)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/interfaces/molcas/molcas.py", line 505, in _initial_cas_impl
+    self.run_molcas()
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/interfaces/molcas/molcas.py", line 350, in run_molcas
+    raise RuntimeError(f"Molcas calculation failed. Please check the log file {full_path} for details.")
+RuntimeError: Molcas calculation failed. Please check the log file /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/localization_methods/Po2_PM/autocas_project/dmrg/system_1.log for details.

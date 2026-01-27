@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas_env/bin/scine_autocas_consistent_active_space", line 7, in <module>
+    sys.exit(run_from_command_line())
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/protocol.py", line 68, in run_from_command_line
+    run_consistent_active_space_protocol(configuration)
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/protocol.py", line 155, in run_consistent_active_space_protocol
+    cas_occup, cas_idx = run_autocas(molecule, molcas, name, configuration.large_active_space)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/run_autocas.py", line 154, in run_autocas
+    return run_small_active_space(autocas, molcas, name, occ_initial, index_initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/run_autocas.py", line 50, in run_small_active_space
+    cas_occ, cas_index = autocas.get_active_space(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/cas_selection/autocas.py", line 312, in get_active_space
+    self._check_single_reference(s1_entropy, force_cas)
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/cas_selection/autocas.py", line 364, in _check_single_reference
+    raise SingleReferenceException("No active space method required here")
+scine_autocas.utils.exceptions.SingleReferenceException: No active space method required here

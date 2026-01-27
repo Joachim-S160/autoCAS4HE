@@ -1,0 +1,417 @@
+========================================
+autoCAS4HE environment loaded (Hortense)
+========================================
+  Serenity:    /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/build
+  autoCAS:     /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas_env/bin/scine_autocas
+  Basis path:  /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/custom_basis:/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/data/basis/
+========================================
+==============================================
+  Po2 autoCAS Test: Foster-Boys Localization
+==============================================
+
+Working directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/localization_methods/Po2_FB
+Date: Tue Jan 27 01:47:27 PM CET 2026
+
+Purpose: Test Foster-Boys (FB) localization as alternative to IBO
+         for heavy elements where IBO fails due to small MINAO basis.
+
+Running autoCAS with Foster-Boys localization (-L BOYS)...
+
+
+          ------------------------------------------------------------          
+                                System system_0                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_1                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                        Running Foster-Boys Localization                        
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+
+          ------------------------------------------------------------          
+                               System system_0_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_0_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_0_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_0_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+Aligning the orbitals of system_1 to system_0
+    Converged after 1 orbital rotation cycles.
+Aligning the orbitals of system_1 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                        Running Foster-Boys Localization                        
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+
+          ------------------------------------------------------------          
+                               System system_1_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_1_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_1_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_1_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                Generalized DOS                                 
+          ------------------------------------------------------------          
+
+--------------------------------------------------------
+  The supersystem to fragment partitioning:
+system_0       system_0_0  system_0_1  system_0_2  system_0_3  
+system_1       system_1_0  system_1_1  system_1_2  system_1_3  
+--------------------------------------------------------
+  Optimized (occupied) threshold 1  (virtual) threshold 1
+--------------------------------------------------------
+  Partitioning for subsystem system_0_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_0_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_0_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_0_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_1_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_1_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_1_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_1_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/localization_methods/Po2_FB/autocas_project
+Final energy evaluation method: DMRGSCF
+*******************************************************************************************
+*                                                                                         *
+*                               Orbital Preparation                                       *
+*                                                                                         *
+*******************************************************************************************
+  Note: Virtual localization disabled for BOYS (only supported for IBO/IAO)
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/localization_methods/Po2_FB/autocas_project/scratch
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/localization_methods/Po2_FB/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_0
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/localization_methods/Po2_FB/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/localization_methods/Po2_FB/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_1
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/localization_methods/Po2_FB/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Loading external orbitals (skipping Serenity SCF)...
+External orbital files: ['/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/localization_methods/Po2_FB/po2_0.scf.h5', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/localization_methods/Po2_FB/po2_1.scf.h5']
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/localization_methods/Po2_FB/po2_0.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/localization_methods/Po2_FB/autocas_project/initial/system_0.scf.h5
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/localization_methods/Po2_FB/po2_1.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/localization_methods/Po2_FB/autocas_project/initial/system_1.scf.h5
+Orbital groups
+       0         0  
+       1         1  
+       2         2  
+       3         3  
+       4         4  
+       5         5  
+       6         6  
+       7         7  
+       8         8  
+       9         9  
+      10        10  
+      11        11  
+      12        12  
+      13        13  
+      14        14  
+      15        15  
+      16        16  
+      17        17  
+      18        18  
+      19        19  
+      20        20  
+      21        21  
+      22        22  
+      23        23  
+      24        24  
+      25        25  
+      26        26  
+      27        27  
+      28        28  
+      29        29  
+      30        30  
+      31        31  
+      32        32  
+      33        33  
+      34        34  
+      35        35  
+      36        36  
+      37        37  
+      38        38  
+      39        39  
+      40        40  
+      41        41  
+      42        42  
+      43        43  
+      44        44  
+      45        45  
+      46        46  
+      47        47  
+      48        48  
+      49        49  
+      50        50  
+      51        51  
+      52        52  
+      53        53  
+      54        54  
+      55        55  
+      56        56  
+      57        57  
+      58        58  
+      59        59  
+      60        60  
+      61        61  
+      62        62  
+      63        63  
+      64        64  
+      65        65  
+      66        66  
+      67        67  
+      68        68  
+      69        69  
+      70        70  
+      71        71  
+      72        72  
+      73        73  
+      74        74  
+      75        75  
+      76        76  
+      77        77  
+      78        78  
+      79        79  
+      80        80  
+      81        81  
+      82        82  
+      83        83  
+
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Make valence CAS
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing single orbitals entropies from initial CAS
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/localization_methods/Po2_FB/autocas_project/dmrg
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_0
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/localization_methods/Po2_FB/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Single orbital entropies (s1) are too low. AutoCAS suggests no active space.
+Note: if you want an active space calculation anyway, you can enforce this
+behavior, by adding 'force_cas=True' as agrument.
+
+==============================================
+  Test completed!
+==============================================
+
+Exit code: 1
+Date: Tue Jan 27 01:52:23 PM CET 2026
+FAILED: Foster-Boys localization encountered errors.
+Check the log files for details.
