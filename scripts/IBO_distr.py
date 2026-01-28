@@ -1,7 +1,16 @@
 #!/usr/bin/env python3
+"""
+IBO Distribution Analysis Script
+
+Analyzes orbital energy distributions for IBO localization in Serenity.
+Generates dual-panel plots and saves diagnostic data for developing
+improved Rydberg classification criteria.
+"""
 
 import sys
 import re
+import csv
+import json
 from pathlib import Path
 import h5py
 import numpy as np
@@ -119,7 +128,6 @@ def main():
     nMO = len(mo_energies)
     nBasisFunctions = int(np.sqrt(mo_vectors.size))
 
-
     # -------------------------
     # Rydberg count for dimer
     # -------------------------
@@ -179,74 +187,171 @@ def main():
 
     # Store overflow info for reporting
     rydberg_overflow = nRydberg - nVirtual if nRydberg > nVirtual else 0
+    serenity_fails = rydberg_overflow > 0
 
     # -------------------------
-    # Plot → PDF
+    # Key energies for analysis
     # -------------------------
-    fig, ax = plt.subplots(figsize=(12, 7))
-
-    # Determine key energy boundaries
-    homo_energy = energies_sorted[occ_sorted > 0.0].max() if any(occ_sorted > 0.0) else 0.0
-    lumo_energy = energies_sorted[occ_sorted == 0.0].min() if any(occ_sorted == 0.0) else 0.0
-    rydberg_start = rydberg_E.min() if len(rydberg_E) > 0 else energies_sorted.max()
-
-    # Plot range
-    e_min = energies_sorted.min() - 1.0
-    e_max = energies_sorted.max() + 1.0
-
-    # Background colored regions (light hues) - plot first so they're behind bars
-    ax.axvspan(e_min, CORE_CUTOFF, alpha=0.15, color="#8B0000", label="_nolegend_")  # Core region (light red)
-    ax.axvspan(CORE_CUTOFF, homo_energy + 0.1, alpha=0.15, color="#1f77b4", label="_nolegend_")  # Occ valence (light blue)
-    ax.axvspan(homo_energy + 0.1, rydberg_start - 0.1, alpha=0.15, color="#9467bd", label="_nolegend_")  # Virt valence (light purple)
-    ax.axvspan(rydberg_start - 0.1, e_max, alpha=0.15, color="#ff7f0e", label="_nolegend_")  # Rydberg (light orange)
-
-    # Use common bin edges across full energy range for consistent bar widths
-    bin_edges = np.linspace(e_min, e_max, 40)
+    homo_energy = energies_sorted[occ_sorted > 0.0].max() if any(occ_sorted > 0.0) else np.nan
+    virtual_energies = energies_sorted[occ_sorted == 0.0]
+    lumo_energy = virtual_energies[0] if len(virtual_energies) > 0 else np.nan
+    lumo_plus_5 = virtual_energies[4] if len(virtual_energies) > 4 else np.nan
+    lumo_plus_10 = virtual_energies[9] if len(virtual_energies) > 9 else np.nan
+    rydberg_start = rydberg_E.min() if len(rydberg_E) > 0 else np.nan
+    rydberg_end = rydberg_E.max() if len(rydberg_E) > 0 else np.nan
+    core_min = core_E.min() if len(core_E) > 0 else np.nan
+    core_max = core_E.max() if len(core_E) > 0 else np.nan
 
     # Total MINAO for molecule (dimer = 2x per atom)
     total_minao = 2 * nMinimalBasisFunctions
 
-    # Colorblind-friendly palette with high contrast and visible edges
-    # Include orbital counts in legend labels
-    ax.hist(core_E, bins=bin_edges, color="#8B0000", alpha=0.9, edgecolor="black", linewidth=1.2,
+    # -------------------------
+    # Save diagnostic data to CSV (append mode)
+    # -------------------------
+    csv_file = Path(h5file).parent / "IBO_diagnostics.csv"
+    file_exists = csv_file.exists()
+
+    diag_data = {
+        'element': element.upper() if element else 'unknown',
+        'nMO': nMO,
+        'nBasis': nBasisFunctions,
+        'nMINAO_atom': nMinimalBasisFunctions,
+        'nMINAO_total': total_minao,
+        'nOccupied': nOccupied,
+        'nVirtual': nVirtual,
+        'nCore': len(core_E),
+        'nOccValence': len(occ_val_E),
+        'nVirtValence': len(virt_val_E),
+        'nRydberg_calc': nRydberg,
+        'nRydberg_actual': len(rydberg_E),
+        'overflow': rydberg_overflow,
+        'serenity_fails': serenity_fails,
+        'HOMO': f"{homo_energy:.6f}",
+        'LUMO': f"{lumo_energy:.6f}" if not np.isnan(lumo_energy) else 'N/A',
+        'LUMO+5': f"{lumo_plus_5:.6f}" if not np.isnan(lumo_plus_5) else 'N/A',
+        'LUMO+10': f"{lumo_plus_10:.6f}" if not np.isnan(lumo_plus_10) else 'N/A',
+        'Rydberg_start': f"{rydberg_start:.6f}" if not np.isnan(rydberg_start) else 'N/A',
+        'Rydberg_end': f"{rydberg_end:.6f}" if not np.isnan(rydberg_end) else 'N/A',
+        'Core_min': f"{core_min:.6f}" if not np.isnan(core_min) else 'N/A',
+        'Core_max': f"{core_max:.6f}" if not np.isnan(core_max) else 'N/A',
+        'HOMO_LUMO_gap': f"{lumo_energy - homo_energy:.6f}" if not np.isnan(lumo_energy) else 'N/A',
+    }
+
+    with open(csv_file, 'a', newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=diag_data.keys())
+        if not file_exists:
+            writer.writeheader()
+        writer.writerow(diag_data)
+
+    print(f"[INFO] Diagnostic data appended to {csv_file}")
+
+    # -------------------------
+    # Plot → Dual panel (full range + core zoom)
+    # -------------------------
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7), gridspec_kw={'width_ratios': [2, 1]})
+
+    # === LEFT PANEL: Full energy range ===
+    e_min = energies_sorted.min() - 1.0
+    e_max = energies_sorted.max() + 1.0
+
+    # Background colored regions (light hues)
+    ax1.axvspan(e_min, CORE_CUTOFF, alpha=0.15, color="#8B0000", label="_nolegend_")
+    ax1.axvspan(CORE_CUTOFF, homo_energy + 0.1, alpha=0.15, color="#1f77b4", label="_nolegend_")
+    ax1.axvspan(homo_energy + 0.1, rydberg_start - 0.1 if not np.isnan(rydberg_start) else e_max,
+                alpha=0.15, color="#9467bd", label="_nolegend_")
+    ax1.axvspan(rydberg_start - 0.1 if not np.isnan(rydberg_start) else e_max, e_max,
+                alpha=0.15, color="#ff7f0e", label="_nolegend_")
+
+    # Use common bin edges across full energy range
+    bin_edges = np.linspace(e_min, e_max, 50)
+
+    # Histograms with orbital counts in legend
+    ax1.hist(core_E, bins=bin_edges, color="#8B0000", alpha=0.9, edgecolor="black", linewidth=1.0,
             rwidth=0.85, label=f"Core: {len(core_E)}")
-    ax.hist(occ_val_E, bins=bin_edges, color="#1f77b4", alpha=0.85, edgecolor="black", linewidth=1.2,
+    ax1.hist(occ_val_E, bins=bin_edges, color="#1f77b4", alpha=0.85, edgecolor="black", linewidth=1.0,
             rwidth=0.85, label=f"Occ. valence: {len(occ_val_E)}")
-    ax.hist(virt_val_E, bins=bin_edges, color="#9467bd", alpha=0.85, edgecolor="black", linewidth=1.2,
+    ax1.hist(virt_val_E, bins=bin_edges, color="#9467bd", alpha=0.85, edgecolor="black", linewidth=1.0,
             rwidth=0.85, label=f"Virt. valence: {len(virt_val_E)}")
-    ax.hist(rydberg_E, bins=bin_edges, color="#ff7f0e", alpha=0.9, edgecolor="black", linewidth=1.2,
+    ax1.hist(rydberg_E, bins=bin_edges, color="#ff7f0e", alpha=0.9, edgecolor="black", linewidth=1.0,
             rwidth=0.85, label=f"Rydberg: {len(rydberg_E)}")
 
     # Vertical lines for boundaries
-    ax.axvline(CORE_CUTOFF, color="black", linestyle="--", linewidth=1.5, label=f"Core cutoff ({CORE_CUTOFF} Ha)")
-    ax.axvline(homo_energy, color="green", linestyle="-.", linewidth=1.2, label=f"HOMO ({homo_energy:.2f} Ha)")
-    ax.axvline(rydberg_start, color="red", linestyle=":", linewidth=1.2, label=f"Rydberg start ({rydberg_start:.2f} Ha)")
+    ax1.axvline(CORE_CUTOFF, color="black", linestyle="--", linewidth=1.5, label=f"Core cutoff ({CORE_CUTOFF} Ha)")
+    ax1.axvline(homo_energy, color="green", linestyle="-.", linewidth=1.2, label=f"HOMO ({homo_energy:.2f} Ha)")
+    if not np.isnan(rydberg_start):
+        ax1.axvline(rydberg_start, color="red", linestyle=":", linewidth=1.2, label=f"Rydberg start ({rydberg_start:.2f} Ha)")
 
-    ax.set_xlabel("Orbital energy (Hartree)", fontsize=14)
-    ax.set_ylabel("Number of orbitals", fontsize=14)
-    ax.set_xlim(e_min, e_max)
+    ax1.set_xlabel("Orbital energy (Hartree)", fontsize=12)
+    ax1.set_ylabel("Number of orbitals", fontsize=12)
+    ax1.set_xlim(e_min, e_max)
+    ax1.legend(frameon=True, fontsize=9, loc='upper left')
+    ax1.grid(alpha=0.3, zorder=0)
+    ax1.set_title("Full Energy Range", fontsize=12)
 
-    # Build title with element info and MINAO count
-    if element:
-        title = f"MO Energy Distribution: {element.upper()}₂ — MINAO: {total_minao} ({nMinimalBasisFunctions}/atom)"
+    # === RIGHT PANEL: Core region zoom ===
+    if len(core_E) > 0:
+        core_e_min = core_E.min() - 5.0
+        core_e_max = min(CORE_CUTOFF + 2.0, core_E.max() + 5.0)
+
+        # Background
+        ax2.axvspan(core_e_min, CORE_CUTOFF, alpha=0.15, color="#8B0000", label="_nolegend_")
+
+        # Adaptive binning for core region
+        core_range = core_E.max() - core_E.min()
+        n_core_bins = min(30, max(10, len(core_E) // 3))
+        core_bin_edges = np.linspace(core_e_min, core_e_max, n_core_bins)
+
+        ax2.hist(core_E, bins=core_bin_edges, color="#8B0000", alpha=0.9, edgecolor="black", linewidth=1.0,
+                rwidth=0.85, label=f"Core: {len(core_E)}")
+
+        ax2.axvline(CORE_CUTOFF, color="black", linestyle="--", linewidth=1.5, label=f"Cutoff ({CORE_CUTOFF} Ha)")
+        ax2.set_xlabel("Orbital energy (Hartree)", fontsize=12)
+        ax2.set_ylabel("Number of orbitals", fontsize=12)
+        ax2.set_xlim(core_e_min, core_e_max)
+        ax2.legend(frameon=True, fontsize=9, loc='upper left')
+        ax2.grid(alpha=0.3, zorder=0)
+        ax2.set_title(f"Core Region (E < {CORE_CUTOFF} Ha)", fontsize=12)
     else:
-        title = f"MO Energy Distribution — MINAO: {total_minao}"
-    ax.set_title(title, fontsize=16)
+        ax2.text(0.5, 0.5, "No core orbitals", ha='center', va='center', fontsize=14, transform=ax2.transAxes)
+        ax2.set_title("Core Region", fontsize=12)
 
-    ax.legend(frameon=True, fontsize=10, loc='upper left')
-    ax.grid(alpha=0.3, zorder=0)
+    # === SERENITY FAILS warning ===
+    if serenity_fails:
+        # Add prominent red warning text
+        fig.text(0.5, 0.95, "SERENITY FAILS", fontsize=24, fontweight='bold',
+                 color='red', ha='center', va='top',
+                 bbox=dict(boxstyle='round,pad=0.3', facecolor='yellow', edgecolor='red', linewidth=3))
+        # Also add details
+        fig.text(0.5, 0.89, f"nRydberg ({nRydberg}) > nVirtual ({nVirtual}) → overflow: {rydberg_overflow}",
+                 fontsize=11, color='red', ha='center', va='top')
+
+    # === Main title ===
+    if element:
+        main_title = f"MO Energy Distribution: {element.upper()}₂ — MINAO: {total_minao} ({nMinimalBasisFunctions}/atom)"
+    else:
+        main_title = f"MO Energy Distribution — MINAO: {total_minao}"
+
+    fig.suptitle(main_title, fontsize=14, fontweight='bold', y=0.99 if not serenity_fails else 0.85)
+
     plt.tight_layout()
+    if serenity_fails:
+        plt.subplots_adjust(top=0.82)
+    else:
+        plt.subplots_adjust(top=0.92)
 
-    outname = Path(h5file).with_suffix("").name + "_IBO_distribution.pdf"
-    plt.savefig(outname)
+    # Save as both PDF and PNG (PNG for GIF creation)
+    base_name = Path(h5file).with_suffix("").name + "_IBO_distribution"
+    pdf_name = base_name + ".pdf"
+    png_name = base_name + ".png"
+
+    plt.savefig(pdf_name, dpi=150)
+    plt.savefig(png_name, dpi=150)
     plt.close()
 
     # -------------------------
     # Summary
     # -------------------------
-    # Determine total MINAO for the molecule (assumes dimer)
     minao_per_atom = nMinimalBasisFunctions
-    total_minao = 2 * minao_per_atom  # Dimer assumption
     if element:
         element_info = f" ({element.upper()}₂ dimer)"
     else:
@@ -268,6 +373,13 @@ def main():
     print(f"  Virtual valence:            {len(virt_val_E):4d}")
     print(f"  Rydberg (shown):            {len(rydberg_E):4d}")
     print("-" * 60)
+    print("  KEY ENERGIES (for Rydberg cutoff development):")
+    print(f"    HOMO:                     {homo_energy:10.4f} Ha")
+    print(f"    LUMO:                     {lumo_energy:10.4f} Ha" if not np.isnan(lumo_energy) else "    LUMO:                     N/A")
+    print(f"    LUMO+5:                   {lumo_plus_5:10.4f} Ha" if not np.isnan(lumo_plus_5) else "    LUMO+5:                   N/A")
+    print(f"    LUMO+10:                  {lumo_plus_10:10.4f} Ha" if not np.isnan(lumo_plus_10) else "    LUMO+10:                  N/A")
+    print(f"    Rydberg start:            {rydberg_start:10.4f} Ha" if not np.isnan(rydberg_start) else "    Rydberg start:            N/A")
+    print("-" * 60)
     print("  SERENITY IBO ANALYSIS:")
     print(f"    nRydberg calculated:      {nRydberg:4d}  (nBasis - nMINAO)")
     print(f"    nVirtual available:       {nVirtual:4d}")
@@ -282,7 +394,8 @@ def main():
         print("-" * 60)
         print("  STATUS: IBO should work")
     print("=" * 60)
-    print(f"\n[PDF saved as]  {outname}\n")
+    print(f"\n[PDF saved as]  {pdf_name}")
+    print(f"[PNG saved as]  {png_name}\n")
 
 
 if __name__ == "__main__":
