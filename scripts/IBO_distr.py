@@ -22,35 +22,42 @@ import matplotlib.pyplot as plt
 CORE_CUTOFF = -5.0  # Hartree
 
 # Energy-based Rydberg cutoffs (proposed fix for Serenity)
-# - s/p block elements (no d orbitals): 0.5 Ha
-# - d-block elements (transition metals): 1.0 Ha
-RYDBERG_CUTOFF_SP = 0.5   # Hartree - for s/p block elements
-RYDBERG_CUTOFF_D = 1.0    # Hartree - for d-block elements
+# - Elements with only s/p orbitals (Z=1-20, H through Ca): 0.5 Ha
+# - Elements with d orbitals (Z>=21, Sc onwards): 1.0 Ha
+RYDBERG_CUTOFF_SP = 0.5   # Hartree - for s/p-only elements (H-Ca)
+RYDBERG_CUTOFF_D = 1.0    # Hartree - for elements with d orbitals (Sc+)
 
-# d-block elements (transition metals) - use 1.0 Ha cutoff
-D_BLOCK_ELEMENTS = {
-    # 3d: Sc-Zn (21-30)
-    'Sc', 'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ni', 'Cu', 'Zn',
-    # 4d: Y-Cd (39-48)
-    'Y', 'Zr', 'Nb', 'Mo', 'Tc', 'Ru', 'Rh', 'Pd', 'Ag', 'Cd',
-    # 5d: La-Hg (57-80) including lanthanides
-    'La', 'Ce', 'Pr', 'Nd', 'Pm', 'Sm', 'Eu', 'Gd', 'Tb', 'Dy',
-    'Ho', 'Er', 'Tm', 'Yb', 'Lu', 'Hf', 'Ta', 'W', 'Re', 'Os',
-    'Ir', 'Pt', 'Au', 'Hg',
-    # 6d: Ac onwards (for completeness)
-    'Ac', 'Th', 'Pa', 'U', 'Np', 'Pu', 'Am', 'Cm', 'Bk', 'Cf',
-    'Es', 'Fm', 'Md', 'No', 'Lr', 'Rf', 'Db', 'Sg', 'Bh', 'Hs',
-    'Mt', 'Ds', 'Rg', 'Cn',
+# Atomic numbers for cutoff determination
+# Z >= 21 (Sc) means d orbitals are present in the electron configuration
+ELEMENT_Z = {
+    'H': 1, 'He': 2, 'Li': 3, 'Be': 4, 'B': 5, 'C': 6, 'N': 7, 'O': 8,
+    'F': 9, 'Ne': 10, 'Na': 11, 'Mg': 12, 'Al': 13, 'Si': 14, 'P': 15,
+    'S': 16, 'Cl': 17, 'Ar': 18, 'K': 19, 'Ca': 20, 'Sc': 21, 'Ti': 22,
+    'V': 23, 'Cr': 24, 'Mn': 25, 'Fe': 26, 'Co': 27, 'Ni': 28, 'Cu': 29,
+    'Zn': 30, 'Ga': 31, 'Ge': 32, 'As': 33, 'Se': 34, 'Br': 35, 'Kr': 36,
+    'Rb': 37, 'Sr': 38, 'Y': 39, 'Zr': 40, 'Nb': 41, 'Mo': 42, 'Tc': 43,
+    'Ru': 44, 'Rh': 45, 'Pd': 46, 'Ag': 47, 'Cd': 48, 'In': 49, 'Sn': 50,
+    'Sb': 51, 'Te': 52, 'I': 53, 'Xe': 54, 'Cs': 55, 'Ba': 56, 'La': 57,
+    'Hf': 72, 'Ta': 73, 'W': 74, 'Re': 75, 'Os': 76, 'Ir': 77, 'Pt': 78,
+    'Au': 79, 'Hg': 80, 'Tl': 81, 'Pb': 82, 'Bi': 83, 'Po': 84, 'At': 85,
+    'Rn': 86,
 }
+D_ORBITALS_MIN_Z = 21  # Sc is the first element with d orbitals
+
+
+def has_d_orbitals(element):
+    """Check if element has d orbitals in its electron configuration."""
+    z = ELEMENT_Z.get(element.capitalize(), 0)
+    return z >= D_ORBITALS_MIN_Z
 
 
 def get_rydberg_energy_cutoff(element):
     """Get energy-based Rydberg cutoff based on element type.
 
-    - s/p block elements (main group): 0.5 Ha
-    - d-block elements (transition metals): 1.0 Ha
+    - Elements with only s/p orbitals (Z=1-20, H through Ca): 0.5 Ha
+    - Elements with d orbitals (Z>=21, Sc onwards, incl. p-block like Po): 1.0 Ha
     """
-    if element.capitalize() in D_BLOCK_ELEMENTS:
+    if has_d_orbitals(element):
         return RYDBERG_CUTOFF_D
     else:
         return RYDBERG_CUTOFF_SP
@@ -293,7 +300,7 @@ def main():
     # Energy-based Rydberg classification (PROPOSED FIX)
     # -------------------------
     rydberg_cutoff_energy = get_rydberg_energy_cutoff(element)
-    print(f"[INFO] Using energy-based Rydberg cutoff: {rydberg_cutoff_energy} Ha ({element} is {'d-block' if element.capitalize() in D_BLOCK_ELEMENTS else 's/p-block'})")
+    print(f"[INFO] Using energy-based Rydberg cutoff: {rydberg_cutoff_energy} Ha ({element} is {'d-block' if has_d_orbitals(element) else 's/p-block'})")
 
     # Rydberg (proposed): virtual orbitals with E >= cutoff
     rydberg_proposed_mask = (occ_sorted == 0.0) & (energies_sorted >= rydberg_cutoff_energy)
@@ -479,7 +486,7 @@ def main():
     ax2b.grid(alpha=0.3, zorder=0)
 
     # Title for proposed fix plot
-    block_type = "d-block" if element.capitalize() in D_BLOCK_ELEMENTS else "s/p-block"
+    block_type = "d-block" if has_d_orbitals(element) else "s/p-block"
     fig2.suptitle(f"PROPOSED FIX: {element.upper()}₂ — Rydberg E ≥ {rydberg_cutoff_energy} Ha ({block_type})",
                   fontsize=14, fontweight='bold', y=0.98, color='darkgreen')
 
