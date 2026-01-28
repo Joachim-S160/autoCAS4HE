@@ -131,7 +131,7 @@ def main():
     # -------------------------
     # Rydberg count for dimer
     # -------------------------
-    nRydberg = nBasisFunctions - 2*nMinimalBasisFunctions
+    nRydberg = np.max(0, nBasisFunctions - 2*nMinimalBasisFunctions)
     if nRydberg < 0:
         raise ValueError("nMinimalBasisFunctions > nBasisFunctions → impossible!")
 
@@ -171,17 +171,17 @@ def main():
     occ_valence_mask = (occ_sorted > 0.0) & (~core_mask)
 
     # Rydberg: virtual AND in top nRydberg (but Serenity caps at nVirtual)
-    rydberg_actual = min(nRydberg, nVirtual)  # What Serenity SHOULD do
-    rydberg_mask_fixed = np.zeros(nMO, dtype=bool)
-    if rydberg_actual > 0:
-        rydberg_mask_fixed[-rydberg_actual:] = True
-    rydberg_mask_fixed = rydberg_mask_fixed & (occ_sorted == 0.0)  # Only virtuals
+    # rydberg_actual = min(nRydberg, nVirtual)  # What Serenity SHOULD do
+    # rydberg_mask_fixed = np.zeros(nMO, dtype=bool)
+    # if rydberg_actual > 0:
+    #     rydberg_mask_fixed[-rydberg_actual:] = True
+    # rydberg_mask_fixed = rydberg_mask_fixed & (occ_sorted == 0.0)  # Only virtuals
 
     # Virtual valence: virtual and NOT Rydberg
-    virt_valence_mask = (occ_sorted == 0.0) & (~rydberg_mask_fixed)
+    virt_valence_mask = (occ_sorted == 0.0) & (~rydberg_mask)
 
     core_E = energies_sorted[core_occ_mask]
-    rydberg_E = energies_sorted[rydberg_mask_fixed]
+    rydberg_E = energies_sorted[rydberg_mask]
     occ_val_E = energies_sorted[occ_valence_mask]
     virt_val_E = energies_sorted[virt_valence_mask]
 
@@ -253,7 +253,7 @@ def main():
     # === LEFT PANEL: Core region zoom ===
     if len(core_E) > 0:
         core_e_min = core_E.min() - 5.0
-        core_e_max = min(CORE_CUTOFF + 2.0, core_E.max() + 5.0)
+        core_e_max = CORE_CUTOFF + 2.0
 
         # Background
         ax1.axvspan(core_e_min, CORE_CUTOFF, alpha=0.15, color="#8B0000", label="_nolegend_")
@@ -271,7 +271,7 @@ def main():
         ax1.set_xlim(core_e_min, core_e_max)
         ax1.legend(frameon=True, fontsize=9, loc='upper left')
         ax1.grid(alpha=0.3, zorder=0)
-        ax1.set_title(f"Core Region (E < {CORE_CUTOFF} Ha)", fontsize=12)
+        # ax1.set_title(f"Core Region (E < {CORE_CUTOFF} Ha)", fontsize=12)
     else:
         ax1.text(0.5, 0.5, "No core orbitals", ha='center', va='center', fontsize=14, transform=ax1.transAxes)
         ax1.set_title("Core Region", fontsize=12)
@@ -284,7 +284,7 @@ def main():
     ax2.axvspan(valence_e_min, CORE_CUTOFF, alpha=0.15, color="#8B0000", label="_nolegend_")  # Core region hue
     ax2.axvspan(CORE_CUTOFF, homo_energy + 0.1, alpha=0.15, color="#1f77b4", label="_nolegend_")  # Occ valence
     ax2.axvspan(homo_energy + 0.1, rydberg_start - 0.1 if not np.isnan(rydberg_start) else e_max,
-                alpha=0.15, color="#9467bd", label="_nolegend_")  # Virt valence
+                alpha=0.25, color="#9467bd", label="_nolegend_")  # Virt valence
     ax2.axvspan(rydberg_start - 0.1 if not np.isnan(rydberg_start) else e_max, e_max,
                 alpha=0.15, color="#ff7f0e", label="_nolegend_")  # Rydberg
 
@@ -298,11 +298,11 @@ def main():
         ax2.hist(core_in_range, bins=bin_edges, color="#8B0000", alpha=0.9, edgecolor="black", linewidth=1.0,
                 rwidth=0.85, label=f"Core: {len(core_E)}")
 
-    ax2.hist(occ_val_E, bins=bin_edges, color="#1f77b4", alpha=0.85, edgecolor="black", linewidth=1.0,
+    ax2.hist(occ_val_E, bins=bin_edges, color="#1f77b4", alpha=1.0, edgecolor="black", linewidth=1.0,
             rwidth=0.85, label=f"Occ. valence: {len(occ_val_E)}")
     ax2.hist(virt_val_E, bins=bin_edges, color="#9467bd", alpha=0.85, edgecolor="black", linewidth=1.0,
             rwidth=0.85, label=f"Virt. valence: {len(virt_val_E)}")
-    ax2.hist(rydberg_E, bins=bin_edges, color="#ff7f0e", alpha=0.9, edgecolor="black", linewidth=1.0,
+    ax2.hist(rydberg_E, bins=bin_edges, color="#ff7f0e", alpha=0.75, edgecolor="black", linewidth=1.0,
             rwidth=0.85, label=f"Rydberg: {len(rydberg_E)}")
 
     # Vertical lines for boundaries
@@ -316,7 +316,7 @@ def main():
     ax2.set_xlim(valence_e_min, e_max)
     ax2.legend(frameon=True, fontsize=9, loc='upper left')
     ax2.grid(alpha=0.3, zorder=0)
-    ax2.set_title("Valence & Rydberg Region (E ≥ -6 Ha)", fontsize=12)
+    # ax2.set_title("Valence & Rydberg Region (E ≥ -6 Ha)", fontsize=12)
 
     # === SERENITY FAILS warning ===
     if serenity_fails:
