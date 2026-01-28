@@ -6,7 +6,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
 # Source environment
-source ~/autoCAS4HE/setup_autocas_env.sh
+source /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/setup_hortense.sh
 
 echo "Analyzing all dimer calculations..."
 echo ""
@@ -19,7 +19,7 @@ for dir in */; do
         echo "Analyzing ${element}2..."
         cd "$dir"
         # PYTHONNOUSERSITE=1 ignores ~/.local packages to avoid version conflicts
-        PYTHONNOUSERSITE=1 python3 ~/autoCAS4HE/scripts/IBO_distr.py "${element}2_0.scf.h5" --element "$element"
+        python3 /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/scripts/IBO_distr.py "${element}2_0.scf.h5" --element "$element" --hpc
         cd ..
     fi
 done

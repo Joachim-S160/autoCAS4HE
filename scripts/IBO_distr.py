@@ -11,7 +11,10 @@ import matplotlib.pyplot as plt
 # USER SETTINGS
 # =========================
 CORE_CUTOFF = -5.0  # Hartree
-MINAO_PATH = Path("/home/joaschee/autoCAS4HE/serenity/data/basis/MINAO")
+
+# Paths for different environments
+MINAO_PATH_LOCAL = Path("/home/joaschee/autoCAS4HE/serenity/data/basis/MINAO")
+MINAO_PATH_HPC = Path("/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/data/basis/MINAO")
 
 # Angular momentum mapping
 L_MAP = {
@@ -27,12 +30,12 @@ L_MAP = {
 # =========================
 # MINAO PARSER
 # =========================
-def count_minimal_basis_for_element(element):
+def count_minimal_basis_for_element(element, minao_path):
     element = element.lower()
     total_functions = 0
     found = False
 
-    with open(MINAO_PATH, "r") as f:
+    with open(minao_path, "r") as f:
         lines = f.readlines()
 
     inside_block = False
@@ -69,16 +72,27 @@ def count_minimal_basis_for_element(element):
 # MAIN
 # =========================
 def main():
+    # Check for --hpc flag anywhere in arguments
+    use_hpc = "--hpc" in sys.argv
+    if use_hpc:
+        sys.argv.remove("--hpc")
 
     if len(sys.argv) not in [3, 4]:
         print("\nUsage:")
         print("Manual mode:")
-        print("  python IBO_distr.py file.scf.h5 nMinimalBasisFunctions")
+        print("  python IBO_distr.py file.scf.h5 nMinimalBasisFunctions [--hpc]")
         print("\nAutomatic MINAO mode:")
-        print("  python IBO_distr.py file.scf.h5 --element po\n")
+        print("  python IBO_distr.py file.scf.h5 --element po [--hpc]")
+        print("\nOptions:")
+        print("  --hpc    Use HPC cluster paths (default: local paths)\n")
         sys.exit(1)
 
     h5file = sys.argv[1]
+
+    # Select MINAO path based on environment
+    minao_path = MINAO_PATH_HPC if use_hpc else MINAO_PATH_LOCAL
+    if use_hpc:
+        print("[INFO] Using HPC paths")
 
     # -------------------------
     # Determine minimal basis (per atom for dimers)
@@ -86,7 +100,7 @@ def main():
     element = None
     if sys.argv[2] == "--element":
         element = sys.argv[3]
-        nMinimalBasisFunctions = count_minimal_basis_for_element(element)
+        nMinimalBasisFunctions = count_minimal_basis_for_element(element, minao_path)
         print(f"[INFO] Element: {element.upper()}")
         print(f"[INFO] MINAO per atom: {nMinimalBasisFunctions}")
         print(f"[INFO] MINAO for dimer: {2 * nMinimalBasisFunctions}")

@@ -235,7 +235,7 @@ echo "Running IBO distribution analysis..."
 SCRIPT_DIR="${INSTALL_DIR}/scripts"
 if [ -f "${element_lower}2_0.scf.h5" ]; then
     # PYTHONNOUSERSITE=1 ignores ~/.local packages to avoid version conflicts
-    PYTHONNOUSERSITE=1 python3 \${SCRIPT_DIR}/IBO_distr.py ${element_lower}2_0.scf.h5 --element ${element_lower}
+    python3 \${SCRIPT_DIR}/IBO_distr.py ${element_lower}2_0.scf.h5 --element ${element_lower} --hpc
 fi
 
 echo ""

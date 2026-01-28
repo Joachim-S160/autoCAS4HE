@@ -71,7 +71,7 @@ echo ""
 echo "Running IBO distribution analysis..."
 SCRIPT_DIR="/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/scripts"
 if [ -f "tc2_0.scf.h5" ]; then
-    python3 ${SCRIPT_DIR}/IBO_distr.py tc2_0.scf.h5 --element tc
+    python3 ${SCRIPT_DIR}/IBO_distr.py tc2_0.scf.h5 --element tc --hpc
 fi
 
 echo ""
