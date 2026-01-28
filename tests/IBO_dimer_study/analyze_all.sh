@@ -18,7 +18,8 @@ for dir in */; do
     if [ -f "$h5_file" ]; then
         echo "Analyzing ${element}2..."
         cd "$dir"
-        python3 ~/autoCAS4HE/scripts/IBO_distr.py "${element}2_0.scf.h5" --element "$element"
+        # PYTHONNOUSERSITE=1 ignores ~/.local packages to avoid version conflicts
+        PYTHONNOUSERSITE=1 python3 ~/autoCAS4HE/scripts/IBO_distr.py "${element}2_0.scf.h5" --element "$element"
         cd ..
     fi
 done
