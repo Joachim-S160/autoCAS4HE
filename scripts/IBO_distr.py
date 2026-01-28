@@ -246,74 +246,77 @@ def main():
     print(f"[INFO] Diagnostic data appended to {csv_file}")
 
     # -------------------------
-    # Plot → Dual panel (full range + core zoom)
+    # Plot → Dual panel (core zoom on LEFT, valence/Rydberg on RIGHT)
     # -------------------------
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7), gridspec_kw={'width_ratios': [2, 1]})
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7), gridspec_kw={'width_ratios': [1, 2]})
 
-    # === LEFT PANEL: Full energy range ===
-    e_min = energies_sorted.min() - 1.0
-    e_max = energies_sorted.max() + 1.0
-
-    # Background colored regions (light hues)
-    ax1.axvspan(e_min, CORE_CUTOFF, alpha=0.15, color="#8B0000", label="_nolegend_")
-    ax1.axvspan(CORE_CUTOFF, homo_energy + 0.1, alpha=0.15, color="#1f77b4", label="_nolegend_")
-    ax1.axvspan(homo_energy + 0.1, rydberg_start - 0.1 if not np.isnan(rydberg_start) else e_max,
-                alpha=0.15, color="#9467bd", label="_nolegend_")
-    ax1.axvspan(rydberg_start - 0.1 if not np.isnan(rydberg_start) else e_max, e_max,
-                alpha=0.15, color="#ff7f0e", label="_nolegend_")
-
-    # Use common bin edges across full energy range
-    bin_edges = np.linspace(e_min, e_max, 50)
-
-    # Histograms with orbital counts in legend
-    ax1.hist(core_E, bins=bin_edges, color="#8B0000", alpha=0.9, edgecolor="black", linewidth=1.0,
-            rwidth=0.85, label=f"Core: {len(core_E)}")
-    ax1.hist(occ_val_E, bins=bin_edges, color="#1f77b4", alpha=0.85, edgecolor="black", linewidth=1.0,
-            rwidth=0.85, label=f"Occ. valence: {len(occ_val_E)}")
-    ax1.hist(virt_val_E, bins=bin_edges, color="#9467bd", alpha=0.85, edgecolor="black", linewidth=1.0,
-            rwidth=0.85, label=f"Virt. valence: {len(virt_val_E)}")
-    ax1.hist(rydberg_E, bins=bin_edges, color="#ff7f0e", alpha=0.9, edgecolor="black", linewidth=1.0,
-            rwidth=0.85, label=f"Rydberg: {len(rydberg_E)}")
-
-    # Vertical lines for boundaries
-    ax1.axvline(CORE_CUTOFF, color="black", linestyle="--", linewidth=1.5, label=f"Core cutoff ({CORE_CUTOFF} Ha)")
-    ax1.axvline(homo_energy, color="green", linestyle="-.", linewidth=1.2, label=f"HOMO ({homo_energy:.2f} Ha)")
-    if not np.isnan(rydberg_start):
-        ax1.axvline(rydberg_start, color="red", linestyle=":", linewidth=1.2, label=f"Rydberg start ({rydberg_start:.2f} Ha)")
-
-    ax1.set_xlabel("Orbital energy (Hartree)", fontsize=12)
-    ax1.set_ylabel("Number of orbitals", fontsize=12)
-    ax1.set_xlim(e_min, e_max)
-    ax1.legend(frameon=True, fontsize=9, loc='upper left')
-    ax1.grid(alpha=0.3, zorder=0)
-    ax1.set_title("Full Energy Range", fontsize=12)
-
-    # === RIGHT PANEL: Core region zoom ===
+    # === LEFT PANEL: Core region zoom ===
     if len(core_E) > 0:
         core_e_min = core_E.min() - 5.0
         core_e_max = min(CORE_CUTOFF + 2.0, core_E.max() + 5.0)
 
         # Background
-        ax2.axvspan(core_e_min, CORE_CUTOFF, alpha=0.15, color="#8B0000", label="_nolegend_")
+        ax1.axvspan(core_e_min, CORE_CUTOFF, alpha=0.15, color="#8B0000", label="_nolegend_")
 
         # Adaptive binning for core region
-        core_range = core_E.max() - core_E.min()
         n_core_bins = min(30, max(10, len(core_E) // 3))
         core_bin_edges = np.linspace(core_e_min, core_e_max, n_core_bins)
 
-        ax2.hist(core_E, bins=core_bin_edges, color="#8B0000", alpha=0.9, edgecolor="black", linewidth=1.0,
+        ax1.hist(core_E, bins=core_bin_edges, color="#8B0000", alpha=0.9, edgecolor="black", linewidth=1.0,
                 rwidth=0.85, label=f"Core: {len(core_E)}")
 
-        ax2.axvline(CORE_CUTOFF, color="black", linestyle="--", linewidth=1.5, label=f"Cutoff ({CORE_CUTOFF} Ha)")
-        ax2.set_xlabel("Orbital energy (Hartree)", fontsize=12)
-        ax2.set_ylabel("Number of orbitals", fontsize=12)
-        ax2.set_xlim(core_e_min, core_e_max)
-        ax2.legend(frameon=True, fontsize=9, loc='upper left')
-        ax2.grid(alpha=0.3, zorder=0)
-        ax2.set_title(f"Core Region (E < {CORE_CUTOFF} Ha)", fontsize=12)
+        ax1.axvline(CORE_CUTOFF, color="black", linestyle="--", linewidth=1.5, label=f"Cutoff ({CORE_CUTOFF} Ha)")
+        ax1.set_xlabel("Orbital energy (Hartree)", fontsize=12)
+        ax1.set_ylabel("Number of orbitals", fontsize=12)
+        ax1.set_xlim(core_e_min, core_e_max)
+        ax1.legend(frameon=True, fontsize=9, loc='upper left')
+        ax1.grid(alpha=0.3, zorder=0)
+        ax1.set_title(f"Core Region (E < {CORE_CUTOFF} Ha)", fontsize=12)
     else:
-        ax2.text(0.5, 0.5, "No core orbitals", ha='center', va='center', fontsize=14, transform=ax2.transAxes)
-        ax2.set_title("Core Region", fontsize=12)
+        ax1.text(0.5, 0.5, "No core orbitals", ha='center', va='center', fontsize=14, transform=ax1.transAxes)
+        ax1.set_title("Core Region", fontsize=12)
+
+    # === RIGHT PANEL: Valence and Rydberg (starting from -6 Ha) ===
+    valence_e_min = -6.0  # Start from -6 Ha
+    e_max = energies_sorted.max() + 1.0
+
+    # Background colored regions (light hues) - red hue for E < -5 Ha even without core
+    ax2.axvspan(valence_e_min, CORE_CUTOFF, alpha=0.15, color="#8B0000", label="_nolegend_")  # Core region hue
+    ax2.axvspan(CORE_CUTOFF, homo_energy + 0.1, alpha=0.15, color="#1f77b4", label="_nolegend_")  # Occ valence
+    ax2.axvspan(homo_energy + 0.1, rydberg_start - 0.1 if not np.isnan(rydberg_start) else e_max,
+                alpha=0.15, color="#9467bd", label="_nolegend_")  # Virt valence
+    ax2.axvspan(rydberg_start - 0.1 if not np.isnan(rydberg_start) else e_max, e_max,
+                alpha=0.15, color="#ff7f0e", label="_nolegend_")  # Rydberg
+
+    # Use common bin edges for valence/Rydberg range
+    bin_edges = np.linspace(valence_e_min, e_max, 50)
+
+    # Histograms with orbital counts in legend (filter to visible range)
+    # Core orbitals that fall in this range (unlikely but possible)
+    core_in_range = core_E[core_E >= valence_e_min] if len(core_E) > 0 else np.array([])
+    if len(core_in_range) > 0:
+        ax2.hist(core_in_range, bins=bin_edges, color="#8B0000", alpha=0.9, edgecolor="black", linewidth=1.0,
+                rwidth=0.85, label=f"Core: {len(core_E)}")
+
+    ax2.hist(occ_val_E, bins=bin_edges, color="#1f77b4", alpha=0.85, edgecolor="black", linewidth=1.0,
+            rwidth=0.85, label=f"Occ. valence: {len(occ_val_E)}")
+    ax2.hist(virt_val_E, bins=bin_edges, color="#9467bd", alpha=0.85, edgecolor="black", linewidth=1.0,
+            rwidth=0.85, label=f"Virt. valence: {len(virt_val_E)}")
+    ax2.hist(rydberg_E, bins=bin_edges, color="#ff7f0e", alpha=0.9, edgecolor="black", linewidth=1.0,
+            rwidth=0.85, label=f"Rydberg: {len(rydberg_E)}")
+
+    # Vertical lines for boundaries
+    ax2.axvline(CORE_CUTOFF, color="black", linestyle="--", linewidth=1.5, label=f"Core cutoff ({CORE_CUTOFF} Ha)")
+    ax2.axvline(homo_energy, color="green", linestyle="-.", linewidth=1.2, label=f"HOMO ({homo_energy:.2f} Ha)")
+    if not np.isnan(rydberg_start):
+        ax2.axvline(rydberg_start, color="red", linestyle=":", linewidth=1.2, label=f"Rydberg start ({rydberg_start:.2f} Ha)")
+
+    ax2.set_xlabel("Orbital energy (Hartree)", fontsize=12)
+    ax2.set_ylabel("Number of orbitals", fontsize=12)
+    ax2.set_xlim(valence_e_min, e_max)
+    ax2.legend(frameon=True, fontsize=9, loc='upper left')
+    ax2.grid(alpha=0.3, zorder=0)
+    ax2.set_title("Valence & Rydberg Region (E ≥ -6 Ha)", fontsize=12)
 
     # === SERENITY FAILS warning ===
     if serenity_fails:

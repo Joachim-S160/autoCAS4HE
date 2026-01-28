@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Create animated GIF from IBO distribution plots.
+Create animated GIF and MP4 from IBO distribution plots.
 
-Collects all PNG files from dimer analysis and creates an animated GIF
+Collects all PNG files from dimer analysis and creates animations
 sorted by atomic number (Z) for easy review of trends across the periodic table.
 
 Usage:
@@ -10,14 +10,14 @@ Usage:
 
 Options:
     --input-dir DIR   Directory containing element subdirectories (default: current dir)
-    --output FILE     Output GIF filename (default: IBO_all_elements.gif)
+    --output FILE     Output filename base (default: IBO_all_elements)
     --duration MS     Duration per frame in milliseconds (default: 500)
     --hpc             Use HPC paths
 """
 
 import sys
+import subprocess
 from pathlib import Path
-import glob
 import re
 
 # Element data with atomic numbers for sorting
@@ -44,10 +44,68 @@ def get_atomic_number(element_dir):
     return 999
 
 
+def create_mp4_with_ffmpeg(png_files, output_path, duration_ms, input_dir):
+    """Create MP4 using ffmpeg with a file list."""
+    fps = 1000 / duration_ms  # Convert ms per frame to fps
+
+    # Create a temporary file list for ffmpeg
+    list_file = input_dir / '_ffmpeg_input.txt'
+    with open(list_file, 'w') as f:
+        for z, name, path in png_files:
+            # ffmpeg concat demuxer format
+            f.write(f"file '{path.absolute()}'\n")
+            f.write(f"duration {duration_ms / 1000}\n")
+        # Add last frame again (ffmpeg quirk)
+        if png_files:
+            f.write(f"file '{png_files[-1][2].absolute()}'\n")
+
+    try:
+        cmd = [
+            'ffmpeg', '-y',  # Overwrite output
+            '-f', 'concat',
+            '-safe', '0',
+            '-i', str(list_file),
+            '-vf', 'fps=2,format=yuv420p',  # 2 fps, compatible pixel format
+            '-c:v', 'libx264',
+            '-preset', 'medium',
+            '-crf', '23',
+            str(output_path)
+        ]
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        if result.returncode == 0:
+            return True
+        else:
+            print(f"ffmpeg error: {result.stderr}")
+            return False
+    except FileNotFoundError:
+        return False
+    finally:
+        if list_file.exists():
+            list_file.unlink()
+
+
+def create_mp4_with_imageio(png_files, output_path, duration_ms):
+    """Create MP4 using imageio-ffmpeg."""
+    try:
+        import imageio
+        fps = 1000 / duration_ms
+
+        writer = imageio.get_writer(str(output_path), fps=fps, codec='libx264',
+                                    pixelformat='yuv420p', quality=8)
+        for z, name, path in png_files:
+            img = imageio.imread(path)
+            writer.append_data(img)
+        writer.close()
+        return True
+    except Exception as e:
+        print(f"imageio error: {e}")
+        return False
+
+
 def main():
     # Parse arguments
     input_dir = Path('.')
-    output_file = 'IBO_all_elements.gif'
+    output_base = 'IBO_all_elements'
     duration = 500  # ms per frame
     use_hpc = '--hpc' in sys.argv
 
@@ -58,7 +116,7 @@ def main():
             input_dir = Path(args[i + 1])
             i += 2
         elif args[i] == '--output' and i + 1 < len(args):
-            output_file = args[i + 1]
+            output_base = args[i + 1].replace('.gif', '').replace('.mp4', '')
             i += 2
         elif args[i] == '--duration' and i + 1 < len(args):
             duration = int(args[i + 1])
@@ -88,54 +146,78 @@ def main():
         print("Make sure IBO_distr.py has been run on the .scf.h5 files first.")
         sys.exit(1)
 
-    # Sort by atomic number
+    # Sort by atomic number (chemical size)
     png_files.sort(key=lambda x: x[0])
 
     print(f"Found {len(png_files)} PNG files")
-    print("Order (by Z):")
+    print("Order (by atomic number Z):")
     for z, name, path in png_files:
         print(f"  Z={z:3d}: {name}")
 
-    # Try to import PIL
+    # === Create GIF ===
+    gif_path = input_dir / f"{output_base}.gif"
+    gif_created = False
+
     try:
         from PIL import Image
+        print(f"\nCreating GIF with {duration}ms per frame...")
+
+        images = []
+        for z, name, path in png_files:
+            img = Image.open(path)
+            if img.mode != 'RGB':
+                img = img.convert('RGB')
+            images.append(img)
+
+        images[0].save(
+            gif_path,
+            save_all=True,
+            append_images=images[1:],
+            duration=duration,
+            loop=0
+        )
+        gif_created = True
+        print(f"GIF saved to: {gif_path}")
     except ImportError:
-        print("\nERROR: PIL/Pillow not installed.")
+        print("\nWARNING: PIL/Pillow not installed, skipping GIF creation.")
         print("Install with: pip install Pillow")
-        print("\nAlternatively, use ImageMagick from command line:")
-        print(f"  convert -delay {duration // 10} -loop 0 \\")
-        for _, _, path in png_files:
-            print(f"    {path} \\")
-        print(f"    {output_file}")
-        sys.exit(1)
 
-    # Create GIF
-    print(f"\nCreating GIF with {duration}ms per frame...")
+    # === Create MP4 (better for pausing in VSCode) ===
+    mp4_path = input_dir / f"{output_base}.mp4"
+    mp4_created = False
 
-    images = []
-    for z, name, path in png_files:
-        img = Image.open(path)
-        # Convert to RGB if necessary (for GIF compatibility)
-        if img.mode != 'RGB':
-            img = img.convert('RGB')
-        images.append(img)
+    print(f"\nCreating MP4 with {duration}ms per frame...")
 
-    # Save as GIF
-    output_path = input_dir / output_file
-    images[0].save(
-        output_path,
-        save_all=True,
-        append_images=images[1:],
-        duration=duration,
-        loop=0  # 0 = infinite loop
-    )
+    # Try ffmpeg first (most reliable)
+    mp4_created = create_mp4_with_ffmpeg(png_files, mp4_path, duration, input_dir)
 
-    print(f"\nGIF saved to: {output_path}")
-    print(f"  - {len(images)} frames")
-    print(f"  - {duration}ms per frame")
-    print(f"  - Total duration: {len(images) * duration / 1000:.1f}s")
+    if not mp4_created:
+        # Try imageio as fallback
+        try:
+            mp4_created = create_mp4_with_imageio(png_files, mp4_path, duration)
+        except ImportError:
+            pass
 
-    # Also create a summary of failed elements
+    if mp4_created:
+        print(f"MP4 saved to: {mp4_path}")
+    else:
+        print("WARNING: Could not create MP4.")
+        print("  Install ffmpeg: apt install ffmpeg / conda install ffmpeg")
+        print("  Or install imageio: pip install imageio imageio-ffmpeg")
+
+    # Summary
+    print("\n" + "=" * 60)
+    print("  Animation Summary")
+    print("=" * 60)
+    print(f"  Frames: {len(png_files)}")
+    print(f"  Duration per frame: {duration}ms")
+    print(f"  Total duration: {len(png_files) * duration / 1000:.1f}s")
+    if gif_created:
+        print(f"  GIF: {gif_path}")
+    if mp4_created:
+        print(f"  MP4: {mp4_path} (recommended for VSCode)")
+
+    # Show failed elements summary
     print("\n" + "=" * 60)
     print("  Summary: Elements where SERENITY FAILS")
     print("=" * 60)

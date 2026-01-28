@@ -76,10 +76,10 @@ fi
 
 echo ""
 echo "=============================================="
-echo "  Creating animated GIF..."
+echo "  Creating animations (GIF + MP4)..."
 echo "=============================================="
 
-python3 ${INSTALL_DIR}/scripts/create_IBO_gif.py --input-dir . --output IBO_all_elements.gif --duration 500
+python3 ${INSTALL_DIR}/scripts/create_IBO_gif.py --input-dir . --output IBO_all_elements --duration 500
 
 echo ""
 echo "=============================================="
@@ -89,6 +89,7 @@ echo ""
 echo "Output files:"
 echo "  - IBO_diagnostics.csv      (all diagnostic data)"
 echo "  - IBO_all_elements.gif     (animated overview)"
+echo "  - IBO_all_elements.mp4     (video - easier to pause in VSCode)"
 echo "  - */\*_IBO_distribution.pdf (individual plots)"
 echo "  - */\*_IBO_distribution.png (individual plots)"
 echo ""
