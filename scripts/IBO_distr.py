@@ -119,49 +119,108 @@ def main():
     occ_sorted = mo_occ[idx_sorted]
 
     # -------------------------
-    # Classification
+    # Classification (mimics Serenity's IBO logic)
     # -------------------------
+    nOccupied = int((occ_sorted > 0.0).sum())
+    nVirtual = nMO - nOccupied
+
+    # Step 1: Core classification (energy-based, applies to ALL orbitals)
     core_mask = energies_sorted < CORE_CUTOFF
 
+    # Step 2: Rydberg classification (top nRydberg by energy)
+    # Serenity marks these from highest energy down
     rydberg_mask = np.zeros(nMO, dtype=bool)
     if nRydberg > 0:
         rydberg_mask[-nRydberg:] = True
 
-    occ_valence_mask = (occ_sorted > 0.0) & (~core_mask)
-    virt_valence_mask = (occ_sorted == 0.0) & (~rydberg_mask)
+    # CRITICAL: Check for overlap (Serenity would crash here!)
+    overlap_mask = core_mask & rydberg_mask
+    n_overlap = overlap_mask.sum()
 
-    core_E = energies_sorted[core_mask]
-    rydberg_E = energies_sorted[rydberg_mask]
+    # Occupied orbitals marked as Rydberg (would cause crash)
+    occ_as_rydberg = (occ_sorted > 0.0) & rydberg_mask
+    n_occ_as_rydberg = occ_as_rydberg.sum()
+
+    # Serenity-accurate classification (mutually exclusive)
+    # Core: occupied with E < cutoff (flag=1 in Serenity)
+    core_occ_mask = (occ_sorted > 0.0) & core_mask
+
+    # Valence occupied: occupied and NOT core
+    occ_valence_mask = (occ_sorted > 0.0) & (~core_mask)
+
+    # Rydberg: virtual AND in top nRydberg (but Serenity caps at nVirtual)
+    rydberg_actual = min(nRydberg, nVirtual)  # What Serenity SHOULD do
+    rydberg_mask_fixed = np.zeros(nMO, dtype=bool)
+    if rydberg_actual > 0:
+        rydberg_mask_fixed[-rydberg_actual:] = True
+    rydberg_mask_fixed = rydberg_mask_fixed & (occ_sorted == 0.0)  # Only virtuals
+
+    # Virtual valence: virtual and NOT Rydberg
+    virt_valence_mask = (occ_sorted == 0.0) & (~rydberg_mask_fixed)
+
+    core_E = energies_sorted[core_occ_mask]
+    rydberg_E = energies_sorted[rydberg_mask_fixed]
     occ_val_E = energies_sorted[occ_valence_mask]
     virt_val_E = energies_sorted[virt_valence_mask]
+
+    # Store overflow info for reporting
+    rydberg_overflow = nRydberg - nVirtual if nRydberg > nVirtual else 0
 
     # -------------------------
     # Plot → PDF
     # -------------------------
-    plt.figure(figsize=(12, 7))
+    fig, ax = plt.subplots(figsize=(12, 7))
 
-    bins = 70
+    # Determine key energy boundaries
+    homo_energy = energies_sorted[occ_sorted > 0.0].max() if any(occ_sorted > 0.0) else 0.0
+    lumo_energy = energies_sorted[occ_sorted == 0.0].min() if any(occ_sorted == 0.0) else 0.0
+    rydberg_start = rydberg_E.min() if len(rydberg_E) > 0 else energies_sorted.max()
 
-    # Colorblind-friendly palette with high contrast
-    plt.hist(core_E, bins=bins, color="#8B0000", alpha=0.9, label="Core (dark red)")
-    plt.hist(occ_val_E, bins=bins, color="#1f77b4", alpha=0.85, label="Occupied valence (blue)")
-    plt.hist(virt_val_E, bins=bins, color="#17becf", alpha=0.85, label="Virtual valence (cyan)")
-    plt.hist(rydberg_E, bins=bins, color="#ff7f0e", alpha=0.9, label="Rydberg (orange)")
+    # Plot range
+    e_min = energies_sorted.min() - 1.0
+    e_max = energies_sorted.max() + 1.0
 
-    plt.axvline(CORE_CUTOFF, color="black", linestyle="--", linewidth=1.5, label=f"Core cutoff ({CORE_CUTOFF} Ha)")
+    # Background colored regions (light hues) - plot first so they're behind bars
+    ax.axvspan(e_min, CORE_CUTOFF, alpha=0.15, color="#8B0000", label="_nolegend_")  # Core region (light red)
+    ax.axvspan(CORE_CUTOFF, homo_energy + 0.1, alpha=0.15, color="#1f77b4", label="_nolegend_")  # Occ valence (light blue)
+    ax.axvspan(homo_energy + 0.1, rydberg_start - 0.1, alpha=0.15, color="#9467bd", label="_nolegend_")  # Virt valence (light purple)
+    ax.axvspan(rydberg_start - 0.1, e_max, alpha=0.15, color="#ff7f0e", label="_nolegend_")  # Rydberg (light orange)
 
-    plt.xlabel("Orbital energy (Hartree)", fontsize=14)
-    plt.ylabel("Number of orbitals", fontsize=14)
+    # Use common bin edges across full energy range for consistent bar widths
+    bin_edges = np.linspace(e_min, e_max, 40)
 
-    # Build title with element info if available
+    # Total MINAO for molecule (dimer = 2x per atom)
+    total_minao = 2 * nMinimalBasisFunctions
+
+    # Colorblind-friendly palette with high contrast and visible edges
+    # Include orbital counts in legend labels
+    ax.hist(core_E, bins=bin_edges, color="#8B0000", alpha=0.9, edgecolor="black", linewidth=1.2,
+            rwidth=0.85, label=f"Core: {len(core_E)}")
+    ax.hist(occ_val_E, bins=bin_edges, color="#1f77b4", alpha=0.85, edgecolor="black", linewidth=1.2,
+            rwidth=0.85, label=f"Occ. valence: {len(occ_val_E)}")
+    ax.hist(virt_val_E, bins=bin_edges, color="#9467bd", alpha=0.85, edgecolor="black", linewidth=1.2,
+            rwidth=0.85, label=f"Virt. valence: {len(virt_val_E)}")
+    ax.hist(rydberg_E, bins=bin_edges, color="#ff7f0e", alpha=0.9, edgecolor="black", linewidth=1.2,
+            rwidth=0.85, label=f"Rydberg: {len(rydberg_E)}")
+
+    # Vertical lines for boundaries
+    ax.axvline(CORE_CUTOFF, color="black", linestyle="--", linewidth=1.5, label=f"Core cutoff ({CORE_CUTOFF} Ha)")
+    ax.axvline(homo_energy, color="green", linestyle="-.", linewidth=1.2, label=f"HOMO ({homo_energy:.2f} Ha)")
+    ax.axvline(rydberg_start, color="red", linestyle=":", linewidth=1.2, label=f"Rydberg start ({rydberg_start:.2f} Ha)")
+
+    ax.set_xlabel("Orbital energy (Hartree)", fontsize=14)
+    ax.set_ylabel("Number of orbitals", fontsize=14)
+    ax.set_xlim(e_min, e_max)
+
+    # Build title with element info and MINAO count
     if element:
-        title = f"MO Energy Distribution: {element.upper()}₂ (IBO Classification)"
+        title = f"MO Energy Distribution: {element.upper()}₂ — MINAO: {total_minao} ({nMinimalBasisFunctions}/atom)"
     else:
-        title = "MO Energy Distribution with IBO Classification"
-    plt.title(title, fontsize=16)
+        title = f"MO Energy Distribution — MINAO: {total_minao}"
+    ax.set_title(title, fontsize=16)
 
-    plt.legend(frameon=True, fontsize=11, loc='upper right')
-    plt.grid(alpha=0.3)
+    ax.legend(frameon=True, fontsize=10, loc='upper left')
+    ax.grid(alpha=0.3, zorder=0)
     plt.tight_layout()
 
     outname = Path(h5file).with_suffix("").name + "_IBO_distribution.pdf"
@@ -179,21 +238,36 @@ def main():
     else:
         element_info = " (dimer)"
 
-    print("\n" + "=" * 50)
+    print("\n" + "=" * 60)
     print(f"  Orbital Classification Summary{element_info}")
-    print("=" * 50)
+    print("=" * 60)
     print(f"  Total MOs:                  {nMO}")
     print(f"  Basis functions:            {nBasisFunctions}")
     print(f"  MINAO per atom:             {minao_per_atom}")
     print(f"  Total MINAO (molecule):     {total_minao}")
-    print("-" * 50)
-    print(f"  Core orbitals:              {len(core_E):4d}  (ε < {CORE_CUTOFF} Ha)")
+    print("-" * 60)
+    print(f"  Occupied orbitals:          {nOccupied:4d}")
+    print(f"  Virtual orbitals:           {nVirtual:4d}")
+    print("-" * 60)
+    print(f"  Core (occupied, ε<{CORE_CUTOFF}):   {len(core_E):4d}")
     print(f"  Occupied valence:           {len(occ_val_E):4d}")
     print(f"  Virtual valence:            {len(virt_val_E):4d}")
-    print(f"  Rydberg orbitals:           {len(rydberg_E):4d}  (top {nRydberg} by energy)")
-    print("-" * 50)
-    print(f"  nOccupied > nMINAO?         {sum(occ_sorted > 0.0) > total_minao}  (IBO issue if True)")
-    print("=" * 50)
+    print(f"  Rydberg (shown):            {len(rydberg_E):4d}")
+    print("-" * 60)
+    print("  SERENITY IBO ANALYSIS:")
+    print(f"    nRydberg calculated:      {nRydberg:4d}  (nBasis - nMINAO)")
+    print(f"    nVirtual available:       {nVirtual:4d}")
+    if rydberg_overflow > 0:
+        print(f"    !! OVERFLOW:              {rydberg_overflow:4d}  orbitals into occupied space")
+        print(f"    !! Core-Rydberg overlap:  {n_overlap:4d}  (would crash Serenity)")
+        print(f"    !! Occ marked as Rydberg: {n_occ_as_rydberg:4d}")
+        print("-" * 60)
+        print("  STATUS: IBO WILL CRASH - nRydberg > nVirtual")
+    else:
+        print(f"    Overflow:                 None")
+        print("-" * 60)
+        print("  STATUS: IBO should work")
+    print("=" * 60)
     print(f"\n[PDF saved as]  {outname}\n")
 
 
