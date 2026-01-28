@@ -30,8 +30,10 @@ for dir in */; do
     if [ -f "$h5_file" ]; then
         echo "Analyzing ${element}2..."
         cd "$dir"
-        # Remove old CSV to avoid duplicates
+        # Remove old outputs to avoid stale plots in animations
         rm -f IBO_diagnostics.csv
+        rm -f *_IBO_distribution.pdf
+        rm -f *_IBO_distribution.png
         python3 ${INSTALL_DIR}/scripts/IBO_distr.py "${element}2_0.scf.h5" --element "$element" --hpc
         cd ..
         n_analyzed=$((n_analyzed + 1))
