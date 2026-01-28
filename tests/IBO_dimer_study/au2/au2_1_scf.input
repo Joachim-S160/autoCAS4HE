@@ -1,0 +1,14 @@
+&GATEWAY
+  Coord = au2_1.xyz
+  Basis = ANO-RCC-VDZP
+  Group = NoSym
+
+&SEWARD
+  Cholesky
+* Douglas-Kroll-Hess 2nd order relativistic Hamiltonian
+* Essential for heavy elements
+  Relativistic = R02O
+
+&SCF
+  Charge = 0
+  Spin = 1
