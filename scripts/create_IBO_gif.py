@@ -87,16 +87,34 @@ def create_mp4_with_ffmpeg(png_files, output_path, duration_ms, input_dir):
 def create_mp4_with_imageio(png_files, output_path, duration_ms):
     """Create MP4 using imageio-ffmpeg."""
     try:
-        import imageio
+        import imageio.v3 as iio
         fps = 1000 / duration_ms
 
-        writer = imageio.get_writer(str(output_path), fps=fps, codec='libx264',
-                                    pixelformat='yuv420p', quality=8)
+        # Read all images
+        frames = []
         for z, name, path in png_files:
-            img = imageio.imread(path)
-            writer.append_data(img)
-        writer.close()
+            img = iio.imread(path)
+            frames.append(img)
+
+        # Write as MP4
+        iio.imwrite(str(output_path), frames, fps=fps, codec='libx264')
         return True
+    except ImportError:
+        # Try legacy imageio API
+        try:
+            import imageio
+            fps = 1000 / duration_ms
+
+            writer = imageio.get_writer(str(output_path), fps=fps, codec='libx264',
+                                        pixelformat='yuv420p', quality=8)
+            for z, name, path in png_files:
+                img = imageio.imread(path)
+                writer.append_data(img)
+            writer.close()
+            return True
+        except Exception as e:
+            print(f"imageio error: {e}")
+            return False
     except Exception as e:
         print(f"imageio error: {e}")
         return False
@@ -188,15 +206,15 @@ def main():
 
     print(f"\nCreating MP4 with {duration}ms per frame...")
 
-    # Try ffmpeg first (most reliable)
-    mp4_created = create_mp4_with_ffmpeg(png_files, mp4_path, duration, input_dir)
+    # Try imageio first (often available as HPC module)
+    try:
+        mp4_created = create_mp4_with_imageio(png_files, mp4_path, duration)
+    except Exception as e:
+        print(f"imageio attempt failed: {e}")
 
+    # Fall back to ffmpeg
     if not mp4_created:
-        # Try imageio as fallback
-        try:
-            mp4_created = create_mp4_with_imageio(png_files, mp4_path, duration)
-        except ImportError:
-            pass
+        mp4_created = create_mp4_with_ffmpeg(png_files, mp4_path, duration, input_dir)
 
     if mp4_created:
         print(f"MP4 saved to: {mp4_path}")
@@ -234,8 +252,8 @@ def main():
 
         if failed:
             print(f"\n{len(failed)} elements will cause Serenity to crash:\n")
-            for elem, overflow in sorted(failed, key=lambda x: ELEMENT_Z.get(x[0], 999)):
-                z = ELEMENT_Z.get(elem, '?')
+            for elem, overflow in sorted(failed, key=lambda x: ELEMENT_Z.get(x[0].capitalize(), 999)):
+                z = ELEMENT_Z.get(elem.capitalize(), '?')
                 print(f"  {elem:3s} (Z={z:3}): overflow = {overflow}")
         else:
             print("\nNo elements found that would crash Serenity.")
