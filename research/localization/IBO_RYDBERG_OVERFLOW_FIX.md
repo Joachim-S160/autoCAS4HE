@@ -228,12 +228,12 @@ Status: Reverted due to zero valence virtuals issue
 
 ### Error 1: Without the cap (current state)
 ```
-RuntimeError: The IBO localization basis is too small to localize the given orbital selection.
+RuntimeError: A core orbital is assigned to be virtual. Something is wrong here!
 ```
 
 ### Error 2: With the cap (experimental branch)
 ```
-RuntimeError: A core orbital is assigned to be virtual. Something is wrong here!
+RuntimeError: The IBO localization basis is too small to localize the given orbital selection.
 ```
 
 Both errors indicate **IBO is incompatible with Po₂** using the current MINAO definition.
