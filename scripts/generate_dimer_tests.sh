@@ -170,6 +170,8 @@ generate_pbs_script() {
 #PBS -l nodes=1:ppn=8
 #PBS -l walltime=02:00:00
 #PBS -l mem=32gb
+#PBS -M joachim.scheerlinck@ugent.be
+#PBS -m e
 
 # ==============================================================================
 # Setup environment
