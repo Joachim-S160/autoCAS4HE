@@ -1,0 +1,121 @@
+#!/bin/bash
+# Po2 IBO Fix Verification Test
+# Tests that the energy-based Rydberg cutoff prevents the IBO crash for Po2.
+#
+# BEFORE running this test, rebuild Serenity with the energy-based Rydberg cutoff:
+#   cd $INSTALL_DIR/serenity/build && cmake .. && make -j$(nproc)
+#
+# EXPECTED RESULT:
+#   - OLD Serenity: "A core orbital is assigned to be virtual. Something is wrong here!"
+#   - NEW Serenity: IBO localization completes with "Using energy-based Rydberg cutoff: 1 Ha"
+#
+# Submit with: qsub po2_ibo_fix.pbs
+
+#PBS -N po2_ibo_fix
+#PBS -A 2025_127
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=02:00:00
+#PBS -l mem=64gb
+#PBS -M joachim.scheerlinck@ugent.be
+#PBS -m e
+
+# ==============================================================================
+# Setup environment
+# ==============================================================================
+PROJECT="starting_2025_097"
+INSTALL_DIR="/dodrio/scratch/projects/${PROJECT}/autoCAS4HE_built/autoCAS4HE"
+source ${INSTALL_DIR}/setup_hortense.sh
+export MOLCAS_WORKDIR=$(pwd)
+
+cd $PBS_O_WORKDIR
+
+echo "=============================================="
+echo "  Po2 IBO Fix Verification Test"
+echo "=============================================="
+echo ""
+echo "Working directory: $(pwd)"
+echo "Date: $(date)"
+echo ""
+echo "This test verifies that the energy-based Rydberg"
+echo "cutoff (1.0 Ha for d-block elements) prevents the"
+echo "IBO crash for heavy elements like Po (Z=84)."
+echo ""
+
+# ==============================================================================
+# Step 1: Copy pre-computed OpenMolcas DKH2 orbitals
+# ==============================================================================
+echo "Step 1: Copying pre-computed DKH2 orbital files..."
+
+# Reuse the .scf.h5 files from the existing Po2 external_scf test
+EXISTING_TEST="${INSTALL_DIR}/tests/autocas/external_scf/Po2_test"
+
+if [ -f "${EXISTING_TEST}/po2_0.scf.h5" ] && [ -f "${EXISTING_TEST}/po2_1.scf.h5" ]; then
+    cp "${EXISTING_TEST}/po2_0.scf.h5" .
+    cp "${EXISTING_TEST}/po2_1.scf.h5" .
+    echo "  Copied po2_0.scf.h5 and po2_1.scf.h5"
+else
+    echo "ERROR: Pre-computed .scf.h5 files not found in ${EXISTING_TEST}"
+    echo "       Run the IBO dimer study first, or generate with OpenMolcas DKH2."
+    exit 1
+fi
+
+echo ""
+ls -la *.scf.h5
+echo ""
+
+# ==============================================================================
+# Step 2: Run autoCAS with external orbitals (uses Serenity IBO localization)
+# ==============================================================================
+echo "Step 2: Running autoCAS with external DKH2 orbitals..."
+echo "  This step triggers Serenity IBO localization."
+echo "  With the fix: should print 'Using energy-based Rydberg cutoff: 1 Ha'"
+echo "  Without the fix: would crash with 'A core orbital is assigned to be virtual'"
+echo ""
+
+PO2_0_ORB="$(pwd)/po2_0.scf.h5"
+PO2_1_ORB="$(pwd)/po2_1.scf.h5"
+
+scine_autocas_consistent_active_space \
+    -e \
+    -o "${PO2_0_ORB},${PO2_1_ORB}" \
+    -b ANO-RCC-VDZP \
+    -m DMRGSCF \
+    po2_0.xyz po2_1.xyz
+
+EXIT_CODE=$?
+
+echo ""
+echo "=============================================="
+echo "  Test Results"
+echo "=============================================="
+echo ""
+echo "Exit code: ${EXIT_CODE}"
+echo "Date: $(date)"
+
+if [ ${EXIT_CODE} -eq 0 ]; then
+    echo ""
+    echo "SUCCESS: Po2 IBO localization completed without crashing!"
+    echo "The energy-based Rydberg cutoff fix works."
+else
+    echo ""
+    echo "FAILED: Exit code ${EXIT_CODE}"
+    echo "Check the error output for details."
+fi
+echo ""
+
+# ==============================================================================
+# Step 3: Run IBO distribution analysis
+# ==============================================================================
+echo "Step 3: Running IBO distribution analysis..."
+SCRIPT_DIR="${INSTALL_DIR}/scripts"
+if [ -f "po2_0.scf.h5" ] && [ -f "${SCRIPT_DIR}/IBO_distr.py" ]; then
+    python3 ${SCRIPT_DIR}/IBO_distr.py po2_0.scf.h5 --element po --hpc
+    echo "  IBO distribution plots generated."
+else
+    echo "  Skipping IBO distribution (script or h5 file not found)."
+fi
+
+echo ""
+echo "=============================================="
+echo "  All done!"
+echo "=============================================="

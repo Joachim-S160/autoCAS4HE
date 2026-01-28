@@ -183,25 +183,56 @@ Ran analysis on all 61 dimers. Results in `tests/IBO_dimer_study/IBO_diagnostics
   1. `IBO_all_elements.mp4` - Serenity classification
   2. `IBO_all_elements_proposed.mp4` - Proposed fix
 
-#### Next: Serenity Implementation
-Modify Serenity to accept custom Rydberg energy cutoff parameter for autoCAS users.
+### 11. Serenity C++ Implementation - Energy-Based Rydberg Cutoff
+
+Implemented the energy-based Rydberg cutoff directly in Serenity's IBO localization code.
+
+#### Serenity Changes (5 files)
+| File | Change |
+|------|--------|
+| `serenity/src/tasks/LocalizationTask.h` | Added `useRydbergEnergyRefinement` (bool, default true) and `rydbergEnergyCutoff` (double, default -1.0 = auto) |
+| `serenity/src/data/OrbitalController.h` | Added `refineRydbergOrbitalsByEnergyCutOff()` declaration |
+| `serenity/src/data/OrbitalController.cpp` | Implemented `refineRydbergOrbitalsByEnergyCutOff()` - removes Rydberg flag from orbitals below cutoff |
+| `serenity/src/tasks/LocalizationTask.cpp` | Modified IBO branch: energy-based cutoff (default) vs MINAO count (old) |
+| `serenity/src/tasks/LocalizationTask_python.cpp` | Added Python bindings for new settings |
+
+#### How It Works
+**Default (new, `useRydbergEnergyRefinement = true`):**
+1. Auto-detect cutoff from atom types: Z >= 21 (has d orbitals) → 1.0 Ha, else → 0.5 Ha
+2. Call `setRydbergOrbitalsByEnergyCutOff(cutoff)` - marks orbitals with E > cutoff as Rydberg
+3. No crash possible (only high-energy virtuals become Rydberg)
+
+**Old behavior (`useRydbergEnergyRefinement = false`):**
+1. Compute `nRydberg = nBasis - nMINAO`
+2. Call `setRydbergOrbitalsByNumber(nRydberg)` - may crash for heavy elements
+
+#### autoCAS Integration (4 files)
+| File | Change |
+|------|--------|
+| `autocas/.../serenity/serenity.py` | Added `rydberg_energy_cutoff` setting, passes to `loc_settings` |
+| `autocas/.../utils/defaults.py` | Added IBO distribution plot names |
+| `autocas/.../io/file_handler.py` | Added IBO distribution plot names |
+| `autocas/.../workflows/workflow.py` | Added `_plot_ibo_distribution()` - generates IBO plots alongside entanglement plots |
 
 ## Key Files Modified
 - `scripts/IBO_distr.py` - Complete rewrite + energy-based Rydberg classification
 - `scripts/create_IBO_gif.py` - New animation generator + proposed fix MP4
 - `scripts/analyze_rydberg_cutoff.py` - Rydberg cutoff analysis tool
 - `tests/IBO_dimer_study/analyze_all.sh` - Updated with cleanup and animations
-
-## Git Status
-- Commit `18a9b4b`: Added IBO_diagnostics.csv with full PSE analysis results
-- All changes pushed to remote
+- `serenity/src/tasks/LocalizationTask.h` - New settings for Rydberg energy refinement
+- `serenity/src/data/OrbitalController.h/.cpp` - New `refineRydbergOrbitalsByEnergyCutOff` method
+- `serenity/src/tasks/LocalizationTask.cpp` - Energy-based IBO Rydberg classification
+- `serenity/src/tasks/LocalizationTask_python.cpp` - Python bindings
+- `autocas/.../serenity/serenity.py` - Rydberg cutoff setting
+- `autocas/.../workflows/workflow.py` - IBO distribution plotting
 
 ## Next Steps
 1. ~~Push updated IBO_distr.py~~ ✓
 2. ~~Submit dimer calculations on cluster~~ ✓
 3. ~~Analyze results to determine element-dependent energy cutoffs~~ ✓
 4. ~~Implement energy-based Rydberg cutoff visualization~~ ✓
-5. Investigate SCF convergence for 32 failing elements (unbound electrons)
-6. Consider element-specific spin multiplicities (e.g., O₂ triplet)
-7. **Implement energy-based Rydberg cutoff in Serenity fork**
-8. Add `--rydberg-cutoff` option for autoCAS users
+5. ~~Implement energy-based Rydberg cutoff in Serenity~~ ✓
+6. ~~Add IBO distribution plots to autoCAS~~ ✓
+7. Rebuild Serenity and test on Po₂ / Bi₂
+8. Investigate SCF convergence for 32 failing elements (unbound electrons)
+9. Consider element-specific spin multiplicities (e.g., O₂ triplet)
