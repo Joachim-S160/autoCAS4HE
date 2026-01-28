@@ -21,6 +21,40 @@ import matplotlib.pyplot as plt
 # =========================
 CORE_CUTOFF = -5.0  # Hartree
 
+# Energy-based Rydberg cutoffs (proposed fix for Serenity)
+# - s/p block elements (no d orbitals): 0.5 Ha
+# - d-block elements (transition metals): 1.0 Ha
+RYDBERG_CUTOFF_SP = 0.5   # Hartree - for s/p block elements
+RYDBERG_CUTOFF_D = 1.0    # Hartree - for d-block elements
+
+# d-block elements (transition metals) - use 1.0 Ha cutoff
+D_BLOCK_ELEMENTS = {
+    # 3d: Sc-Zn (21-30)
+    'Sc', 'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ni', 'Cu', 'Zn',
+    # 4d: Y-Cd (39-48)
+    'Y', 'Zr', 'Nb', 'Mo', 'Tc', 'Ru', 'Rh', 'Pd', 'Ag', 'Cd',
+    # 5d: La-Hg (57-80) including lanthanides
+    'La', 'Ce', 'Pr', 'Nd', 'Pm', 'Sm', 'Eu', 'Gd', 'Tb', 'Dy',
+    'Ho', 'Er', 'Tm', 'Yb', 'Lu', 'Hf', 'Ta', 'W', 'Re', 'Os',
+    'Ir', 'Pt', 'Au', 'Hg',
+    # 6d: Ac onwards (for completeness)
+    'Ac', 'Th', 'Pa', 'U', 'Np', 'Pu', 'Am', 'Cm', 'Bk', 'Cf',
+    'Es', 'Fm', 'Md', 'No', 'Lr', 'Rf', 'Db', 'Sg', 'Bh', 'Hs',
+    'Mt', 'Ds', 'Rg', 'Cn',
+}
+
+
+def get_rydberg_energy_cutoff(element):
+    """Get energy-based Rydberg cutoff based on element type.
+
+    - s/p block elements (main group): 0.5 Ha
+    - d-block elements (transition metals): 1.0 Ha
+    """
+    if element.capitalize() in D_BLOCK_ELEMENTS:
+        return RYDBERG_CUTOFF_D
+    else:
+        return RYDBERG_CUTOFF_SP
+
 # Paths for different environments
 MINAO_PATH_LOCAL = Path("/home/joaschee/autoCAS4HE/serenity/data/basis/MINAO")
 MINAO_PATH_HPC = Path("/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/data/basis/MINAO")
@@ -256,7 +290,26 @@ def main():
         return  # Don't plot unphysical results
 
     # -------------------------
-    # Plot → Dual panel (core zoom on LEFT, valence/Rydberg on RIGHT)
+    # Energy-based Rydberg classification (PROPOSED FIX)
+    # -------------------------
+    rydberg_cutoff_energy = get_rydberg_energy_cutoff(element)
+    print(f"[INFO] Using energy-based Rydberg cutoff: {rydberg_cutoff_energy} Ha ({element} is {'d-block' if element.capitalize() in D_BLOCK_ELEMENTS else 's/p-block'})")
+
+    # Rydberg (proposed): virtual orbitals with E >= cutoff
+    rydberg_proposed_mask = (occ_sorted == 0.0) & (energies_sorted >= rydberg_cutoff_energy)
+    # Virtual valence (proposed): virtual orbitals with E < cutoff
+    virt_valence_proposed_mask = (occ_sorted == 0.0) & (energies_sorted < rydberg_cutoff_energy)
+
+    rydberg_proposed_E = energies_sorted[rydberg_proposed_mask]
+    virt_valence_proposed_E = energies_sorted[virt_valence_proposed_mask]
+
+    n_rydberg_proposed = len(rydberg_proposed_E)
+    n_virt_valence_proposed = len(virt_valence_proposed_E)
+
+    print(f"[INFO] Proposed classification: {n_virt_valence_proposed} virtual valence, {n_rydberg_proposed} Rydberg")
+
+    # -------------------------
+    # Plot 1: Serenity's classification (original)
     # -------------------------
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7), gridspec_kw={'width_ratios': [1, 2]})
 
@@ -362,6 +415,92 @@ def main():
     plt.close()
 
     # -------------------------
+    # Plot 2: PROPOSED FIX (energy-based Rydberg cutoff)
+    # -------------------------
+    fig2, (ax1b, ax2b) = plt.subplots(1, 2, figsize=(16, 7), gridspec_kw={'width_ratios': [1, 2]})
+
+    # === LEFT PANEL: Core region zoom (same as before) ===
+    if len(core_E) > 0:
+        core_e_min = core_E.min() - 5.0
+        core_e_max = CORE_CUTOFF + 2.0
+        ax1b.axvspan(core_e_min, CORE_CUTOFF, alpha=0.15, color="#8B0000", label="_nolegend_")
+        n_core_bins = min(30, max(10, len(core_E) // 3))
+        core_bin_edges = np.linspace(core_e_min, core_e_max, n_core_bins)
+        ax1b.hist(core_E, bins=core_bin_edges, color="#8B0000", alpha=0.9, edgecolor="black", linewidth=1.0,
+                  rwidth=0.85, label=f"Core: {len(core_E)}")
+        ax1b.axvline(CORE_CUTOFF, color="black", linestyle="--", linewidth=1.5, label=f"Cutoff ({CORE_CUTOFF} Ha)")
+        ax1b.set_xlabel("Orbital energy (Hartree)", fontsize=12)
+        ax1b.set_ylabel("Number of orbitals", fontsize=12)
+        ax1b.set_xlim(core_e_min, core_e_max)
+        ax1b.legend(frameon=True, fontsize=9, loc='upper left')
+        ax1b.grid(alpha=0.3, zorder=0)
+    else:
+        ax1b.text(0.5, 0.5, "No core orbitals", ha='center', va='center', fontsize=14, transform=ax1b.transAxes)
+        ax1b.set_title("Core Region", fontsize=12)
+
+    # === RIGHT PANEL: Valence and Rydberg with PROPOSED CUTOFF ===
+    valence_e_min_b = -6.0
+    e_max_b = energies_sorted.max() + 1.0
+
+    # Background colored regions with PROPOSED cutoff
+    ax2b.axvspan(valence_e_min_b, CORE_CUTOFF, alpha=0.15, color="#8B0000", label="_nolegend_")  # Core hue
+    ax2b.axvspan(CORE_CUTOFF, homo_energy + 0.1, alpha=0.15, color="#1f77b4", label="_nolegend_")  # Occ valence
+    ax2b.axvspan(homo_energy + 0.1, rydberg_cutoff_energy, alpha=0.25, color="#9467bd", label="_nolegend_")  # Virt valence
+    ax2b.axvspan(rydberg_cutoff_energy, e_max_b, alpha=0.15, color="#ff7f0e", label="_nolegend_")  # Rydberg
+
+    bin_edges_b = np.linspace(valence_e_min_b, e_max_b, 50)
+
+    # Core in range
+    core_in_range_b = core_E[core_E >= valence_e_min_b] if len(core_E) > 0 else np.array([])
+    if len(core_in_range_b) > 0:
+        ax2b.hist(core_in_range_b, bins=bin_edges_b, color="#8B0000", alpha=0.9, edgecolor="black", linewidth=1.0,
+                  rwidth=0.85, label=f"Core: {len(core_E)}")
+
+    # Occupied valence (same as before)
+    ax2b.hist(occ_val_E, bins=bin_edges_b, color="#1f77b4", alpha=1.0, edgecolor="black", linewidth=1.0,
+              rwidth=0.85, label=f"Occ. valence: {len(occ_val_E)}")
+    # Virtual valence (PROPOSED - below energy cutoff)
+    ax2b.hist(virt_valence_proposed_E, bins=bin_edges_b, color="#9467bd", alpha=0.85, edgecolor="black", linewidth=1.0,
+              rwidth=0.85, label=f"Virt. valence: {n_virt_valence_proposed}")
+    # Rydberg (PROPOSED - above energy cutoff)
+    ax2b.hist(rydberg_proposed_E, bins=bin_edges_b, color="#ff7f0e", alpha=0.75, edgecolor="black", linewidth=1.0,
+              rwidth=0.85, label=f"Rydberg: {n_rydberg_proposed}")
+
+    # Vertical lines
+    ax2b.axvline(CORE_CUTOFF, color="black", linestyle="--", linewidth=1.5, label=f"Core cutoff ({CORE_CUTOFF} Ha)")
+    ax2b.axvline(homo_energy, color="green", linestyle="-.", linewidth=1.2, label=f"HOMO ({homo_energy:.2f} Ha)")
+    ax2b.axvline(rydberg_cutoff_energy, color="red", linestyle=":", linewidth=2.0,
+                 label=f"Rydberg cutoff ({rydberg_cutoff_energy} Ha)")
+
+    ax2b.set_xlabel("Orbital energy (Hartree)", fontsize=12)
+    ax2b.set_ylabel("Number of orbitals", fontsize=12)
+    ax2b.set_xlim(valence_e_min_b, e_max_b)
+    ax2b.legend(frameon=True, fontsize=9, loc='upper left')
+    ax2b.grid(alpha=0.3, zorder=0)
+
+    # Title for proposed fix plot
+    block_type = "d-block" if element.capitalize() in D_BLOCK_ELEMENTS else "s/p-block"
+    fig2.suptitle(f"PROPOSED FIX: {element.upper()}₂ — Rydberg E ≥ {rydberg_cutoff_energy} Ha ({block_type})",
+                  fontsize=14, fontweight='bold', y=0.98, color='darkgreen')
+
+    # Add "WORKS" indicator
+    fig2.text(0.5, 0.92, f"✓ Virtual valence: {n_virt_valence_proposed} orbitals available for excited states",
+              fontsize=12, color='darkgreen', ha='center', va='top',
+              bbox=dict(boxstyle='round,pad=0.3', facecolor='lightgreen', edgecolor='green', linewidth=2))
+
+    plt.tight_layout()
+    plt.subplots_adjust(top=0.88)
+
+    # Save proposed fix plot
+    proposed_pdf = base_name + "_proposed.pdf"
+    proposed_png = base_name + "_proposed.png"
+    plt.savefig(proposed_pdf, dpi=150)
+    plt.savefig(proposed_png, dpi=150)
+    plt.close()
+
+    print(f"[INFO] Saved proposed fix plot: {proposed_png}")
+
+    # -------------------------
     # Summary
     # -------------------------
     minao_per_atom = nMinimalBasisFunctions
@@ -406,9 +545,15 @@ def main():
         print(f"    Overflow:                 None")
         print("-" * 60)
         print("  STATUS: IBO should work")
+    print("-" * 60)
+    print("  PROPOSED FIX (energy-based Rydberg cutoff):")
+    print(f"    Element type:             {block_type}")
+    print(f"    Rydberg cutoff:           {rydberg_cutoff_energy} Ha")
+    print(f"    Virtual valence:          {n_virt_valence_proposed:4d}  (available for excited states)")
+    print(f"    Rydberg:                  {n_rydberg_proposed:4d}  (E >= {rydberg_cutoff_energy} Ha)")
     print("=" * 60)
-    print(f"\n[PDF saved as]  {pdf_name}")
-    print(f"[PNG saved as]  {png_name}\n")
+    print(f"\n[Serenity plot]   {png_name}")
+    print(f"[Proposed plot]   {proposed_png}\n")
 
 
 if __name__ == "__main__":

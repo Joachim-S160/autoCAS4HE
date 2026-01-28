@@ -151,13 +151,23 @@ def main():
 
     print(f"Searching for PNG files in: {input_dir}")
 
-    # Find all PNG files
+    # Find Serenity classification PNGs (original)
     png_files = []
     for subdir in input_dir.iterdir():
         if subdir.is_dir():
             for png in subdir.glob('*_IBO_distribution.png'):
+                # Exclude proposed fix files
+                if '_proposed.png' not in str(png):
+                    z = get_atomic_number(subdir.name)
+                    png_files.append((z, subdir.name, png))
+
+    # Find PROPOSED FIX PNGs
+    proposed_files = []
+    for subdir in input_dir.iterdir():
+        if subdir.is_dir():
+            for png in subdir.glob('*_IBO_distribution_proposed.png'):
                 z = get_atomic_number(subdir.name)
-                png_files.append((z, subdir.name, png))
+                proposed_files.append((z, subdir.name, png))
 
     if not png_files:
         print("No PNG files found!")
@@ -166,8 +176,10 @@ def main():
 
     # Sort by atomic number (chemical size)
     png_files.sort(key=lambda x: x[0])
+    proposed_files.sort(key=lambda x: x[0])
 
-    print(f"Found {len(png_files)} PNG files")
+    print(f"Found {len(png_files)} Serenity classification plots")
+    print(f"Found {len(proposed_files)} proposed fix plots")
     print("Order (by atomic number Z):")
     for z, name, path in png_files:
         print(f"  Z={z:3d}: {name}")
@@ -223,17 +235,75 @@ def main():
         print("  Install ffmpeg: apt install ffmpeg / conda install ffmpeg")
         print("  Or install imageio: pip install imageio imageio-ffmpeg")
 
+    # === Create PROPOSED FIX animations ===
+    proposed_gif_created = False
+    proposed_mp4_created = False
+
+    if proposed_files:
+        print(f"\n{'=' * 60}")
+        print("  Creating PROPOSED FIX animations...")
+        print(f"{'=' * 60}")
+
+        proposed_gif_path = input_dir / f"{output_base}_proposed.gif"
+        proposed_mp4_path = input_dir / f"{output_base}_proposed.mp4"
+
+        # GIF for proposed fix
+        try:
+            from PIL import Image
+            print(f"\nCreating proposed fix GIF with {duration}ms per frame...")
+
+            images = []
+            for z, name, path in proposed_files:
+                img = Image.open(path)
+                if img.mode != 'RGB':
+                    img = img.convert('RGB')
+                images.append(img)
+
+            images[0].save(
+                proposed_gif_path,
+                save_all=True,
+                append_images=images[1:],
+                duration=duration,
+                loop=0
+            )
+            proposed_gif_created = True
+            print(f"Proposed GIF saved to: {proposed_gif_path}")
+        except ImportError:
+            pass
+
+        # MP4 for proposed fix
+        print(f"\nCreating proposed fix MP4 with {duration}ms per frame...")
+        try:
+            proposed_mp4_created = create_mp4_with_imageio(proposed_files, proposed_mp4_path, duration)
+        except Exception as e:
+            print(f"imageio attempt failed: {e}")
+
+        if not proposed_mp4_created:
+            proposed_mp4_created = create_mp4_with_ffmpeg(proposed_files, proposed_mp4_path, duration, input_dir)
+
+        if proposed_mp4_created:
+            print(f"Proposed MP4 saved to: {proposed_mp4_path}")
+    else:
+        print("\nNo proposed fix plots found (run IBO_distr.py with latest version)")
+
     # Summary
     print("\n" + "=" * 60)
     print("  Animation Summary")
     print("=" * 60)
-    print(f"  Frames: {len(png_files)}")
-    print(f"  Duration per frame: {duration}ms")
-    print(f"  Total duration: {len(png_files) * duration / 1000:.1f}s")
+    print(f"  SERENITY CLASSIFICATION:")
+    print(f"    Frames: {len(png_files)}")
+    print(f"    Duration per frame: {duration}ms")
+    print(f"    Total duration: {len(png_files) * duration / 1000:.1f}s")
     if gif_created:
-        print(f"  GIF: {gif_path}")
+        print(f"    GIF: {gif_path}")
     if mp4_created:
-        print(f"  MP4: {mp4_path} (recommended for VSCode)")
+        print(f"    MP4: {mp4_path}")
+    print(f"\n  PROPOSED FIX (energy-based Rydberg cutoff):")
+    print(f"    Frames: {len(proposed_files)}")
+    if proposed_gif_created:
+        print(f"    GIF: {proposed_gif_path}")
+    if proposed_mp4_created:
+        print(f"    MP4: {proposed_mp4_path} (recommended for VSCode)")
 
     # Show failed elements summary
     print("\n" + "=" * 60)

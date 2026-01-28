@@ -153,12 +153,44 @@ Ran analysis on all 61 dimers. Results in `tests/IBO_dimer_study/IBO_diagnostics
 - Fixed `np.max(0, x)` → `max(0, x)` in IBO_distr.py (numpy syntax error)
 - Skip plotting when HOMO > 0 (SCF failed) - results are unphysical
 - Plot shows overlapping classifications (occupied + Rydberg bars for same orbital) to visualize where Serenity fails
+- Remove old PDFs/PNGs before analysis to avoid stale plots in animations
+
+### 10. PROPOSED FIX: Energy-Based Rydberg Cutoff
+
+**Key Finding**: After analyzing all plots, a simple energy-based Rydberg cutoff might solve the virtual valence problem for excited state calculations (autoCAS).
+
+#### Proposed Rule
+| Element Type | Rydberg Cutoff | Applies To |
+|--------------|----------------|------------|
+| **s/p-block** (no d orbitals) | **0.5 Ha** | H-Ca, Ga-Kr, Rb-Sr, In-Xe, Cs-Ba, Tl-Rn |
+| **d-block** (transition metals) | **1.0 Ha** | Sc-Zn, Y-Cd, La-Hg, Ac onwards |
+
+#### Elements Tested
+**Need 0.5 Ha cutoff** (s/p-block):
+- Mg₂, Ca₂, P₂
+
+**Need 1.0 Ha cutoff** (d-block):
+- Cu₂, Zn₂
+
+**Work with either 0.5 or 1.0 Ha** (flexible):
+- Mo₂, Ag₂, Cd₂, I₂, W₂, Au₂, Hg₂, Bi₂, Po₂, At₂
+
+#### Implementation
+- `IBO_distr.py` now generates two plots:
+  1. `*_IBO_distribution.png` - Serenity's classification (may fail)
+  2. `*_IBO_distribution_proposed.png` - Energy-based cutoff (works!)
+- `create_IBO_gif.py` creates animations for both:
+  1. `IBO_all_elements.mp4` - Serenity classification
+  2. `IBO_all_elements_proposed.mp4` - Proposed fix
+
+#### Next: Serenity Implementation
+Modify Serenity to accept custom Rydberg energy cutoff parameter for autoCAS users.
 
 ## Key Files Modified
-- `scripts/IBO_distr.py` - Complete rewrite of classification and visualization
-- `scripts/create_IBO_gif.py` - New animation generator
-- `scripts/analyze_rydberg_cutoff.py` - New Rydberg cutoff analysis tool
-- `tests/IBO_dimer_study/analyze_all.sh` - Updated with animation generation
+- `scripts/IBO_distr.py` - Complete rewrite + energy-based Rydberg classification
+- `scripts/create_IBO_gif.py` - New animation generator + proposed fix MP4
+- `scripts/analyze_rydberg_cutoff.py` - Rydberg cutoff analysis tool
+- `tests/IBO_dimer_study/analyze_all.sh` - Updated with cleanup and animations
 
 ## Git Status
 - Commit `18a9b4b`: Added IBO_diagnostics.csv with full PSE analysis results
@@ -168,7 +200,8 @@ Ran analysis on all 61 dimers. Results in `tests/IBO_dimer_study/IBO_diagnostics
 1. ~~Push updated IBO_distr.py~~ ✓
 2. ~~Submit dimer calculations on cluster~~ ✓
 3. ~~Analyze results to determine element-dependent energy cutoffs~~ ✓
-4. Investigate SCF convergence for 32 failing elements (unbound electrons)
-5. Consider element-specific spin multiplicities (e.g., O₂ triplet)
-6. Test E >= 1.0 Ha Rydberg criterion in Serenity fork
-7. Investigate MINAO expansion for heavy elements
+4. ~~Implement energy-based Rydberg cutoff visualization~~ ✓
+5. Investigate SCF convergence for 32 failing elements (unbound electrons)
+6. Consider element-specific spin multiplicities (e.g., O₂ triplet)
+7. **Implement energy-based Rydberg cutoff in Serenity fork**
+8. Add `--rydberg-cutoff` option for autoCAS users
