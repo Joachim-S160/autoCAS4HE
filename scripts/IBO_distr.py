@@ -131,9 +131,7 @@ def main():
     # -------------------------
     # Rydberg count for dimer
     # -------------------------
-    nRydberg = np.max(0, nBasisFunctions - 2*nMinimalBasisFunctions)
-    if nRydberg < 0:
-        raise ValueError("nMinimalBasisFunctions > nBasisFunctions → impossible!")
+    nRydberg = max(0, nBasisFunctions - 2*nMinimalBasisFunctions)
 
     # Sort by energy
     idx_sorted = np.argsort(mo_energies)
@@ -180,10 +178,12 @@ def main():
     # Virtual valence: virtual and NOT Rydberg
     virt_valence_mask = (occ_sorted == 0.0) & (~rydberg_mask)
 
-    core_E = energies_sorted[core_occ_mask]
-    rydberg_E = energies_sorted[rydberg_mask]
-    occ_val_E = energies_sorted[occ_valence_mask]
-    virt_val_E = energies_sorted[virt_valence_mask]
+    # For plotting: show ALL orbitals in their Serenity-assigned categories
+    # Overlaps will appear as stacked bars (showing the problematic double-counting)
+    core_E = energies_sorted[core_occ_mask]           # Core occupied (E < -5 Ha)
+    occ_val_E = energies_sorted[occ_valence_mask]     # Occupied valence (includes those also marked Rydberg!)
+    virt_val_E = energies_sorted[virt_valence_mask]   # Virtual NOT in Rydberg
+    rydberg_E = energies_sorted[rydberg_mask]         # ALL top nRydberg (includes occupied if overflow!)
 
     # Store overflow info for reporting
     rydberg_overflow = nRydberg - nVirtual if nRydberg > nVirtual else 0
@@ -244,6 +244,16 @@ def main():
         writer.writerow(diag_data)
 
     print(f"[INFO] Diagnostic data appended to {csv_file}")
+
+    # -------------------------
+    # Check for SCF failure (unbound electrons)
+    # -------------------------
+    scf_failed = homo_energy > 0
+    if scf_failed:
+        print(f"[WARNING] SCF FAILED: HOMO = {homo_energy:.3f} Ha (positive = unbound electrons)")
+        print(f"[WARNING] Skipping plot for {element} - results are unphysical")
+        print(f"[WARNING] Try different spin multiplicity or basis set")
+        return  # Don't plot unphysical results
 
     # -------------------------
     # Plot → Dual panel (core zoom on LEFT, valence/Rydberg on RIGHT)

@@ -77,12 +77,82 @@ Ran analysis on all 61 dimers. Results in `tests/IBO_dimer_study/IBO_diagnostics
 | SCF convergence issues | 32 | **Cannot be fixed by ANY Rydberg criterion** - need different basis/spin |
 | Rydberg overflow | 11 | **WOULD be fixed** - all orbitals with E >= 1.0 Ha are virtual |
 
-**Key insight**: 32 elements have positive HOMO energies (e.g., O₂ HOMO = +3.37 Ha), indicating unbound electrons. This is an SCF issue, not a Rydberg classification problem. These dimers may need:
-- Different spin multiplicities
-- Smaller basis sets
-- Fractional occupation or multi-reference treatment
+#### Key Elements Status (H, C, N, O, Pb, Bi, Po)
+
+| Element | Status | HOMO (Ha) | Issue | E>=1.0 Ha fix? |
+|---------|--------|-----------|-------|----------------|
+| **H** | ✓ OK | -0.60 | None | N/A |
+| **C** | ✓ OK | -0.46 | None | N/A |
+| **N** | ✓ OK | -0.61 | None | N/A |
+| **O** | ✗ SCF | **+3.37** | Unbound electrons (wrong spin?) | No |
+| **Pb** | ✗ SCF | **+3.88** | Unbound electrons (wrong spin?) | No |
+| **Bi** | ✗ Overflow | -0.28 | nRydberg > nVirtual | **Yes** |
+| **Po** | ✗ Overflow | -0.23 | nRydberg > nVirtual | **Yes** |
+
+**Key insight**: 32 elements have positive HOMO energies, indicating unbound electrons. This is an SCF issue, not a Rydberg classification problem.
+
+**Important constraint**: Any energy-based Rydberg cutoff **must be larger than HOMO**. If HOMO > cutoff, occupied orbitals would be classified as Rydberg (problematic for excited states).
+
+#### SCF Failures - Full List (32 elements)
+
+**Triplet ground states** (O, S, Se, Te - chalcogens):
+| Element | HOMO (Ha) | Issue |
+|---------|-----------|-------|
+| O | +3.37 | Ground state is **³Σg⁻** (triplet), not singlet |
+| S | +1.17 | Triplet ground state |
+| Se | +0.92 | Triplet ground state |
+| Te | +2.36 | Triplet ground state |
+
+**Severe SCF failures** (5d/6d transition metals):
+| Element | HOMO (Ha) | Issue |
+|---------|-----------|-------|
+| Os | +10.44 | Heavy 5d, needs multi-reference |
+| Re | +10.27 | Heavy 5d, needs multi-reference |
+| Ta | +9.04 | Heavy 5d, needs multi-reference |
+| Hf | +8.28 | Heavy 5d, needs multi-reference |
+
+**High-spin d-electrons** (3d transition metals):
+| Element | HOMO (Ha) | Issue |
+|---------|-----------|-------|
+| Fe | +4.42 | High-spin d-electrons |
+| Co | +4.38 | High-spin d-electrons |
+| Ni | +5.10 | High-spin d-electrons |
+| Ti | +3.04 | Open-shell d-electrons |
+| V | +3.80 | Open-shell d-electrons |
+| Sc | +2.70 | Open-shell d-electrons |
+
+**Main group elements** (need different spin):
+| Element | HOMO (Ha) | nVirt | Issue |
+|---------|-----------|-------|-------|
+| B | +2.42 | 0 | All orbitals occupied |
+| Al | +1.56 | 0 | All orbitals occupied |
+| Ga | +2.27 | 0 | All orbitals occupied |
+| Ge | +2.26 | 0 | All orbitals occupied |
+| Si | +0.84 | 0 | All orbitals occupied |
+| In | +2.18 | 0 | All orbitals occupied |
+| Sn | +2.17 | 0 | All orbitals occupied |
+| Tl | +3.93 | 1 | Try different spin |
+| Pb | +3.88 | 2 | Try different spin |
+
+**4d/5d transition metals** (need multi-reference or different spin):
+| Element | HOMO (Ha) | Issue |
+|---------|-----------|-------|
+| Y | +1.35 | Open-shell |
+| Zr | +1.82 | Open-shell |
+| Nb | +1.91 | Open-shell |
+| Tc | +1.91 | Open-shell |
+| Ru | +2.12 | Open-shell |
+| Rh | +2.56 | Open-shell |
+| Pd | +4.07 | Open-shell |
+| Ir | +1.82 | Open-shell |
+| Pt | +2.38 | Open-shell |
 
 **Helper script**: `scripts/analyze_rydberg_cutoff.py` - run on HPC for exact orbital counts.
+
+### 9. Bug Fixes
+- Fixed `np.max(0, x)` → `max(0, x)` in IBO_distr.py (numpy syntax error)
+- Skip plotting when HOMO > 0 (SCF failed) - results are unphysical
+- Plot shows overlapping classifications (occupied + Rydberg bars for same orbital) to visualize where Serenity fails
 
 ## Key Files Modified
 - `scripts/IBO_distr.py` - Complete rewrite of classification and visualization
