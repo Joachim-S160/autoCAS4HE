@@ -187,9 +187,226 @@ autoCAS picks the last 6 occupied (78-83) plus first 2 virtual (84-85). This ass
 
 ---
 
-## 7. Conclusions
+## 7. Direct Orbital Selection and Orbital Mapping
 
-### 7.1 The expanded MINAO is safe for autoCAS
+**User note**: "You haven't mentioned how direct orbital selection and orbital mapping come in to play in the consistent active space algorithm and how a larger MINAO file might change these."
+
+### 7.1 How the consistent active space algorithm works
+
+The consistent active space protocol (`workflows/consistent_active_space/protocol.py`) runs across multiple geometries (e.g., equilibrium and stretched Po2). The flow is:
+
+1. **IBO localization on first geometry** (template system)
+2. **For each subsequent geometry**: orbital alignment to template, then IBO localization
+3. **GDOS (Generalized Density of States) orbital matching** (`serenity.py:338-363`): compares localized orbitals across geometries using spatial overlap and kinetic energy similarity
+4. **Independent DMRG + S1 plateau detection** per geometry
+5. **Combine active spaces** (`cas_combination.py:39-92`): union of selected orbitals across geometries, mapped via GDOS groups
+
+### 7.2 How GDOS orbital mapping depends on IBO quality
+
+The GDOS matching (`serenity.py:338-363`) uses three hierarchical threshold passes:
+
+```python
+gdos.settings.similarityLocThreshold = [3e-1, 5e-3, 1e-4]
+gdos.settings.similarityKinEnergyThreshold = [3e-1, 5e-3, 1e-4]
+gdos.settings.bestMatchMapping = True
+```
+
+- `similarityLocThreshold`: compares **spatial overlap** of localized orbitals between geometries
+- `similarityKinEnergyThreshold`: compares **kinetic energy** as secondary criterion
+- Three passes with decreasing thresholds ensure robust matching
+
+The GDOS creates **orbital groups** — sets of orbitals that correspond between geometries (e.g., the Po-Po sigma bond at equilibrium maps to the Po lone pairs at stretched geometry). The `combine_active_spaces` function then takes the union of selected groups.
+
+### 7.3 Impact of expanded MINAO on orbital mapping
+
+**Better MINAO → better IBO → more reliable GDOS matching.** The chain is:
+
+```
+MINAO (reference AOs) → IAO (depolarized MOs) → IBO (localized MOs) → GDOS (spatial overlap matching)
+```
+
+With the current broken MINAO (26 for Po2), IBO crashes entirely — no mapping is possible. With expanded MINAO (86), the IBOs will have proper spatial character (genuine lone pairs, bonding orbitals), making the GDOS matching more physically meaningful and stable across geometries.
+
+Potential concern: if localization quality changes significantly between MINAO=26 (if it worked) and MINAO=86, the `partitioning_thresholds` (`serenity.py:78-81`, default `[3e-1, 5e-3, 1e-4]`) might need retuning. However, since the old MINAO never worked for heavy elements, this is not a regression — it's a first-time setup.
+
+### 7.4 Direct orbital selection within each geometry
+
+Within each geometry, direct orbital selection works via S1 entropy plateau detection (`autocas.py:151-206`):
+
+1. Normalize S1 entropies by max(S1)
+2. Scan thresholds 0→1 in steps of 0.01
+3. At each threshold, count orbitals exceeding it
+4. Detect plateau (10 consecutive steps with same count)
+5. Select the top N orbitals by S1 magnitude (`set_from_plateau`, `active_space_handler.py:335-358`)
+
+This is independent of MINAO. The S1 entropies come from DMRG, which operates on the CAS defined by Elements, not MINAO.
+
+---
+
+## 8. Expanding the Default Chemical Valence Picture
+
+**User note**: "In the future I might want to look into changing autoCAS's default chemical valence picture (6 occ. 2 virt.) to something bigger like 8 occ. 5 virt."
+
+### 8.1 Current situation for Po2
+
+From `chemical_elements.py:739-745`:
+- Po: 39 core orbitals (1s through 5d), 4 valence orbitals (6s, 6p)
+- Po2: CAS(12,8) = 6 doubly-occupied + 2 empty
+
+### 8.2 What expanding to (8 occ, 5 virt) would mean
+
+For Po2 with 8 occupied + 5 virtual = 13 orbitals total per system:
+- CAS(~16-20, 13) depending on which shells are added
+- If 5d is included in valence: 5d(5) + 6s(1) + 6p(3) = 9 orbitals/atom → 18 for Po2
+- Still well under the large CAS threshold of 30
+
+### 8.3 Constraint from the "only 2 virtual valence" problem
+
+With expanded MINAO (43/atom = 86 for Po2) and nOcc = 84:
+- Only 2 virtual orbitals can be IBO-localized (nMINAO - nOcc = 2)
+- If 5 virtual valence orbitals are desired, 3 would be projection-reconstructed, not IBO-localized
+- Their spatial character would be less chemically interpretable
+
+To get 5 IBO-localized virtuals, MINAO would need nMINAO >= nOcc + 5 = 89, i.e., at least 45 functions per atom. This could be achieved by adding beyond-minimal functions to MINAO:
+- Add 7s: 44/atom → 88 for Po2 → 4 virtual valence
+- Add 7s + 7p: 47/atom → 94 for Po2 → 10 virtual valence
+
+This deviates from Knizia's minimal basis concept but may be necessary for heavy elements where the core orbital count is so large. This is related to the MINAO derivation concern below (Section 9).
+
+### 8.4 Modifying chemical_elements.py
+
+To change the default valence, modify `chemical_elements.py:739-745`:
+
+```python
+# Current:
+"number of core orbitals": 39,      # 1s-5d
+"number of valence orbitals": 4,     # 6s, 6p
+
+# Example expanded (including 5d in valence):
+"number of core orbitals": 34,       # 1s-5p
+"number of valence orbitals": 9,     # 5d, 6s, 6p
+```
+
+This would change autoCAS's CAS window but NOT the IBO localization or MINAO. The orbital indices would shift: autoCAS would pick indices 68-85 (18 orbitals for Po2) instead of 78-85 (8 orbitals).
+
+---
+
+## 9. MINAO Derivation: State-Averaged Contractions vs ANO-RCC
+
+**User note**: "In the original 2013 Knizia paper they mention that for transition metals they used contracted functions of the cc-pVTZ basis set (a minimal basis subset), but that they derived it from averages over important states instead of only ground states. We should be careful about implementing something similar, perhaps we should look at contracted functions of ANO-RCC-VTZ(P). Although I'm not sure if this would be useful as I will already use ANO-RCC-VTZP eventually as a basis set (right now we're using ANO-RCC-VDZP)."
+
+### 9.1 Knizia's MINAO derivation
+
+From the paper (Section 2.1): The MINAO for light elements (H-Kr) are derived from cc-pVTZ by taking the most contracted function per angular momentum shell. For transition metals, these were specifically derived from averages over multiple important atomic states (ground state, low-lying excited states, cation/anion), not just the ground state. This ensures the MINAO represents the atom in various bonding situations.
+
+### 9.2 ANO-RCC already has state-averaged character
+
+ANO-RCC basis sets are derived from **atomic natural orbitals** obtained by CASSCF/CASPT2 calculations averaged over multiple electronic states:
+- Ground state configurations
+- Excited states and ionization states
+- Different spin multiplicities
+
+This is conceptually similar to Knizia's state-averaging approach. The ANO-RCC contracted functions already incorporate information about how the atom behaves in different bonding situations. Using the first N contracted functions from ANO-RCC as MINAO is therefore well-motivated.
+
+Knizia explicitly validates ANO-RCC as B2 in Table 1 of the paper (footnote d): "For transition metals, we used the minimal basis given in the ANO-RCC sets."
+
+### 9.3 Using ANO-RCC-VTZP as both orbital basis and MINAO source
+
+The concern: if the MINAO is a contraction of the same basis set used for the SCF, the IAO projection might not properly "depolarize" the MOs because the projection basis overlaps too much with the full basis.
+
+**Analysis**: This is not a problem in practice because:
+1. The MINAO is a **minimal** contraction (first N functions per ℓ), while the orbital basis has many more contracted functions per ℓ. They span different spaces.
+2. The IAO construction explicitly handles the relationship between B1 (orbital basis) and B2 (MINAO) via the overlap matrices P12 and P21.
+3. Knizia's paper uses cc-pVTZ-derived MINAO with cc-pVTZ orbital basis for light elements — same basis family, no issues reported.
+4. Moving from ANO-RCC-VDZP to ANO-RCC-VTZP as the orbital basis would actually improve the IAO quality, as the larger basis allows better representation of polarization effects that the IAO "depolarization" then removes.
+
+### 9.4 Should we use ANO-RCC-VTZ contracted functions instead?
+
+Using ANO-RCC-VTZ(P) contracted functions for MINAO instead of ANO-RCC (unspecified zeta) would give slightly different contraction coefficients. However, ANO-RCC basis sets share the same primitive exponents across zeta levels — only the number and coefficients of contractions change. The first contracted function per ℓ is essentially the same across DZ/TZ/QZ levels in ANO-RCC, so the choice of which ANO-RCC variant to extract MINAO from should have minimal impact.
+
+**Recommendation**: Use the ANO-RCC basis already in Serenity (which appears to be the general ANO-RCC set). The MINAO extraction only takes the first N contracted functions per ℓ, and these are stable across ANO-RCC variants.
+
+---
+
+## 10. ROSE Software Assessment
+
+**User note**: "I don't see many good options to using ROSE, reduction of orbital extent from Bruno Senjean et al; autoCAS can be interfaced with PySCF, but ROSE's PySCF interface only works for non-relativistic and scalar-X2C orbitals using cartesian functions. I currently use OpenMolcas's DKH2 in the SCF. Although wait OpenMolcas can also do X2C, perhaps this is not an issue."
+
+**Reference**: Senjean, Sen, Repisky, Knizia, Visscher, JCTC 2021, 17, 1337 — "Generalization of Intrinsic Orbitals to Kramers-Paired Quaternion Spinors, Molecular Fragments, and Valence Virtual Spinors"
+
+### 10.1 ROSE interface support
+
+From the ROSE README (https://gitlab.com/quantum_rose/rose):
+
+| Interface | Relativistic support | Basis functions | Format |
+|-----------|---------------------|-----------------|--------|
+| **DIRAC** | Real + quaternion spinors (full 4c) | Spherical + cartesian | .h5 |
+| **PySCF** | Non-relativistic, scalar-X2C | Cartesian only | .h5 |
+| **PSI4** | Non-relativistic, scalar-X2C | Cartesian | .h5 |
+| **ADF** | Non-relativistic, ZORA | Slater-type | .rkf |
+| **Gaussian** | Non-relativistic, scalar-X2C | Cartesian | .fchk |
+| **OpenMolcas** | **Not supported** | N/A | N/A |
+
+### 10.2 Paths to using ROSE for heavy elements
+
+**Path A: PySCF with scalar-X2C**
+- autoCAS already has a PySCF interface
+- PySCF supports scalar-X2C
+- ROSE's PySCF interface supports scalar-X2C
+- Flow: PySCF (scalar-X2C SCF) → ROSE (IAO/IBO) → autoCAS (CAS selection)
+- Limitation: cartesian functions only, scalar-X2C is less accurate than full 2c/4c for very heavy elements (Z > 80)
+- DKH2 and scalar-X2C give similar results for scalar relativistic effects — the main difference is in the transformation method, not the physics captured
+
+**Path B: DIRAC with full 4-component**
+- DIRAC supports quaternion spinors — ROSE's strongest relativistic interface
+- Captures spin-orbit coupling properly (important for Po, Bi)
+- Would require building a DIRAC → autoCAS bridge (no existing interface)
+- Significantly more computational cost for the SCF
+- Most physically rigorous for heavy elements
+
+**Path C: Switch OpenMolcas from DKH2 to X2C**
+- OpenMolcas supports X2C (exact two-component)
+- But ROSE has **no OpenMolcas interface** — switching the Hamiltonian in OpenMolcas doesn't help with ROSE
+- Would still need to export orbitals to a format ROSE can read, or use a different SCF code
+
+### 10.3 Most viable path
+
+**PySCF with scalar-X2C** is the most practical route:
+- autoCAS already interfaces with PySCF
+- ROSE already interfaces with PySCF
+- Scalar-X2C captures the dominant relativistic effects (mass-velocity, Darwin terms)
+- For Po/Bi, spin-orbit coupling is significant but the scalar part is the largest correction
+
+The main trade-off vs the current OpenMolcas DKH2 setup:
+- Scalar-X2C ≈ DKH2 in accuracy for scalar relativistic effects
+- PySCF's X2C implementation handles contracted basis sets
+- Loss: no spin-orbit coupling (would need DIRAC path for that)
+- Gain: access to ROSE's proper MINAO handling for heavy elements
+
+### 10.4 ROSE's MINAO handling
+
+ROSE constructs "a minimal set of IAOs spanning the occupied space exactly and a few valence virtuals" — this suggests ROSE may handle the nMINAO >= nOcc requirement internally, potentially solving the heavy element MINAO problem without needing to manually expand Serenity's MINAO file.
+
+This is worth investigating: if ROSE's IAO construction already handles heavy elements correctly, it could replace both the MINAO fix AND the IBO localization in Serenity.
+
+### 10.5 Assessment summary
+
+| Criterion | ROSE viability |
+|-----------|---------------|
+| Heavy element MINAO | Likely handled internally |
+| Relativistic SCF | Via PySCF (scalar-X2C) or DIRAC (full 4c) |
+| OpenMolcas DKH2 | No direct interface |
+| autoCAS integration | Feasible via PySCF bridge |
+| Spin-orbit coupling | Only via DIRAC interface |
+| Maturity | Published, open-source, integrated into ADF 2025 |
+
+**Recommendation**: Investigate ROSE as a medium-term replacement for Serenity's IBO localization, using the PySCF scalar-X2C path. The immediate MINAO fix in Serenity (IBO_MINAO_FIX_PLAN_290126.md) should proceed as a short-term solution, since building the ROSE integration requires more work.
+
+---
+
+## 11. Conclusions
+
+### 11.1 The expanded MINAO is safe for autoCAS
 
 | Concern | Status |
 |---------|--------|
@@ -198,19 +415,25 @@ autoCAS picks the last 6 occupied (78-83) plus first 2 virtual (84-85). This ass
 | Large CAS triggered | **No** — 8 << 30 threshold |
 | Plateau detection breaks | **No** — works on S1 entropy, independent of MINAO |
 | Orbital quality degrades | **No** — improves with better MINAO |
+| Orbital mapping breaks | **No** — improves with better IBO from better MINAO |
+| Direct orbital selection changes | **No** — S1-based, independent of MINAO |
 
-### 7.2 Known limitations (pre-existing, not caused by MINAO expansion)
+### 11.2 Known limitations (pre-existing, not caused by MINAO expansion)
 
-1. **Only 2 IBO virtual valence**: Inherent IAO constraint for heavy elements (nMINAO - nOcc = 2). Not a problem for standard CAS(12,8) but limits manual CAS expansion.
-2. **Core count discrepancy**: Elements says 78 core for Po2, Serenity energy cutoff gives 62. This affects which orbitals end up in the initial CAS window.
+1. **Only 2 IBO virtual valence**: Inherent IAO constraint for heavy elements (nMINAO - nOcc = 2). Not a problem for standard CAS(12,8) but limits CAS expansion to 5 virtuals (Section 8.3).
+2. **Core count discrepancy**: Elements says 78 core for Po2, Serenity energy cutoff gives 62. Affects which orbitals end up in the initial CAS window (Section 6.3).
 3. **autoCAS cannot expand beyond initial CAS**: If the 8 valence orbitals are insufficient for the physics (e.g., double-shell effects, 5d correlation), autoCAS has no mechanism to add more orbitals.
-4. **DMRG parameters are static**: D=250/5 sweeps for initial screening may be insufficient for strongly correlated heavy element systems, but this is a general autoCAS limitation.
+4. **DMRG parameters are static**: D=250/5 sweeps for initial screening may be insufficient for strongly correlated heavy element systems.
 
-### 7.3 Recommendation
+### 11.3 Future directions
 
-Proceed with the MINAO expansion as planned in IBO_MINAO_FIX_PLAN_290126.md. The autoCAS algorithm is compatible with the expanded MINAO. The fix resolves the IBO crash without introducing new issues in the CAS selection pipeline.
+1. **Expand default valence** (Section 8): Modify `chemical_elements.py` to include 5d in Po/Bi valence → CAS grows from (12,8) to (~20,18). Needs more IBO virtual valence than 2 — requires either beyond-minimal MINAO or acceptance of projection-reconstructed virtuals.
+2. **ROSE integration** (Section 10): Most viable via PySCF scalar-X2C path. Solves heavy element MINAO handling natively. Medium-term effort.
+3. **MINAO derivation** (Section 9): ANO-RCC contracted functions are well-motivated (state-averaged, Knizia-validated). No issues with using same basis family for orbital basis and MINAO source.
 
-The core count discrepancy (Section 6.3) and the "only 2 virtual valence" limitation (Section 4) are pre-existing issues that deserve separate investigation but are not blockers for the MINAO fix.
+### 11.4 Recommendation
+
+Proceed with the MINAO expansion as planned in IBO_MINAO_FIX_PLAN_290126.md. The autoCAS algorithm — including direct orbital selection, GDOS orbital mapping, and the consistent active space protocol — is fully compatible with the expanded MINAO.
 
 ---
 
@@ -221,8 +444,12 @@ The core count discrepancy (Section 6.3) and the "only 2 virtual valence" limita
 | `autocas/scine_autocas/utils/chemical_elements.py:739-745` | Po element definition (39 core, 4 valence) |
 | `autocas/scine_autocas/utils/molecule.py:167-193` | Core/valence setup from Elements |
 | `autocas/scine_autocas/cas_selection/active_space_handler.py:140-189` | Valence CAS construction |
-| `autocas/scine_autocas/cas_selection/autocas.py:151-206` | S1 plateau detection |
+| `autocas/scine_autocas/cas_selection/active_space_handler.py:335-358` | `set_from_plateau()` — direct orbital selection |
+| `autocas/scine_autocas/cas_selection/autocas.py:123-206` | S1 sorting + plateau detection |
+| `autocas/scine_autocas/cas_selection/cas_combination.py:39-92` | Orbital space combination across geometries |
 | `autocas/scine_autocas/cas_selection/large_active_spaces.py:101-134` | Large CAS space partitioning |
 | `autocas/scine_autocas/utils/defaults.py:197-230` | Algorithm defaults (plateau, DMRG params) |
+| `autocas/scine_autocas/interfaces/serenity/serenity.py:190-363` | IBO localization + GDOS orbital mapping |
+| `autocas/scine_autocas/workflows/consistent_active_space/protocol.py` | Consistent CAS protocol orchestration |
 | `serenity/src/analysis/orbitalLocalization/IBOLocalization.cpp` | IBO localization (uses MINAO) |
 | `serenity/src/tasks/LocalizationTask.cpp` | Orbital range classification |

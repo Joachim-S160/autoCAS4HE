@@ -200,14 +200,22 @@ if (replaceVirtBeforeLoc) {
 
 **User note**: After implementing this fix, investigate whether ROSE (by Bruno Senjean et al.) is a better alternative to Serenity for IAO/IBO, potentially interfaceable with PySCF.
 
-**Reference**: "Generalization of intrinsic orbitals to Kramers-paired quaternion spinors, molecular fragments and valence virtual spinors" - Bruno Senjean
+**Reference**: Senjean, Sen, Repisky, Knizia, Visscher, JCTC 2021, 17, 1337
+**Repository**: https://gitlab.com/quantum_rose/rose
 
-Key questions to investigate:
-- Does ROSE handle heavy elements natively (proper MINAO for all Z)?
-- Does ROSE handle the nMINAO < nOcc case?
-- Does ROSE support quaternion spinors (relevant for relativistic heavy element calculations)?
-- Can ROSE interface with PySCF for the SCF part while providing localization?
-- How does ROSE's "valence virtual spinors" concept compare to Serenity's virtual valence localization?
+Key questions investigated (see AUTOCAS_EXPANDED_MINAO_COMPATIBILITY.md Section 10 for full analysis):
+
+| Question | Answer |
+|----------|--------|
+| Does ROSE handle heavy elements natively? | Likely yes — constructs MINAO internally |
+| Does ROSE handle nMINAO < nOcc? | Likely yes — "spanning the occupied space exactly" |
+| Does ROSE support quaternion spinors? | Yes, via DIRAC interface |
+| Can ROSE interface with PySCF? | Yes — non-relativistic + scalar-X2C |
+| OpenMolcas interface? | **No** — not supported |
+
+**User note**: "I don't see many good options to using ROSE; autoCAS can be interfaced with PySCF, but ROSE's PySCF interface only works for non-relativistic and scalar-X2C orbitals using cartesian functions. I currently use OpenMolcas's DKH2 in the SCF. Although wait OpenMolcas can also do X2C, perhaps this is not an issue."
+
+**Assessment**: The most viable path is PySCF with scalar-X2C (similar physics to DKH2). ROSE has no OpenMolcas interface, so switching OpenMolcas's Hamiltonian to X2C doesn't help directly. However, running the SCF in PySCF with scalar-X2C instead of OpenMolcas with DKH2 would enable the ROSE integration. This is a medium-term effort.
 
 ---
 
