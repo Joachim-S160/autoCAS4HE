@@ -187,23 +187,37 @@ autoCAS picks the last 6 occupied (78-83) plus first 2 virtual (84-85). This ass
 
 ---
 
-## 7. Direct Orbital Selection and Orbital Mapping
+## 7. Direct Orbital Selection (DOS) and Orbital Mapping
 
 **User note**: "You haven't mentioned how direct orbital selection and orbital mapping come in to play in the consistent active space algorithm and how a larger MINAO file might change these."
 
-### 7.1 How the consistent active space algorithm works
+**References**:
+- Bensberg, Reiher, JPCL 2023, 14(8), 2112-2118 — "Corresponding Active Orbital Spaces along Chemical Reaction Paths"
+- Bensberg, Neugebauer, PCCP 2020, 22, 26093 — "Direct orbital selection for projection-based embedding"
+
+### 7.1 What DOS actually is
+
+DOS (Direct Orbital Selection) is the orbital mapping algorithm implemented in Serenity's `DirectOrbitalSelection` class (`serenity/src/analysis/directOrbitalSelection/DirectOrbitalSelection.h`). The Generalized DOS (GDOS) extends it to N structures. **Note: "DOS" stands for Direct Orbital Selection, not Density of States.**
+
+DOS compares localized orbitals between structures using two descriptors:
+1. **Orbital-wise populations** (IAO-Shell or Mulliken) — indicator of orbital localization
+2. **Orbital kinetic energy** — indicator of orbital spatial extent/shape
+
+Orbitals that are similar across structures are grouped together; orbitals that change substantially are identified as chemically interesting (active).
+
+### 7.2 How DOS/GDOS works in the consistent active space protocol
 
 The consistent active space protocol (`workflows/consistent_active_space/protocol.py`) runs across multiple geometries (e.g., equilibrium and stretched Po2). The flow is:
 
 1. **IBO localization on first geometry** (template system)
 2. **For each subsequent geometry**: orbital alignment to template, then IBO localization
-3. **GDOS (Generalized Density of States) orbital matching** (`serenity.py:338-363`): compares localized orbitals across geometries using spatial overlap and kinetic energy similarity
+3. **GDOS orbital mapping** (`serenity.py:338-363`, wrapping Serenity's `GeneralizedDOSTask`): compares localized orbitals across geometries using IAO populations and kinetic energy similarity
 4. **Independent DMRG + S1 plateau detection** per geometry
-5. **Combine active spaces** (`cas_combination.py:39-92`): union of selected orbitals across geometries, mapped via GDOS groups
+5. **Combine active spaces** (`cas_combination.py:39-92`): union of selected orbitals across geometries, mapped via DOS orbital groups
 
-### 7.2 How GDOS orbital mapping depends on IBO quality
+### 7.3 How DOS depends on IBO/IAO quality
 
-The GDOS matching (`serenity.py:338-363`) uses three hierarchical threshold passes:
+The GDOS matching (`serenity.py:338-363`) uses iterative threshold passes:
 
 ```python
 gdos.settings.similarityLocThreshold = [3e-1, 5e-3, 1e-4]
@@ -211,27 +225,32 @@ gdos.settings.similarityKinEnergyThreshold = [3e-1, 5e-3, 1e-4]
 gdos.settings.bestMatchMapping = True
 ```
 
-- `similarityLocThreshold`: compares **spatial overlap** of localized orbitals between geometries
-- `similarityKinEnergyThreshold`: compares **kinetic energy** as secondary criterion
-- Three passes with decreasing thresholds ensure robust matching
+- `similarityLocThreshold`: compares **IAO population** similarity between geometries
+- `similarityKinEnergyThreshold`: compares **kinetic energy** similarity
+- Three passes with decreasing thresholds: broad matching → refined → strict
 
-The GDOS creates **orbital groups** — sets of orbitals that correspond between geometries (e.g., the Po-Po sigma bond at equilibrium maps to the Po lone pairs at stretched geometry). The `combine_active_spaces` function then takes the union of selected groups.
+The DOS creates **orbital groups** (`DOSOrbitalGroup` objects) — sets of orbitals that correspond between geometries (e.g., the Po-Po sigma bond at equilibrium maps to the Po lone pairs at stretched geometry). The `combine_active_spaces` function then takes the union of selected groups.
 
-### 7.3 Impact of expanded MINAO on orbital mapping
+**The IAO populations used by DOS are directly computed from the MINAO basis.** This means DOS depends on MINAO quality in two ways:
+1. **IBO localization quality**: MINAO → IAO → IBO → spatial character of localized orbitals
+2. **IAO population descriptors**: MINAO → IAO populations → DOS orbital similarity metric
 
-**Better MINAO → better IBO → more reliable GDOS matching.** The chain is:
+### 7.4 Impact of expanded MINAO on DOS
+
+**Better MINAO → better IAO populations → more reliable DOS matching.** The chain is:
 
 ```
-MINAO (reference AOs) → IAO (depolarized MOs) → IBO (localized MOs) → GDOS (spatial overlap matching)
+MINAO (reference AOs) → IAO (depolarized MOs) → IBO (localized MOs)
+                       → IAO populations → DOS similarity comparison
 ```
 
-With the current broken MINAO (26 for Po2), IBO crashes entirely — no mapping is possible. With expanded MINAO (86), the IBOs will have proper spatial character (genuine lone pairs, bonding orbitals), making the GDOS matching more physically meaningful and stable across geometries.
+With the current broken MINAO (26 for Po2), IBO crashes entirely — no DOS mapping is possible. With expanded MINAO (86), both the IBOs and the IAO populations will be physically meaningful, making the DOS matching more stable across geometries.
 
-Potential concern: if localization quality changes significantly between MINAO=26 (if it worked) and MINAO=86, the `partitioning_thresholds` (`serenity.py:78-81`, default `[3e-1, 5e-3, 1e-4]`) might need retuning. However, since the old MINAO never worked for heavy elements, this is not a regression — it's a first-time setup.
+Potential concern: if localization quality changes significantly, the `partitioning_thresholds` (`serenity.py:78-81`, default `[3e-1, 5e-3, 1e-4]`) might need retuning. However, since the old MINAO never worked for heavy elements, this is not a regression — it's a first-time setup.
 
-### 7.4 Direct orbital selection within each geometry
+### 7.5 S1 plateau detection (within each geometry)
 
-Within each geometry, direct orbital selection works via S1 entropy plateau detection (`autocas.py:151-206`):
+Within each geometry, CAS orbital selection works via S1 entropy plateau detection (`autocas.py:151-206`):
 
 1. Normalize S1 entropies by max(S1)
 2. Scan thresholds 0→1 in steps of 0.01
@@ -404,9 +423,110 @@ This is worth investigating: if ROSE's IAO construction already handles heavy el
 
 ---
 
-## 11. Conclusions
+## 11. MINAO Expansion for Larger Molecules
 
-### 11.1 The expanded MINAO is safe for autoCAS
+**User note**: "I need to be sure that this extended ANO-RCC MINAO will also be sufficient for larger molecules. If such a patch is still safe for larger molecules also, I'll do it, if it's not I'll look into ROSE more."
+
+### 11.1 MINAO headroom scales favorably with light atoms
+
+The "only 2 virtual valence" problem (nMINAO - nOcc = 2 for Po2) is worst for homonuclear heavy element dimers. For molecules containing light atoms, the light atoms contribute more MINAO headroom because light elements have nMINAO > nOcc per atom.
+
+MINAO per atom (expanded ANO-RCC for Z >= 39, cc-pVTZ for Z <= 36):
+
+| Atom | Z | nMINAO/atom | nOcc/atom (core+val) | Excess/atom |
+|------|---|-------------|----------------------|-------------|
+| H | 1 | 1 | 0-1 | 0-1 |
+| O | 8 | 5 | 4 | 1 |
+| Pb | 82 | 43 | 41 | 2 |
+| Bi | 83 | 43 | 41-42 | 1-2 |
+| Po | 84 | 43 | 42 | 1 |
+
+### 11.2 Target molecules
+
+| Molecule | nMINAO | nOcc | nValVirt (IAO) | Sufficient? |
+|----------|--------|------|----------------|-------------|
+| **Po2** | 86 | 84 | **2** | Minimal |
+| **Po(OH)2** | 55 | 51 | **4** | Better |
+| **Po(OH)4** | 67 | 60 | **7** | Good |
+| **PoPb** | 86 | 83 | **3** | Marginal |
+| **PoBi** | 86 | 83/84 (UHF) | **2-3** | Minimal |
+| **BiPb** | 86 | 82/83 (UHF) | **3-4** | Marginal |
+
+Calculation details:
+- Po(OH)4: MINAO = 43 + 4×5 + 4×1 = 67, electrons = 84 + 32 + 4 = 120, nOcc = 60
+- Po(OH)2: MINAO = 43 + 2×5 + 2×1 = 55, electrons = 84 + 16 + 2 = 102, nOcc = 51
+- PoBi: 84 + 83 = 167 electrons (doublet), nOcc_alpha = 84, nOcc_beta = 83
+
+### 11.3 Key insight
+
+**Larger molecules with light atoms are actually better than Po2.** The light atoms contribute relatively more MINAO functions per occupied orbital than heavy atoms. Po(OH)4 with 7 virtual valence orbitals is substantially more comfortable than Po2 with only 2.
+
+For homonuclear heavy dimers (Po2, PoBi, PoPb), the headroom remains tight (2-4 virtual valence). This is inherent to the IAO framework for heavy elements and cannot be fully resolved without either:
+1. Adding beyond-minimal functions (7s, 7p) to MINAO — deviating from Knizia's minimal basis concept
+2. Using ROSE, which may handle this differently
+3. Accepting projection-reconstructed virtuals for the excess
+
+### 11.4 Verdict: safe to proceed with MINAO expansion
+
+The expanded ANO-RCC MINAO is sufficient for all target molecules. The constraint nMINAO >= nOcc is satisfied in all cases. The number of IBO-localizable virtual valence orbitals varies (2-7), but the autoCAS initial CAS is determined by Elements (typically 8 orbitals), not by nValVirt_IAO.
+
+---
+
+## 12. OpenMolcas-PySCF Orbital Transfer for SO-CASSI/SO-MPSSI
+
+**User note**: "The end goal is to create dissociation profiles using SO-CASSI or SO-MPSSI using OpenMolcas for a broad range of Po containing molecules. I should be able to convert the final CAS to something useful OpenMolcas can use for its initial CASSCF/DMRGSCF."
+
+### 12.1 End-goal workflow
+
+The complete pipeline for dissociation profiles with spin-orbit coupling:
+
+```
+1. SCF (OpenMolcas DKH2)
+   → orbitals imported to Serenity
+2. IBO localization (Serenity, with expanded MINAO)
+   → localized orbitals
+3. DOS orbital mapping + autoCAS (consistent CAS across geometries)
+   → CAS(n_el, n_orb) definition + orbital indices
+4. Transfer CAS back to OpenMolcas
+   → CASSCF/DMRGSCF with autoCAS-selected active space
+5. SO-CASSI or SO-MPSSI (OpenMolcas)
+   → spin-orbit coupled dissociation profiles
+```
+
+### 12.2 OpenMolcas-PySCF compatibility
+
+OpenMolcas and PySCF can exchange orbitals via several routes:
+
+| Route | Tool | Direction | Format |
+|-------|------|-----------|--------|
+| **MOKIT** (recommended) | `py2molcas` | PySCF → OpenMolcas | InpOrb |
+| **MOKIT** | `molden2fch` + `bas_fch2py` | OpenMolcas → PySCF | Molden → fchk → py |
+| **Molden files** | `pyscf.tools.molden` | Both directions | .molden |
+| **HDF5** | Direct | OpenMolcas ↔ any | .h5 |
+
+**MOKIT** (Molecular Orbital Kit, https://github.com/1234zou/MOKIT) is the most robust tool for orbital transfer between quantum chemistry codes, with negligible energy loss (< 1e-6 Ha) during transfer. It handles basis ordering differences for angular momentum up to H (l=5).
+
+### 12.3 Current autoCAS → OpenMolcas path
+
+autoCAS already uses OpenMolcas for DMRG (via the OpenMolcas interface). The selected CAS (orbital indices + occupation) is passed directly to OpenMolcas's RASSCF/DMRGSCF modules. This means step 4 of the pipeline should work without additional orbital transfer — autoCAS already orchestrates the OpenMolcas CASSCF/DMRGSCF calculations.
+
+For SO-CASSI/SO-MPSSI (step 5), the CASSCF/DMRGSCF wavefunction from step 4 is used directly within OpenMolcas. No additional orbital transfer is needed — it's all within OpenMolcas after autoCAS hands off the CAS definition.
+
+### 12.4 If switching to PySCF for SCF (for ROSE integration)
+
+If the SCF moves from OpenMolcas to PySCF (to enable ROSE for IAO/IBO), the final CAS still needs to get back to OpenMolcas for SO-CASSI. The transfer would be:
+
+```
+PySCF (X2C SCF) → ROSE (IBO) → autoCAS (CAS selection) → MOKIT → OpenMolcas (SO-CASSI)
+```
+
+This adds a MOKIT transfer step but is technically feasible.
+
+---
+
+## 13. Conclusions
+
+### 13.1 The expanded MINAO is safe for autoCAS and target molecules
 
 | Concern | Status |
 |---------|--------|
@@ -415,25 +535,37 @@ This is worth investigating: if ROSE's IAO construction already handles heavy el
 | Large CAS triggered | **No** — 8 << 30 threshold |
 | Plateau detection breaks | **No** — works on S1 entropy, independent of MINAO |
 | Orbital quality degrades | **No** — improves with better MINAO |
-| Orbital mapping breaks | **No** — improves with better IBO from better MINAO |
-| Direct orbital selection changes | **No** — S1-based, independent of MINAO |
+| DOS orbital mapping breaks | **No** — improves: better IAO populations + better IBO |
+| Larger molecules fail | **No** — light atoms add MINAO headroom (Section 11) |
+| CAS transfer to OpenMolcas | **Works** — autoCAS already orchestrates OpenMolcas CASSCF |
 
-### 11.2 Known limitations (pre-existing, not caused by MINAO expansion)
+### 13.2 Known limitations (pre-existing, not caused by MINAO expansion)
 
-1. **Only 2 IBO virtual valence**: Inherent IAO constraint for heavy elements (nMINAO - nOcc = 2). Not a problem for standard CAS(12,8) but limits CAS expansion to 5 virtuals (Section 8.3).
+1. **Limited IBO virtual valence**: nValVirt = nMINAO - nOcc ranges from 2 (Po2) to 7 (Po(OH)4). Tight for homonuclear heavy dimers, comfortable for molecules with light atoms.
 2. **Core count discrepancy**: Elements says 78 core for Po2, Serenity energy cutoff gives 62. Affects which orbitals end up in the initial CAS window (Section 6.3).
-3. **autoCAS cannot expand beyond initial CAS**: If the 8 valence orbitals are insufficient for the physics (e.g., double-shell effects, 5d correlation), autoCAS has no mechanism to add more orbitals.
+3. **autoCAS cannot expand beyond initial CAS**: If the 8 valence orbitals are insufficient, autoCAS has no mechanism to add more.
 4. **DMRG parameters are static**: D=250/5 sweeps for initial screening may be insufficient for strongly correlated heavy element systems.
 
-### 11.3 Future directions
+### 13.3 Future directions
 
-1. **Expand default valence** (Section 8): Modify `chemical_elements.py` to include 5d in Po/Bi valence → CAS grows from (12,8) to (~20,18). Needs more IBO virtual valence than 2 — requires either beyond-minimal MINAO or acceptance of projection-reconstructed virtuals.
-2. **ROSE integration** (Section 10): Most viable via PySCF scalar-X2C path. Solves heavy element MINAO handling natively. Medium-term effort.
+1. **Expand default valence** (Section 8): Modify `chemical_elements.py` to include 5d in Po/Bi valence → CAS grows from (12,8) to (~20,18). Needs more IBO virtual valence — feasible for Po(OH)4 (7 available), tight for Po2 (only 2).
+2. **ROSE integration** (Section 10): Most viable via PySCF scalar-X2C path. Solves heavy element MINAO handling natively. Medium-term effort. Final CAS transferable to OpenMolcas via MOKIT.
 3. **MINAO derivation** (Section 9): ANO-RCC contracted functions are well-motivated (state-averaged, Knizia-validated). No issues with using same basis family for orbital basis and MINAO source.
+4. **SO-CASSI/SO-MPSSI** (Section 12): The autoCAS → OpenMolcas CASSCF → SO-CASSI pipeline is straightforward. autoCAS already orchestrates OpenMolcas.
 
-### 11.4 Recommendation
+### 13.4 Recommendation
 
-Proceed with the MINAO expansion as planned in IBO_MINAO_FIX_PLAN_290126.md. The autoCAS algorithm — including direct orbital selection, GDOS orbital mapping, and the consistent active space protocol — is fully compatible with the expanded MINAO.
+Proceed with the MINAO expansion as planned in IBO_MINAO_FIX_PLAN_290126.md. The expanded MINAO is safe for all target molecules (Po2, Po(OH)4, PoPb, PoBi). The autoCAS algorithm — including DOS orbital mapping and the consistent active space protocol — is fully compatible. The final CAS integrates directly with OpenMolcas for SO-CASSI/SO-MPSSI dissociation profiles.
+
+---
+
+## References
+
+- Knizia, JCTC 2013, 9(11), 4834-4843 — IAO/IBO paper
+- Bensberg, Reiher, JPCL 2023, 14(8), 2112-2118 — Corresponding active orbital spaces (DOS in autoCAS)
+- Bensberg, Neugebauer, PCCP 2020, 22, 26093 — Direct orbital selection for embedding
+- Senjean, Sen, Repisky, Knizia, Visscher, JCTC 2021, 17, 1337 — ROSE / generalized IAO
+- MOKIT: https://github.com/1234zou/MOKIT — Orbital transfer between codes
 
 ---
 
@@ -444,12 +576,14 @@ Proceed with the MINAO expansion as planned in IBO_MINAO_FIX_PLAN_290126.md. The
 | `autocas/scine_autocas/utils/chemical_elements.py:739-745` | Po element definition (39 core, 4 valence) |
 | `autocas/scine_autocas/utils/molecule.py:167-193` | Core/valence setup from Elements |
 | `autocas/scine_autocas/cas_selection/active_space_handler.py:140-189` | Valence CAS construction |
-| `autocas/scine_autocas/cas_selection/active_space_handler.py:335-358` | `set_from_plateau()` — direct orbital selection |
+| `autocas/scine_autocas/cas_selection/active_space_handler.py:335-358` | `set_from_plateau()` |
 | `autocas/scine_autocas/cas_selection/autocas.py:123-206` | S1 sorting + plateau detection |
 | `autocas/scine_autocas/cas_selection/cas_combination.py:39-92` | Orbital space combination across geometries |
 | `autocas/scine_autocas/cas_selection/large_active_spaces.py:101-134` | Large CAS space partitioning |
 | `autocas/scine_autocas/utils/defaults.py:197-230` | Algorithm defaults (plateau, DMRG params) |
-| `autocas/scine_autocas/interfaces/serenity/serenity.py:190-363` | IBO localization + GDOS orbital mapping |
+| `autocas/scine_autocas/interfaces/serenity/serenity.py:190-363` | IBO localization + DOS orbital mapping |
 | `autocas/scine_autocas/workflows/consistent_active_space/protocol.py` | Consistent CAS protocol orchestration |
+| `serenity/src/analysis/directOrbitalSelection/DirectOrbitalSelection.h` | DOS algorithm implementation |
+| `serenity/src/tasks/GeneralizedDOSTask.h` | GDOS task (multi-structure DOS) |
 | `serenity/src/analysis/orbitalLocalization/IBOLocalization.cpp` | IBO localization (uses MINAO) |
 | `serenity/src/tasks/LocalizationTask.cpp` | Orbital range classification |
