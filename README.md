@@ -51,7 +51,7 @@ Added `refineRydbergOrbitalsByEnergyCutOff()` method that classifies Rydberg orb
 #### 5. MINAO basis expansion for heavy elements (`data/basis/MINAO`)
 The original MINAO for heavy elements (Z >= 37) only included valence shells (e.g. Po: 13 functions/atom), causing `nMINAO < nOcc` and breaking the IAO projection. Expanded the MINAO by extracting the first N contracted functions per angular momentum from ANO-RCC, where N = number of occupied shells. This is validated by Knizia (JCTC 2013, Table 1, footnote d) as a suitable MINAO source. The expansion covers elements Z = 37 (Rb) through Z = 96 (Cm). For Po: MINAO grows from 13 to 43 functions/atom (6s + 5p + 3d + 1f). Generated via `scripts/generate_heavy_MINAO.py`.
 
-The mixed MINAO (cc-pVTZ for Z <= 36, ANO-RCC for Z >= 37) was analyzed and confirmed safe -- see [research/localization/MIXED_MINAO_BASIS_ANALYSIS.md](research/localization/MIXED_MINAO_BASIS_ANALYSIS.md).
+The mixed MINAO (cc-pVTZ for Z <= 36, ANO-RCC for Z >= 37) was analyzed and confirmed safe -- see [research/localization/MIXED_MINAO_BASIS_ANALYSIS.md](research/localization/MIXED_MINAO_BASIS_ANALYSIS.md). Disclaimer: Under review.
 
 #### 6. IBO localization check relaxation (`IBOLocalization.cpp`)
 The check at line 76 compared virtual orbital indices against `nMINAO`, but virtual indices naturally exceed `nMINAO` since they index into the full coefficient matrix. Relaxed the check to only apply for occupied-only localization (`!localizeVirtuals`), allowing the existing `replaceVirtuals` reconstruction logic to handle the mismatch.
