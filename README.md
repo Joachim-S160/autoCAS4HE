@@ -343,9 +343,11 @@ Custom basis sets are stored in `tests/custom_basis/` and included via `SERENITY
 | Jan 21 | Serenity single basis search path — no custom basis support | Medium | Added `SERENITY_BASIS_PATH` env var |
 | Jan 24 | IBO core/virtual crash for Po₂ — Rydberg overflow | Critical | Energy-based Rydberg cutoff in `LocalizationTask.cpp` |
 | Jan 26 | `.ScfOrb` files missing eigenvalues — Serenity needs `.scf.h5` | Medium | Fixed `protocol.py` to copy HDF5 files |
-| Jan 27 | NaN orbital coefficients from `splitValenceAndCore` subsystems | Critical | Under investigation |
+| Jan 27 | NaN orbital coefficients from `splitValenceAndCore` subsystems | Critical | Likely resolved — related to alternative localization methods issue |
 | Jan 27 | `SingleReferenceException` with FB localization | Medium | Added `-f/--force-cas` CLI option |
 | Jan 28 | MINAO basis too small for heavy elements (26 < 84 occupied) | Critical | Expanded MINAO from ANO-RCC (`generate_heavy_MINAO.py`), relaxed IBOLocalization check, added IAO reconstruction guard |
+| Jan 29 | MINAO expansion implementation and compatibility analysis | — | Generated ANO-RCC MINAO for Z = 37–96 (`generate_heavy_MINAO.py`), validated compatibility with autoCAS (CAS size, DMRG, DOS, larger molecules), analyzed mixed cc-pVTZ/ANO-RCC MINAO safety |
+| Jan 30 | Serenity submodule updated with all IBO fixes | — | Applied MINAO expansion + IBOLocalization relaxation + IAO guard to Serenity `heavy-elements-support` branch, Po₂ IBO localization now completes, added scaling test (25 geometries), comprehensive README documentation |
 
 ---
 
@@ -377,17 +379,19 @@ Custom basis sets are stored in `tests/custom_basis/` and included via `SERENITY
 - Mixed MINAO basis validated (cc-pVTZ for Z <= 36, ANO-RCC for Z >= 37), disclaimer: NEEDS FURTHER REVIEW
 
 ### In Progress
-- NaN orbital coefficient debugging (subsystem partitioning issue)
-- Po₂ end-to-end autoCAS test with expanded MINAO: Scaling test for more geometries
+- Po₂ end-to-end autoCAS test with expanded MINAO: scaling test for more geometries
+- Active spaces appear relatively indifferent to using the `consistent_cas_algorithm` — possibly because autoCAS's chemically intuitive valence space is too restrictive. If confirmed, may need ROSE or larger MINAO to capture more virtual valence orbitals
 
 ### Future
+- Verify compatibility with multistate DMRGSCF and CASSCF (state-averaged calculations)
+- Investigate orbital mapping theory and unmappable orbitals in more detail
 - Po₂ full autoCAS workflow with DMRG
 - SO-CASSI / SO-MPSSI dissociation profiles
 - ROSE software evaluation as alternative to Serenity for IAO/IBO (PySCF scalar-X2C path)
 - Element-specific spin multiplicities for dimer study (not a priority)
 - Expand default chemical valence for Po/Bi (include 5d in valence)
-- Tunable bond dimension and sweeps parameters for consistent_cas_algorithm
-- IBO plots don't include the nMINAO < nOCC + nVirtualValence ==> extend nRydberg to sattisfy IBO requirement reducing nVirtualValence.
+- Tunable bond dimension and sweeps parameters for `consistent_cas_algorithm`
+- IBO plots don't include the nMINAO < nOCC + nVirtualValence constraint — extend nRydberg to satisfy IBO requirement, reducing nVirtualValence
 
 ---
 
