@@ -104,17 +104,27 @@ For Po₂ with ANO-RCC-VDZP:
 | Virtual orbitals | 52 |
 | MINAO-based nRydberg | 110 (overflows into occupied!) |
 
-### The Energy-Based Fix
+### Progression of IBO Fixes
 
-The IBO distribution plots below show the difference between Serenity's original MINAO-count classification (left) and the energy-based cutoff fix (right) for Po₂:
+The three plots below show the progression of fixes applied to Po₂ IBO localization:
 
-**Serenity's original classification** — nRydberg = 110 overflows into occupied space, causing a crash:
+#### 1. Original Serenity (broken) — MINAO: 26 (13/atom)
 
-![Po₂ IBO distribution - original](tests/autocas/external_scf/Po2_IBO_fix_test/po2_0.scf_IBO_distribution.png)
+With the default valence-only MINAO, `nRydberg = nBasis - nMINAO = 136 - 26 = 110`, which overflows into the occupied space (only 52 virtuals). Serenity crashes in `splitValenceAndCore`:
 
-**Energy-based Rydberg cutoff (E >= 1.0 Ha)** — 15 virtual valence orbitals available for excited state calculations:
+![Po₂ IBO distribution - original broken](tests/old_po2_pre_minao_fix.png)
 
-![Po₂ IBO distribution - proposed fix](tests/autocas/external_scf/Po2_IBO_fix_test/po2_0.scf_IBO_distribution_proposed.png)
+#### 2. Energy-based Rydberg cutoff (intermediate fix)
+
+Replacing the MINAO-count Rydberg classification with an energy-based cutoff (E >= 1.0 Ha for p-block) eliminates the overflow. 15 virtual valence orbitals are now available for excited state calculations. However, `nMINAO (26) < nOcc (84)` still causes the IAO projection to be rank-deficient:
+
+![Po₂ IBO distribution - energy-based fix](tests/autocas/external_scf/Po2_IBO_fix_test/po2_0.scf_IBO_distribution_proposed.png)
+
+#### 3. Current implementation — MINAO: 86 (43/atom)
+
+After expanding the MINAO basis with ANO-RCC contracted functions for all occupied shells, `nMINAO (86) >= nOcc (84)` is satisfied. The IAO projection is well-conditioned, and IBO localization completes successfully with 2 virtual valence orbitals:
+
+![Po₂ IBO distribution - MINAO expanded](tests/autocas/external_scf/Po2_IBO_fix_test/po2_0.scf_IBO_distribution.png)
 
 ### PSE Dimer Study
 
