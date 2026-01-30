@@ -22,9 +22,9 @@
 PROJECT="starting_2025_097"
 INSTALL_DIR="/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE"
 source ${INSTALL_DIR}/setup_hortense.sh
-export MOLCAS_WORKDIR=$(pwd)
 
 cd $PBS_O_WORKDIR
+BASE_DIR=$(pwd)
 
 echo "=============================================="
 echo "  Po2 Scaling Test: 20 geometries"
@@ -128,30 +128,41 @@ echo "All 20 .scf.h5 files found."
 echo ""
 
 # ==============================================================================
-# Build argument lists
+# Create dedicated workdir for this scaling level
 # ==============================================================================
-XYZ_ARGS="po2_000.xyz po2_001.xyz po2_002.xyz po2_003.xyz po2_004.xyz po2_005.xyz po2_006.xyz po2_008.xyz po2_009.xyz po2_010.xyz po2_012.xyz po2_014.xyz po2_016.xyz po2_017.xyz po2_019.xyz po2_020.xyz po2_021.xyz po2_022.xyz po2_023.xyz po2_024.xyz"
-ORB_PATHS=""
-ORB_PATHS="$(pwd)/po2_000.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_001.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_002.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_003.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_004.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_005.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_006.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_008.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_009.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_010.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_012.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_014.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_016.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_017.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_019.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_020.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_021.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_022.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_023.scf.h5"
-ORB_PATHS="${ORB_PATHS},$(pwd)/po2_024.scf.h5"
+WORKDIR="${BASE_DIR}/workdir_N20"
+rm -rf "$WORKDIR"
+mkdir -p "$WORKDIR"
+cd "$WORKDIR"
+export MOLCAS_WORKDIR="${WORKDIR}"
+
+echo "Working directory: $WORKDIR"
+echo ""
+
+# ==============================================================================
+# Build argument lists (use absolute paths since we cd into workdir)
+# ==============================================================================
+XYZ_ARGS="${BASE_DIR}/po2_000.xyz ${BASE_DIR}/po2_001.xyz ${BASE_DIR}/po2_002.xyz ${BASE_DIR}/po2_003.xyz ${BASE_DIR}/po2_004.xyz ${BASE_DIR}/po2_005.xyz ${BASE_DIR}/po2_006.xyz ${BASE_DIR}/po2_008.xyz ${BASE_DIR}/po2_009.xyz ${BASE_DIR}/po2_010.xyz ${BASE_DIR}/po2_012.xyz ${BASE_DIR}/po2_014.xyz ${BASE_DIR}/po2_016.xyz ${BASE_DIR}/po2_017.xyz ${BASE_DIR}/po2_019.xyz ${BASE_DIR}/po2_020.xyz ${BASE_DIR}/po2_021.xyz ${BASE_DIR}/po2_022.xyz ${BASE_DIR}/po2_023.xyz ${BASE_DIR}/po2_024.xyz"
+ORB_PATHS="${BASE_DIR}/po2_000.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_001.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_002.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_003.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_004.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_005.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_006.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_008.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_009.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_010.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_012.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_014.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_016.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_017.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_019.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_020.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_021.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_022.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_023.scf.h5"
+ORB_PATHS="${ORB_PATHS},${BASE_DIR}/po2_024.scf.h5"
 
 # ==============================================================================
 # Run autoCAS with timing and memory tracking
@@ -169,7 +180,7 @@ START_SECONDS=$SECONDS
     -b ANO-RCC-VDZP \
     -m DMRGSCF \
     $XYZ_ARGS \
-    2> timing_20.txt
+    2> ${BASE_DIR}/timing_20.txt
 
 EXIT_CODE=$?
 ELAPSED=$((SECONDS - START_SECONDS))
@@ -177,6 +188,8 @@ ELAPSED=$((SECONDS - START_SECONDS))
 # ==============================================================================
 # Results
 # ==============================================================================
+cd "$BASE_DIR"
+
 echo ""
 echo "=============================================="
 echo "  Scaling Test Results: 20 geometries"
@@ -187,11 +200,58 @@ echo "End time:     $(date)"
 echo ""
 
 # Extract peak memory from /usr/bin/time output
+PEAK_MEM=0
 if [ -f "timing_20.txt" ]; then
     PEAK_MEM=$(grep "Maximum resident" timing_20.txt | awk '{print $NF}')
     echo "Peak RSS:     ${PEAK_MEM} KB ($((PEAK_MEM / 1024)) MB)"
+fi
+
+# ==============================================================================
+# Extract active space and copy output files
+# ==============================================================================
+if [ $EXIT_CODE -eq 0 ]; then
+    FINAL_DIR="${WORKDIR}/autocas_project/final"
+    RESULTS_DIR="${BASE_DIR}/results_N20"
+    mkdir -p "$RESULTS_DIR"
+
+    # Copy orbital files (.RasOrb) and HDF5 files for each geometry
     echo ""
-    echo "--- Full timing output ---"
+    echo "--- Output files ---"
+    if [ -d "$FINAL_DIR" ]; then
+        cp "$FINAL_DIR"/system_*.RasOrb "$RESULTS_DIR/" 2>/dev/null
+        cp "$FINAL_DIR"/system_*.rasscf.h5 "$RESULTS_DIR/" 2>/dev/null
+        cp "$FINAL_DIR"/energies.dat "$RESULTS_DIR/" 2>/dev/null
+        echo "  Copied RasOrb + rasscf.h5 + energies.dat to $RESULTS_DIR/"
+        ls -la "$RESULTS_DIR/"
+    else
+        echo "  WARNING: $FINAL_DIR not found"
+    fi
+
+    # Extract active space info from the PBS stdout (this script's output)
+    # We grep from the autoCAS stdout which is interleaved in this job's output
+    echo ""
+    echo "--- Active space summary ---"
+    CAS_EO=$(grep -m1 "final CAS(e, o)" ${WORKDIR}/autocas_project/final/system_0.log 2>/dev/null || echo "not found")
+    if [ "$CAS_EO" = "not found" ]; then
+        # Fallback: check combined_cas_spaces file
+        if [ -f "${WORKDIR}/autocas_project/final/combined_cas_spaces" ]; then
+            echo "  Combined CAS spaces:"
+            cat "${WORKDIR}/autocas_project/final/combined_cas_spaces"
+            cp "${WORKDIR}/autocas_project/final/combined_cas_spaces" "$RESULTS_DIR/"
+        fi
+    fi
+
+    # Extract energies
+    if [ -f "$RESULTS_DIR/energies.dat" ]; then
+        echo ""
+        echo "--- Final energies ---"
+        cat "$RESULTS_DIR/energies.dat"
+    fi
+fi
+
+echo ""
+echo "--- Full timing output ---"
+if [ -f "timing_20.txt" ]; then
     cat timing_20.txt
 fi
 

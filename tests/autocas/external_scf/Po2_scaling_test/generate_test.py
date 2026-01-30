@@ -202,9 +202,9 @@ def write_scaling_pbs(directory, n_geom, indices):
 PROJECT="{PROJECT}"
 INSTALL_DIR="{INSTALL_DIR}"
 source ${{INSTALL_DIR}}/setup_hortense.sh
-export MOLCAS_WORKDIR=$(pwd)
 
 cd $PBS_O_WORKDIR
+BASE_DIR=$(pwd)
 
 echo "=============================================="
 echo "  Po2 Scaling Test: {n_geom} geometries"
@@ -236,16 +236,31 @@ echo "All {n_geom} .scf.h5 files found."
 echo ""
 
 # ==============================================================================
-# Build argument lists
+# Create dedicated workdir for this scaling level
 # ==============================================================================
-XYZ_ARGS="{' '.join(xyz_files)}"
-ORB_PATHS=""
+WORKDIR="${{BASE_DIR}}/workdir_N{n_geom:02d}"
+rm -rf "$WORKDIR"
+mkdir -p "$WORKDIR"
+cd "$WORKDIR"
+export MOLCAS_WORKDIR="${{WORKDIR}}"
+
+echo "Working directory: $WORKDIR"
+echo ""
+
+# ==============================================================================
+# Build argument lists (use absolute paths since we cd into workdir)
+# ==============================================================================
 """)
+        # XYZ args with absolute paths
+        xyz_abs = [f"${{BASE_DIR}}/{x}" for x in xyz_files]
+        f.write(f'XYZ_ARGS="{" ".join(xyz_abs)}"\n')
+
+        # Orbital paths with absolute paths
         for i, h5 in enumerate(h5_files):
             if i == 0:
-                f.write(f'ORB_PATHS="$(pwd)/{h5}"\n')
+                f.write(f'ORB_PATHS="${{BASE_DIR}}/{h5}"\n')
             else:
-                f.write(f'ORB_PATHS="${{ORB_PATHS}},$(pwd)/{h5}"\n')
+                f.write(f'ORB_PATHS="${{ORB_PATHS}},${{BASE_DIR}}/{h5}"\n')
 
         f.write(f"""
 # ==============================================================================
@@ -264,7 +279,7 @@ START_SECONDS=$SECONDS
     -b ANO-RCC-VDZP \\
     -m DMRGSCF \\
     $XYZ_ARGS \\
-    2> timing_{n_geom:02d}.txt
+    2> ${{BASE_DIR}}/timing_{n_geom:02d}.txt
 
 EXIT_CODE=$?
 ELAPSED=$((SECONDS - START_SECONDS))
@@ -272,6 +287,8 @@ ELAPSED=$((SECONDS - START_SECONDS))
 # ==============================================================================
 # Results
 # ==============================================================================
+cd "$BASE_DIR"
+
 echo ""
 echo "=============================================="
 echo "  Scaling Test Results: {n_geom} geometries"
@@ -282,11 +299,58 @@ echo "End time:     $(date)"
 echo ""
 
 # Extract peak memory from /usr/bin/time output
+PEAK_MEM=0
 if [ -f "timing_{n_geom:02d}.txt" ]; then
     PEAK_MEM=$(grep "Maximum resident" timing_{n_geom:02d}.txt | awk '{{print $NF}}')
     echo "Peak RSS:     ${{PEAK_MEM}} KB ($((PEAK_MEM / 1024)) MB)"
+fi
+
+# ==============================================================================
+# Extract active space and copy output files
+# ==============================================================================
+if [ $EXIT_CODE -eq 0 ]; then
+    FINAL_DIR="${{WORKDIR}}/autocas_project/final"
+    RESULTS_DIR="${{BASE_DIR}}/results_N{n_geom:02d}"
+    mkdir -p "$RESULTS_DIR"
+
+    # Copy orbital files (.RasOrb) and HDF5 files for each geometry
     echo ""
-    echo "--- Full timing output ---"
+    echo "--- Output files ---"
+    if [ -d "$FINAL_DIR" ]; then
+        cp "$FINAL_DIR"/system_*.RasOrb "$RESULTS_DIR/" 2>/dev/null
+        cp "$FINAL_DIR"/system_*.rasscf.h5 "$RESULTS_DIR/" 2>/dev/null
+        cp "$FINAL_DIR"/energies.dat "$RESULTS_DIR/" 2>/dev/null
+        echo "  Copied RasOrb + rasscf.h5 + energies.dat to $RESULTS_DIR/"
+        ls -la "$RESULTS_DIR/"
+    else
+        echo "  WARNING: $FINAL_DIR not found"
+    fi
+
+    # Extract active space info from the PBS stdout (this script's output)
+    # We grep from the autoCAS stdout which is interleaved in this job's output
+    echo ""
+    echo "--- Active space summary ---"
+    CAS_EO=$(grep -m1 "final CAS(e, o)" ${{WORKDIR}}/autocas_project/final/system_0.log 2>/dev/null || echo "not found")
+    if [ "$CAS_EO" = "not found" ]; then
+        # Fallback: check combined_cas_spaces file
+        if [ -f "${{WORKDIR}}/autocas_project/final/combined_cas_spaces" ]; then
+            echo "  Combined CAS spaces:"
+            cat "${{WORKDIR}}/autocas_project/final/combined_cas_spaces"
+            cp "${{WORKDIR}}/autocas_project/final/combined_cas_spaces" "$RESULTS_DIR/"
+        fi
+    fi
+
+    # Extract energies
+    if [ -f "$RESULTS_DIR/energies.dat" ]; then
+        echo ""
+        echo "--- Final energies ---"
+        cat "$RESULTS_DIR/energies.dat"
+    fi
+fi
+
+echo ""
+echo "--- Full timing output ---"
+if [ -f "timing_{n_geom:02d}.txt" ]; then
     cat timing_{n_geom:02d}.txt
 fi
 
