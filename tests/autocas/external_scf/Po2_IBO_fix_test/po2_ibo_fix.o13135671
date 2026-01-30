@@ -1,0 +1,607 @@
+========================================
+autoCAS4HE environment loaded (Hortense)
+========================================
+  Serenity:    /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/build
+  autoCAS:     /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas_env/bin/scine_autocas
+  Basis path:  /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/custom_basis:/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/data/basis/
+========================================
+==============================================
+  Po2 IBO Fix Verification Test
+==============================================
+
+Working directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test
+Date: Fri Jan 30 10:09:05 AM CET 2026
+
+This test verifies that the energy-based Rydberg
+cutoff (1.0 Ha for d-block elements) prevents the
+IBO crash for heavy elements like Po (Z=84).
+
+Step 1: Copying pre-computed DKH2 orbital files...
+  Copied po2_0.scf.h5 and po2_1.scf.h5
+
+-rw-r--r-- 1 vsc45694 gpr_compute_starting_2025_097 1421154 Jan 30 10:09 po2_0.scf.h5
+-rw-r--r-- 1 vsc45694 gpr_compute_starting_2025_097 1425521 Jan 30 10:09 po2_1.scf.h5
+
+Step 2: Running autoCAS with external DKH2 orbitals...
+  This step triggers Serenity IBO localization.
+  With the fix: should print 'Using energy-based Rydberg cutoff: 1 Ha'
+  Without the fix: would crash with 'A core orbital is assigned to be virtual'
+
+
+          ------------------------------------------------------------          
+                                System system_0                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_1                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 15 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_0_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_0_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_0_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_0_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 19 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_1 to system_0
+Aligning the orbitals of system_1 to system_0
+    Converged after 42 orbital rotation cycles.
+Aligning the orbitals of system_1 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 19 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 8 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_1_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_1_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_1_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_1_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                Generalized DOS                                 
+          ------------------------------------------------------------          
+
+--------------------------------------------------------
+  The supersystem to fragment partitioning:
+system_0       system_0_0  system_0_1  system_0_2  system_0_3  
+system_1       system_1_0  system_1_1  system_1_2  system_1_3  
+--------------------------------------------------------
+  Optimized (occupied) threshold 0.21  (virtual) threshold 0.4025
+--------------------------------------------------------
+  Partitioning for subsystem system_0_0
+  Charge: 6
+  Spin:   0
+Number of occ. orbitals: 81
+--------------------------------------------------------
+  Partitioning for subsystem system_0_1
+  Charge: -6
+  Spin:   0
+Number of occ. orbitals: 3
+--------------------------------------------------------
+  Partitioning for subsystem system_0_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_0_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_1_0
+  Charge: 6
+  Spin:   0
+Number of occ. orbitals: 81
+--------------------------------------------------------
+  Partitioning for subsystem system_1_1
+  Charge: -6
+  Spin:   0
+Number of occ. orbitals: 3
+--------------------------------------------------------
+  Partitioning for subsystem system_1_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_1_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/autocas_project
+Final energy evaluation method: DMRGSCF
+*******************************************************************************************
+*                                                                                         *
+*                               Orbital Preparation                                       *
+*                                                                                         *
+*******************************************************************************************
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/autocas_project/scratch
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_0
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_1
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Loading external orbitals (skipping Serenity SCF)...
+External orbital files: ['/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/po2_0.scf.h5', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/po2_1.scf.h5']
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/po2_0.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/autocas_project/initial/system_0.scf.h5
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/po2_1.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/autocas_project/initial/system_1.scf.h5
+Orbital groups
+       0         0  
+       1         1  
+       2         2  
+       3         3  
+       4         4  
+       5         5  
+       6         6  
+       7         7  
+       8         8  
+       9         9  
+      10        10  
+      11        11  
+      12        12  
+      13        13  
+      14        14  
+      15        15  
+      16        16  
+      17        17  
+      18        18  
+      19        19  
+      20        20  
+      21        21  
+      22        22  
+      23        23  
+      24        24  
+      25        25  
+      26        26  
+      27        27  
+      28        28  
+      29        29  
+      30        30  
+      31        31  
+      32        32  
+      33        33  
+      34        34  
+      35        35  
+      36        36  
+      37        37  
+      38        38  
+      39        39  
+      40        40  
+      41        41  
+      42        42  
+      43        43  
+      44        44  
+      45        45  
+      46        46  
+      47        47  
+      48        48  
+      49        49  
+      50        50  
+      51        51  
+      52        52  
+      53        53  
+      54        54  
+      55        55  
+      56        56  
+      57        57  
+      58        58  
+      59        59  
+      60        60  
+      61        61  
+      62        62  
+      63        63  
+      64        64  
+      65        66  
+      66        67  
+      69        68  
+      70        69  
+      71        71  
+      72        72  
+      73        73  
+      74        74  
+      75        75  
+      76        76  
+      77        77  
+      78        78  
+      79        79  
+      80        80  
+      82        82  
+      83        83  
+
+      85        84  
+
+      67        65  
+
+      68        70  
+
+      81        81  
+
+      84        85  
+
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Make valence CAS
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing single orbitals entropies from initial CAS
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/autocas_project/dmrg
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_0
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+s1 in active space: [0.01183285 0.01183309 0.06562023 0.12299516 0.04091733 0.06562232
+ 0.17144463 0.05618331]
+Start active space search for provided set of 8 orbitals and 12 electrons.
+Maximal single orbital entropy: 0.171444634136849
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [80, 81, 82, 83, 84, 85]
+Found plateau, including 6 orbitals.
+Found smaller active space.
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Make valence CAS
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing single orbitals entropies from initial CAS
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_1
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+s1 in active space: [0.00516303 0.01031017 0.00114053 1.09323974 0.93562134 0.01569158
+ 1.09326025 0.93678533]
+Start active space search for provided set of 8 orbitals and 12 electrons.
+Maximal single orbital entropy: 1.0932602536299982
+New active space:
+	orbital occuation:         [2, 2, 0, 0]
+	orbital indices (0-based): [81, 82, 84, 85]
+Found plateau, including 4 orbitals.
+Found smaller active space.
+*******************************************************************************************
+*                                                                                         *
+*                               Combined Active Spaces                                    *
+*                                                                                         *
+*******************************************************************************************
+combined cas indices: [78, 79, 80, 82, 83, 81, 84, 85]
+combined occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+combined cas indices: [78, 79, 80, 82, 83, 81, 85, 84]
+combined occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+*******************************************************************************************
+*                                                                                         *
+*                               Final Calculations                                        *
+*                                                                                         *
+*******************************************************************************************
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing final calculation
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/autocas_project/final
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_0
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+final energy:      [-44341.70758742804]
+final CAS(e, o):  (12, 8)
+final cas indices: [78, 79, 80, 82, 83, 81, 84, 85]
+final occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+final s1:          []
+final s2: 
+[]
+final mut_inf: 
+[]
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing final calculation
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/autocas_project/final
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_1
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_IBO_fix_test/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+final energy:      [-44342.06995173893]
+final CAS(e, o):  (12, 8)
+final cas indices: [78, 79, 80, 82, 83, 81, 85, 84]
+final occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+final s1:          []
+final s2: 
+[]
+final mut_inf: 
+[]
+
+==============================================
+  Test Results
+==============================================
+
+Exit code: 0
+Date: Fri Jan 30 10:25:02 AM CET 2026
+
+SUCCESS: Po2 IBO localization completed without crashing!
+The energy-based Rydberg cutoff fix works.
+
+Step 3: Running IBO distribution analysis...
+[INFO] Using HPC paths
+[INFO] Element: PO
+[INFO] MINAO per atom: 43
+[INFO] MINAO for dimer: 86
+[INFO] Diagnostic data appended to IBO_diagnostics.csv
+[INFO] Using energy-based Rydberg cutoff: 1.0 Ha (po is d-block)
+[INFO] Proposed classification: 15 virtual valence, 37 Rydberg
+[INFO] Saved proposed fix plot: po2_0.scf_IBO_distribution_proposed.png
+
+============================================================
+  Orbital Classification Summary (PO₂ dimer)
+============================================================
+  Total MOs:                  136
+  Basis functions:            136
+  MINAO per atom:             43
+  Total MINAO (molecule):     86
+------------------------------------------------------------
+  Occupied orbitals:            84
+  Virtual orbitals:             52
+------------------------------------------------------------
+  Core (occupied, ε<-5.0):     62
+  Occupied valence:             22
+  Virtual valence:               2
+  Rydberg (shown):              50
+------------------------------------------------------------
+  KEY ENERGIES (for Rydberg cutoff development):
+    HOMO:                        -0.2257 Ha
+    LUMO:                        -0.0126 Ha
+    LUMO+5:                       0.3673 Ha
+    LUMO+10:                      0.6331 Ha
+    Rydberg start:                0.3313 Ha
+------------------------------------------------------------
+  SERENITY IBO ANALYSIS:
+    nRydberg calculated:        50  (nBasis - nMINAO)
+    nVirtual available:         52
+    Overflow:                 None
+------------------------------------------------------------
+  STATUS: IBO should work
+------------------------------------------------------------
+  PROPOSED FIX (energy-based Rydberg cutoff):
+    Element type:             d-block
+    Rydberg cutoff:           1.0 Ha
+    Virtual valence:            15  (available for excited states)
+    Rydberg:                    37  (E >= 1.0 Ha)
+============================================================
+
+[Serenity plot]   po2_0.scf_IBO_distribution.png
+[Proposed plot]   po2_0.scf_IBO_distribution_proposed.png
+
+  IBO distribution plots generated.
+
+==============================================
+  All done!
+==============================================

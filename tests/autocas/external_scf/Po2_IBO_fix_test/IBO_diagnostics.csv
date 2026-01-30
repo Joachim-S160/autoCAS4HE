@@ -1,0 +1,2 @@
+element,nMO,nBasis,nMINAO_atom,nMINAO_total,nOccupied,nVirtual,nCore,nOccValence,nVirtValence,nRydberg_calc,nRydberg_actual,overflow,serenity_fails,HOMO,LUMO,LUMO+5,LUMO+10,Rydberg_start,Rydberg_end,Core_min,Core_max,HOMO_LUMO_gap
+PO,136,136,43,86,84,52,62,22,2,50,50,0,False,-0.225707,-0.012627,0.367310,0.633089,0.331300,4.138895,-3431.583056,-7.258916,0.213080
