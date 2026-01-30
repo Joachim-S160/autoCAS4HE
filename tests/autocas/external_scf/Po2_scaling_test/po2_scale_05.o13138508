@@ -1,0 +1,228 @@
+========================================
+autoCAS4HE environment loaded (Hortense)
+========================================
+  Serenity:    /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/build
+  autoCAS:     /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas_env/bin/scine_autocas
+  Basis path:  /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/custom_basis:/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/data/basis/
+========================================
+==============================================
+  Po2 Scaling Test: 5 geometries
+==============================================
+Start time: Fri Jan 30 04:17:07 PM CET 2026
+Distances (A): 2.10 2.50 3.00 5.00 10.00
+PBS Job ID: 13138508
+Requested mem: 52gb
+
+All 5 .scf.h5 files found.
+
+Running autoCAS with 5 geometries...
+
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test/autocas_project
+Final energy evaluation method: DMRGSCF
+*******************************************************************************************
+*                                                                                         *
+*                               Orbital Preparation                                       *
+*                                                                                         *
+*******************************************************************************************
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_0
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Molcas log:
+   This run of MOLCAS is using the pymolcas driver
+
+                             OPE
+                             OPE          NMOL  CASOP  ENMOLC A   SO
+                 OPE        NMOLC        AS  OP EN  MO LC     AS  OP
+                OPENM       OL CA        SO  PE NM  OL CA     SOP EN
+                OP EN      MO   LC       AS  OP ENMOL  CASO   PENMOL
+                OP  EN     MO   LC       AS  OP EN     MO     LC ASO
+               OP   E  NMOL  C  AS       OP  EN MO     LC     AS  OP
+               OP  E   NMO   LC AS        OPEN  MO     LCASOP EN   M
+               O  PEN   MO  LCA  SO
+            OPE   NMO   L   CAS    OP
+        OPENMOL  CASOP     ENMOL   CASOPE
+     OPENMOLCA   SOPENMOLCASOPEN   MOLCASOPE
+    OPENMOLCAS   OP           EN   MOL    CAS
+    OPENMOLCAS       OP  ENM        O     LCA
+    OPENMOLCAS    OPEN  MOLCASO     P  E  NMO
+    OPENMOLCAS     OP               E  N  MOL
+    OPENMOLCA   SO           PENM   O  L  CAS    OPEN    MO    LCAS
+    OPENMOLCA   SOP           ENM   O  L  CAS   OP  EN  MOLC  AS   O
+    OPENMOLCA   SOPE           NM      O  LCA   S      OP  EN MO
+    OPENMOLC                AS         O  PEN   M      OL  CA  SOPE
+    OPENMO        LCASOPE  NMOL        C  ASO   P      ENMOLC     AS
+    OPE     NMO      LCA  SO     P     E   NM   OL  CA SO  PE N   MO
+          OPENMOLCA            SOPE   NMO        LCAS  O    P  ENMO
+     OPENMOLCASOPENMOLCASOPENMOLCASOPENMOLCA
+        OPENMOLCASOPENMOLCASOPENMOLCASOPE
+            OPENMOLCASOPENMOLCASOPENM
+               OPENMOLCASOPENMOLCA        version: v25.06 ?
+                   OPENMOLCASO
+                       OPE                tag:
+
+ OpenMolcas is free software; you can redistribute it and/or modify it
+ under the terms of the GNU Lesser General Public License version 2.1.
+ OpenMolcas is distributed in the hope that it will be useful, but it
+ is provided "as is" and without any express or implied warranties.
+ For more details see the full text of the license in the file
+ LICENSE or in <http://www.gnu.org/licenses/>.
+
+                 Copyright (C) The OpenMolcas Authors
+           For the author list and the recommended citation,
+                   consult the file CONTRIBUTORS.md
+
+           *************************************************
+           * pymolcas version py2.29                       *
+           *   build 637753c454b0e8fef9459a9b878b37a5      *
+           *   (after the EMIL interpreter by V. Veryazov) *
+           *************************************************
+
+configuration info
+------------------
+Host name: node5385.dodrio.os (Linux)
+C Compiler ID: IntelLLVM
+C flags: -O2 -march=core-avx2 -fp-model precise -std=gnu99 -qopenmp
+Fortran Compiler ID: Intel
+Fortran flags: -O2 -march=core-avx2 -fp-model precise  -fpp -i8 -heap-arrays -qopenmp
+Definitions: _MOLCAS_;_I8_;_LINUX_
+Parallel: OFF (GA=OFF)
+
+
+   --------------------------------------------------------------------------------------------------------------------------------------------------------------
+  |
+  |           Project: system_0
+  |    Submitted from: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test/autocas_project/initial
+  |      Scratch area: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test/autocas_project/scratch
+  |   Save outputs to: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test/autocas_project/initial
+  |            Molcas: /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI
+  |
+  | Scratch area is NOT empty
+  |
+  |    MOLCAS_DRIVER = /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+  |    MOLCAS_MOLDEN = YES
+  |    MOLCAS_NPROCS = 1
+  |     MOLCAS_PRINT = DEBUG
+  |    MOLCAS_SOURCE = /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI
+  | MOLCAS_STRUCTURE = 0
+  |   MOLCAS_THREADS = 1
+  |
+   --------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+++ ---------   Input file   ---------
+
+&GATEWAY
+  COORD = /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test/po2_000.xyz
+  BASIS = ANO-RCC-VDZP
+  GROUP = C1
+
+&SEWARD
+  CHOLesky
+
+&SCF
+  SPIN   = 1
+  CHARGE = 0
+  CHOLesky
+
+-- ----------------------------------
+
+
+.########################.
+.# Non-zero return code #.
+.########################.
+
+
+Aborting...
+
+Molcas error log:
+Traceback (most recent call last):
+  File "/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas", line 598, in <module>
+    sys.exit(main(os.path.realpath(f)))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 221, in main
+  File "<string>", line 782, in auto
+  File "<string>", line 198, in run
+  File "<string>", line 346, in run
+  File "<string>", line 846, in run_module
+  File "<string>", line 1336, in run
+  File "<string>", line 1309, in _make_links
+FileExistsError: [Errno 17] File exists: '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test/autocas_project/scratch/system_0.RasOrb' -> '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test/autocas_project/scratch/INPORB'
+
+
+==============================================
+  Scaling Test Results: 5 geometries
+==============================================
+Exit code:    1
+Wall time:    40s (0m 40s)
+End time:     Fri Jan 30 04:17:47 PM CET 2026
+
+Peak RSS:     83992 KB (82 MB)
+
+--- Full timing output ---
+Traceback (most recent call last):
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/interfaces/interface.py", line 505, in calculate
+    self._dumper.read_initial_orbitals(self)
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/interfaces/interface.py", line 56, in read_initial_orbitals
+    raise NotImplementedError
+NotImplementedError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas_env/bin/scine_autocas_consistent_active_space", line 7, in <module>
+    sys.exit(run_from_command_line())
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/protocol.py", line 74, in run_from_command_line
+    run_consistent_active_space_protocol(configuration)
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/protocol.py", line 109, in run_consistent_active_space_protocol
+    interfaces, molecules = construct_molecules(configuration)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/prepare_orbitals.py", line 85, in construct_molecules
+    molcas, molecule = setup_molcas_and_molecule(xyz, name, configuration.basis_set)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/prepare_orbitals.py", line 43, in setup_molcas_and_molecule
+    molcas.calculate()
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/interfaces/interface.py", line 509, in calculate
+    energy = self._initial_orbitals_impl()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/interfaces/molcas/molcas.py", line 402, in _initial_orbitals_impl
+    self.run_molcas()
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/interfaces/molcas/molcas.py", line 350, in run_molcas
+    raise RuntimeError(f"Molcas calculation failed. Please check the log file {full_path} for details.")
+RuntimeError: Molcas calculation failed. Please check the log file /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test/autocas_project/initial/system_0.log for details.
+Command exited with non-zero status 1
+	Command being timed: "scine_autocas_consistent_active_space -e -o /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test/po2_000.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test/po2_004.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test/po2_009.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test/po2_017.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test/po2_024.scf.h5 -b ANO-RCC-VDZP -m DMRGSCF po2_000.xyz po2_004.xyz po2_009.xyz po2_017.xyz po2_024.xyz"
+	User time (seconds): 0.79
+	System time (seconds): 1.85
+	Percent of CPU this job got: 6%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:40.25
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 83992
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 1912
+	Minor (reclaiming a frame) page faults: 20831
+	Voluntary context switches: 8875
+	Involuntary context switches: 46
+	Swaps: 0
+	File system inputs: 124808
+	File system outputs: 104
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+
+Results appended to scaling_results.csv
+Format: n_geom,exit_code,wall_time_s,peak_rss_kb

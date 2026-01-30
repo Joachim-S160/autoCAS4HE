@@ -1,0 +1,23 @@
+	Command being timed: "scine_autocas_consistent_active_space -e -o /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test/po2_004.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test/po2_024.scf.h5 -b ANO-RCC-VDZP -m DMRGSCF po2_004.xyz po2_024.xyz"
+	User time (seconds): 626.81
+	System time (seconds): 114.45
+	Percent of CPU this job got: 84%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 14:33.15
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2999224
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 10014
+	Minor (reclaiming a frame) page faults: 1734746
+	Voluntary context switches: 11625361
+	Involuntary context switches: 11380119
+	Swaps: 0
+	File system inputs: 9787256
+	File system outputs: 13035024
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

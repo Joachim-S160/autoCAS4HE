@@ -1,0 +1,3609 @@
+========================================
+autoCAS4HE environment loaded (Hortense)
+========================================
+  Serenity:    /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/build
+  autoCAS:     /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas_env/bin/scine_autocas
+  Basis path:  /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/custom_basis:/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/data/basis/
+========================================
+==============================================
+  Po2 Scaling Test: 25 geometries
+==============================================
+Start time: Fri Jan 30 04:17:38 PM CET 2026
+Distances (A): 2.10 2.20 2.30 2.40 2.50 2.60 2.70 2.80 2.90 3.00 3.25 3.50 3.75 4.00 4.25 4.50 4.75 5.00 5.50 6.00 6.50 7.00 7.50 8.75 10.00
+PBS Job ID: 13138512
+Requested mem: 128gb
+
+All 25 .scf.h5 files found.
+
+Running autoCAS with 25 geometries...
+
+
+          ------------------------------------------------------------          
+                                System system_0                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_1                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.1000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.1000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_2                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.1500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.1500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_3                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_4                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_5                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.3000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.3000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_6                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.3500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.3500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_7                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.4000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.4000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_8                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.4500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.4500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_9                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_10                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.6250000000   +0.0000000000   +0.0000000000
+        2 PO   +1.6250000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_11                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_12                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.8750000000   +0.0000000000   +0.0000000000
+        2 PO   +1.8750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_13                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_14                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.1250000000   +0.0000000000   +0.0000000000
+        2 PO   +2.1250000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_15                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +2.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_16                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.3750000000   +0.0000000000   +0.0000000000
+        2 PO   +2.3750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_17                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_18                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +2.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_19                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_20                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +3.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_21                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_22                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +3.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_23                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -4.3750000000   +0.0000000000   +0.0000000000
+        2 PO   +4.3750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_24                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -5.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +5.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 15 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_0_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_0_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_0_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_0_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 15 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_1 to system_0
+    Converged after 24 orbital rotation cycles.
+Aligning the orbitals of system_1 to system_0
+    Converged after 11 orbital rotation cycles.
+Aligning the orbitals of system_1 to system_0
+    Converged after 2 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 15 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_1_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.1000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.1000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_1_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.1000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.1000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_1_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.1000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.1000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_1_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.1000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.1000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 16 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_2 to system_0
+    Converged after 86 orbital rotation cycles.
+Aligning the orbitals of system_2 to system_0
+    Converged after 73 orbital rotation cycles.
+Aligning the orbitals of system_2 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 16 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_2_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.1500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.1500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_2_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.1500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.1500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_2_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.1500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.1500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_2_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.1500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.1500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 16 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_3 to system_0
+    Converged after 32 orbital rotation cycles.
+Aligning the orbitals of system_3 to system_0
+    Converged after 12 orbital rotation cycles.
+Aligning the orbitals of system_3 to system_0
+    Converged after 2 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 16 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 9 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_3_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_3_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_3_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_3_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 17 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_4 to system_0
+    Converged after 60 orbital rotation cycles.
+Aligning the orbitals of system_4 to system_0
+    Converged after 36 orbital rotation cycles.
+Aligning the orbitals of system_4 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 17 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_4_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_4_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_4_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_4_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 17 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_5 to system_0
+Aligning the orbitals of system_5 to system_0
+    Converged after 9 orbital rotation cycles.
+Aligning the orbitals of system_5 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 17 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 8 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_5_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.3000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.3000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_5_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.3000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.3000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_5_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.3000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.3000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_5_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.3000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.3000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 18 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_6 to system_0
+Aligning the orbitals of system_6 to system_0
+    Converged after 15 orbital rotation cycles.
+Aligning the orbitals of system_6 to system_0
+    Converged after 2 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 18 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 8 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_6_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.3500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.3500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_6_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.3500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.3500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_6_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.3500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.3500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_6_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.3500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.3500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 19 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_7 to system_0
+Aligning the orbitals of system_7 to system_0
+    Converged after 34 orbital rotation cycles.
+Aligning the orbitals of system_7 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 19 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_7_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.4000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.4000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_7_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.4000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.4000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_7_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.4000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.4000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_7_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.4000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.4000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 19 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_8 to system_0
+Aligning the orbitals of system_8 to system_0
+    Converged after 10 orbital rotation cycles.
+Aligning the orbitals of system_8 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 19 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 8 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_8_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.4500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.4500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_8_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.4500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.4500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_8_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.4500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.4500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_8_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.4500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.4500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 19 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_9 to system_0
+    Converged after 51 orbital rotation cycles.
+Aligning the orbitals of system_9 to system_0
+    Converged after 14 orbital rotation cycles.
+Aligning the orbitals of system_9 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 19 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 8 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_9_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_9_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_9_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_9_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 19 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_10 to system_0
+Aligning the orbitals of system_10 to system_0
+Aligning the orbitals of system_10 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 19 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_10_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.6250000000   +0.0000000000   +0.0000000000
+        2 PO   +1.6250000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_10_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.6250000000   +0.0000000000   +0.0000000000
+        2 PO   +1.6250000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_10_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.6250000000   +0.0000000000   +0.0000000000
+        2 PO   +1.6250000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_10_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.6250000000   +0.0000000000   +0.0000000000
+        2 PO   +1.6250000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 19 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_11 to system_0
+Aligning the orbitals of system_11 to system_0
+Aligning the orbitals of system_11 to system_0
+    Converged after 2 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 19 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_11_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_11_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_11_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_11_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 19 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_12 to system_0
+    Converged after 77 orbital rotation cycles.
+Aligning the orbitals of system_12 to system_0
+    Converged after 9 orbital rotation cycles.
+Aligning the orbitals of system_12 to system_0
+    Converged after 2 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 19 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_12_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.8750000000   +0.0000000000   +0.0000000000
+        2 PO   +1.8750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_12_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.8750000000   +0.0000000000   +0.0000000000
+        2 PO   +1.8750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_12_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.8750000000   +0.0000000000   +0.0000000000
+        2 PO   +1.8750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_12_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.8750000000   +0.0000000000   +0.0000000000
+        2 PO   +1.8750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 19 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_13 to system_0
+Aligning the orbitals of system_13 to system_0
+    Converged after 65 orbital rotation cycles.
+Aligning the orbitals of system_13 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 19 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_13_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_13_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_13_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_13_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_14 to system_0
+Aligning the orbitals of system_14 to system_0
+    Converged after 29 orbital rotation cycles.
+Aligning the orbitals of system_14 to system_0
+    Converged after 2 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_14_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.1250000000   +0.0000000000   +0.0000000000
+        2 PO   +2.1250000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_14_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.1250000000   +0.0000000000   +0.0000000000
+        2 PO   +2.1250000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_14_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.1250000000   +0.0000000000   +0.0000000000
+        2 PO   +2.1250000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_14_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.1250000000   +0.0000000000   +0.0000000000
+        2 PO   +2.1250000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_15 to system_0
+Aligning the orbitals of system_15 to system_0
+    Converged after 29 orbital rotation cycles.
+Aligning the orbitals of system_15 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_15_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +2.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_15_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +2.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_15_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +2.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_15_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +2.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_16 to system_0
+Aligning the orbitals of system_16 to system_0
+    Converged after 67 orbital rotation cycles.
+Aligning the orbitals of system_16 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_16_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.3750000000   +0.0000000000   +0.0000000000
+        2 PO   +2.3750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_16_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.3750000000   +0.0000000000   +0.0000000000
+        2 PO   +2.3750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_16_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.3750000000   +0.0000000000   +0.0000000000
+        2 PO   +2.3750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_16_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.3750000000   +0.0000000000   +0.0000000000
+        2 PO   +2.3750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_17 to system_0
+Aligning the orbitals of system_17 to system_0
+    Converged after 28 orbital rotation cycles.
+Aligning the orbitals of system_17 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_17_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_17_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_17_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_17_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_18 to system_0
+Aligning the orbitals of system_18 to system_0
+    Converged after 41 orbital rotation cycles.
+Aligning the orbitals of system_18 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 8 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_18_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +2.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_18_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +2.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_18_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +2.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_18_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +2.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_19 to system_0
+Aligning the orbitals of system_19 to system_0
+    Converged after 12 orbital rotation cycles.
+Aligning the orbitals of system_19 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_19_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_19_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_19_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_19_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_20 to system_0
+Aligning the orbitals of system_20 to system_0
+    Converged after 37 orbital rotation cycles.
+Aligning the orbitals of system_20 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 4 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_20_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +3.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_20_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +3.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_20_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +3.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_20_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +3.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_21 to system_0
+Aligning the orbitals of system_21 to system_0
+    Converged after 9 orbital rotation cycles.
+Aligning the orbitals of system_21 to system_0
+    Converged after 2 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_21_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_21_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_21_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_21_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_22 to system_0
+    Converged after 97 orbital rotation cycles.
+Aligning the orbitals of system_22 to system_0
+    Converged after 12 orbital rotation cycles.
+Aligning the orbitals of system_22 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 8 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_22_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +3.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_22_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +3.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_22_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +3.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_22_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +3.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_23 to system_0
+Aligning the orbitals of system_23 to system_0
+    Converged after 14 orbital rotation cycles.
+Aligning the orbitals of system_23 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_23_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -4.3750000000   +0.0000000000   +0.0000000000
+        2 PO   +4.3750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_23_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -4.3750000000   +0.0000000000   +0.0000000000
+        2 PO   +4.3750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_23_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -4.3750000000   +0.0000000000   +0.0000000000
+        2 PO   +4.3750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_23_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -4.3750000000   +0.0000000000   +0.0000000000
+        2 PO   +4.3750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_24 to system_0
+Aligning the orbitals of system_24 to system_0
+Aligning the orbitals of system_24 to system_0
+    Converged after 1 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 20 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 50    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_24_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -5.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +5.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_24_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -5.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +5.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_24_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -5.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +5.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_24_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VDZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -5.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +5.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                Generalized DOS                                 
+          ------------------------------------------------------------          
+
+--------------------------------------------------------
+  The supersystem to fragment partitioning:
+system_0       system_0_0  system_0_1  system_0_2  system_0_3  
+system_1       system_1_0  system_1_1  system_1_2  system_1_3  
+system_2       system_2_0  system_2_1  system_2_2  system_2_3  
+system_3       system_3_0  system_3_1  system_3_2  system_3_3  
+system_4       system_4_0  system_4_1  system_4_2  system_4_3  
+system_5       system_5_0  system_5_1  system_5_2  system_5_3  
+system_6       system_6_0  system_6_1  system_6_2  system_6_3  
+system_7       system_7_0  system_7_1  system_7_2  system_7_3  
+system_8       system_8_0  system_8_1  system_8_2  system_8_3  
+system_9       system_9_0  system_9_1  system_9_2  system_9_3  
+system_10       system_10_0  system_10_1  system_10_2  system_10_3  
+system_11       system_11_0  system_11_1  system_11_2  system_11_3  
+system_12       system_12_0  system_12_1  system_12_2  system_12_3  
+system_13       system_13_0  system_13_1  system_13_2  system_13_3  
+system_14       system_14_0  system_14_1  system_14_2  system_14_3  
+system_15       system_15_0  system_15_1  system_15_2  system_15_3  
+system_16       system_16_0  system_16_1  system_16_2  system_16_3  
+system_17       system_17_0  system_17_1  system_17_2  system_17_3  
+system_18       system_18_0  system_18_1  system_18_2  system_18_3  
+system_19       system_19_0  system_19_1  system_19_2  system_19_3  
+system_20       system_20_0  system_20_1  system_20_2  system_20_3  
+system_21       system_21_0  system_21_1  system_21_2  system_21_3  
+system_22       system_22_0  system_22_1  system_22_2  system_22_3  
+system_23       system_23_0  system_23_1  system_23_2  system_23_3  
+system_24       system_24_0  system_24_1  system_24_2  system_24_3  
+--------------------------------------------------------
+  Optimized (occupied) threshold 1  (virtual) threshold 1
+--------------------------------------------------------
+  Partitioning for subsystem system_0_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_0_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_0_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_0_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_1_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_1_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_1_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_1_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_2_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_2_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_2_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_2_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_3_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_3_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_3_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_3_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_4_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_4_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_4_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_4_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_5_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_5_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_5_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_5_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_6_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_6_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_6_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_6_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_7_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_7_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_7_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_7_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_8_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_8_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_8_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_8_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_9_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_9_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_9_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_9_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_10_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_10_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_10_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_10_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_11_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_11_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_11_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_11_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_12_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_12_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_12_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_12_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_13_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_13_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_13_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_13_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_14_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_14_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_14_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_14_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_15_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_15_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_15_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_15_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_16_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_16_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_16_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_16_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_17_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_17_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_17_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_17_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_18_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_18_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_18_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_18_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_19_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_19_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_19_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_19_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_20_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_20_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_20_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_20_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_21_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_21_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_21_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_21_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_22_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_22_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_22_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_22_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_23_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_23_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_23_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_23_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_24_0
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 84
+--------------------------------------------------------
+  Partitioning for subsystem system_24_1
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_24_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_24_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
