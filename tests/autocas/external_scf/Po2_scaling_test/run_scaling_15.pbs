@@ -1,0 +1,178 @@
+#!/bin/bash
+# Po2 autoCAS Scaling Test: 15 geometries
+# Distances: 2.10, 2.20, 2.40, 2.50, 2.60, 2.80, 3.00, 3.50, 4.00, 4.50, 5.00, 6.00, 7.00, 8.75, 10.00 A
+#
+# Measures wall time, CPU time, and peak memory for autoCAS
+# with 15 dissociation geometries.
+#
+# PREREQUISITE: Run generate_scf.pbs first to create .scf.h5 files.
+# Submit with: qsub run_scaling_15.pbs
+
+#PBS -N po2_scale_15
+#PBS -A 2025_127
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=03:00:00
+#PBS -l mem=92gb
+#PBS -M joachim.scheerlinck@ugent.be
+#PBS -m e
+
+# ==============================================================================
+# Setup
+# ==============================================================================
+PROJECT="starting_2025_097"
+INSTALL_DIR="/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE"
+source ${INSTALL_DIR}/setup_hortense.sh
+export MOLCAS_WORKDIR=$(pwd)
+
+cd $PBS_O_WORKDIR
+
+echo "=============================================="
+echo "  Po2 Scaling Test: 15 geometries"
+echo "=============================================="
+echo "Start time: $(date)"
+echo "Distances (A): 2.10 2.20 2.40 2.50 2.60 2.80 3.00 3.50 4.00 4.50 5.00 6.00 7.00 8.75 10.00"
+echo "PBS Job ID: $PBS_JOBID"
+echo "Requested mem: 92gb"
+echo ""
+
+# ==============================================================================
+# Check that all .scf.h5 files exist
+# ==============================================================================
+MISSING=0
+if [ ! -f "po2_000.scf.h5" ]; then
+    echo "ERROR: Missing po2_000.scf.h5"
+    MISSING=$((MISSING + 1))
+fi
+if [ ! -f "po2_001.scf.h5" ]; then
+    echo "ERROR: Missing po2_001.scf.h5"
+    MISSING=$((MISSING + 1))
+fi
+if [ ! -f "po2_003.scf.h5" ]; then
+    echo "ERROR: Missing po2_003.scf.h5"
+    MISSING=$((MISSING + 1))
+fi
+if [ ! -f "po2_004.scf.h5" ]; then
+    echo "ERROR: Missing po2_004.scf.h5"
+    MISSING=$((MISSING + 1))
+fi
+if [ ! -f "po2_005.scf.h5" ]; then
+    echo "ERROR: Missing po2_005.scf.h5"
+    MISSING=$((MISSING + 1))
+fi
+if [ ! -f "po2_007.scf.h5" ]; then
+    echo "ERROR: Missing po2_007.scf.h5"
+    MISSING=$((MISSING + 1))
+fi
+if [ ! -f "po2_009.scf.h5" ]; then
+    echo "ERROR: Missing po2_009.scf.h5"
+    MISSING=$((MISSING + 1))
+fi
+if [ ! -f "po2_011.scf.h5" ]; then
+    echo "ERROR: Missing po2_011.scf.h5"
+    MISSING=$((MISSING + 1))
+fi
+if [ ! -f "po2_013.scf.h5" ]; then
+    echo "ERROR: Missing po2_013.scf.h5"
+    MISSING=$((MISSING + 1))
+fi
+if [ ! -f "po2_015.scf.h5" ]; then
+    echo "ERROR: Missing po2_015.scf.h5"
+    MISSING=$((MISSING + 1))
+fi
+if [ ! -f "po2_017.scf.h5" ]; then
+    echo "ERROR: Missing po2_017.scf.h5"
+    MISSING=$((MISSING + 1))
+fi
+if [ ! -f "po2_019.scf.h5" ]; then
+    echo "ERROR: Missing po2_019.scf.h5"
+    MISSING=$((MISSING + 1))
+fi
+if [ ! -f "po2_021.scf.h5" ]; then
+    echo "ERROR: Missing po2_021.scf.h5"
+    MISSING=$((MISSING + 1))
+fi
+if [ ! -f "po2_023.scf.h5" ]; then
+    echo "ERROR: Missing po2_023.scf.h5"
+    MISSING=$((MISSING + 1))
+fi
+if [ ! -f "po2_024.scf.h5" ]; then
+    echo "ERROR: Missing po2_024.scf.h5"
+    MISSING=$((MISSING + 1))
+fi
+
+if [ $MISSING -gt 0 ]; then
+    echo "ERROR: $MISSING .scf.h5 files missing. Run generate_scf.pbs first."
+    exit 1
+fi
+echo "All 15 .scf.h5 files found."
+echo ""
+
+# ==============================================================================
+# Build argument lists
+# ==============================================================================
+XYZ_ARGS="po2_000.xyz po2_001.xyz po2_003.xyz po2_004.xyz po2_005.xyz po2_007.xyz po2_009.xyz po2_011.xyz po2_013.xyz po2_015.xyz po2_017.xyz po2_019.xyz po2_021.xyz po2_023.xyz po2_024.xyz"
+ORB_PATHS=""
+ORB_PATHS="$(pwd)/po2_000.scf.h5"
+ORB_PATHS="${ORB_PATHS},$(pwd)/po2_001.scf.h5"
+ORB_PATHS="${ORB_PATHS},$(pwd)/po2_003.scf.h5"
+ORB_PATHS="${ORB_PATHS},$(pwd)/po2_004.scf.h5"
+ORB_PATHS="${ORB_PATHS},$(pwd)/po2_005.scf.h5"
+ORB_PATHS="${ORB_PATHS},$(pwd)/po2_007.scf.h5"
+ORB_PATHS="${ORB_PATHS},$(pwd)/po2_009.scf.h5"
+ORB_PATHS="${ORB_PATHS},$(pwd)/po2_011.scf.h5"
+ORB_PATHS="${ORB_PATHS},$(pwd)/po2_013.scf.h5"
+ORB_PATHS="${ORB_PATHS},$(pwd)/po2_015.scf.h5"
+ORB_PATHS="${ORB_PATHS},$(pwd)/po2_017.scf.h5"
+ORB_PATHS="${ORB_PATHS},$(pwd)/po2_019.scf.h5"
+ORB_PATHS="${ORB_PATHS},$(pwd)/po2_021.scf.h5"
+ORB_PATHS="${ORB_PATHS},$(pwd)/po2_023.scf.h5"
+ORB_PATHS="${ORB_PATHS},$(pwd)/po2_024.scf.h5"
+
+# ==============================================================================
+# Run autoCAS with timing and memory tracking
+# ==============================================================================
+echo "Running autoCAS with 15 geometries..."
+echo ""
+
+# Record start time
+START_SECONDS=$SECONDS
+
+# Use /usr/bin/time for peak memory measurement (maxresident in KB)
+/usr/bin/time -v scine_autocas_consistent_active_space \
+    -e \
+    -o "$ORB_PATHS" \
+    -b ANO-RCC-VDZP \
+    -m DMRGSCF \
+    $XYZ_ARGS \
+    2> timing_15.txt
+
+EXIT_CODE=$?
+ELAPSED=$((SECONDS - START_SECONDS))
+
+# ==============================================================================
+# Results
+# ==============================================================================
+echo ""
+echo "=============================================="
+echo "  Scaling Test Results: 15 geometries"
+echo "=============================================="
+echo "Exit code:    $EXIT_CODE"
+echo "Wall time:    ${ELAPSED}s ($((ELAPSED / 60))m $((ELAPSED % 60))s)"
+echo "End time:     $(date)"
+echo ""
+
+# Extract peak memory from /usr/bin/time output
+if [ -f "timing_15.txt" ]; then
+    PEAK_MEM=$(grep "Maximum resident" timing_15.txt | awk '{print $NF}')
+    echo "Peak RSS:     ${PEAK_MEM} KB ($((PEAK_MEM / 1024)) MB)"
+    echo ""
+    echo "--- Full timing output ---"
+    cat timing_15.txt
+fi
+
+# Write summary to CSV-like file for easy parsing
+echo "15,$EXIT_CODE,$ELAPSED,$PEAK_MEM" >> scaling_results.csv
+
+echo ""
+echo "Results appended to scaling_results.csv"
+echo "Format: n_geom,exit_code,wall_time_s,peak_rss_kb"

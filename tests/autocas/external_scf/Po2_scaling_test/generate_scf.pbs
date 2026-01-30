@@ -1,0 +1,664 @@
+#!/bin/bash
+# Generate OpenMolcas DKH2 SCF orbitals for all 25 Po2 geometries.
+# Each geometry produces a .scf.h5 file needed by autoCAS.
+#
+# Submit with: qsub generate_scf.pbs
+
+#PBS -N po2_scf_gen
+#PBS -A 2025_127
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=06:00:00
+#PBS -l mem=64gb
+#PBS -M joachim.scheerlinck@ugent.be
+#PBS -m e
+
+# ==============================================================================
+# Setup
+# ==============================================================================
+PROJECT="starting_2025_097"
+INSTALL_DIR="/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE"
+source ${INSTALL_DIR}/setup_hortense.sh
+
+cd $PBS_O_WORKDIR
+
+echo "=============================================="
+echo "  Po2 SCF Generation - 25 geometries"
+echo "=============================================="
+echo "Start: $(date)"
+echo ""
+
+FAILED=0
+COMPLETED=0
+
+# --- Geometry 0: 2.10 A ---
+if [ ! -f "po2_000.scf.h5" ]; then
+    echo "Running SCF for po2_000.xyz (2.10 A)..."
+    mkdir -p po2_000_workdir
+    cd po2_000_workdir
+    cp ../po2_000.xyz .
+    cp ../po2_000_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_000_scf.input > po2_000_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_000_scf/po2_000_scf.scf.h5" ]; then
+        cp po2_000_scf/po2_000_scf.scf.h5 ../po2_000.scf.h5
+        echo "  OK: po2_000.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_000.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_000.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 1: 2.20 A ---
+if [ ! -f "po2_001.scf.h5" ]; then
+    echo "Running SCF for po2_001.xyz (2.20 A)..."
+    mkdir -p po2_001_workdir
+    cd po2_001_workdir
+    cp ../po2_001.xyz .
+    cp ../po2_001_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_001_scf.input > po2_001_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_001_scf/po2_001_scf.scf.h5" ]; then
+        cp po2_001_scf/po2_001_scf.scf.h5 ../po2_001.scf.h5
+        echo "  OK: po2_001.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_001.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_001.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 2: 2.30 A ---
+if [ ! -f "po2_002.scf.h5" ]; then
+    echo "Running SCF for po2_002.xyz (2.30 A)..."
+    mkdir -p po2_002_workdir
+    cd po2_002_workdir
+    cp ../po2_002.xyz .
+    cp ../po2_002_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_002_scf.input > po2_002_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_002_scf/po2_002_scf.scf.h5" ]; then
+        cp po2_002_scf/po2_002_scf.scf.h5 ../po2_002.scf.h5
+        echo "  OK: po2_002.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_002.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_002.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 3: 2.40 A ---
+if [ ! -f "po2_003.scf.h5" ]; then
+    echo "Running SCF for po2_003.xyz (2.40 A)..."
+    mkdir -p po2_003_workdir
+    cd po2_003_workdir
+    cp ../po2_003.xyz .
+    cp ../po2_003_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_003_scf.input > po2_003_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_003_scf/po2_003_scf.scf.h5" ]; then
+        cp po2_003_scf/po2_003_scf.scf.h5 ../po2_003.scf.h5
+        echo "  OK: po2_003.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_003.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_003.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 4: 2.50 A ---
+if [ ! -f "po2_004.scf.h5" ]; then
+    echo "Running SCF for po2_004.xyz (2.50 A)..."
+    mkdir -p po2_004_workdir
+    cd po2_004_workdir
+    cp ../po2_004.xyz .
+    cp ../po2_004_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_004_scf.input > po2_004_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_004_scf/po2_004_scf.scf.h5" ]; then
+        cp po2_004_scf/po2_004_scf.scf.h5 ../po2_004.scf.h5
+        echo "  OK: po2_004.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_004.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_004.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 5: 2.60 A ---
+if [ ! -f "po2_005.scf.h5" ]; then
+    echo "Running SCF for po2_005.xyz (2.60 A)..."
+    mkdir -p po2_005_workdir
+    cd po2_005_workdir
+    cp ../po2_005.xyz .
+    cp ../po2_005_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_005_scf.input > po2_005_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_005_scf/po2_005_scf.scf.h5" ]; then
+        cp po2_005_scf/po2_005_scf.scf.h5 ../po2_005.scf.h5
+        echo "  OK: po2_005.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_005.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_005.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 6: 2.70 A ---
+if [ ! -f "po2_006.scf.h5" ]; then
+    echo "Running SCF for po2_006.xyz (2.70 A)..."
+    mkdir -p po2_006_workdir
+    cd po2_006_workdir
+    cp ../po2_006.xyz .
+    cp ../po2_006_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_006_scf.input > po2_006_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_006_scf/po2_006_scf.scf.h5" ]; then
+        cp po2_006_scf/po2_006_scf.scf.h5 ../po2_006.scf.h5
+        echo "  OK: po2_006.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_006.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_006.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 7: 2.80 A ---
+if [ ! -f "po2_007.scf.h5" ]; then
+    echo "Running SCF for po2_007.xyz (2.80 A)..."
+    mkdir -p po2_007_workdir
+    cd po2_007_workdir
+    cp ../po2_007.xyz .
+    cp ../po2_007_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_007_scf.input > po2_007_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_007_scf/po2_007_scf.scf.h5" ]; then
+        cp po2_007_scf/po2_007_scf.scf.h5 ../po2_007.scf.h5
+        echo "  OK: po2_007.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_007.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_007.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 8: 2.90 A ---
+if [ ! -f "po2_008.scf.h5" ]; then
+    echo "Running SCF for po2_008.xyz (2.90 A)..."
+    mkdir -p po2_008_workdir
+    cd po2_008_workdir
+    cp ../po2_008.xyz .
+    cp ../po2_008_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_008_scf.input > po2_008_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_008_scf/po2_008_scf.scf.h5" ]; then
+        cp po2_008_scf/po2_008_scf.scf.h5 ../po2_008.scf.h5
+        echo "  OK: po2_008.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_008.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_008.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 9: 3.00 A ---
+if [ ! -f "po2_009.scf.h5" ]; then
+    echo "Running SCF for po2_009.xyz (3.00 A)..."
+    mkdir -p po2_009_workdir
+    cd po2_009_workdir
+    cp ../po2_009.xyz .
+    cp ../po2_009_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_009_scf.input > po2_009_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_009_scf/po2_009_scf.scf.h5" ]; then
+        cp po2_009_scf/po2_009_scf.scf.h5 ../po2_009.scf.h5
+        echo "  OK: po2_009.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_009.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_009.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 10: 3.25 A ---
+if [ ! -f "po2_010.scf.h5" ]; then
+    echo "Running SCF for po2_010.xyz (3.25 A)..."
+    mkdir -p po2_010_workdir
+    cd po2_010_workdir
+    cp ../po2_010.xyz .
+    cp ../po2_010_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_010_scf.input > po2_010_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_010_scf/po2_010_scf.scf.h5" ]; then
+        cp po2_010_scf/po2_010_scf.scf.h5 ../po2_010.scf.h5
+        echo "  OK: po2_010.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_010.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_010.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 11: 3.50 A ---
+if [ ! -f "po2_011.scf.h5" ]; then
+    echo "Running SCF for po2_011.xyz (3.50 A)..."
+    mkdir -p po2_011_workdir
+    cd po2_011_workdir
+    cp ../po2_011.xyz .
+    cp ../po2_011_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_011_scf.input > po2_011_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_011_scf/po2_011_scf.scf.h5" ]; then
+        cp po2_011_scf/po2_011_scf.scf.h5 ../po2_011.scf.h5
+        echo "  OK: po2_011.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_011.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_011.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 12: 3.75 A ---
+if [ ! -f "po2_012.scf.h5" ]; then
+    echo "Running SCF for po2_012.xyz (3.75 A)..."
+    mkdir -p po2_012_workdir
+    cd po2_012_workdir
+    cp ../po2_012.xyz .
+    cp ../po2_012_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_012_scf.input > po2_012_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_012_scf/po2_012_scf.scf.h5" ]; then
+        cp po2_012_scf/po2_012_scf.scf.h5 ../po2_012.scf.h5
+        echo "  OK: po2_012.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_012.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_012.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 13: 4.00 A ---
+if [ ! -f "po2_013.scf.h5" ]; then
+    echo "Running SCF for po2_013.xyz (4.00 A)..."
+    mkdir -p po2_013_workdir
+    cd po2_013_workdir
+    cp ../po2_013.xyz .
+    cp ../po2_013_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_013_scf.input > po2_013_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_013_scf/po2_013_scf.scf.h5" ]; then
+        cp po2_013_scf/po2_013_scf.scf.h5 ../po2_013.scf.h5
+        echo "  OK: po2_013.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_013.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_013.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 14: 4.25 A ---
+if [ ! -f "po2_014.scf.h5" ]; then
+    echo "Running SCF for po2_014.xyz (4.25 A)..."
+    mkdir -p po2_014_workdir
+    cd po2_014_workdir
+    cp ../po2_014.xyz .
+    cp ../po2_014_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_014_scf.input > po2_014_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_014_scf/po2_014_scf.scf.h5" ]; then
+        cp po2_014_scf/po2_014_scf.scf.h5 ../po2_014.scf.h5
+        echo "  OK: po2_014.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_014.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_014.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 15: 4.50 A ---
+if [ ! -f "po2_015.scf.h5" ]; then
+    echo "Running SCF for po2_015.xyz (4.50 A)..."
+    mkdir -p po2_015_workdir
+    cd po2_015_workdir
+    cp ../po2_015.xyz .
+    cp ../po2_015_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_015_scf.input > po2_015_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_015_scf/po2_015_scf.scf.h5" ]; then
+        cp po2_015_scf/po2_015_scf.scf.h5 ../po2_015.scf.h5
+        echo "  OK: po2_015.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_015.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_015.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 16: 4.75 A ---
+if [ ! -f "po2_016.scf.h5" ]; then
+    echo "Running SCF for po2_016.xyz (4.75 A)..."
+    mkdir -p po2_016_workdir
+    cd po2_016_workdir
+    cp ../po2_016.xyz .
+    cp ../po2_016_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_016_scf.input > po2_016_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_016_scf/po2_016_scf.scf.h5" ]; then
+        cp po2_016_scf/po2_016_scf.scf.h5 ../po2_016.scf.h5
+        echo "  OK: po2_016.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_016.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_016.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 17: 5.00 A ---
+if [ ! -f "po2_017.scf.h5" ]; then
+    echo "Running SCF for po2_017.xyz (5.00 A)..."
+    mkdir -p po2_017_workdir
+    cd po2_017_workdir
+    cp ../po2_017.xyz .
+    cp ../po2_017_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_017_scf.input > po2_017_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_017_scf/po2_017_scf.scf.h5" ]; then
+        cp po2_017_scf/po2_017_scf.scf.h5 ../po2_017.scf.h5
+        echo "  OK: po2_017.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_017.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_017.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 18: 5.50 A ---
+if [ ! -f "po2_018.scf.h5" ]; then
+    echo "Running SCF for po2_018.xyz (5.50 A)..."
+    mkdir -p po2_018_workdir
+    cd po2_018_workdir
+    cp ../po2_018.xyz .
+    cp ../po2_018_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_018_scf.input > po2_018_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_018_scf/po2_018_scf.scf.h5" ]; then
+        cp po2_018_scf/po2_018_scf.scf.h5 ../po2_018.scf.h5
+        echo "  OK: po2_018.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_018.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_018.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 19: 6.00 A ---
+if [ ! -f "po2_019.scf.h5" ]; then
+    echo "Running SCF for po2_019.xyz (6.00 A)..."
+    mkdir -p po2_019_workdir
+    cd po2_019_workdir
+    cp ../po2_019.xyz .
+    cp ../po2_019_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_019_scf.input > po2_019_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_019_scf/po2_019_scf.scf.h5" ]; then
+        cp po2_019_scf/po2_019_scf.scf.h5 ../po2_019.scf.h5
+        echo "  OK: po2_019.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_019.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_019.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 20: 6.50 A ---
+if [ ! -f "po2_020.scf.h5" ]; then
+    echo "Running SCF for po2_020.xyz (6.50 A)..."
+    mkdir -p po2_020_workdir
+    cd po2_020_workdir
+    cp ../po2_020.xyz .
+    cp ../po2_020_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_020_scf.input > po2_020_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_020_scf/po2_020_scf.scf.h5" ]; then
+        cp po2_020_scf/po2_020_scf.scf.h5 ../po2_020.scf.h5
+        echo "  OK: po2_020.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_020.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_020.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 21: 7.00 A ---
+if [ ! -f "po2_021.scf.h5" ]; then
+    echo "Running SCF for po2_021.xyz (7.00 A)..."
+    mkdir -p po2_021_workdir
+    cd po2_021_workdir
+    cp ../po2_021.xyz .
+    cp ../po2_021_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_021_scf.input > po2_021_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_021_scf/po2_021_scf.scf.h5" ]; then
+        cp po2_021_scf/po2_021_scf.scf.h5 ../po2_021.scf.h5
+        echo "  OK: po2_021.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_021.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_021.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 22: 7.50 A ---
+if [ ! -f "po2_022.scf.h5" ]; then
+    echo "Running SCF for po2_022.xyz (7.50 A)..."
+    mkdir -p po2_022_workdir
+    cd po2_022_workdir
+    cp ../po2_022.xyz .
+    cp ../po2_022_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_022_scf.input > po2_022_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_022_scf/po2_022_scf.scf.h5" ]; then
+        cp po2_022_scf/po2_022_scf.scf.h5 ../po2_022.scf.h5
+        echo "  OK: po2_022.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_022.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_022.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 23: 8.75 A ---
+if [ ! -f "po2_023.scf.h5" ]; then
+    echo "Running SCF for po2_023.xyz (8.75 A)..."
+    mkdir -p po2_023_workdir
+    cd po2_023_workdir
+    cp ../po2_023.xyz .
+    cp ../po2_023_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_023_scf.input > po2_023_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_023_scf/po2_023_scf.scf.h5" ]; then
+        cp po2_023_scf/po2_023_scf.scf.h5 ../po2_023.scf.h5
+        echo "  OK: po2_023.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_023.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_023.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+# --- Geometry 24: 10.00 A ---
+if [ ! -f "po2_024.scf.h5" ]; then
+    echo "Running SCF for po2_024.xyz (10.00 A)..."
+    mkdir -p po2_024_workdir
+    cd po2_024_workdir
+    cp ../po2_024.xyz .
+    cp ../po2_024_scf.input .
+    export MOLCAS_WORKDIR=$(pwd)/scratch
+    mkdir -p $MOLCAS_WORKDIR
+    pymolcas po2_024_scf.input > po2_024_scf.log 2>&1
+    SCF_EXIT=$?
+    if [ $SCF_EXIT -eq 0 ] && [ -f "po2_024_scf/po2_024_scf.scf.h5" ]; then
+        cp po2_024_scf/po2_024_scf.scf.h5 ../po2_024.scf.h5
+        echo "  OK: po2_024.scf.h5"
+        COMPLETED=$((COMPLETED + 1))
+    else
+        echo "  FAILED: po2_024.xyz (exit=$SCF_EXIT)"
+        FAILED=$((FAILED + 1))
+    fi
+    cd ..
+else
+    echo "  SKIP: po2_024.scf.h5 already exists"
+    COMPLETED=$((COMPLETED + 1))
+fi
+
+echo ""
+echo "=============================================="
+echo "  SCF Generation Summary"
+echo "=============================================="
+echo "Completed: $COMPLETED / 25"
+echo "Failed:    $FAILED / 25"
+echo "End: $(date)"

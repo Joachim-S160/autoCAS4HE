@@ -1,0 +1,13 @@
+&GATEWAY
+  Coord = po2_005.xyz
+  Basis = ANO-RCC-VDZP
+  Group = NoSym
+
+&SEWARD
+  Cholesky
+* Douglas-Kroll-Hess 2nd order relativistic Hamiltonian
+  Relativistic = R02O
+
+&SCF
+  Charge = 0
+  Spin = 1
