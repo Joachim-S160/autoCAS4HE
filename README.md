@@ -75,6 +75,7 @@ Added `-L/--localization` CLI option to choose between localization methods:
 | Pipek-Mezey | `-L PIPEK_MEZEY` | No | More basis-set dependent |
 | Foster-Boys | `-L BOYS` | No | Spatial extent minimization |
 | Edmiston-Ruedenberg | `-L EDMINSTON_RUEDENBERG` | No | Coulomb self-repulsion |
+Disclaimer: Alternatives for IBO resulted in errors. Further investigation is not a priority given that IBO now works and, for all practical purposes, seems superior. 
 
 #### 4. Force CAS option (`protocol.py`, `configuration.py`, `run_autocas.py`)
 Added `-f/--force-cas` CLI option to bypass the `SingleReferenceException` that can occur with certain localization methods, forcing autoCAS to continue with CAS selection regardless.
