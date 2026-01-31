@@ -133,7 +133,7 @@ The mapping creates groups of "indistinguishable" orbitals across geometries. On
 self.unmappable: bool = False  # default: DO NOT include unmappable orbitals
 ```
 
-This is a secondary limitation: even if we expanded the valence space, orbitals that change character along the dissociation curve would be dropped unless `--always-include-unmapables` is passed. For a dissociating dimer, orbital character changes significantly, so unmappable orbitals could be important.
+This is a secondary limitation: even if we expanded the valence space, orbitals that change character along the dissociation curve would be dropped unless `--always-include-unmapables` is passed. For a dissociating dimer, orbital character changes significantly, so unmappable orbitals could be important. Should be tested further.
 
 However, the `--always-include-unmapables` flag adds unmappables to the CAS **in addition to** the mapped union (`protocol.py:175-190`):
 
@@ -172,12 +172,12 @@ Change `chemical_elements.py:739-745` to include 5d in the valence space:
 
 This would give Po₂: CAS(22, 18) initially — likely too large for plain CASSCF but feasible with DMRG. The entropy plateau analysis would then select a meaningful subset.
 
-**Pros**: Stays within autoCAS framework, minimal code changes
-**Cons**: CAS(22,18) initial space requires DMRG for entropy evaluation; larger valence space changes IBO localization behavior (more virtual valence orbitals); may need the `large_active_space` protocol which subdivides and recombines
+**Pros**: Stays within autoCAS framework.
+**Cons**: CAS(22,18) initial space requires DMRG for entropy evaluation; larger valence space changes IBO localization behavior (more virtual valence orbitals ==> Serenity not sufficient anymore, we need ROSE); may need the `large_active_space` protocol which subdivides and recombines.
 
 ### Option B: Use ROSE instead of Serenity
 
-ROSE (Reiher's Orbital Selection and Evaluation) uses a different orbital generation strategy:
+ROSE uses a different orbital generation strategy:
 - PySCF-based with scalar-X2C relativistic Hamiltonian
 - Does not depend on IBO/MINAO for orbital classification
 - Can define active spaces based on atomic orbital character analysis
@@ -185,10 +185,6 @@ ROSE (Reiher's Orbital Selection and Evaluation) uses a different orbital genera
 
 **Pros**: More flexible active space; avoids MINAO limitations entirely; PySCF has better heavy element support
 **Cons**: Requires setting up ROSE; different orbital mapping scheme; may lose IBO localization quality
-
-### Option C: Manual override of CAS
-
-The `run_autocas` function (`run_autocas.py:130-164`) could be bypassed to provide a custom initial CAS. However, this defeats the purpose of automated CAS selection.
 
 ---
 
