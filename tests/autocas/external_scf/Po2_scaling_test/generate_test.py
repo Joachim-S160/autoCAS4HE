@@ -248,19 +248,31 @@ echo "Working directory: $WORKDIR"
 echo ""
 
 # ==============================================================================
-# Build argument lists (use absolute paths since we cd into workdir)
+# Copy .scf.h5 and .xyz files into workdir (avoid concurrent HDF5 access)
+# ==============================================================================
+echo "Copying input files into workdir..."
+""")
+        for xyz, h5 in zip(xyz_files, h5_files):
+            f.write(f'cp "${{BASE_DIR}}/{xyz}" "$WORKDIR/"\n')
+            f.write(f'cp "${{BASE_DIR}}/{h5}" "$WORKDIR/"\n')
+
+        f.write(f"""echo "  Copied {n_geom} .xyz and .scf.h5 files"
+echo ""
+
+# ==============================================================================
+# Build argument lists (local paths inside workdir)
 # ==============================================================================
 """)
-        # XYZ args with absolute paths
-        xyz_abs = [f"${{BASE_DIR}}/{x}" for x in xyz_files]
-        f.write(f'XYZ_ARGS="{" ".join(xyz_abs)}"\n')
+        # XYZ args with local paths (we're already cd'd into WORKDIR)
+        xyz_local = [f"${{WORKDIR}}/{x}" for x in xyz_files]
+        f.write(f'XYZ_ARGS="{" ".join(xyz_local)}"\n')
 
-        # Orbital paths with absolute paths
+        # Orbital paths with local paths
         for i, h5 in enumerate(h5_files):
             if i == 0:
-                f.write(f'ORB_PATHS="${{BASE_DIR}}/{h5}"\n')
+                f.write(f'ORB_PATHS="${{WORKDIR}}/{h5}"\n')
             else:
-                f.write(f'ORB_PATHS="${{ORB_PATHS}},${{BASE_DIR}}/{h5}"\n')
+                f.write(f'ORB_PATHS="${{ORB_PATHS}},${{WORKDIR}}/{h5}"\n')
 
         f.write(f"""
 # ==============================================================================
