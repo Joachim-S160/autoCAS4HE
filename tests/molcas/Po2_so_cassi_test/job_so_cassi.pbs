@@ -1,0 +1,40 @@
+#!/bin/bash
+# SO-CASSI workflow for Po2 using autoCAS-derived active space
+#PBS -N Po2_SO_CASSI
+#PBS -A 2025_127
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=24:00:00
+#PBS -l mem=32gb
+#PBS -m be -M joachim.scheerlinck@ugent.be
+
+# Set your project
+PROJECT="starting_2025_097"
+INSTALL_DIR="/dodrio/scratch/projects/${PROJECT}/autoCAS4HE_built/autoCAS4HE"
+source ${INSTALL_DIR}/setup_hortense.sh
+
+cd $PBS_O_WORKDIR
+
+# Set up MOLCAS environment
+export MOLCAS_WORKDIR=$PBS_O_WORKDIR/molcas_scratch
+mkdir -p $MOLCAS_WORKDIR
+export MOLCAS_PRINT=verbose
+export MOLCAS_MOLDEN=ON
+export MOLCAS_MEM=30000
+export OMP_NUM_THREADS=1
+
+echo "=== SO-CASSI Workflow: Po2 with autoCAS-derived CAS(12,8) ==="
+echo "Start time: $(date)"
+echo ""
+
+# IMPORTANT: Before running, update Po2_so_cassi.input with your autoCAS orbital path
+# The FILEORB in the singlet section should point to:
+#   /path/to/autocas_project/final/system_X.RasOrb
+
+# Run OpenMolcas
+time pymolcas Po2_so_cassi.input
+
+echo ""
+echo "End time: $(date)"
+
+# Clean up scratch (optional - comment out to keep for debugging)
+# rm -rf $MOLCAS_WORKDIR
