@@ -1,0 +1,5 @@
+&RASSCF
+  SPIN    = 1
+  NACTEL  = 12
+  FILEORB = /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/workdir_N02/autocas_project/final/system_0.scf.h5_sel_sel
+  TYPEINDEX

@@ -1,0 +1,487 @@
+# Tree Summary
+Generated: Tue Feb  3 12:34:26 PM CET 2026
+Host: login58.dodrio.os
+
+========================================
+## Directory: .
+========================================
+
+### Tree Structure
+```
+.
+├── [ 261M]  autocas_project
+│   ├── [  39M]  dmrg
+│   │   ├── [  204]  combined_cas_spaces
+│   │   ├── [ 8.3K]  entangsystem_0.pdf
+│   │   ├── [ 7.9K]  entangsystem_1.pdf
+│   │   ├── [    0]  molcas.out
+│   │   ├── [ 424K]  system_0.checkpoint_state.0.h5
+│   │   │   ├── [  30K]  mps0.h5
+│   │   │   ├── [  48K]  mps1.h5
+│   │   │   ├── [  58K]  mps2.h5
+│   │   │   ├── [  63K]  mps3.h5
+│   │   │   ├── [  59K]  mps4.h5
+│   │   │   ├── [  58K]  mps5.h5
+│   │   │   ├── [  38K]  mps6.h5
+│   │   │   ├── [  23K]  mps7.h5
+│   │   │   └── [  44K]  props.h5
+│   │   ├── [ 1.2M]  system_0.dmrgscf.h5
+│   │   ├── [    0]  system_0.err
+│   │   ├── [  414]  system_0.input
+│   │   ├── [  13M]  system_0.log
+│   │   ├── [ 469K]  system_0.LoProp.molden
+│   │   ├── [ 410K]  system_0.LprOrb
+│   │   ├── [ 410K]  system_0.RasOrb
+│   │   ├── [ 410K]  system_0.RasOrb.1
+│   │   ├── [ 469K]  system_0.rasscf.molden
+│   │   ├── [ 644K]  system_0.results_state.0.h5
+│   │   ├── [ 1.4M]  system_0.scf.h5_sel
+│   │   ├── [ 410K]  system_0.SpdOrb.1
+│   │   ├── [   14]  system_0.status
+│   │   ├── [ 424K]  system_1.checkpoint_state.0.h5
+│   │   │   ├── [  30K]  mps0.h5
+│   │   │   ├── [  48K]  mps1.h5
+│   │   │   ├── [  58K]  mps2.h5
+│   │   │   ├── [  63K]  mps3.h5
+│   │   │   ├── [  59K]  mps4.h5
+│   │   │   ├── [  58K]  mps5.h5
+│   │   │   ├── [  38K]  mps6.h5
+│   │   │   ├── [  23K]  mps7.h5
+│   │   │   └── [  44K]  props.h5
+│   │   ├── [ 1.2M]  system_1.dmrgscf.h5
+│   │   ├── [    0]  system_1.err
+│   │   ├── [  414]  system_1.input
+│   │   ├── [  13M]  system_1.log
+│   │   ├── [ 469K]  system_1.LoProp.molden
+│   │   ├── [ 410K]  system_1.LprOrb
+│   │   ├── [ 410K]  system_1.RasOrb
+│   │   ├── [ 410K]  system_1.RasOrb.1
+│   │   ├── [ 469K]  system_1.rasscf.molden
+│   │   ├── [ 535K]  system_1.results_state.0.h5
+│   │   ├── [ 1.4M]  system_1.scf.h5_sel
+│   │   ├── [ 410K]  system_1.SpdOrb.1
+│   │   ├── [   14]  system_1.status
+│   │   ├── [  13K]  thresholdsystem_0.pdf
+│   │   ├── [  14K]  thresholdsystem_1.pdf
+│   │   └── [ 2.6K]  xmldump
+│   ├── [ 1.4M]  final
+│   │   ├── [    0]  molcas.out
+│   │   ├── [   82]  system_0.err
+│   │   ├── [  247]  system_0.input
+│   │   ├── [  14K]  system_0.log
+│   │   ├── [    0]  system_0.scf.h5_se
+│   │   ├── [ 1.4M]  system_0.scf.h5_sel_sel
+│   │   └── [   30]  system_0.status
+│   ├── [  13M]  initial
+│   │   ├── [    0]  molcas.out
+│   │   ├── [ 1.5K]  orbital_groups.dat
+│   │   ├── [ 1.4M]  system_0_backup.scf.h5
+│   │   ├── [    0]  system_0.err
+│   │   ├── [ 410K]  system_0.GssOrb
+│   │   ├── [ 259K]  system_0.guessorb.h5
+│   │   ├── [ 469K]  system_0.guessorb.molden
+│   │   ├── [  270]  system_0.input
+│   │   ├── [ 1.2M]  system_0.log
+│   │   ├── [ 469K]  system_0.LoProp.molden
+│   │   ├── [ 410K]  system_0.LprOrb
+│   │   ├── [ 1.4M]  system_0.scf.h5
+│   │   ├── [ 469K]  system_0.scf.molden
+│   │   ├── [ 410K]  system_0.ScfOrb
+│   │   ├── [   14]  system_0.status
+│   │   ├── [ 1.4M]  system_1_backup.scf.h5
+│   │   ├── [    0]  system_1.err
+│   │   ├── [ 410K]  system_1.GssOrb
+│   │   ├── [ 264K]  system_1.guessorb.h5
+│   │   ├── [ 469K]  system_1.guessorb.molden
+│   │   ├── [  270]  system_1.input
+│   │   ├── [ 1.2M]  system_1.log
+│   │   ├── [ 469K]  system_1.LoProp.molden
+│   │   ├── [ 410K]  system_1.LprOrb
+│   │   ├── [ 1.4M]  system_1.scf.h5
+│   │   ├── [ 469K]  system_1.scf.molden
+│   │   ├── [ 410K]  system_1.ScfOrb
+│   │   ├── [   14]  system_1.status
+│   │   └── [ 2.4K]  xmldump
+│   ├── [ 1.5M]  initialsystem_0
+│   │   ├── [ 311K]  system_0_0
+│   │   │   ├── [ 152K]  system_0_0.dmat.res.h5
+│   │   │   ├── [   49]  system_0_0.energies.res
+│   │   │   ├── [ 152K]  system_0_0.orbs.res.h5
+│   │   │   ├── [ 2.8K]  system_0_0.settings
+│   │   │   └── [  129]  system_0_0.xyz
+│   │   ├── [ 311K]  system_0_1
+│   │   │   ├── [ 152K]  system_0_1.dmat.res.h5
+│   │   │   ├── [   49]  system_0_1.energies.res
+│   │   │   ├── [ 152K]  system_0_1.orbs.res.h5
+│   │   │   ├── [ 2.8K]  system_0_1.settings
+│   │   │   └── [  131]  system_0_1.xyz
+│   │   ├── [ 311K]  system_0_2
+│   │   │   ├── [ 152K]  system_0_2.dmat.res.h5
+│   │   │   ├── [   49]  system_0_2.energies.res
+│   │   │   ├── [ 152K]  system_0_2.orbs.res.h5
+│   │   │   ├── [ 2.8K]  system_0_2.settings
+│   │   │   └── [  131]  system_0_2.xyz
+│   │   ├── [ 311K]  system_0_3
+│   │   │   ├── [ 152K]  system_0_3.dmat.res.h5
+│   │   │   ├── [   49]  system_0_3.energies.res
+│   │   │   ├── [ 152K]  system_0_3.orbs.res.h5
+│   │   │   ├── [ 2.8K]  system_0_3.settings
+│   │   │   └── [  131]  system_0_3.xyz
+│   │   ├── [ 152K]  system_0.dmat.res.h5
+│   │   ├── [   49]  system_0.energies.res
+│   │   ├── [ 152K]  system_0.orbs.res.h5
+│   │   ├── [ 2.8K]  system_0.settings
+│   │   └── [  129]  system_0.xyz
+│   ├── [ 1.5M]  initialsystem_1
+│   │   ├── [ 311K]  system_1_0
+│   │   │   ├── [ 152K]  system_1_0.dmat.res.h5
+│   │   │   ├── [   49]  system_1_0.energies.res
+│   │   │   ├── [ 152K]  system_1_0.orbs.res.h5
+│   │   │   ├── [ 2.8K]  system_1_0.settings
+│   │   │   └── [  129]  system_1_0.xyz
+│   │   ├── [ 311K]  system_1_1
+│   │   │   ├── [ 152K]  system_1_1.dmat.res.h5
+│   │   │   ├── [   49]  system_1_1.energies.res
+│   │   │   ├── [ 152K]  system_1_1.orbs.res.h5
+│   │   │   ├── [ 2.8K]  system_1_1.settings
+│   │   │   └── [  131]  system_1_1.xyz
+│   │   ├── [ 311K]  system_1_2
+│   │   │   ├── [ 152K]  system_1_2.dmat.res.h5
+│   │   │   ├── [   49]  system_1_2.energies.res
+│   │   │   ├── [ 152K]  system_1_2.orbs.res.h5
+│   │   │   ├── [ 2.8K]  system_1_2.settings
+│   │   │   └── [  131]  system_1_2.xyz
+│   │   ├── [ 311K]  system_1_3
+│   │   │   ├── [ 152K]  system_1_3.dmat.res.h5
+│   │   │   ├── [   49]  system_1_3.energies.res
+│   │   │   ├── [ 152K]  system_1_3.orbs.res.h5
+│   │   │   ├── [ 2.8K]  system_1_3.settings
+│   │   │   └── [  131]  system_1_3.xyz
+│   │   ├── [ 152K]  system_1.dmat.res.h5
+│   │   ├── [   49]  system_1.energies.res
+│   │   ├── [ 152K]  system_1.orbs.res.h5
+│   │   ├── [ 2.8K]  system_1.settings
+│   │   └── [  129]  system_1.xyz
+│   └── [ 204M]  scratch
+│       ├── [  241]  CI_Iterations.txt
+│       ├── [ 1.6K]  CleanInput
+│       ├── [  246]  coord.inp
+│       ├── [  204]  molcas.control
+│       ├── [ 1.4K]  molcas.env
+│       ├── [    8]  pid
+│       ├── [    2]  rc.global
+│       ├── [    4]  rc.local
+│       ├── [  242]  stdin
+│       ├── [  71K]  system_0.ChDiag
+│       ├── [  440]  system_0.ChMap
+│       ├── [ 2.1M]  system_0.ChRed
+│       ├── [  36K]  system_0.ChRst
+│       ├── [ 6.8M]  system_0.ChSel1
+│       ├── [  58M]  system_0.ChVec1
+│       ├── [ 1.2M]  system_0.dmrgscf.h5
+│       ├── [  395]  system_0.Dmrgscf.Input
+│       ├── [ 292K]  system_0.DNSMAT
+│       ├── [ 292K]  system_0.DVXCDR
+│       ├── [  208]  system_0.Gateway.Input
+│       ├── [    0]  system_0.GRADIENT
+│       ├── [ 410K]  system_0.GssOrb
+│       ├── [ 259K]  system_0.guessorb.h5
+│       ├── [ 469K]  system_0.guessorb.molden
+│       ├── [ 1.9M]  system_0.JobIph
+│       ├── [ 469K]  system_0.LoProp.molden
+│       ├── [ 410K]  system_0.LprOrb
+│       ├── [   40]  system_0.NqGrid
+│       ├── [ 3.7M]  system_0.OneInt
+│       ├── [  34M]  system_0.OneRel
+│       ├── [ 5.3K]  system_0.QCMaquis.log
+│       ├── [ 410K]  system_0.RasOrb
+│       ├── [ 410K]  system_0.RasOrb.1
+│       ├── [  242]  system_0.Rasscf.Input
+│       ├── [ 469K]  system_0.rasscf.molden
+│       ├── [ 1.2M]  system_0.RunFile
+│       ├── [ 1.1M]  system_0.scf.h5
+│       ├── [   43]  system_0.Scf.Input
+│       ├── [ 469K]  system_0.scf.molden
+│       ├── [ 410K]  system_0.ScfOrb
+│       ├── [   30]  system_0.Seward.Input
+│       ├── [    0]  system_0.SODELTA
+│       ├── [    0]  system_0.SODGRAD
+│       ├── [    0]  system_0.SOXVEC
+│       ├── [    0]  system_0.SOYVEC
+│       ├── [ 410K]  system_0.SpdOrb.1
+│       ├── [ 6.1K]  system_0.SymInfo
+│       ├── [ 292K]  system_0.TWOHAM
+│       ├── [  44K]  system_1.ChDiag
+│       ├── [  440]  system_1.ChMap
+│       ├── [ 1.3M]  system_1.ChRed
+│       ├── [  36K]  system_1.ChRst
+│       ├── [ 4.1M]  system_1.ChSel1
+│       ├── [  35M]  system_1.ChVec1
+│       ├── [ 1.2M]  system_1.dmrgscf.h5
+│       ├── [  395]  system_1.Dmrgscf.Input
+│       ├── [ 511K]  system_1.DNSMAT
+│       ├── [ 511K]  system_1.DVXCDR
+│       ├── [  208]  system_1.Gateway.Input
+│       ├── [    0]  system_1.GRADIENT
+│       ├── [ 410K]  system_1.GssOrb
+│       ├── [ 264K]  system_1.guessorb.h5
+│       ├── [ 469K]  system_1.guessorb.molden
+│       ├── [ 1.9M]  system_1.JobIph
+│       ├── [ 469K]  system_1.LoProp.molden
+│       ├── [ 410K]  system_1.LprOrb
+│       ├── [   40]  system_1.NqGrid
+│       ├── [ 3.7M]  system_1.OneInt
+│       ├── [  34M]  system_1.OneRel
+│       ├── [ 4.9K]  system_1.QCMaquis.log
+│       ├── [ 410K]  system_1.RasOrb
+│       ├── [ 410K]  system_1.RasOrb.1
+│       ├── [ 469K]  system_1.rasscf.molden
+│       ├── [ 1.2M]  system_1.RunFile
+│       ├── [ 1.1M]  system_1.scf.h5
+│       ├── [   43]  system_1.Scf.Input
+│       ├── [ 469K]  system_1.scf.molden
+│       ├── [ 410K]  system_1.ScfOrb
+│       ├── [   30]  system_1.Seward.Input
+│       ├── [    0]  system_1.SODELTA
+│       ├── [    0]  system_1.SODGRAD
+│       ├── [    0]  system_1.SOXVEC
+│       ├── [    0]  system_1.SOYVEC
+│       ├── [ 410K]  system_1.SpdOrb.1
+│       ├── [ 6.1K]  system_1.SymInfo
+│       ├── [ 511K]  system_1.TWOHAM
+│       ├── [ 284K]  tmp
+│       │   ├── [ 136K]  storage_temp_20a6e9b20ec9
+│       │   │   ├── [    8]  7013
+│       │   │   ├── [    8]  7014
+│       │   │   ├── [  608]  7021
+│       │   │   ├── [   96]  7079
+│       │   │   ├── [ 9.8K]  7080
+│       │   │   ├── [  36K]  7081
+│       │   │   ├── [  60K]  7082
+│       │   │   └── [  26K]  7083
+│       │   ├── [ 4.0K]  storage_temp_81b0212343e2
+│       │   ├── [ 136K]  storage_temp_b802abfec45e
+│       │   │   ├── [    8]  7034
+│       │   │   ├── [    8]  7035
+│       │   │   ├── [  608]  7042
+│       │   │   ├── [   96]  7142
+│       │   │   ├── [ 9.8K]  7143
+│       │   │   ├── [  36K]  7144
+│       │   │   ├── [  60K]  7145
+│       │   │   └── [  26K]  7146
+│       │   └── [ 4.0K]  storage_temp_d8bd3fd72bae
+│       └── [ 2.7K]  xmldump
+├── [ 1.1K]  consistent_cas.configuration.yaml
+├── [ 1.4M]  po2_004.scf.h5
+├── [  108]  po2_004.xyz
+├── [ 1.4M]  po2_024.scf.h5
+├── [  109]  po2_024.xyz
+└── [  205]  treesum_scaling_Po2_N02_casscf
+
+  264M used in 22 directories, 246 files
+```
+
+### File Sizes
+```
+512	./treesum_scaling_Po2_N02_casscf
+4.0K	./consistent_cas.configuration.yaml
+4.0K	./po2_004.xyz
+4.0K	./po2_024.xyz
+1.4M	./po2_004.scf.h5
+1.4M	./po2_024.scf.h5
+261M	./autocas_project
+```
+
+### Key Output Files
+```
+--- *.log ---
+./autocas_project/initial/system_0.log
+./autocas_project/initial/system_1.log
+./autocas_project/dmrg/system_0.log
+./autocas_project/dmrg/system_1.log
+./autocas_project/final/system_0.log
+./autocas_project/scratch/system_1.QCMaquis.log
+./autocas_project/scratch/system_0.QCMaquis.log
+--- *.out ---
+./autocas_project/initial/molcas.out
+./autocas_project/dmrg/molcas.out
+./autocas_project/final/molcas.out
+--- *.err ---
+./autocas_project/initial/system_1.err
+./autocas_project/initial/system_0.err
+./autocas_project/dmrg/system_1.err
+./autocas_project/dmrg/system_0.err
+./autocas_project/final/system_0.err
+--- *.dat ---
+./autocas_project/initial/orbital_groups.dat
+--- *.pdf ---
+./autocas_project/dmrg/entangsystem_1.pdf
+./autocas_project/dmrg/entangsystem_0.pdf
+./autocas_project/dmrg/thresholdsystem_0.pdf
+./autocas_project/dmrg/thresholdsystem_1.pdf
+```
+
+### Log File Excerpts (last 50 lines)
+
+#### ./autocas_project/initial/system_0.log
+```
+  12  CHVEC1           57.59 .       0/       1 .      0.0/     57.6 .       0/       0
+  13  CHORST            0.04 .       0/      12 .      0.0/      0.0 .       0/       0
+  14  CHOMAP            0.00 .       0/       0 .      0.0/      0.0 .       0/       0
+  15  CHODIAG           0.07 .       0/       9 .      0.0/      0.6 .       0/       0
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   *  TOTAL            65.46 .     889/   11874 .     11.0/    351.6 .       0/       0
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ 
+  II. I/O Access Patterns
+  - - - - - - - - - - - - - - - - - - - -
+  Unit  Name               % of random
+                         Write/Read calls
+  - - - - - - - - - - - - - - - - - - - -
+   1  RUNFILE             28.6/  11.8
+   2  DNSMAT              75.0/   0.0
+   3  DVXCDR              75.0/   0.0
+   4  TWOHAM              75.0/   0.0
+   5  GRADIENT             0.0/   0.0
+   6  SODGRAD              0.0/   0.0
+   7  SOXVEC               0.0/   0.0
+   8  SODELTA              0.0/   0.0
+   9  SOYVEC               0.0/   0.0
+  10  ONEINT             100.0/  22.3
+  11  CHRED                0.0/   2.6
+  12  CHVEC1               0.0/   0.0
+  13  CHORST               0.0/   0.0
+  14  CHOMAP               0.0/   0.0
+  15  CHODIAG              0.0/   0.0
+  - - - - - - - - - - - - - - - - - - - -
+--
+ ###############################################################################
+ ###############################################################################
+ ###                                                                         ###
+ ###                                                                         ###
+ ###    WARNING: RunFile label nBas                                          ###
+ ###    was used       81 times                                              ###
+ ###                                                                         ###
+ ###                                                                         ###
+ ###############################################################################
+ ###############################################################################
+--- Stop Module: scf at Mon Feb  2 17:44:19 2026 /rc=_RC_ALL_IS_WELL_ ---
+*** files: system_0.LprOrb system_0.LoProp.molden system_0.scf.molden system_0.ScfOrb system_0.scf.h5 xmldump
+    saved to directory /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/workdir_N02/autocas_project/initial
+--- Module scf spent 11 seconds ---
+
+.##################.
+.# Happy landing! #.
+.##################.
+
+    Timing: Wall=234.68 User=224.68 System=4.94
+```
+
+#### ./autocas_project/initial/system_1.log
+```
+  12  CHVEC1           34.67 .       0/       1 .      0.0/     34.7 .       0/       0
+  13  CHORST            0.04 .       0/      12 .      0.0/      0.0 .       0/       0
+  14  CHOMAP            0.00 .       0/       0 .      0.0/      0.0 .       0/       0
+  15  CHODIAG           0.04 .       0/      12 .      0.0/      0.5 .       0/       0
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   *  TOTAL            42.28 .    1003/   12715 .     13.0/    328.6 .       0/       0
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ 
+  II. I/O Access Patterns
+  - - - - - - - - - - - - - - - - - - - -
+  Unit  Name               % of random
+                         Write/Read calls
+  - - - - - - - - - - - - - - - - - - - -
+   1  RUNFILE             28.6/  11.7
+   2  DNSMAT              85.7/   0.0
+   3  DVXCDR              85.7/   0.0
+   4  TWOHAM              85.7/   0.0
+   5  GRADIENT             0.0/   0.0
+   6  SODGRAD              0.0/   0.0
+   7  SOXVEC               0.0/   0.0
+   8  SODELTA              0.0/   0.0
+   9  SOYVEC               0.0/   0.0
+  10  ONEINT             100.0/  22.3
+  11  CHRED                0.0/   2.8
+  12  CHVEC1               0.0/   0.0
+  13  CHORST               0.0/   0.0
+  14  CHOMAP               0.0/   0.0
+  15  CHODIAG              0.0/   0.0
+  - - - - - - - - - - - - - - - - - - - -
+--
+ ###############################################################################
+ ###############################################################################
+ ###                                                                         ###
+ ###                                                                         ###
+ ###    WARNING: RunFile label nBas                                          ###
+ ###    was used       81 times                                              ###
+ ###                                                                         ###
+ ###                                                                         ###
+ ###############################################################################
+ ###############################################################################
+--- Stop Module: scf at Mon Feb  2 17:47:32 2026 /rc=_RC_ALL_IS_WELL_ ---
+*** files: system_1.LprOrb system_1.LoProp.molden system_1.scf.molden system_1.ScfOrb system_1.scf.h5 xmldump
+    saved to directory /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/workdir_N02/autocas_project/initial
+--- Module scf spent 10 seconds ---
+
+.##################.
+.# Happy landing! #.
+.##################.
+
+    Timing: Wall=188.58 User=181.09 System=4.94
+```
+
+#### ./autocas_project/dmrg/system_0.log
+```
+++ I/O STATISTICS
+ 
+  I. General I/O information
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  Unit  Name          Flsize      Write/Read            MBytes           Write/Read
+                      (MBytes)       Calls              In/Out           Time, sec.
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   1  RUNFILE           1.22 .     525/    7475 .      4.6/     54.1 .       0/       0
+   2  ONEINT            0.00 .       0/     398 .      0.0/    107.7 .       0/       0
+   3  TRAINT            0.00 .       3/       1 .      0.9/      0.3 .       0/       0
+   4  TEMP01            0.00 .       0/       0 .      0.0/      0.0 .       0/       0
+   5  TEMP02            0.00 .       0/       0 .      0.0/      0.0 .       0/       0
+   6  JOBIPH            0.00 .      46/      42 .      1.8/      1.0 .       0/       0
+   7  CHRED             2.13 .       0/     274 .      0.0/      8.3 .       0/       0
+   8  CHVEC1           57.59 .       0/     156 .      0.0/    172.8 .       0/       0
+   9  CHORST            0.04 .       0/      12 .      0.0/      0.0 .       0/       0
+  10  CHOMAP            0.00 .       0/       0 .      0.0/      0.0 .       0/       0
+  11  CHODIAG           0.07 .       0/       3 .      0.0/      0.2 .       0/       0
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   *  TOTAL            61.05 .     574/    8361 .      7.3/    344.4 .       0/       0
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ 
+  II. I/O Access Patterns
+  - - - - - - - - - - - - - - - - - - - -
+  Unit  Name               % of random
+                         Write/Read calls
+  - - - - - - - - - - - - - - - - - - - -
+   1  RUNFILE             28.6/  11.8
+   2  ONEINT               0.0/  24.9
+   3  TRAINT              66.7/ 100.0
+   4  TEMP01               0.0/   0.0
+   5  TEMP02               0.0/   0.0
+   6  JOBIPH              87.0/  88.1
+   7  CHRED                0.0/   2.2
+   8  CHVEC1               0.0/   1.3
+   9  CHORST               0.0/   0.0
+  10  CHOMAP               0.0/   0.0
+  11  CHODIAG              0.0/   0.0
+  - - - - - - - - - - - - - - - - - - - -
+--
+--- Stop Module: dmrgscf at Mon Feb  2 17:48:07 2026 /rc=_RC_ALL_IS_WELL_ ---
+*** files: system_0.LprOrb system_0.rasscf.molden system_0.LoProp.molden system_0.RasOrb.1 system_0.RasOrb system_0.dmrgscf.h5 system_0.SpdOrb.1 xmldump
+    saved to directory /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/workdir_N02/autocas_project/dmrg
+--- Module dmrgscf spent 16 seconds ---
+
+.##################.
+.# Happy landing! #.
+.##################.
+
+    Timing: Wall=16.37 User=11.93 System=2.05
+```
+
