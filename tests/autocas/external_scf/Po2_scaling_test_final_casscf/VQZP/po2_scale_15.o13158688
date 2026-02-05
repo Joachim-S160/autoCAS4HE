@@ -1,0 +1,3019 @@
+========================================
+autoCAS4HE environment loaded (Hortense)
+========================================
+  Serenity:    /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/build
+  autoCAS:     /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas_env/bin/scine_autocas
+  Basis path:  /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/custom_basis:/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/serenity/data/basis/
+========================================
+==============================================
+  Po2 Scaling Test: 15 geometries
+==============================================
+Start time: Wed Feb  4 09:06:02 PM CET 2026
+Distances (A): 2.10 2.20 2.40 2.50 2.60 2.80 3.00 3.50 4.00 4.50 5.00 6.00 7.00 8.75 10.00
+PBS Job ID: 13158688
+Requested mem: 84gb
+
+All 15 .scf.h5 files found.
+
+Working directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15
+
+Copying input files into workdir...
+  Copied 15 .xyz and .scf.h5 files
+
+Running autoCAS with 15 geometries...
+
+
+          ------------------------------------------------------------          
+                                System system_0                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_1                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.1000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.1000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_2                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_3                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_4                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.3000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.3000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_5                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.4000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.4000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_6                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_7                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_8                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_9                                 
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +2.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_10                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_11                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_12                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_13                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -4.3750000000   +0.0000000000   +0.0000000000
+        2 PO   +4.3750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                System system_14                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -5.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +5.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 37 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+Warning: Density Matrix Changed! Largest absolute change: 2.16680758078347e-05
+
+          ------------------------------------------------------------          
+                               System system_0_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_0_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_0_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_0_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.0500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.0500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 37 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_1 to system_0
+    Converged after 7 orbital rotation cycles.
+WARNING: Density matrix changed during orbital alignment!
+Aligning the orbitals of system_1 to system_0
+    Converged after 30 orbital rotation cycles.
+Aligning the orbitals of system_1 to system_0
+    Converged after 2 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 37 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 8 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_1_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.1000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.1000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_1_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.1000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.1000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_1_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.1000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.1000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_1_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.1000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.1000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 37 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_2 to system_0
+    Converged after 36 orbital rotation cycles.
+WARNING: Density matrix changed during orbital alignment!
+Aligning the orbitals of system_2 to system_0
+    Converged after 73 orbital rotation cycles.
+Aligning the orbitals of system_2 to system_0
+    Converged after 2 orbital rotation cycles.
+Warning: Density Matrix Changed! Largest absolute change: 6.83857932726184e-05
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 37 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 8 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_2_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_2_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_2_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_2_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 37 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_3 to system_0
+    Converged after 60 orbital rotation cycles.
+WARNING: Density matrix changed during orbital alignment!
+Aligning the orbitals of system_3 to system_0
+    Converged after 29 orbital rotation cycles.
+Aligning the orbitals of system_3 to system_0
+    Converged after 1 orbital rotation cycles.
+Warning: Density Matrix Changed! Largest absolute change: 0.0001899540784942033
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 37 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_3_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_3_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_3_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_3_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 38 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_4 to system_0
+    Converged after 23 orbital rotation cycles.
+WARNING: Density matrix changed during orbital alignment!
+Aligning the orbitals of system_4 to system_0
+    Converged after 7 orbital rotation cycles.
+Aligning the orbitals of system_4 to system_0
+    Converged after 1 orbital rotation cycles.
+Warning: Density Matrix Changed! Largest absolute change: 0.0002586046720254309
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 38 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_4_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.3000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.3000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_4_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.3000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.3000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_4_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.3000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.3000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_4_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.3000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.3000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 39 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_5 to system_0
+    Converged after 47 orbital rotation cycles.
+WARNING: Density matrix changed during orbital alignment!
+Aligning the orbitals of system_5 to system_0
+Aligning the orbitals of system_5 to system_0
+    Converged after 1 orbital rotation cycles.
+Warning: Density Matrix Changed! Largest absolute change: 0.000265896882707839
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 39 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_5_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.4000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.4000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_5_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.4000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.4000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_5_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.4000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.4000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_5_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.4000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.4000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 41 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_6 to system_0
+    Converged after 50 orbital rotation cycles.
+WARNING: Density matrix changed during orbital alignment!
+Aligning the orbitals of system_6 to system_0
+    Converged after 9 orbital rotation cycles.
+Aligning the orbitals of system_6 to system_0
+    Converged after 2 orbital rotation cycles.
+Warning: Density Matrix Changed! Largest absolute change: 0.0001849772538298211
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 41 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 8 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_6_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_6_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_6_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_6_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +1.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 41 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_7 to system_0
+    Converged after 56 orbital rotation cycles.
+WARNING: Density matrix changed during orbital alignment!
+Aligning the orbitals of system_7 to system_0
+Aligning the orbitals of system_7 to system_0
+    Converged after 2 orbital rotation cycles.
+Warning: Density Matrix Changed! Largest absolute change: 2.154861773906447e-05
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 41 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_7_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_7_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_7_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_7_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -1.7500000000   +0.0000000000   +0.0000000000
+        2 PO   +1.7500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 41 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_8 to system_0
+    Converged after 87 orbital rotation cycles.
+WARNING: Density matrix changed during orbital alignment!
+Aligning the orbitals of system_8 to system_0
+    Converged after 92 orbital rotation cycles.
+Aligning the orbitals of system_8 to system_0
+    Converged after 1 orbital rotation cycles.
+Warning: Density Matrix Changed! Largest absolute change: 6.653657664834611e-07
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 41 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_8_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_8_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_8_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_8_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 42 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_9 to system_0
+    Converged after 100 orbital rotation cycles.
+WARNING: Density matrix changed during orbital alignment!
+Aligning the orbitals of system_9 to system_0
+    Converged after 93 orbital rotation cycles.
+Aligning the orbitals of system_9 to system_0
+    Converged after 1 orbital rotation cycles.
+Warning: Density Matrix Changed! Largest absolute change: 3.100707037795303e-07
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 42 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_9_0                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +2.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_9_1                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +2.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_9_2                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +2.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_9_3                                
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.2500000000   +0.0000000000   +0.0000000000
+        2 PO   +2.2500000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 42 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_10 to system_0
+    Converged after 97 orbital rotation cycles.
+WARNING: Density matrix changed during orbital alignment!
+Aligning the orbitals of system_10 to system_0
+Aligning the orbitals of system_10 to system_0
+    Converged after 1 orbital rotation cycles.
+Warning: Density Matrix Changed! Largest absolute change: 1.749751010748923e-09
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 42 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 4 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_10_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_10_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_10_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_10_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -2.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +2.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 42 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_11 to system_0
+WARNING: Density matrix changed during orbital alignment!
+Aligning the orbitals of system_11 to system_0
+    Converged after 50 orbital rotation cycles.
+Aligning the orbitals of system_11 to system_0
+    Converged after 1 orbital rotation cycles.
+Warning: Density Matrix Changed! Largest absolute change: 5.211573106400635e-07
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 42 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_11_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_11_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_11_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_11_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 42 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_12 to system_0
+WARNING: Density matrix changed during orbital alignment!
+Aligning the orbitals of system_12 to system_0
+Aligning the orbitals of system_12 to system_0
+    Converged after 1 orbital rotation cycles.
+Warning: Density Matrix Changed! Largest absolute change: 1.917718637223231e-07
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 42 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 4 orbital rotation cycles.
+
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_12_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_12_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_12_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_12_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -3.5000000000   +0.0000000000   +0.0000000000
+        2 PO   +3.5000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 42 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_13 to system_0
+WARNING: Density matrix changed during orbital alignment!
+Aligning the orbitals of system_13 to system_0
+    Converged after 10 orbital rotation cycles.
+Aligning the orbitals of system_13 to system_0
+    Converged after 2 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 42 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 5 orbital rotation cycles.
+
+    Converged after 7 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_13_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -4.3750000000   +0.0000000000   +0.0000000000
+        2 PO   +4.3750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_13_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -4.3750000000   +0.0000000000   +0.0000000000
+        2 PO   +4.3750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_13_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -4.3750000000   +0.0000000000   +0.0000000000
+        2 PO   +4.3750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_13_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -4.3750000000   +0.0000000000   +0.0000000000
+        2 PO   +4.3750000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                       Running IBO-Like Orbital Alignment                       
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 42 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+Aligning the orbitals of system_14 to system_0
+WARNING: Density matrix changed during orbital alignment!
+Aligning the orbitals of system_14 to system_0
+Aligning the orbitals of system_14 to system_0
+    Converged after 2 orbital rotation cycles.
+
+          ------------------------------------------------------------          
+                            Running IBO Localization                            
+          ------------------------------------------------------------          
+
+  Note: Valence and core orbitals are localized separately.
+        Please ensure that the initial orbitals were canonical orbitals!
+
+  Number of core-like orbitals: 62    
+  Core-like orbitals will be localized separately.
+  Running orbital localization for valence orbitals.
+  Core orbitals will be localized separately.
+  IBO localization: Using energy-based Rydberg cutoff: 1 Ha
+  Note: Capping virtual valence orbitals from 42 to 2 (nMINAO=86, nOcc=84).
+  Number of Rydberg-like orbitals: 150    
+  Number of virtual valence orbitals: 2    
+  Rydberg-like orbitals will be localized separately or not at all.
+  Valence virtual orbitals will be localized.
+    Converged after 4 orbital rotation cycles.
+
+    Converged after 6 orbital rotation cycles.
+
+    Converged after 1 orbital rotation cycles.
+
+
+          ------------------------------------------------------------          
+                               System system_14_0                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -5.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +5.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_14_1                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -5.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +5.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_14_2                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -5.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +5.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                               System system_14_3                               
+          ------------------------------------------------------------          
+
+     Charge:                              0
+     Spin:                                0
+     Method:                             HF
+     Basis Set:                ANO-RCC-VQZP
+  Current Geometry (Angstrom):
+ ------------------------------
+        1 PO   -5.0000000000   +0.0000000000   +0.0000000000
+        2 PO   +5.0000000000   +0.0000000000   +0.0000000000
+
+
+
+          ------------------------------------------------------------          
+                                Generalized DOS                                 
+          ------------------------------------------------------------          
+
+--------------------------------------------------------
+  The supersystem to fragment partitioning:
+system_0       system_0_0  system_0_1  system_0_2  system_0_3  
+system_1       system_1_0  system_1_1  system_1_2  system_1_3  
+system_2       system_2_0  system_2_1  system_2_2  system_2_3  
+system_3       system_3_0  system_3_1  system_3_2  system_3_3  
+system_4       system_4_0  system_4_1  system_4_2  system_4_3  
+system_5       system_5_0  system_5_1  system_5_2  system_5_3  
+system_6       system_6_0  system_6_1  system_6_2  system_6_3  
+system_7       system_7_0  system_7_1  system_7_2  system_7_3  
+system_8       system_8_0  system_8_1  system_8_2  system_8_3  
+system_9       system_9_0  system_9_1  system_9_2  system_9_3  
+system_10       system_10_0  system_10_1  system_10_2  system_10_3  
+system_11       system_11_0  system_11_1  system_11_2  system_11_3  
+system_12       system_12_0  system_12_1  system_12_2  system_12_3  
+system_13       system_13_0  system_13_1  system_13_2  system_13_3  
+system_14       system_14_0  system_14_1  system_14_2  system_14_3  
+--------------------------------------------------------
+  Optimized (occupied) threshold 0.9975  (virtual) threshold 1
+--------------------------------------------------------
+  Partitioning for subsystem system_0_0
+  Charge: 2
+  Spin:   0
+Number of occ. orbitals: 83
+--------------------------------------------------------
+  Partitioning for subsystem system_0_1
+  Charge: -2
+  Spin:   0
+Number of occ. orbitals: 1
+--------------------------------------------------------
+  Partitioning for subsystem system_0_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_0_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_1_0
+  Charge: 2
+  Spin:   0
+Number of occ. orbitals: 83
+--------------------------------------------------------
+  Partitioning for subsystem system_1_1
+  Charge: -2
+  Spin:   0
+Number of occ. orbitals: 1
+--------------------------------------------------------
+  Partitioning for subsystem system_1_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_1_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_2_0
+  Charge: 2
+  Spin:   0
+Number of occ. orbitals: 83
+--------------------------------------------------------
+  Partitioning for subsystem system_2_1
+  Charge: -2
+  Spin:   0
+Number of occ. orbitals: 1
+--------------------------------------------------------
+  Partitioning for subsystem system_2_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_2_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_3_0
+  Charge: 2
+  Spin:   0
+Number of occ. orbitals: 83
+--------------------------------------------------------
+  Partitioning for subsystem system_3_1
+  Charge: -2
+  Spin:   0
+Number of occ. orbitals: 1
+--------------------------------------------------------
+  Partitioning for subsystem system_3_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_3_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_4_0
+  Charge: 2
+  Spin:   0
+Number of occ. orbitals: 83
+--------------------------------------------------------
+  Partitioning for subsystem system_4_1
+  Charge: -2
+  Spin:   0
+Number of occ. orbitals: 1
+--------------------------------------------------------
+  Partitioning for subsystem system_4_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_4_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_5_0
+  Charge: 2
+  Spin:   0
+Number of occ. orbitals: 83
+--------------------------------------------------------
+  Partitioning for subsystem system_5_1
+  Charge: -2
+  Spin:   0
+Number of occ. orbitals: 1
+--------------------------------------------------------
+  Partitioning for subsystem system_5_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_5_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_6_0
+  Charge: 2
+  Spin:   0
+Number of occ. orbitals: 83
+--------------------------------------------------------
+  Partitioning for subsystem system_6_1
+  Charge: -2
+  Spin:   0
+Number of occ. orbitals: 1
+--------------------------------------------------------
+  Partitioning for subsystem system_6_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_6_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_7_0
+  Charge: 2
+  Spin:   0
+Number of occ. orbitals: 83
+--------------------------------------------------------
+  Partitioning for subsystem system_7_1
+  Charge: -2
+  Spin:   0
+Number of occ. orbitals: 1
+--------------------------------------------------------
+  Partitioning for subsystem system_7_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_7_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_8_0
+  Charge: 2
+  Spin:   0
+Number of occ. orbitals: 83
+--------------------------------------------------------
+  Partitioning for subsystem system_8_1
+  Charge: -2
+  Spin:   0
+Number of occ. orbitals: 1
+--------------------------------------------------------
+  Partitioning for subsystem system_8_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_8_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_9_0
+  Charge: 2
+  Spin:   0
+Number of occ. orbitals: 83
+--------------------------------------------------------
+  Partitioning for subsystem system_9_1
+  Charge: -2
+  Spin:   0
+Number of occ. orbitals: 1
+--------------------------------------------------------
+  Partitioning for subsystem system_9_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_9_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_10_0
+  Charge: 2
+  Spin:   0
+Number of occ. orbitals: 83
+--------------------------------------------------------
+  Partitioning for subsystem system_10_1
+  Charge: -2
+  Spin:   0
+Number of occ. orbitals: 1
+--------------------------------------------------------
+  Partitioning for subsystem system_10_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_10_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_11_0
+  Charge: 2
+  Spin:   0
+Number of occ. orbitals: 83
+--------------------------------------------------------
+  Partitioning for subsystem system_11_1
+  Charge: -2
+  Spin:   0
+Number of occ. orbitals: 1
+--------------------------------------------------------
+  Partitioning for subsystem system_11_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_11_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_12_0
+  Charge: 2
+  Spin:   0
+Number of occ. orbitals: 83
+--------------------------------------------------------
+  Partitioning for subsystem system_12_1
+  Charge: -2
+  Spin:   0
+Number of occ. orbitals: 1
+--------------------------------------------------------
+  Partitioning for subsystem system_12_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_12_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_13_0
+  Charge: 2
+  Spin:   0
+Number of occ. orbitals: 83
+--------------------------------------------------------
+  Partitioning for subsystem system_13_1
+  Charge: -2
+  Spin:   0
+Number of occ. orbitals: 1
+--------------------------------------------------------
+  Partitioning for subsystem system_13_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_13_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+--------------------------------------------------------
+  Partitioning for subsystem system_14_0
+  Charge: 2
+  Spin:   0
+Number of occ. orbitals: 83
+--------------------------------------------------------
+  Partitioning for subsystem system_14_1
+  Charge: -2
+  Spin:   0
+Number of occ. orbitals: 1
+--------------------------------------------------------
+  Partitioning for subsystem system_14_2
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+  Partitioning for subsystem system_14_3
+  Charge: 0
+  Spin:   0
+Number of occ. orbitals: 0
+--------------------------------------------------------
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project
+Final energy evaluation method: CASSCF
+*******************************************************************************************
+*                                                                                         *
+*                               Orbital Preparation                                       *
+*                                                                                         *
+*******************************************************************************************
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_0
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_1
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_2
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_3
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_4
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_5
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_6
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_7
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_8
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_9
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_10
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_11
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_12
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_13
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing initial orbitals
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial
+Starting initial orbital calculation.
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_14
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+Initial orbitals finished.
+Loading external orbitals (skipping Serenity SCF)...
+External orbital files: ['/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_000.scf.h5', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_001.scf.h5', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_003.scf.h5', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_004.scf.h5', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_005.scf.h5', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_007.scf.h5', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_009.scf.h5', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_011.scf.h5', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_013.scf.h5', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_015.scf.h5', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_017.scf.h5', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_019.scf.h5', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_021.scf.h5', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_023.scf.h5', '/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_024.scf.h5']
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_000.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial/system_0.scf.h5
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_001.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial/system_1.scf.h5
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_003.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial/system_2.scf.h5
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_004.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial/system_3.scf.h5
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_005.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial/system_4.scf.h5
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_007.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial/system_5.scf.h5
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_009.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial/system_6.scf.h5
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_011.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial/system_7.scf.h5
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_013.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial/system_8.scf.h5
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_015.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial/system_9.scf.h5
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_017.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial/system_10.scf.h5
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_019.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial/system_11.scf.h5
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_021.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial/system_12.scf.h5
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_023.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial/system_13.scf.h5
+  Copying /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_024.scf.h5 -> /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/initial/system_14.scf.h5
+Orbital groups
+       0         0         0         0         0         0         0         0         0         0         0         0         0         0         0  
+       1         1         1         1         1         1         1         1         1         1         1         1         1         1         1  
+       2         2         2         2         2         2         2         2         2         2         2         2         2         2         2  
+       3         3         3         3         3         3         3         3         3         3         3         3         3         3         3  
+       4         4         4         4         4         4         4         4         4         4         4         4         4         4         4  
+       5         5         5         5         5         5         5         5         5         5         5         5         5         5         5  
+       6         6         6         6         6         6         6         6         6         6         6         6         6         6         6  
+       7         7         7         7         7         7         7         7         7         7         7         7         7         7         7  
+       8         8         8         8         8         8         8         8         8         8         8         8         8         8         8  
+       9         9         9         9         9         9         9         9         9         9         9         9         9         9         9  
+      10        10        10        10        10        10        10        10        10        10        10        10        10        10        10  
+      11        11        11        11        11        11        11        11        11        11        11        11        11        11        11  
+      12        12        12        12        12        12        12        12        12        12        12        12        12        12        12  
+      13        13        13        13        13        13        13        13        13        13        13        13        13        13        13  
+      14        14        14        14        14        14        14        14        14        14        14        14        14        14        14  
+      15        15        15        15        15        15        15        15        15        15        15        15        15        15        15  
+      16        16        16        16        16        16        16        16        16        16        16        16        16        16        16  
+      17        17        17        17        17        17        17        17        17        17        17        17        17        17        17  
+      18        18        18        18        18        18        18        18        18        18        18        18        18        18        18  
+      19        19        19        19        19        19        19        19        19        19        19        19        19        19        19  
+      20        20        20        20        20        20        20        20        20        20        20        20        20        20        20  
+      21        21        21        21        21        21        21        21        21        21        21        21        21        21        21  
+      22        22        22        22        22        22        22        22        22        22        22        22        22        22        22  
+      23        23        23        23        23        23        23        23        23        23        23        23        23        23        23  
+      24        24        24        24        24        24        24        24        24        24        24        24        24        24        24  
+      25        25        25        25        25        25        25        25        25        25        25        25        25        25        25  
+      26        26        26        26        26        26        26        26        26        26        26        26        26        26        26  
+      27        27        27        27        27        27        27        27        27        27        27        27        27        27        27  
+      28        28        28        28        28        28        28        28        28        28        28        28        28        28        28  
+      29        29        29        29        29        29        29        29        29        29        29        29        29        29        29  
+      30        30        30        30        30        30        30        30        30        30        30        30        30        30        30  
+      31        31        31        31        31        31        31        31        31        31        31        31        31        31        31  
+      32        32        32        32        32        32        32        32        32        32        32        32        32        32        32  
+      33        33        33        33        33        33        33        33        33        33        33        33        33        33        33  
+      34        34        34        34        34        34        34        34        34        34        34        34        34        34        34  
+      35        35        35        35        35        35        35        35        35        35        35        35        35        35        35  
+      36        36        36        36        36        36        36        36        36        36        36        36        36        36        36  
+      37        37        37        37        37        37        37        37        37        37        37        37        37        37        37  
+      38        38        38        38        38        38        38        38        38        38        38        38        38        38        38  
+      39        39        39        39        39        39        39        39        39        39        39        39        39        39        39  
+      40        40        40        40        40        40        40        40        40        40        40        40        40        40        40  
+      41        41        41        41        41        41        41        41        41        41        41        41        41        41        41  
+      42        42        42        42        42        42        42        42        42        42        42        42        42        42        42  
+      43        43        43        43        43        43        43        43        43        43        43        43        43        43        43  
+      44        44        44        44        44        44        44        44        44        44        44        44        44        44        44  
+      45        45        45        45        45        45        45        45        45        45        45        45        45        45        45  
+      46        46        46        46        46        46        46        46        46        46        46        46        46        46        46  
+      47        47        47        47        47        47        47        47        47        47        47        47        47        47        47  
+      48        48        48        48        48        48        48        48        48        48        48        48        48        48        48  
+      49        49        49        49        49        49        49        49        49        49        49        49        49        49        49  
+      50        50        50        50        50        50        50        50        50        50        50        50        50        50        50  
+      51        51        51        51        51        51        51        51        51        51        51        51        51        51        51  
+      52        52        52        52        52        52        52        52        52        52        52        52        52        52        52  
+      53        53        53        53        53        53        53        53        53        53        53        53        53        53        53  
+      54        54        54        54        54        54        54        54        54        54        54        54        54        54        54  
+      55        55        55        55        55        55        55        55        55        55        55        55        55        55        55  
+      56        56        56        56        56        56        56        56        56        56        56        56        56        56        56  
+      57        57        57        57        57        57        57        57        57        57        57        57        57        57        57  
+      58        58        58        58        58        58        58        58        58        58        58        58        58        58        58  
+      59        59        59        59        59        59        59        59        59        59        59        59        59        59        59  
+      60        60        60        60        60        60        60        60        60        60        60        60        60        60        60  
+      61        61        61        61        61        61        61        61        61        61        61        61        61        61        61  
+      62        62        62        62        62        62        62        62        62        62        62        62        62        62        62  
+      63        63        63        63        63        63        63        63        63        63        63        63        63        63        63  
+      64        64        64        64        64        64        64        64        64        64        64        64        64        64        64  
+      65        65        65        65        66        65        65        65        65        65        65        65        65        65        65  
+      66        66        66        66        67        66        66        66        66        66        66        66        66        66        66  
+      67        67        67        67        68        67        67        67        67        67        67        67        67        67        67  
+      68        68        68        68        69        68        68        68        68        68        68        68        68        68        68  
+      69        69        69        69        70        69        69        69        69        69        69        69        69        69        69  
+      70        70        70        70        71        70        70        70        70        70        70        70        70        70        70  
+      71        71        71        71        72        71        71        71        71        71        71        71        71        71        71  
+      72        72        72        72        73        72        72        72        72        72        72        72        72        72        72  
+      73        73        73        73        74        73        73        73        73        73        73        73        73        73        73  
+      74        74        74        74        75        74        74        74        74        74        74        74        74        74        74  
+      75        75        75        75        76        75        75        75        75        75        75        75        75        75        75  
+      76        76        76        76        77        76        76        76        76        76        76        76        76        76        76  
+      77        77        77        77        78        77        77        77        77        77        77        77        77        77        77  
+      78        78        78        78        79        79        78        78        78        78        78        78        78        78        78  
+      79        79        79        79        80        80        79        79        79        79        79        79        79        79        79  
+      80        80        80        80        81        81        80        80        80        80        80        80        80        80        80  
+      81        81        81        81        82        82        81        81        81        81        81        81        81        81        81  
+      82        82        82        82        83        83        82        82        82        82        82        82        82        82        82  
+
+      84        84        84        84        84        84        84        84        84        84        84        84        84        84        84  
+      85        85        85        85        85        85        85        85        85        85        85        85        85        85        85  
+
+      83        83        83        83        65        78        83        83        83        83        83        83        83        83        83  
+
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Make valence CAS
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing single orbitals entropies from initial CAS
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/dmrg
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_0
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+s1 in active space: [0.02258619 0.02259964 0.07224075 0.14086184 0.04634708 0.07224406
+ 0.19746335 0.06887614]
+Start active space search for provided set of 8 orbitals and 12 electrons.
+Maximal single orbital entropy: 0.19746334638189406
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Found plateau, including 8 orbitals.
+Found smaller active space.
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Make valence CAS
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing single orbitals entropies from initial CAS
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_1
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+s1 in active space: [0.00084008 0.02062135 0.00320977 0.17215055 0.05376192 0.00845387
+ 0.17706001 0.06554468]
+Start active space search for provided set of 8 orbitals and 12 electrons.
+Maximal single orbital entropy: 0.17706001018395687
+New active space:
+	orbital occuation:         [2, 2, 0, 0]
+	orbital indices (0-based): [81, 82, 84, 85]
+Found plateau, including 4 orbitals.
+Found smaller active space.
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Make valence CAS
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing single orbitals entropies from initial CAS
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_2
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+s1 in active space: [0.01330762 0.01328076 0.23355193 0.0962823  0.23437333 0.23356767
+ 0.38354849 0.11181331]
+Start active space search for provided set of 8 orbitals and 12 electrons.
+Maximal single orbital entropy: 0.38354849397143065
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [80, 81, 82, 83, 84, 85]
+Found plateau, including 6 orbitals.
+Found smaller active space.
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Make valence CAS
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing single orbitals entropies from initial CAS
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_3
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+s1 in active space: [1.74458922e-04 1.21442098e-02 2.65179987e-01 2.66415452e-01
+ 9.68814193e-02 2.67511722e-01 4.23523418e-01 1.07176932e-01]
+Start active space search for provided set of 8 orbitals and 12 electrons.
+Maximal single orbital entropy: 0.4235234180474776
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [80, 81, 82, 83, 84, 85]
+Found plateau, including 6 orbitals.
+Found smaller active space.
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Make valence CAS
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing single orbitals entropies from initial CAS
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_4
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+s1 in active space: [0.01620534 0.01358918 0.01295923 0.33823593 0.13417371 0.00167201
+ 0.3418539  0.14743978]
+Start active space search for provided set of 8 orbitals and 12 electrons.
+Maximal single orbital entropy: 0.34185390447084457
+New active space:
+	orbital occuation:         [2, 2, 0, 0]
+	orbital indices (0-based): [81, 82, 84, 85]
+Found plateau, including 4 orbitals.
+Found smaller active space.
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Make valence CAS
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing single orbitals entropies from initial CAS
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_5
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+s1 in active space: [0.27585348 0.00054186 0.27860627 0.16226369 0.40705938 0.0134112
+ 0.53404735 0.17296772]
+Start active space search for provided set of 8 orbitals and 12 electrons.
+Maximal single orbital entropy: 0.5340473474970729
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 80, 81, 82, 84, 85]
+Found plateau, including 6 orbitals.
+Found smaller active space.
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Make valence CAS
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing single orbitals entropies from initial CAS
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_6
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+s1 in active space: [0.01646631 0.01648615 0.22425853 0.25196919 0.52424143 0.2255865
+ 0.60699479 0.26449085]
+Start active space search for provided set of 8 orbitals and 12 electrons.
+Maximal single orbital entropy: 0.6069947878686484
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [80, 81, 82, 83, 84, 85]
+Found plateau, including 6 orbitals.
+Found smaller active space.
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Make valence CAS
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing single orbitals entropies from initial CAS
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_7
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+s1 in active space: [0.01252037 0.0187616  0.01539051 0.84098527 0.54549115 0.03205854
+ 0.84133438 0.55371359]
+Start active space search for provided set of 8 orbitals and 12 electrons.
+Maximal single orbital entropy: 0.8413343824868607
+New active space:
+	orbital occuation:         [2, 2, 0, 0]
+	orbital indices (0-based): [81, 82, 84, 85]
+Found plateau, including 4 orbitals.
+Found smaller active space.
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Make valence CAS
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing single orbitals entropies from initial CAS
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_8
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+s1 in active space: [0.01080773 0.0156127  0.0069628  1.09038143 0.92974129 0.05964136
+ 1.09042582 0.93742438]
+Start active space search for provided set of 8 orbitals and 12 electrons.
+Maximal single orbital entropy: 1.0904258245956613
+New active space:
+	orbital occuation:         [2, 2, 0, 0]
+	orbital indices (0-based): [81, 82, 84, 85]
+Found plateau, including 4 orbitals.
+Found smaller active space.
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Make valence CAS
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing single orbitals entropies from initial CAS
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_9
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+s1 in active space: [0.00590615 0.01130269 0.00727332 1.20602961 1.14557375 0.049007
+ 1.2060633  1.14898787]
+Start active space search for provided set of 8 orbitals and 12 electrons.
+Maximal single orbital entropy: 1.2060633017574247
+New active space:
+	orbital occuation:         [2, 2, 0, 0]
+	orbital indices (0-based): [81, 82, 84, 85]
+Found plateau, including 4 orbitals.
+Found smaller active space.
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Make valence CAS
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing single orbitals entropies from initial CAS
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_10
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+s1 in active space: [1.91988729e-03 5.02528459e-03 4.83737081e-04 1.24397166e+00
+ 1.22381715e+00 3.78511451e-02 1.24398232e+00 1.22499922e+00]
+Start active space search for provided set of 8 orbitals and 12 electrons.
+Maximal single orbital entropy: 1.2439823175527547
+New active space:
+	orbital occuation:         [2, 2, 0, 0]
+	orbital indices (0-based): [81, 82, 84, 85]
+Found plateau, including 4 orbitals.
+Found smaller active space.
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Make valence CAS
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing single orbitals entropies from initial CAS
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_11
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+s1 in active space: [2.48492573e-04 1.39400213e-03 1.60523073e-04 1.25700090e+00
+ 1.25485326e+00 1.30079433e-02 1.25700115e+00 1.25492007e+00]
+Start active space search for provided set of 8 orbitals and 12 electrons.
+Maximal single orbital entropy: 1.2570011496956528
+New active space:
+	orbital occuation:         [2, 2, 0, 0]
+	orbital indices (0-based): [81, 82, 84, 85]
+Found plateau, including 4 orbitals.
+Found smaller active space.
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Make valence CAS
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing single orbitals entropies from initial CAS
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_12
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+s1 in active space: [1.08020907e-04 4.36943267e-04 1.23581287e-04 1.25716199e+00
+ 1.25684537e+00 2.76524097e-03 1.25716207e+00 1.25683259e+00]
+Start active space search for provided set of 8 orbitals and 12 electrons.
+Maximal single orbital entropy: 1.2571620685978633
+New active space:
+	orbital occuation:         [2, 2, 0, 0]
+	orbital indices (0-based): [81, 82, 84, 85]
+Found plateau, including 4 orbitals.
+Found smaller active space.
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Make valence CAS
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing single orbitals entropies from initial CAS
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_13
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+s1 in active space: [1.01983976e-04 1.56510838e-04 3.50940336e-04 1.25675298e+00
+ 1.25677017e+00 4.78791104e-04 1.25677057e+00 1.25674619e+00]
+Start active space search for provided set of 8 orbitals and 12 electrons.
+Maximal single orbital entropy: 1.2567705667805442
+New active space:
+	orbital occuation:         [2, 2, 0, 0]
+	orbital indices (0-based): [81, 82, 84, 85]
+Found plateau, including 4 orbitals.
+Found smaller active space.
+New active space:
+	orbital occuation:         [2, 2, 2, 2, 2, 2, 0, 0]
+	orbital indices (0-based): [78, 79, 80, 81, 82, 83, 84, 85]
+Make valence CAS
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing single orbitals entropies from initial CAS
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_14
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+s1 in active space: [5.47933064e-05 1.87051379e-04 3.04441486e-05 1.25671125e+00
+ 1.25671056e+00 3.20391002e-04 1.25671068e+00 1.25670798e+00]
+Start active space search for provided set of 8 orbitals and 12 electrons.
+Maximal single orbital entropy: 1.2567112518894121
+New active space:
+	orbital occuation:         [2, 2, 0, 0]
+	orbital indices (0-based): [81, 82, 84, 85]
+Found plateau, including 4 orbitals.
+Found smaller active space.
+*******************************************************************************************
+*                                                                                         *
+*                               Combined Active Spaces                                    *
+*                                                                                         *
+*******************************************************************************************
+combined cas indices: [78, 79, 80, 81, 82, 83, 84, 85]
+combined occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+combined cas indices: [78, 79, 80, 81, 82, 83, 84, 85]
+combined occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+combined cas indices: [78, 79, 80, 81, 82, 83, 84, 85]
+combined occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+combined cas indices: [78, 79, 80, 81, 82, 83, 84, 85]
+combined occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+combined cas indices: [78, 79, 80, 81, 82, 83, 84, 85]
+combined occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+combined cas indices: [79, 80, 81, 82, 83, 78, 84, 85]
+combined occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+combined cas indices: [78, 79, 80, 81, 82, 83, 84, 85]
+combined occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+combined cas indices: [78, 79, 80, 81, 82, 83, 84, 85]
+combined occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+combined cas indices: [78, 79, 80, 81, 82, 83, 84, 85]
+combined occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+combined cas indices: [78, 79, 80, 81, 82, 83, 84, 85]
+combined occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+combined cas indices: [78, 79, 80, 81, 82, 83, 84, 85]
+combined occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+combined cas indices: [78, 79, 80, 81, 82, 83, 84, 85]
+combined occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+combined cas indices: [78, 79, 80, 81, 82, 83, 84, 85]
+combined occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+combined cas indices: [78, 79, 80, 81, 82, 83, 84, 85]
+combined occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+combined cas indices: [78, 79, 80, 81, 82, 83, 84, 85]
+combined occupation:  [2, 2, 2, 2, 2, 2, 0, 0]
+*******************************************************************************************
+*                                                                                         *
+*                               Final Calculations                                        *
+*                                                                                         *
+*******************************************************************************************
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+Preparing final calculation
+Current directory: /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/final
+
+Found <pymolcas> binary in /readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas
+/readonly/dodrio/apps/RHEL9/zen3-ib/software/OpenMolcas/25.06-iomkl-2023a-DMRG-no-MPI/pymolcas -b 1 -f
+MOLCAS_PROJECT:  system_0
+MOLCAS_MEM:      12000
+WorkDir:         /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/autocas_project/scratch
+MOLCAS_NPROCS:   
+OMP_NUM_THREADS: 
+QCMaquis_CPU:    
+
+==============================================
+  Scaling Test Results: 15 geometries
+==============================================
+Exit code:    1
+Wall time:    5491s (91m 31s)
+End time:     Wed Feb  4 10:37:35 PM CET 2026
+
+Peak RSS:     5223972 KB (5101 MB)
+
+--- Full timing output ---
+Traceback (most recent call last):
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/interfaces/interface.py", line 532, in calculate
+    energy = self._dumper.read_final_calc()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/interfaces/interface.py", line 80, in read_final_calc
+    raise NotImplementedError("Implement this if you want to use it")
+NotImplementedError: Implement this if you want to use it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas_env/bin/scine_autocas_consistent_active_space", line 7, in <module>
+    sys.exit(run_from_command_line())
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/protocol.py", line 74, in run_from_command_line
+    run_consistent_active_space_protocol(configuration)
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/protocol.py", line 218, in run_consistent_active_space_protocol
+    _, _, energy = run_final_calculation(molcas, cas_occ, cas_index, configuration.cas_method)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/workflows/consistent_active_space/protocol.py", line 274, in run_final_calculation
+    final_energy, final_s1, final_s2, final_mut_inf = molcas.calculate(cas_occ, cas_index)
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/interfaces/interface.py", line 536, in calculate
+    energy = self._final_cas_impl(cas_occupation, cas_indices)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/interfaces/molcas/molcas.py", line 460, in _final_cas_impl
+    self.make_dmrg_measurements()
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/interfaces/molcas/molcas.py", line 577, in make_dmrg_measurements
+    self.hdf5_utils.get_energy(os.getcwd() + "/" + self.project_name + ".rasscf.h5")
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas/scine_autocas/interfaces/molcas/molcas_hdf5_utils.py", line 218, in get_energy
+    h5_file = h5py.File(hdf5_file, "r")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas_env/lib/python3.11/site-packages/h5py/_hl/files.py", line 562, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/autocas_env/lib/python3.11/site-packages/h5py/_hl/files.py", line 235, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 102, in h5py.h5f.open
+OSError: Unable to synchronously open file (file signature not found)
+Command exited with non-zero status 1
+	Command being timed: "scine_autocas_consistent_active_space -e -o /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_000.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_001.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_003.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_004.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_005.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_007.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_009.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_011.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_013.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_015.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_017.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_019.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_021.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_023.scf.h5,/dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_024.scf.h5 -b ANO-RCC-VQZP -m CASSCF /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_000.xyz /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_001.xyz /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_003.xyz /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_004.xyz /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_005.xyz /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_007.xyz /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_009.xyz /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_011.xyz /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_013.xyz /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_015.xyz /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_017.xyz /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_019.xyz /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_021.xyz /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_023.xyz /dodrio/scratch/projects/starting_2025_097/autoCAS4HE_built/autoCAS4HE/tests/autocas/external_scf/Po2_scaling_test_final_casscf/VQZP/workdir_N15/po2_024.xyz"
+	User time (seconds): 5085.39
+	System time (seconds): 226.51
+	Percent of CPU this job got: 96%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:31:31
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 5223972
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 24527
+	Minor (reclaiming a frame) page faults: 12820034
+	Voluntary context switches: 12270815
+	Involuntary context switches: 11662359
+	Swaps: 0
+	File system inputs: 55019080
+	File system outputs: 36178488
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+
+Results appended to scaling_results.csv
+Format: n_geom,exit_code,wall_time_s,peak_rss_kb
