@@ -1,0 +1,161 @@
+#!/bin/bash
+# Po2 Overlap Diagnostics Test: 10 geometries (VQZP)
+# Captures Serenity eigenvalue diagnostics for S1, S2, EQ1, EQ2 matrices
+#
+# PREREQUISITE: Run generate_scf.pbs first to create .scf.h5 files.
+# Submit with: qsub run_10geom.pbs
+
+#PBS -N po2_diag_vqzp
+#PBS -A 2025_127
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=36:00:00
+#PBS -l mem=84gb
+#PBS -M joachim.scheerlinck@ugent.be
+#PBS -m e
+
+# ==============================================================================
+# Setup
+# ==============================================================================
+PROJECT="starting_2025_097"
+INSTALL_DIR="/dodrio/scratch/projects/${PROJECT}/autoCAS4HE_built/autoCAS4HE"
+source ${INSTALL_DIR}/setup_hortense.sh
+
+cd $PBS_O_WORKDIR
+BASE_DIR=$(pwd)
+BASIS="ANO-RCC-VQZP"
+GEOM_IDS="000 003 005 007 009 011 013 015 017 019"
+
+echo "=============================================="
+echo "  Po2 Overlap Diagnostics Test (VQZP)"
+echo "=============================================="
+echo "Basis: $BASIS"
+echo "Geometries: 10 (2.10 - 6.00 A)"
+echo "Start time: $(date)"
+echo "PBS Job ID: $PBS_JOBID"
+echo ""
+
+# ==============================================================================
+# Check that all .scf.h5 files exist
+# ==============================================================================
+MISSING=0
+for ID in $GEOM_IDS; do
+    if [ ! -f "po2_${ID}.scf.h5" ]; then
+        echo "ERROR: Missing po2_${ID}.scf.h5"
+        MISSING=$((MISSING + 1))
+    fi
+done
+
+if [ $MISSING -gt 0 ]; then
+    echo "ERROR: $MISSING .scf.h5 files missing. Run generate_scf.pbs first."
+    exit 1
+fi
+echo "All 10 .scf.h5 files found."
+echo ""
+
+# ==============================================================================
+# Create dedicated workdir
+# ==============================================================================
+WORKDIR="${BASE_DIR}/workdir"
+rm -rf "$WORKDIR"
+mkdir -p "$WORKDIR"
+cd "$WORKDIR"
+export MOLCAS_WORKDIR="${WORKDIR}"
+
+echo "Working directory: $WORKDIR"
+echo ""
+
+# ==============================================================================
+# Copy .scf.h5 and .xyz files into workdir
+# ==============================================================================
+echo "Copying input files into workdir..."
+for ID in $GEOM_IDS; do
+    cp "${BASE_DIR}/po2_${ID}.xyz" "$WORKDIR/"
+    cp "${BASE_DIR}/po2_${ID}.scf.h5" "$WORKDIR/"
+done
+echo "  Copied 10 .xyz and .scf.h5 files"
+echo ""
+
+# ==============================================================================
+# Build argument lists
+# ==============================================================================
+XYZ_ARGS=""
+ORB_PATHS=""
+for ID in $GEOM_IDS; do
+    XYZ_ARGS="${XYZ_ARGS} ${WORKDIR}/po2_${ID}.xyz"
+    if [ -z "$ORB_PATHS" ]; then
+        ORB_PATHS="${WORKDIR}/po2_${ID}.scf.h5"
+    else
+        ORB_PATHS="${ORB_PATHS},${WORKDIR}/po2_${ID}.scf.h5"
+    fi
+done
+
+# ==============================================================================
+# Run autoCAS (this triggers Serenity IBO localization with diagnostics)
+# ==============================================================================
+echo "Running autoCAS with 10 geometries..."
+echo "This will print overlap matrix eigenvalue diagnostics for:"
+echo "  - S1 (AO Overlap)"
+echo "  - S2 (MINAO Overlap)"
+echo "  - EQ1 (IAO Orthogonalization)"
+echo "  - EQ2 (othoA)"
+echo ""
+echo "=============================================="
+echo "  Serenity Diagnostics Output"
+echo "=============================================="
+echo ""
+
+START_SECONDS=$SECONDS
+
+scine_autocas_consistent_active_space \
+    -e \
+    -o "$ORB_PATHS" \
+    -b $BASIS \
+    -m CASSCF \
+    $XYZ_ARGS \
+    2>&1 | tee ${BASE_DIR}/autocas_output.log
+
+EXIT_CODE=${PIPESTATUS[0]}
+ELAPSED=$((SECONDS - START_SECONDS))
+
+# ==============================================================================
+# Extract diagnostics
+# ==============================================================================
+cd "$BASE_DIR"
+
+echo ""
+echo "=============================================="
+echo "  Test Results"
+echo "=============================================="
+echo "Exit code:    $EXIT_CODE"
+echo "Wall time:    ${ELAPSED}s ($((ELAPSED / 60))m $((ELAPSED % 60))s)"
+echo "End time:     $(date)"
+echo ""
+
+# Extract diagnostics from output
+echo "--- Extracted Diagnostics ---"
+if [ -f "autocas_output.log" ]; then
+    echo ""
+    echo "=== S1 (AO Overlap) Diagnostics ==="
+    grep -A 10 "AO Overlap Matrix (S1) Diagnostics" autocas_output.log | head -15
+    echo ""
+    echo "=== S2 (MINAO Overlap) Diagnostics ==="
+    grep -A 10 "MINAO Overlap Matrix (S2) Diagnostics" autocas_output.log | head -15
+    echo ""
+    echo "=== EQ1 Orthogonalization Diagnostics ==="
+    grep -A 10 "IAO EQ1 Orthogonalization Diagnostics" autocas_output.log | head -15
+    echo ""
+    echo "=== EQ2 (othoA) Orthogonalization Diagnostics ==="
+    grep -A 10 "IAO EQ2 (othoA) Orthogonalization Diagnostics" autocas_output.log | head -15
+fi
+
+# Create summary CSV
+echo ""
+echo "Creating diagnostics summary..."
+echo "basis,geom_id,S1_min_eig,S1_cond,S2_min_eig,S2_cond" > diagnostics_summary.csv
+
+# Note: Full parsing would require a separate Python script
+# For now, the raw diagnostics are in autocas_output.log
+
+echo ""
+echo "Full output saved to: autocas_output.log"
+echo "=============================================="
