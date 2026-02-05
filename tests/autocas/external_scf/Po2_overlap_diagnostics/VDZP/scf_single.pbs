@@ -1,9 +1,8 @@
 #!/bin/bash
 # Single geometry SCF job - submitted in parallel by submit_all.sh
-# Usage: qsub -v GEOM_ID=000 scf_single.pbs
+# Usage: qsub -N po2_scf_000 -v GEOM_ID=000 scf_single.pbs
 
-#PBS -N po2_scf_${GEOM_ID}
-#PBS -A 2025_127
+#PBS -A 2025_060
 #PBS -l nodes=1:ppn=4
 #PBS -l walltime=01:00:00
 #PBS -l mem=16gb
@@ -14,22 +13,30 @@ INSTALL_DIR="/dodrio/scratch/projects/${PROJECT}/autoCAS4HE_built/autoCAS4HE"
 source ${INSTALL_DIR}/setup_hortense.sh
 
 cd $PBS_O_WORKDIR
+BASE_DIR=$(pwd)
 BASIS="ANO-RCC-VDZP"
 
 echo "Running SCF for po2_${GEOM_ID}.xyz with $BASIS"
 echo "Start: $(date)"
 
+# Skip if already done
 if [ -f "po2_${GEOM_ID}.scf.h5" ]; then
     echo "SKIP: po2_${GEOM_ID}.scf.h5 already exists"
     exit 0
 fi
 
+# Clean up any previous failed run
+rm -rf po2_${GEOM_ID}_workdir
+
+# Create fresh workdir and copy xyz file into it
 mkdir -p po2_${GEOM_ID}_workdir
+cp po2_${GEOM_ID}.xyz po2_${GEOM_ID}_workdir/
 cd po2_${GEOM_ID}_workdir
 
+# Create OpenMolcas input (local xyz path)
 cat > po2_${GEOM_ID}_scf.input << EOF
 &GATEWAY
-  Coord = ../po2_${GEOM_ID}.xyz
+  Coord = po2_${GEOM_ID}.xyz
   Basis = ${BASIS}
   Group = NoSym
 
@@ -48,10 +55,14 @@ pymolcas po2_${GEOM_ID}_scf.input > po2_${GEOM_ID}_scf.log 2>&1
 SCF_EXIT=$?
 
 if [ $SCF_EXIT -eq 0 ] && [ -f "po2_${GEOM_ID}_scf/po2_${GEOM_ID}_scf.scf.h5" ]; then
-    cp po2_${GEOM_ID}_scf/po2_${GEOM_ID}_scf.scf.h5 ../po2_${GEOM_ID}.scf.h5
+    cp po2_${GEOM_ID}_scf/po2_${GEOM_ID}_scf.scf.h5 ${BASE_DIR}/po2_${GEOM_ID}.scf.h5
     echo "OK: po2_${GEOM_ID}.scf.h5"
+    # Clean up workdir on success
+    cd ${BASE_DIR}
+    rm -rf po2_${GEOM_ID}_workdir
 else
     echo "FAILED: po2_${GEOM_ID}.xyz (exit=$SCF_EXIT)"
+    echo "Workdir kept for debugging: po2_${GEOM_ID}_workdir"
     exit 1
 fi
 

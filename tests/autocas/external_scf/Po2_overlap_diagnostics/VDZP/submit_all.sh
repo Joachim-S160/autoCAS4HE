@@ -26,7 +26,7 @@ for ID in $GEOM_IDS; do
     fi
 
     # Submit job and capture job ID
-    JOB_OUTPUT=$(qsub -v GEOM_ID=$ID scf_single.pbs)
+    JOB_OUTPUT=$(qsub -N po2_scf_${ID} -v GEOM_ID=$ID scf_single.pbs)
     JOB_ID=$(echo $JOB_OUTPUT | cut -d'.' -f1)
     echo "  Submitted SCF for po2_${ID}: $JOB_ID"
 
