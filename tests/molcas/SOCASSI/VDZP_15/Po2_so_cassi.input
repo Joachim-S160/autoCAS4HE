@@ -1,0 +1,126 @@
+* =============================================================================
+* SO-CASSI Workflow for Po2 using autoCAS-derived active space
+* =============================================================================
+*
+* This input demonstrates the SO-CASSI workflow:
+* 1. Singlet RASSCF + MS-CASPT2 (starting from autoCAS orbitals)
+* 2. Triplet RASSCF + MS-CASPT2 (starting from singlet orbitals)
+* 3. Quintet RASSCF + MS-CASPT2 (starting from triplet orbitals)
+* 4. SO-CASSI (RASSI with SPINORBIT)
+*
+* IMPORTANT: Update FILEORB paths to point to your autoCAS final/ folder
+* =============================================================================
+
+>> export MOLCAS_PRINT=verbose
+>> export MOLCAS_MOLDEN=ON
+
+&GATEWAY
+  Title= Po2_SO_CASSI
+  Coord= po2.xyz
+  Basis= ANO-RCC-VDZP
+  Group= NoSym
+
+&SEWARD
+  cholesky
+End of input
+
+* =============================================================================
+* SINGLET: Start from autoCAS orbitals, re-optimize with CI roots
+* =============================================================================
+* TODO: Replace with path to your autoCAS final/system_X.RasOrb
+&RASSCF
+  Title=    Po2_Singlet
+  FILEORB=  system.RasOrb
+  Symmetry= 1
+  Spin=     1
+  CIROOT=   28 28 1
+  nActEl=   12 0 0
+  Inactive= 80
+  Ras2=     8
+  THRS=     1.0e-08 1.0e-04 1.0e-04
+  Levshft=  1.50
+  Iteration= 200 50
+  CIMX=     200
+  SDAV=     500
+End of Input
+
+&CASPT2
+  Title=    Po2_CASPT2_Singlet
+  MAXITER=  300
+  Multistate= all
+  Imaginary Shift= 0.25
+End of Input
+
+>>COPY $Project.JobMix $CurrDir/JobMix.S1
+>>COPY $Project.RasOrb $CurrDir/Singlet.RasOrb
+
+* =============================================================================
+* TRIPLET: Start from singlet-optimized orbitals
+* =============================================================================
+&RASSCF
+  Title=    Po2_Triplet
+  FILEORB=  $CurrDir/Singlet.RasOrb
+  Symmetry= 1
+  Spin=     3
+  CIROOT=   90 90 1
+  nActEl=   12 0 0
+  Inactive= 80
+  Ras2=     8
+  THRS=     1.0e-08 1.0e-04 1.0e-04
+  Levshft=  1.50
+  Iteration= 200 50
+  CIMX=     200
+  SDAV=     500
+End of Input
+
+&CASPT2
+  Title=    Po2_CASPT2_Triplet
+  MAXITER=  300
+  Multistate= all
+  Imaginary Shift= 0.25
+End of Input
+
+>>COPY $Project.JobMix $CurrDir/JobMix.S3
+>>COPY $Project.RasOrb $CurrDir/Triplet.RasOrb
+
+* =============================================================================
+* QUINTET: Start from triplet-optimized orbitals
+* =============================================================================
+&RASSCF
+  Title=    Po2_Quintet
+  FILEORB=  $CurrDir/Triplet.RasOrb
+  Symmetry= 1
+  Spin=     5
+  CIROOT=   50 50 1
+  nActEl=   12 0 0
+  Inactive= 80
+  Ras2=     8
+  THRS=     1.0e-08 1.0e-04 1.0e-04
+  Levshft=  1.50
+  Iteration= 200 50
+  CIMX=     200
+  SDAV=     500
+End of Input
+
+&CASPT2
+  Title=    Po2_CASPT2_Quintet
+  MAXITER=  300
+  Multistate= all
+  Imaginary Shift= 0.25
+End of Input
+
+>>COPY $Project.JobMix $CurrDir/JobMix.S5
+
+* =============================================================================
+* SO-CASSI: Combine all spin states with spin-orbit coupling
+* =============================================================================
+>>COPY $CurrDir/JobMix.S5 JOB001
+>>COPY $CurrDir/JobMix.S3 JOB002
+>>COPY $CurrDir/JobMix.S1 JOB003
+
+&RASSI
+  Nr of JobIphs = 3 all
+  Spin Orbit
+  Ejob
+  Omega
+End of Input
