@@ -1,12 +1,14 @@
 #!/bin/bash
 counter=0
-echo "Checking for 'Happy landing' in all *.log files..."
+total=0
+echo "Checking for 'Happy landing' in run_*/ directories..."
 echo ""
 
-for dir in d*/; do
+for dir in run_*/; do
     # Remove trailing slash
     dirname=${dir%/}
-    
+    total=$((total + 1))
+
     # Check all .log files in this directory
     for logfile in "$dir"*.log; do
         # Skip if no .log files exist
@@ -14,13 +16,13 @@ for dir in d*/; do
             # Check if file contains "Happy landing" (case-insensitive)
             if grep -qi "happy landing" "$logfile"; then
                 echo "$dirname"
-		counter=$((counter + 1))
+                counter=$((counter + 1))
                 break  # Only print dirname once, even if multiple logs contain it
             fi
         fi
     done
 done
 
-echo "Total complete autocas jobs: ${counter}"
 echo ""
+echo "Completed: ${counter}/${total} SO-CASSI jobs"
 echo "Done!"

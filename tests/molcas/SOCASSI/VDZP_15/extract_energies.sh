@@ -1,52 +1,35 @@
 #!/bin/bash
 
-# Extract SO-CASSI energies for s28t70q50 (old simulations in t70/ folder)
-echo "Extracting s28t70q50 energies..."
-> s28t70q50_energies.dat
+# Extract SO-CASSI energies from run_*/ directories
+# Distance is extracted from po2.xyz comment line (e.g., "Po2 molecule - 2.10 Angstrom bond")
 
-for log in t70/d*_Po2_example.log; do
-    # Extract distance from filename (e.g., d300 -> 3.00)
-    dist=$(basename "$log" | grep -oP 'd\K[0-9]+')
-    dist_formatted=$(awk "BEGIN {printf \"%.2f\", $dist/100}")
-    
-    # Extract lowest RASSI State energy (first occurrence only)
-    energy=$(grep "::    RASSI State    1     Total energy:" "$log" | head -n 1 | awk '{print $NF}')
-    
-    if [[ -n "$energy" ]]; then
-        echo -e "${dist_formatted}\t${energy}"
-    fi
-done | sort -n >> s28t70q50_energies.dat
+OUTPUT_FILE="so_cassi_energies.dat"
+echo "Extracting SO-CASSI energies..."
+> "$OUTPUT_FILE"
 
-echo "s28t70q50 energies saved to: s28t70q50_energies.dat"
-echo ""
+for dir in run_*/; do
+    log="${dir}Po2_so_cassi.log"
+    xyz="${dir}po2.xyz"
 
-# Extract SO-CASSI energies for s28t90q50 (current simulations in d*/ folders)
-echo "Extracting s28t90q50 energies..."
-> s28t90q50_energies.dat
+    if [[ -f "$log" && -f "$xyz" ]]; then
+        # Extract distance from xyz comment line (line 2)
+        dist=$(sed -n '2p' "$xyz" | grep -oP '[\d.]+(?=\s*Angstrom)')
 
-for dir in d*/; do
-    log="${dir}Po2_example.log"
-    
-    if [[ -f "$log" ]]; then
-        # Extract distance from directory name (e.g., d300 -> 3.00)
-        dist=$(echo "$dir" | grep -oP 'd\K[0-9]+')
-        dist_formatted=$(awk "BEGIN {printf \"%.2f\", $dist/100}")
-        
         # Extract lowest RASSI State energy (first occurrence only)
         energy=$(grep "::    RASSI State    1     Total energy:" "$log" | head -n 1 | awk '{print $NF}')
-        
-        if [[ -n "$energy" ]]; then
-            echo -e "${dist_formatted}\t${energy}"
+
+        if [[ -n "$energy" && -n "$dist" ]]; then
+            echo -e "${dist}\t${energy}"
+        else
+            echo "Warning: Missing data for ${dir} (dist=$dist, energy=$energy)" >&2
         fi
     fi
-done | sort -n >> s28t90q50_energies.dat
+done | sort -n >> "$OUTPUT_FILE"
 
-echo "s28t90q50 energies saved to: s28t90q50_energies.dat"
+n_entries=$(wc -l < "$OUTPUT_FILE")
+echo "Extracted $n_entries energies to: $OUTPUT_FILE"
 echo ""
-echo "Done! Preview of files:"
+echo "=== Preview ==="
+head -n 5 "$OUTPUT_FILE"
 echo ""
-echo "=== s28t70q50_energies.dat ==="
-head -n 5 s28t70q50_energies.dat
-echo ""
-echo "=== s28t90q50_energies.dat ==="
-head -n 5 s28t90q50_energies.dat
+echo "Done!"
