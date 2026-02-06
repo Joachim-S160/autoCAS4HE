@@ -10,7 +10,7 @@ for dir in run_*/; do
     total=$((total + 1))
 
     # Check all .log files in this directory
-    for logfile in "$dir"*.log; do
+    for logfile in "$dir"*.o*; do
         # Skip if no .log files exist
         if [ -f "$logfile" ]; then
             # Check if file contains "Happy landing" (case-insensitive)

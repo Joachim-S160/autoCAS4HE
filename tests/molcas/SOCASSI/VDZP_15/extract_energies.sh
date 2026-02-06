@@ -8,7 +8,7 @@ echo "Extracting SO-CASSI energies..."
 > "$OUTPUT_FILE"
 
 for dir in run_*/; do
-    log="${dir}Po2_so_cassi.log"
+    log=$(ls ${dir}*.o* 2>/dev/null | head -n 1)
     xyz="${dir}po2.xyz"
 
     if [[ -f "$log" && -f "$xyz" ]]; then
