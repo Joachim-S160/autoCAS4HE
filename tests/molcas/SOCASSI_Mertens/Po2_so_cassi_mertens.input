@@ -1,0 +1,233 @@
+* =============================================================================
+* SO-CASSI Workflow for Po2 - Reproducing Mertens et al. (JPCL 2019)
+* =============================================================================
+*
+* Reference: Mertens et al., J. Phys. Chem. Lett. 2019, 10, 2879-2884
+* Target:    D = 1.84 eV, R_e = 2.797 A
+*
+* Settings from SI Table 2 (Best active space, double substitution series):
+*   Symmetry:       C2 (XY generator, z = internuclear axis)
+*   Active space:   CAS(12,8) = 12 electrons in 8 orbitals
+*   Inactive:       42(irrep1) + 36(irrep2) = 78 total
+*   Active:         4(irrep1) + 4(irrep2) = 8 total
+*   Frozen (CASPT2):42(irrep1) + 36(irrep2) = 78 total
+*   CI roots:       14+14 singlet, 56+56 triplet, 42+42 quintet = 224 total
+*   Imaginary shift:0.25
+*   Starting orbs:  HF (SCF module)
+*
+* NOTE: Previous test used Inactive=80 with NoSym, giving charge=-4 (Po2^4-!)
+*       This test uses the correct Inactive=42+36=78 for neutral Po2.
+* =============================================================================
+
+>> export MOLCAS_PRINT=verbose
+>> export MOLCAS_MOLDEN=ON
+
+&GATEWAY
+  Title= Po2_Mertens_reproduction
+  Coord= po2.xyz
+  Basis= ANO-RCC-VQZP
+  Group= XY
+End of Input
+
+&SEWARD
+  Cholesky
+End of Input
+
+* =============================================================================
+* HF-SCF for initial orbitals
+* =============================================================================
+&SCF
+End of Input
+
+>>COPY $Project.ScfOrb $CurrDir/HF.ScfOrb
+
+* =============================================================================
+* SINGLET, Irrep 1: 14 roots
+* =============================================================================
+&RASSCF
+  Title=    Po2_Singlet_irrep1
+  FILEORB=  $CurrDir/HF.ScfOrb
+  Symmetry= 1
+  Spin=     1
+  CIROOT=   14 14 1
+  nActEl=   12 0 0
+  Inactive= 42 36
+  Ras2=     4 4
+  THRS=     1.0e-08 1.0e-04 1.0e-04
+  Levshft=  1.50
+  Iteration= 200 50
+  CIMX=     200
+  SDAV=     500
+End of Input
+
+&CASPT2
+  Title=    Po2_CASPT2_S1_irr1
+  MAXITER=  300
+  Frozen=   42 36
+  Multistate= all
+  Imaginary Shift= 0.25
+End of Input
+
+>>COPY $Project.JobMix $CurrDir/JobMix.S1I1
+
+* =============================================================================
+* SINGLET, Irrep 2: 14 roots
+* =============================================================================
+&RASSCF
+  Title=    Po2_Singlet_irrep2
+  FILEORB=  $CurrDir/HF.ScfOrb
+  Symmetry= 2
+  Spin=     1
+  CIROOT=   14 14 1
+  nActEl=   12 0 0
+  Inactive= 42 36
+  Ras2=     4 4
+  THRS=     1.0e-08 1.0e-04 1.0e-04
+  Levshft=  1.50
+  Iteration= 200 50
+  CIMX=     200
+  SDAV=     500
+End of Input
+
+&CASPT2
+  Title=    Po2_CASPT2_S1_irr2
+  MAXITER=  300
+  Frozen=   42 36
+  Multistate= all
+  Imaginary Shift= 0.25
+End of Input
+
+>>COPY $Project.JobMix $CurrDir/JobMix.S1I2
+
+* =============================================================================
+* TRIPLET, Irrep 1: 56 roots
+* =============================================================================
+&RASSCF
+  Title=    Po2_Triplet_irrep1
+  FILEORB=  $CurrDir/HF.ScfOrb
+  Symmetry= 1
+  Spin=     3
+  CIROOT=   56 56 1
+  nActEl=   12 0 0
+  Inactive= 42 36
+  Ras2=     4 4
+  THRS=     1.0e-08 1.0e-04 1.0e-04
+  Levshft=  1.50
+  Iteration= 200 50
+  CIMX=     200
+  SDAV=     500
+End of Input
+
+&CASPT2
+  Title=    Po2_CASPT2_S3_irr1
+  MAXITER=  300
+  Frozen=   42 36
+  Multistate= all
+  Imaginary Shift= 0.25
+End of Input
+
+>>COPY $Project.JobMix $CurrDir/JobMix.S3I1
+
+* =============================================================================
+* TRIPLET, Irrep 2: 56 roots
+* =============================================================================
+&RASSCF
+  Title=    Po2_Triplet_irrep2
+  FILEORB=  $CurrDir/HF.ScfOrb
+  Symmetry= 2
+  Spin=     3
+  CIROOT=   56 56 1
+  nActEl=   12 0 0
+  Inactive= 42 36
+  Ras2=     4 4
+  THRS=     1.0e-08 1.0e-04 1.0e-04
+  Levshft=  1.50
+  Iteration= 200 50
+  CIMX=     200
+  SDAV=     500
+End of Input
+
+&CASPT2
+  Title=    Po2_CASPT2_S3_irr2
+  MAXITER=  300
+  Frozen=   42 36
+  Multistate= all
+  Imaginary Shift= 0.25
+End of Input
+
+>>COPY $Project.JobMix $CurrDir/JobMix.S3I2
+
+* =============================================================================
+* QUINTET, Irrep 1: 42 roots
+* =============================================================================
+&RASSCF
+  Title=    Po2_Quintet_irrep1
+  FILEORB=  $CurrDir/HF.ScfOrb
+  Symmetry= 1
+  Spin=     5
+  CIROOT=   42 42 1
+  nActEl=   12 0 0
+  Inactive= 42 36
+  Ras2=     4 4
+  THRS=     1.0e-08 1.0e-04 1.0e-04
+  Levshft=  1.50
+  Iteration= 200 50
+  CIMX=     200
+  SDAV=     500
+End of Input
+
+&CASPT2
+  Title=    Po2_CASPT2_S5_irr1
+  MAXITER=  300
+  Frozen=   42 36
+  Multistate= all
+  Imaginary Shift= 0.25
+End of Input
+
+>>COPY $Project.JobMix $CurrDir/JobMix.S5I1
+
+* =============================================================================
+* QUINTET, Irrep 2: 42 roots
+* =============================================================================
+&RASSCF
+  Title=    Po2_Quintet_irrep2
+  FILEORB=  $CurrDir/HF.ScfOrb
+  Symmetry= 2
+  Spin=     5
+  CIROOT=   42 42 1
+  nActEl=   12 0 0
+  Inactive= 42 36
+  Ras2=     4 4
+  THRS=     1.0e-08 1.0e-04 1.0e-04
+  Levshft=  1.50
+  Iteration= 200 50
+  CIMX=     200
+  SDAV=     500
+End of Input
+
+&CASPT2
+  Title=    Po2_CASPT2_S5_irr2
+  MAXITER=  300
+  Frozen=   42 36
+  Multistate= all
+  Imaginary Shift= 0.25
+End of Input
+
+>>COPY $Project.JobMix $CurrDir/JobMix.S5I2
+
+* =============================================================================
+* SO-CASSI: Combine all 6 JOBIPH files with spin-orbit coupling
+* =============================================================================
+>>COPY $CurrDir/JobMix.S5I2 JOB001
+>>COPY $CurrDir/JobMix.S5I1 JOB002
+>>COPY $CurrDir/JobMix.S3I2 JOB003
+>>COPY $CurrDir/JobMix.S3I1 JOB004
+>>COPY $CurrDir/JobMix.S1I2 JOB005
+>>COPY $CurrDir/JobMix.S1I1 JOB006
+
+&RASSI
+  Nr of JobIphs = 6 all
+  Spin Orbit
+  Ejob
+  Omega
+End of Input
