@@ -8,6 +8,10 @@
 * 3. Quintet RASSCF + MS-CASPT2 (starting from triplet orbitals)
 * 4. SO-CASSI (RASSI with SPINORBIT)
 *
+* CAS(12,8) NoSym: Singlet 784 det, Triplet 448 det, Quintet 70 det
+* CI roots: 28 singlet, 90 triplet, 70 quintet = 188 total
+* Frozen=78 in CASPT2, Imaginary shift=0.25
+*
 * IMPORTANT: Update FILEORB paths to point to your autoCAS final/ folder
 * =============================================================================
 
@@ -35,7 +39,7 @@ End of input
   Spin=     1
   CIROOT=   28 28 1
   nActEl=   12 0 0
-  Inactive= 80
+  Inactive= 78
   Ras2=     8
   THRS=     1.0e-08 1.0e-04 1.0e-04
   Levshft=  1.50
@@ -47,6 +51,7 @@ End of Input
 &CASPT2
   Title=    Po2_CASPT2_Singlet
   MAXITER=  300
+  Frozen=   78
   Multistate= all
   Imaginary Shift= 0.25
 End of Input
@@ -64,7 +69,7 @@ End of Input
   Spin=     3
   CIROOT=   90 90 1
   nActEl=   12 0 0
-  Inactive= 80
+  Inactive= 78
   Ras2=     8
   THRS=     1.0e-08 1.0e-04 1.0e-04
   Levshft=  1.50
@@ -76,6 +81,7 @@ End of Input
 &CASPT2
   Title=    Po2_CASPT2_Triplet
   MAXITER=  300
+  Frozen=   78
   Multistate= all
   Imaginary Shift= 0.25
 End of Input
@@ -91,9 +97,9 @@ End of Input
   FILEORB=  $CurrDir/Triplet.RasOrb
   Symmetry= 1
   Spin=     5
-  CIROOT=   50 50 1
+  CIROOT=   70 70 1
   nActEl=   12 0 0
-  Inactive= 80
+  Inactive= 78
   Ras2=     8
   THRS=     1.0e-08 1.0e-04 1.0e-04
   Levshft=  1.50
@@ -105,6 +111,7 @@ End of Input
 &CASPT2
   Title=    Po2_CASPT2_Quintet
   MAXITER=  300
+  Frozen=   78
   Multistate= all
   Imaginary Shift= 0.25
 End of Input
