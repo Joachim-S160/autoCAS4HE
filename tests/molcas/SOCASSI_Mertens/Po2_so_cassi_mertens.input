@@ -11,7 +11,9 @@
 *   Inactive:       42(irrep1) + 36(irrep2) = 78 total
 *   Active:         4(irrep1) + 4(irrep2) = 8 total
 *   Frozen (CASPT2):42(irrep1) + 36(irrep2) = 78 total
-*   CI roots:       14+14 singlet, 56+56 triplet, 42+42 quintet = 224 total
+*   CI roots:       14+14 singlet, 56+56 triplet, 36+30 quintet = 206 total
+*   NOTE: Mertens used 42+42 quintet but CAS(12,4+4) quintet has only
+*         38 CSFs (irrep 1) and 32 CSFs (irrep 2) in C2, so reduced.
 *   Imaginary shift:0.25
 *   Starting orbs:  HF (SCF module)
 *
@@ -158,14 +160,14 @@ End of Input
 >>COPY $Project.JobMix $CurrDir/JobMix.S3I2
 
 * =============================================================================
-* QUINTET, Irrep 1: 42 roots
+* QUINTET, Irrep 1: 36 roots (max 38 CSFs in this irrep)
 * =============================================================================
 &RASSCF
   Title=    Po2_Quintet_irrep1
   FILEORB=  $CurrDir/HF.ScfOrb
   Symmetry= 1
   Spin=     5
-  CIROOT=   42 42 1
+  CIROOT=   36 36 1
   nActEl=   12 0 0
   Inactive= 42 36
   Ras2=     4 4
@@ -187,14 +189,14 @@ End of Input
 >>COPY $Project.JobMix $CurrDir/JobMix.S5I1
 
 * =============================================================================
-* QUINTET, Irrep 2: 42 roots
+* QUINTET, Irrep 2: 30 roots (max 32 CSFs in this irrep)
 * =============================================================================
 &RASSCF
   Title=    Po2_Quintet_irrep2
   FILEORB=  $CurrDir/HF.ScfOrb
   Symmetry= 2
   Spin=     5
-  CIROOT=   42 42 1
+  CIROOT=   30 30 1
   nActEl=   12 0 0
   Inactive= 42 36
   Ras2=     4 4
