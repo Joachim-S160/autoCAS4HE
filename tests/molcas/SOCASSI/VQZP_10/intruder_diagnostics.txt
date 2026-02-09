@@ -1,0 +1,266 @@
+============================================================
+  Intruder State Diagnostics
+============================================================
+
+Look for:
+  - Reference weights < 0.50 (critical) or < 0.60 (warning)
+  - "DENOMINATOR" warnings in CASPT2 output
+  - Large imaginary shift corrections
+  - "Reference weight below threshold" warnings
+
+
+=== run_00/ (R = 0 A): 376 DENOMINATOR warnings ===
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0001  Se1.087                       0.23550636     -0.00000000     -0.00000000      0.00000000
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0001  Se1.087                       0.23550781      0.00000000     -0.00000000     -0.00000000
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0001  Se1.087                       0.22732549     -0.00000000      0.00000000     -0.00000000
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+
+=== run_01/ (R = 0 A): 376 DENOMINATOR warnings ===
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0001  Se1.087                       0.24595021      0.00000000      0.00000000      0.00000000
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0001  Se1.087                       0.24684732      0.00000000     -0.00000000     -0.00000000
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0001  Se1.087                       0.23846358     -0.00000000      0.00000000     -0.00000000
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+
+=== run_02/ (R = 0 A): 376 DENOMINATOR warnings ===
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0001  Se1.087                       0.25524291     -0.00000000      0.00000000     -0.00000000
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0001  Se1.087                       0.25671941      0.00000000     -0.00000000     -0.00000000
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0001  Se1.087                       0.24850245     -0.00000000      0.00000000     -0.00000000
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+
+=== run_03/ (R = 0 A): 376 DENOMINATOR warnings ===
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0001  Se1.087                       0.26565983      0.00000000     -0.00000000     -0.00000000
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0001  Se1.087                       0.26562723     -0.00000000      0.00000000     -0.00000000
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0001  Se1.087                       0.25997881     -0.00000000      0.00000000     -0.00000000
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+
+=== run_04/ (R = 0 A): 376 DENOMINATOR warnings ===
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0001  Se1.087                       0.27750849      0.00000000     -0.00000000     -0.00000000
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0001  Se1.087                       0.27754002      0.00000000     -0.00000000     -0.00000000
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0001  Se1.087                       0.27455678     -0.00000000      0.00000000     -0.00000000
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+
+=== run_05/ (R = 0 A): 376 DENOMINATOR warnings ===
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0112  Se1.101                       1.34183015      0.03989400     -0.02842878     -0.00113414
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0112  Se1.101                       1.34182983     -0.03989274      0.02842789     -0.00113407
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0148  Se1.097                       1.34107214      0.03969391     -0.02855159     -0.00113332
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+
+=== run_06/ (R = 0 A): 376 DENOMINATOR warnings ===
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+BVATM    1  Mu1.0010  Se1.099 Se1.098               1.18235189      0.03271240     -0.02648321     -0.00086633
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+--
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+BVATM    1  Mu1.0007  Se1.100 Se1.099               1.19273967      0.03358769     -0.02697503     -0.00090603
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+
+=== run_08/ (R = 0 A): 376 DENOMINATOR warnings ===
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0001  Se1.087                       0.29937243      0.00001316     -0.00003436     -0.00000000
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0001  Se1.088                       0.28673477     -0.00016278      0.00077053     -0.00000013
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
+ATVX     1  Mu1.0001  Se1.088                       0.28698739      0.00029620     -0.00102922     -0.00000030
+--
+  and makes H0 diagonal within type.
+  DENOMINATOR: The (H0_ii - E0) value from the above-mentioned diagonal approximation.
+  RHS VALUE  : Right-Hand Side of CASPT2 Eqs.
+--
+ 
+CASE  SYMM ACTIVE-MIX  NON-ACTIVE INDICES          DENOMINATOR     RHS VALUE       COEFFICIENT     CONTRIBUTION
