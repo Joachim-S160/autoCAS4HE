@@ -99,6 +99,10 @@ scine_autocas_consistent_active_space \
 
 ---
 
+## Related Tools
+
+- [pegamoid_batch_export](https://github.com/Joachim-S160/pegamoid_batch_export) — Batch export orbital images from OpenMolcas HDF5/Molden files (isosurface PNGs + montage grids)
+
 ## Documentation
 
 - [docs/ENVIRONMENT_SETUP.md](docs/ENVIRONMENT_SETUP.md) — Local/WSL setup
